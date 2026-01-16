@@ -6531,6 +6531,53 @@
         ]
       },
       {
+        "id": "utility_percentage_between_timestamps",
+        "title": {
+          "en": "Calculate percentage between two timestamps",
+          "nl": "Bereken percentage tussen twee tijdstippen"
+        },
+        "titleFormatted": {
+          "en": "Calculate percentage between [[from]] and [[to]]",
+          "nl": "Bereken percentage tussen [[from]] en [[to]]"
+        },
+        "args": [
+          {
+            "type": "time",
+            "name": "from",
+            "title": {
+              "en": "From",
+              "nl": "Van"
+            }
+          },
+          {
+            "type": "time",
+            "name": "to",
+            "title": {
+              "en": "To",
+              "nl": "Tot"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "type": "number",
+            "name": "percentage",
+            "title": {
+              "en": "Percentage",
+              "nl": "Percentage"
+            }
+          },
+          {
+            "type": "number",
+            "name": "fraction",
+            "title": {
+              "en": "Fraction (0-1)",
+              "nl": "Fractie (0-1)"
+            }
+          }
+        ]
+      },
+      {
         "id": "z_math_decrement",
         "title": {
           "en": "Decrement",

@@ -1,5 +1,6 @@
 import { action, DateTime, FlowActionEntity } from '@basmilius/homey-common';
 import type { FlowBitsApp } from '../../types';
+import { roundStep } from '../../util';
 
 @action('utility_percentage_between_timestamps')
 export default class extends FlowActionEntity<FlowBitsApp, Args, never, Tokens> {
@@ -21,7 +22,7 @@ export default class extends FlowActionEntity<FlowBitsApp, Args, never, Tokens> 
         const totalDuration = toDate.diff(fromDate).as('milliseconds');
         const elapsed = currentTime.diff(fromDate).as('milliseconds');
 
-        const fraction = Math.max(0, Math.min(1, elapsed / totalDuration));
+        const fraction = roundStep(Math.max(0, Math.min(1, elapsed / totalDuration)), 0.005);
         const percentage = fraction * 100;
 
         return {

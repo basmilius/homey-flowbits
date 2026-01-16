@@ -22,3 +22,4 @@ export { default as TimerResume } from './timerResume';
 export { default as TimerSet } from './timerSet';
 export { default as TimerStart } from './timerStart';
 export { default as TimerStop } from './timerStop';
+export { default as UtilityPercentageBetweenTimestamps } from './utilityPercentageBetweenTimestamps';
