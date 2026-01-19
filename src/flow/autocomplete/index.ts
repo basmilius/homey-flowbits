@@ -5,6 +5,8 @@ export { default as Label } from './label';
 export { default as Mode } from './mode';
 export { default as NoRepeat } from './noRepeat';
 export { default as SchoolVacation } from './schoolVacation';
+export { default as Set } from './set';
+export { default as SetState } from './setState';
 export { default as Signal } from './signal';
 export { default as Slider } from './slider';
 export { default as Timer } from './timer';

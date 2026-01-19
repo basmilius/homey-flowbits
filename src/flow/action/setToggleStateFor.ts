@@ -1,0 +1,27 @@
+import { action, FlowActionEntity } from '@basmilius/homey-common';
+import type { ClockUnit, FlowBitsApp } from '../../types';
+import { AutocompleteProviders } from '..';
+
+@action('set_toggle_state_for')
+export default class extends FlowActionEntity<FlowBitsApp, Args> {
+    async onInit(): Promise<void> {
+        this.registerAutocomplete('set', AutocompleteProviders.Set);
+        this.registerAutocomplete('state', AutocompleteProviders.SetState);
+
+        await super.onInit();
+    }
+
+    async onRun(args: Args): Promise<void> {
+    }
+}
+
+type Args = {
+    readonly duration: number;
+    readonly set: {
+        readonly name: string;
+    };
+    readonly state: {
+        readonly name: string;
+    };
+    readonly unit: ClockUnit;
+};
