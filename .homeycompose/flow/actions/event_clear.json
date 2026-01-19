@@ -32,7 +32,7 @@
     },
     "hint": {
         "en": "Clears all stored history for the event.",
-        "nl": "Leeft alle opgeslagen geschiedenis voor de gebeurtenis.",
+        "nl": "Leegt alle opgeslagen geschiedenis voor de gebeurtenis.",
         "da": "Nulstiller al gemt historik for begivenheden.",
         "de": "Löscht den gesamten gespeicherten Verlauf für das Ereignis.",
         "es": "Borra todo el historial almacenado para el evento.",
