@@ -1,0 +1,21 @@
+{
+    "id": "set_becomes_inactive",
+    "title": {
+        "en": "Set becomes inactive",
+        "nl": "Set wordt inactief"
+    },
+    "titleFormatted": {
+        "en": "Set [[set]] becomes inactive",
+        "nl": "Set [[set]] wordt inactief"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ]
+}

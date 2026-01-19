@@ -1,0 +1,25 @@
+{
+    "id": "set_activate_all",
+    "title": {
+        "en": "Activate all states in set",
+        "nl": "Activeer alle statussen in set"
+    },
+    "titleFormatted": {
+        "en": "Activate all states in set [[set]]",
+        "nl": "Activeer alle statussen in set [[set]]"
+    },
+    "hint": {
+        "en": "Activates all states in a set.",
+        "nl": "Activeert alle statussen in een set."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ]
+}

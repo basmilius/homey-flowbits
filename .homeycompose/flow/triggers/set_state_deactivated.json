@@ -1,0 +1,29 @@
+{
+    "id": "set_state_deactivated",
+    "title": {
+        "en": "State in set was deactivated",
+        "nl": "Status in set werd gedectiveerd"
+    },
+    "titleFormatted": {
+        "en": "State [[state]] in set [[set]] was deactivated",
+        "nl": "Status [[state]] in set [[set]] werd gedectiveerd"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status"
+            }
+        }
+    ]
+}

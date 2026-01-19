@@ -1,0 +1,58 @@
+{
+    "id": "set_changed",
+    "title": {
+        "en": "Set changed",
+        "nl": "Set veranderd"
+    },
+    "titleFormatted": {
+        "en": "Set [[set]] changed",
+        "nl": "Set [[set]] veranderd"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "name": "active",
+            "type": "boolean",
+            "title": {
+                "en": "Active",
+                "nl": "Actief",
+                "de": "Aktiv",
+                "fr": "Actif",
+                "it": "Attivo",
+                "sv": "Aktiv",
+                "no": "Aktiv",
+                "es": "Activo",
+                "da": "Aktiv",
+                "ru": "Активный",
+                "pl": "Aktywny",
+                "ko": "활성",
+                "ar": "نشط"
+            }
+        },
+        {
+            "name": "active_count",
+            "type": "number",
+            "title": {
+                "en": "Active count",
+                "nl": "Aantal actieve statussen"
+            }
+        },
+        {
+            "name": "total_count",
+            "type": "number",
+            "title": {
+                "en": "Total count",
+                "nl": "Totaal aantal statussen"
+            }
+        }
+    ]
+}

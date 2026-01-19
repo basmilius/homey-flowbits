@@ -1,0 +1,33 @@
+{
+    "id": "set_activate_state_exclusive",
+    "title": {
+        "en": "Activate state in set exclusively",
+        "nl": "Activeer status in set exclusief"
+    },
+    "titleFormatted": {
+        "en": "Activate [[state]] in set [[set]] exclusively",
+        "nl": "Activeer [[state]] in set [[set]] exclusief"
+    },
+    "hint": {
+        "en": "Activates a state in a set exclusively.",
+        "nl": "Activeert een status in een set exclusief."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status"
+            }
+        }
+    ]
+}

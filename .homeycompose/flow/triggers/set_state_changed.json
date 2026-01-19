@@ -1,0 +1,50 @@
+{
+    "id": "set_state_changed",
+    "title": {
+        "en": "State in set changed",
+        "nl": "Status in set veranderd"
+    },
+    "titleFormatted": {
+        "en": "State [[state]] in set [[set]] changed",
+        "nl": "Status [[state]] in set [[set]] veranderd"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status"
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "name": "active",
+            "type": "boolean",
+            "title": {
+                "en": "Active",
+                "nl": "Actief",
+                "de": "Aktiv",
+                "fr": "Actif",
+                "it": "Attivo",
+                "sv": "Aktiv",
+                "no": "Aktiv",
+                "es": "Activo",
+                "da": "Aktiv",
+                "ru": "Активный",
+                "pl": "Aktywny",
+                "ko": "활성",
+                "ar": "نشط"
+            }
+        }
+    ]
+}

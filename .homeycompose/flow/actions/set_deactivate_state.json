@@ -1,0 +1,33 @@
+{
+    "id": "set_deactivate_state",
+    "title": {
+        "en": "Deactivate state in set",
+        "nl": "Deactiveer status in set"
+    },
+    "titleFormatted": {
+        "en": "Deactivate [[state]] in set [[set]]",
+        "nl": "Deactiveer [[state]] in set [[set]]"
+    },
+    "hint": {
+        "en": "Deactivates a state in a set.",
+        "nl": "Deactiveert een status in een set."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status"
+            }
+        }
+    ]
+}

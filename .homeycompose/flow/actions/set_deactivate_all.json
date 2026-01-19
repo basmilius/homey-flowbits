@@ -1,0 +1,25 @@
+{
+    "id": "set_deactivate_all",
+    "title": {
+        "en": "Deactivate all states in set",
+        "nl": "Deactiveer alle statussen in set"
+    },
+    "titleFormatted": {
+        "en": "Deactivate all states in set [[set]]",
+        "nl": "Deactiveer alle statussen in set [[set]]"
+    },
+    "hint": {
+        "en": "Deactivates all states in a set.",
+        "nl": "Deactiveert alle statussen in een set."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ]
+}

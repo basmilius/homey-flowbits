@@ -1,0 +1,25 @@
+{
+    "id": "set_active_all",
+    "title": {
+        "en": "All states in set are active",
+        "nl": "Alle statussen in de set zijn actief"
+    },
+    "titleFormatted": {
+        "en": "All states in set [[set]] are active",
+        "nl": "Alle statussen in set [[set]] zijn actief"
+    },
+    "hint": {
+        "en": "All states in a set are active.",
+        "nl": "Alle statussen in een set zijn actief."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ]
+}

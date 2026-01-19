@@ -1,0 +1,25 @@
+{
+    "id": "set_becomes_active_all",
+    "title": {
+        "en": "All states in set become active",
+        "nl": "Alle statussen in set worden actief"
+    },
+    "titleFormatted": {
+        "en": "All states in set [[set]] become active",
+        "nl": "Alle statussen in set [[set]] worden actief"
+    },
+    "hint": {
+        "en": "Triggers when all states in a set become active.",
+        "nl": "Triggers wanneer alle statussen in een set actief worden."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ]
+}

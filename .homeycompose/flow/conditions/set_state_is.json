@@ -1,0 +1,29 @@
+{
+    "id": "set_state_is",
+    "title": {
+        "en": "State in set is active",
+        "nl": "Status in set is actief"
+    },
+    "titleFormatted": {
+        "en": "State [[state]] in set [[set]] is !{{active|inactive}}",
+        "nl": "Status [[state]] in set [[set]] is !{{actief|inactief}}"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status"
+            }
+        }
+    ]
+}

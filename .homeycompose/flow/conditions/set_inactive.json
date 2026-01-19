@@ -1,0 +1,25 @@
+{
+    "id": "set_inactive",
+    "title": {
+        "en": "No state in set is active",
+        "nl": "Geen enkele status in de set is actief"
+    },
+    "titleFormatted": {
+        "en": "No state in set [[set]] is active",
+        "nl": "Geen enkele status in set [[set]] is actief"
+    },
+    "hint": {
+        "en": "No state in a set is active.",
+        "nl": "Geen status in een set is actief."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ]
+}

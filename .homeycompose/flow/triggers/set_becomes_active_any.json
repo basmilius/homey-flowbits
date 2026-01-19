@@ -1,0 +1,25 @@
+{
+    "id": "set_becomes_active_any",
+    "title": {
+        "en": "Set becomes active",
+        "nl": "Set wordt actief"
+    },
+    "titleFormatted": {
+        "en": "Set [[set]] becomes active",
+        "nl": "Set [[set]] wordt actief"
+    },
+    "hint": {
+        "en": "Triggers when a set becomes active (was inactive, now has at least one active state).",
+        "nl": "Triggers wanneer een set actief wordt (was inactief, heeft nu minimaal één actieve status)."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ]
+}

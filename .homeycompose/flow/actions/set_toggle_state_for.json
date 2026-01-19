@@ -1,0 +1,162 @@
+{
+    "id": "set_toggle_state_for",
+    "title": {
+        "en": "Toggle state in set for",
+        "nl": "Schakel status in set om voor"
+    },
+    "titleFormatted": {
+        "en": "Toggle [[state]] in set [[set]] for [[duration]] [[unit]]",
+        "nl": "Schakel [[state]] in set [[set]] om voor [[duration]] [[unit]]"
+    },
+    "hint": {
+        "en": "Toggles a state in a set. If the state becomes active, it will remain active for the specified duration.",
+        "nl": "Schakelt een status in een set. Als de status actief wordt, blijft deze actief voor de opgegeven duur."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status"
+            }
+        },
+        {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+                "en": "Duration",
+                "nl": "Looptijd",
+                "de": "Dauer",
+                "fr": "Durée",
+                "it": "Durata",
+                "sv": "Varaktighet",
+                "no": "Varighet",
+                "es": "Duración",
+                "da": "Varighed",
+                "ru": "Длительность",
+                "pl": "Czas trwania",
+                "ko": "지속 시간",
+                "ar": "المدة"
+            },
+            "placeholder": {
+                "en": "E.g. 10",
+                "nl": "Bijv. 10",
+                "de": "Z. B. 10",
+                "fr": "Ex. 10",
+                "it": "Es. 10",
+                "sv": "T.ex. 10",
+                "no": "F.eks. 10",
+                "es": "P. ej. 10",
+                "da": "Fx 10",
+                "ru": "Напр. 10",
+                "pl": "Np. 10",
+                "ko": "예: 10",
+                "ar": "مثال: 10"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+                "en": "Unit",
+                "nl": "Eenheid",
+                "de": "Einheit",
+                "fr": "Unité",
+                "it": "Unità",
+                "sv": "Enhet",
+                "no": "Enhet",
+                "es": "Unidad",
+                "da": "Enhed",
+                "ru": "Единица",
+                "pl": "Jednostka",
+                "ko": "단위",
+                "ar": "الوحدة"
+            },
+            "values": [
+                {
+                    "id": "seconds",
+                    "title": {
+                        "en": "seconds",
+                        "nl": "seconden",
+                        "de": "Sekunden",
+                        "fr": "secondes",
+                        "it": "secondi",
+                        "sv": "sekunder",
+                        "no": "sekunder",
+                        "es": "segundos",
+                        "da": "sekunder",
+                        "ru": "секунды",
+                        "pl": "sekundy",
+                        "ko": "초",
+                        "ar": "ثواني"
+                    }
+                },
+                {
+                    "id": "minutes",
+                    "title": {
+                        "en": "minutes",
+                        "nl": "minuten",
+                        "de": "Minuten",
+                        "fr": "minutes",
+                        "it": "minuti",
+                        "sv": "minuter",
+                        "no": "minutter",
+                        "es": "minutos",
+                        "da": "minutter",
+                        "ru": "минуты",
+                        "pl": "minuty",
+                        "ko": "분",
+                        "ar": "دقائق"
+                    }
+                },
+                {
+                    "id": "hours",
+                    "title": {
+                        "en": "hours",
+                        "nl": "uren",
+                        "de": "Stunden",
+                        "fr": "heures",
+                        "it": "ore",
+                        "sv": "timmar",
+                        "no": "timer",
+                        "es": "horas",
+                        "da": "timer",
+                        "ru": "часы",
+                        "pl": "godziny",
+                        "ko": "시간",
+                        "ar": "ساعات"
+                    }
+                },
+                {
+                    "id": "days",
+                    "title": {
+                        "en": "days",
+                        "nl": "dagen",
+                        "de": "Tage",
+                        "fr": "jours",
+                        "it": "giorni",
+                        "sv": "dagar",
+                        "no": "dager",
+                        "es": "días",
+                        "da": "dage",
+                        "ru": "дни",
+                        "pl": "dni",
+                        "ko": "일",
+                        "ar": "أيام"
+                    }
+                }
+            ]
+        }
+    ]
+}

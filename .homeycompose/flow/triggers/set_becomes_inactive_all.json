@@ -1,0 +1,21 @@
+{
+    "id": "set_becomes_inactive_all",
+    "title": {
+        "en": "Set no longer has all states active",
+        "nl": "Set heeft niet alle statussen meer actief"
+    },
+    "titleFormatted": {
+        "en": "Set [[set]] no longer has all states active",
+        "nl": "Set [[set]] heeft niet alle statussen meer actief"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ]
+}

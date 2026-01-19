@@ -1,0 +1,33 @@
+{
+    "id": "set_toggle_state",
+    "title": {
+        "en": "Toggle state in set",
+        "nl": "Schakel status in set om"
+    },
+    "titleFormatted": {
+        "en": "Toggle [[state]] in set [[set]]",
+        "nl": "Schakel [[state]] in set [[set]] om"
+    },
+    "hint": {
+        "en": "Toggles a state in a set.",
+        "nl": "Schakelt een status in een set om."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status"
+            }
+        }
+    ]
+}

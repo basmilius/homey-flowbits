@@ -1,0 +1,25 @@
+{
+    "id": "set_active_any",
+    "title": {
+        "en": "Any state in set is active",
+        "nl": "Minstens één status in de set is actief"
+    },
+    "titleFormatted": {
+        "en": "Any state in set [[set]] is active",
+        "nl": "Minstens één status in set [[set]] is actief"
+    },
+    "hint": {
+        "en": "At least one state in a set is active.",
+        "nl": "Ten minste één status in een set is actief."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        }
+    ]
+}

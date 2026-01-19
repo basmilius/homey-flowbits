@@ -1,0 +1,33 @@
+{
+    "id": "set_activate_state",
+    "title": {
+        "en": "Activate state in set",
+        "nl": "Activeer status in set"
+    },
+    "titleFormatted": {
+        "en": "Activate [[state]] in set [[set]]",
+        "nl": "Activeer [[state]] in set [[set]]"
+    },
+    "hint": {
+        "en": "Activates a state in a set.",
+        "nl": "Activeert een status in een set."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status"
+            }
+        }
+    ]
+}
