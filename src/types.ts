@@ -70,6 +70,20 @@ export type NoRepeatWindow = {
     readonly lastUpdate: string | undefined;
 };
 
+export type Set = WithLook<{
+    readonly name: string;
+    readonly states: SetState[];
+    readonly allActive: boolean;
+    readonly anyActive: boolean;
+}>;
+
+export type SetState = {
+    readonly name: string;
+    readonly active: string;
+    readonly lastUpdate: string | undefined;
+    readonly expiresAt: string | undefined;
+};
+
 export type Slider = {
     readonly name: string;
     readonly value: number;
