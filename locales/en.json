@@ -17,7 +17,9 @@
     "no_repeat_new": "New no-repeat window in this flow",
     "slider_new": "New slider in this flow",
     "event_new": "New event in this flow",
-    "label_new": "New label in this flow"
+    "label_new": "New label in this flow",
+    "set_new": "New set in this flow",
+    "set_state_new": "New set state in this flow"
   },
   "day_period": {
     "afternoon": "Afternoon",

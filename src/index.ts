@@ -1,5 +1,5 @@
 import { App, Luxon } from '@basmilius/homey-common';
-import type { Api, Cycles, Events, Flags, Labels, Modes, NoRepeat, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
+import type { Api, Cycles, Events, Flags, Labels, Modes, NoRepeat, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
 import { Brain } from './brain';
 import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
 import { roundStep } from './util';
@@ -31,6 +31,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
 
     get noRepeat(): NoRepeat {
         return this.#brain.noRepeat;
+    }
+
+    get sets(): Sets {
+        return this.#brain.sets;
     }
 
     get signals(): Signals {

@@ -39,7 +39,7 @@
             }
         },
         {
-            "name": "active_count",
+            "name": "activeCount",
             "type": "number",
             "title": {
                 "en": "Active count",
@@ -47,7 +47,7 @@
             }
         },
         {
-            "name": "total_count",
+            "name": "totalCount",
             "type": "number",
             "title": {
                 "en": "Total count",

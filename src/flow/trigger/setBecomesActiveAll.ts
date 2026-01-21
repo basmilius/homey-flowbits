@@ -11,7 +11,7 @@ export default class extends FlowTriggerEntity<FlowBitsApp, Args, State> {
     }
 
     async onRun(args: Args, state: State): Promise<boolean> {
-        return args.set.name === state.name;
+        return args.set.name === state.set;
     }
 }
 
@@ -22,5 +22,5 @@ type Args = {
 };
 
 type State = {
-    readonly name: string;
+    readonly set: string;
 };

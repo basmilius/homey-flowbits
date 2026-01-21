@@ -1591,6 +1591,264 @@
         ]
       },
       {
+        "id": "set_becomes_active_all",
+        "title": {
+          "en": "All states in set become active",
+          "nl": "Alle statussen in set worden actief"
+        },
+        "titleFormatted": {
+          "en": "All states in set [[set]] become active",
+          "nl": "Alle statussen in set [[set]] worden actief"
+        },
+        "hint": {
+          "en": "Triggers when all states in a set become active.",
+          "nl": "Triggers wanneer alle statussen in een set actief worden."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_becomes_active_any",
+        "title": {
+          "en": "Set becomes active",
+          "nl": "Set wordt actief"
+        },
+        "titleFormatted": {
+          "en": "Set [[set]] becomes active",
+          "nl": "Set [[set]] wordt actief"
+        },
+        "hint": {
+          "en": "Triggers when a set becomes active (was inactive, now has at least one active state).",
+          "nl": "Triggers wanneer een set actief wordt (was inactief, heeft nu minimaal één actieve status)."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_becomes_inactive",
+        "title": {
+          "en": "Set becomes inactive",
+          "nl": "Set wordt inactief"
+        },
+        "titleFormatted": {
+          "en": "Set [[set]] becomes inactive",
+          "nl": "Set [[set]] wordt inactief"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_becomes_inactive_all",
+        "title": {
+          "en": "Set no longer has all states active",
+          "nl": "Set heeft niet alle statussen meer actief"
+        },
+        "titleFormatted": {
+          "en": "Set [[set]] no longer has all states active",
+          "nl": "Set [[set]] heeft niet alle statussen meer actief"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_changed",
+        "title": {
+          "en": "Set changed",
+          "nl": "Set veranderd"
+        },
+        "titleFormatted": {
+          "en": "Set [[set]] changed",
+          "nl": "Set [[set]] veranderd"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "active",
+            "type": "boolean",
+            "title": {
+              "en": "Active",
+              "nl": "Actief",
+              "de": "Aktiv",
+              "fr": "Actif",
+              "it": "Attivo",
+              "sv": "Aktiv",
+              "no": "Aktiv",
+              "es": "Activo",
+              "da": "Aktiv",
+              "ru": "Активный",
+              "pl": "Aktywny",
+              "ko": "활성",
+              "ar": "نشط"
+            }
+          },
+          {
+            "name": "activeCount",
+            "type": "number",
+            "title": {
+              "en": "Active count",
+              "nl": "Aantal actieve statussen"
+            }
+          },
+          {
+            "name": "totalCount",
+            "type": "number",
+            "title": {
+              "en": "Total count",
+              "nl": "Totaal aantal statussen"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_activated",
+        "title": {
+          "en": "State in set was activated",
+          "nl": "Status in set werd geactiveerd"
+        },
+        "titleFormatted": {
+          "en": "State [[state]] in set [[set]] was activated",
+          "nl": "Status [[state]] in set [[set]] werd geactiveerd"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_changed",
+        "title": {
+          "en": "State in set changed",
+          "nl": "Status in set veranderd"
+        },
+        "titleFormatted": {
+          "en": "State [[state]] in set [[set]] changed",
+          "nl": "Status [[state]] in set [[set]] veranderd"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "active",
+            "type": "boolean",
+            "title": {
+              "en": "Active",
+              "nl": "Actief",
+              "de": "Aktiv",
+              "fr": "Actif",
+              "it": "Attivo",
+              "sv": "Aktiv",
+              "no": "Aktiv",
+              "es": "Activo",
+              "da": "Aktiv",
+              "ru": "Активный",
+              "pl": "Aktywny",
+              "ko": "활성",
+              "ar": "نشط"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_deactivated",
+        "title": {
+          "en": "State in set was deactivated",
+          "nl": "Status in set werd gedectiveerd"
+        },
+        "titleFormatted": {
+          "en": "State [[state]] in set [[set]] was deactivated",
+          "nl": "Status [[state]] in set [[set]] werd gedectiveerd"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
+          }
+        ]
+      },
+      {
         "id": "signal_receive",
         "title": {
           "en": "Receive signal",
@@ -3610,6 +3868,110 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "set_active_all",
+        "title": {
+          "en": "All states in set are active",
+          "nl": "Alle statussen in de set zijn actief"
+        },
+        "titleFormatted": {
+          "en": "All states in set [[set]] are active",
+          "nl": "Alle statussen in set [[set]] zijn actief"
+        },
+        "hint": {
+          "en": "All states in a set are active.",
+          "nl": "Alle statussen in een set zijn actief."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_active_any",
+        "title": {
+          "en": "Any state in set is active",
+          "nl": "Minstens één status in de set is actief"
+        },
+        "titleFormatted": {
+          "en": "Any state in set [[set]] is active",
+          "nl": "Minstens één status in set [[set]] is actief"
+        },
+        "hint": {
+          "en": "At least one state in a set is active.",
+          "nl": "Ten minste één status in een set is actief."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_inactive",
+        "title": {
+          "en": "No state in set is active",
+          "nl": "Geen enkele status in de set is actief"
+        },
+        "titleFormatted": {
+          "en": "No state in set [[set]] is active",
+          "nl": "Geen enkele status in set [[set]] is actief"
+        },
+        "hint": {
+          "en": "No state in a set is active.",
+          "nl": "Geen status in een set is actief."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_is",
+        "title": {
+          "en": "State in set is active",
+          "nl": "Status in set is actief"
+        },
+        "titleFormatted": {
+          "en": "State [[state]] in set [[set]] is !{{active|inactive}}",
+          "nl": "Status [[state]] in set [[set]] is !{{actief|inactief}}"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
           }
         ]
       },
@@ -5806,6 +6168,512 @@
               "ko": "무작위 사실",
               "ar": "حقيقة عشوائية"
             }
+          }
+        ]
+      },
+      {
+        "id": "set_activate_all",
+        "title": {
+          "en": "Activate all states in set",
+          "nl": "Activeer alle statussen in set"
+        },
+        "titleFormatted": {
+          "en": "Activate all states in set [[set]]",
+          "nl": "Activeer alle statussen in set [[set]]"
+        },
+        "hint": {
+          "en": "Activates all states in a set.",
+          "nl": "Activeert alle statussen in een set."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_activate_state",
+        "title": {
+          "en": "Activate state in set",
+          "nl": "Activeer status in set"
+        },
+        "titleFormatted": {
+          "en": "Activate [[state]] in set [[set]]",
+          "nl": "Activeer [[state]] in set [[set]]"
+        },
+        "hint": {
+          "en": "Activates a state in a set.",
+          "nl": "Activeert een status in een set."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_activate_state_exclusive",
+        "title": {
+          "en": "Activate state in set exclusively",
+          "nl": "Activeer status in set exclusief"
+        },
+        "titleFormatted": {
+          "en": "Activate [[state]] in set [[set]] exclusively",
+          "nl": "Activeer [[state]] in set [[set]] exclusief"
+        },
+        "hint": {
+          "en": "Activates a state in a set exclusively.",
+          "nl": "Activeert een status in een set exclusief."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_activate_state_for",
+        "title": {
+          "en": "Activate state in set for",
+          "nl": "Activeer status in set voor"
+        },
+        "titleFormatted": {
+          "en": "Activate [[state]] in set [[set]] for [[duration]] [[unit]]",
+          "nl": "Activeer [[state]] in set [[set]] voor [[duration]] [[unit]]"
+        },
+        "hint": {
+          "en": "Activates a state in a set for a specified duration.",
+          "nl": "Activeert een status in een set voor een opgegeven duur."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer",
+              "fr": "Durée",
+              "it": "Durata",
+              "sv": "Varaktighet",
+              "no": "Varighet",
+              "es": "Duración",
+              "da": "Varighed",
+              "ru": "Длительность",
+              "pl": "Czas trwania",
+              "ko": "지속 시간",
+              "ar": "المدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "Ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "Fx 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "fr": "Unité",
+              "it": "Unità",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Unidad",
+              "da": "Enhed",
+              "ru": "Единица",
+              "pl": "Jednostka",
+              "ko": "단위",
+              "ar": "الوحدة"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثواني"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_deactivate_all",
+        "title": {
+          "en": "Deactivate all states in set",
+          "nl": "Deactiveer alle statussen in set"
+        },
+        "titleFormatted": {
+          "en": "Deactivate all states in set [[set]]",
+          "nl": "Deactiveer alle statussen in set [[set]]"
+        },
+        "hint": {
+          "en": "Deactivates all states in a set.",
+          "nl": "Deactiveert alle statussen in een set."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_deactivate_state",
+        "title": {
+          "en": "Deactivate state in set",
+          "nl": "Deactiveer status in set"
+        },
+        "titleFormatted": {
+          "en": "Deactivate [[state]] in set [[set]]",
+          "nl": "Deactiveer [[state]] in set [[set]]"
+        },
+        "hint": {
+          "en": "Deactivates a state in a set.",
+          "nl": "Deactiveert een status in een set."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_toggle_state",
+        "title": {
+          "en": "Toggle state in set",
+          "nl": "Schakel status in set om"
+        },
+        "titleFormatted": {
+          "en": "Toggle [[state]] in set [[set]]",
+          "nl": "Schakel [[state]] in set [[set]] om"
+        },
+        "hint": {
+          "en": "Toggles a state in a set.",
+          "nl": "Schakelt een status in een set om."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_toggle_state_for",
+        "title": {
+          "en": "Toggle state in set for",
+          "nl": "Schakel status in set om voor"
+        },
+        "titleFormatted": {
+          "en": "Toggle [[state]] in set [[set]] for [[duration]] [[unit]]",
+          "nl": "Schakel [[state]] in set [[set]] om voor [[duration]] [[unit]]"
+        },
+        "hint": {
+          "en": "Toggles a state in a set. If the state becomes active, it will remain active for the specified duration.",
+          "nl": "Schakelt een status in een set. Als de status actief wordt, blijft deze actief voor de opgegeven duur."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer",
+              "fr": "Durée",
+              "it": "Durata",
+              "sv": "Varaktighet",
+              "no": "Varighet",
+              "es": "Duración",
+              "da": "Varighed",
+              "ru": "Длительность",
+              "pl": "Czas trwania",
+              "ko": "지속 시간",
+              "ar": "المدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "Ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "Fx 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "fr": "Unité",
+              "it": "Unità",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Unidad",
+              "da": "Enhed",
+              "ru": "Единица",
+              "pl": "Jednostka",
+              "ko": "단위",
+              "ar": "الوحدة"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثواني"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
           }
         ]
       },

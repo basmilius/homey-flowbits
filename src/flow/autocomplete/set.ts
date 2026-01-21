@@ -5,7 +5,21 @@ import type { FlowBitsApp } from '../../types';
 @autocomplete('set')
 export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp> {
     async find(query: string): Promise<Homey.FlowCard.ArgumentAutocompleteResults> {
-        return [];
+        const hasQuery = query.trim().length > 0;
+
+        const results: Homey.FlowCard.ArgumentAutocompleteResults = this.values
+            .filter(name => !hasQuery || name.toLowerCase().includes(query.toLowerCase()))
+            .map(name => ({name}))
+            .sort((a, b) => a.name.localeCompare(b.name));
+
+        if (hasQuery && !this.values.some(name => query === name)) {
+            results.push({
+                name: query,
+                description: this.translate('autocomplete.set_new')
+            });
+        }
+
+        return results;
     }
 
     getCards(): FlowCard[] {
@@ -39,6 +53,6 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp> {
 
     async update(): Promise<void> {
         await super.update();
-        // await this.app.sets.update();
+        await this.app.sets.update();
     }
 }

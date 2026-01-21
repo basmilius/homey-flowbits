@@ -79,7 +79,7 @@ export type Set = WithLook<{
 
 export type SetState = {
     readonly name: string;
-    readonly active: string;
+    readonly active: boolean;
     readonly lastUpdate: string | undefined;
     readonly expiresAt: string | undefined;
 };

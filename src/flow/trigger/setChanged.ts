@@ -27,6 +27,6 @@ type State = {
 
 type Tokens = {
     readonly active: boolean;
-    readonly active_count: number;
-    readonly total_count: number;
+    readonly activeCount: number;
+    readonly totalCount: number;
 };
