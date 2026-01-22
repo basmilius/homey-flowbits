@@ -2,11 +2,33 @@
     "id": "utility_percentage_between_timestamps",
     "title": {
         "en": "Calculate percentage between two timestamps",
-        "nl": "Bereken percentage tussen twee tijdstippen"
+        "nl": "Bereken percentage tussen twee tijdstippen",
+        "de": "Prozentsatz zwischen zwei Zeitstempeln berechnen",
+        "fr": "Calculer le pourcentage entre deux horodatages",
+        "it": "Calcola percentuale tra due timestamp",
+        "sv": "Beräkna procent mellan två tidsstämplar",
+        "no": "Beregn prosent mellom to tidsstempler",
+        "es": "Calcular porcentaje entre dos marcas de tiempo",
+        "da": "Beregn procent mellem to tidsstempler",
+        "ru": "Рассчитать процент между двумя временными метками",
+        "pl": "Oblicz procent między dwoma znacznikami czasu",
+        "ko": "두 타임스탬프 사이의 백분율 계산",
+        "ar": "احسب النسبة المئوية بين طابعين زمنيين"
     },
     "titleFormatted": {
         "en": "Calculate percentage between [[from]] and [[to]]",
-        "nl": "Bereken percentage tussen [[from]] en [[to]]"
+        "nl": "Bereken percentage tussen [[from]] en [[to]]",
+        "de": "Prozentsatz zwischen [[from]] und [[to]] berechnen",
+        "fr": "Calculer le pourcentage entre [[from]] et [[to]]",
+        "it": "Calcola percentuale tra [[from]] e [[to]]",
+        "sv": "Beräkna procent mellan [[from]] och [[to]]",
+        "no": "Beregn prosent mellom [[from]] og [[to]]",
+        "es": "Calcular porcentaje entre [[from]] y [[to]]",
+        "da": "Beregn procent mellem [[from]] og [[to]]",
+        "ru": "Рассчитать процент между [[from]] и [[to]]",
+        "pl": "Oblicz procent między [[from]] a [[to]]",
+        "ko": "[[from]]과 [[to]] 사이의 백분율 계산",
+        "ar": "احسب النسبة المئوية بين [[from]] و [[to]]"
     },
     "args": [
         {
@@ -14,7 +36,18 @@
             "name": "from",
             "title": {
                 "en": "From",
-                "nl": "Van"
+                "nl": "Van",
+                "de": "Von",
+                "fr": "De",
+                "it": "Da",
+                "sv": "Från",
+                "no": "Fra",
+                "es": "Desde",
+                "da": "Fra",
+                "ru": "С",
+                "pl": "Od",
+                "ko": "시작",
+                "ar": "من"
             }
         },
         {
@@ -22,7 +55,18 @@
             "name": "to",
             "title": {
                 "en": "To",
-                "nl": "Tot"
+                "nl": "Tot",
+                "de": "Bis",
+                "fr": "À",
+                "it": "A",
+                "sv": "Till",
+                "no": "Til",
+                "es": "Hasta",
+                "da": "Til",
+                "ru": "До",
+                "pl": "Do",
+                "ko": "종료",
+                "ar": "إلى"
             }
         }
     ],
@@ -32,7 +76,18 @@
             "name": "percentage",
             "title": {
                 "en": "Percentage",
-                "nl": "Percentage"
+                "nl": "Percentage",
+                "de": "Prozentsatz",
+                "fr": "Pourcentage",
+                "it": "Percentuale",
+                "sv": "Procent",
+                "no": "Prosent",
+                "es": "Porcentaje",
+                "da": "Procent",
+                "ru": "Процент",
+                "pl": "Procent",
+                "ko": "백분율",
+                "ar": "النسبة المئوية"
             }
         },
         {
@@ -40,7 +95,18 @@
             "name": "fraction",
             "title": {
                 "en": "Fraction (0-1)",
-                "nl": "Fractie (0-1)"
+                "nl": "Fractie (0-1)",
+                "de": "Bruchteil (0-1)",
+                "fr": "Fraction (0-1)",
+                "it": "Frazione (0-1)",
+                "sv": "Bråkdel (0-1)",
+                "no": "Brøkdel (0-1)",
+                "es": "Fracción (0-1)",
+                "da": "Brøkdel (0-1)",
+                "ru": "Дробь (0-1)",
+                "pl": "Ułamek (0-1)",
+                "ko": "분수 (0-1)",
+                "ar": "كسر (0-1)"
             }
         }
     ]
