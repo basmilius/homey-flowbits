@@ -11,7 +11,7 @@ export default class extends FlowConditionEntity<FlowBitsApp, Args, never> {
     }
 
     async onRun(args: Args): Promise<boolean> {
-        return true;
+        return this.app.sets.isActiveAny(args.set.name);
     }
 }
 

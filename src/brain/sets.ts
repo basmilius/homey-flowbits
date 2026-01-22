@@ -24,6 +24,30 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
     }
 
     async cleanup(): Promise<void> {
+        this.log('Cleaning up unused sets...');
+
+        const defined = await this.findAll();
+        const definedSetNames = new Set(defined.map(s => s.name));
+
+        const states = this.states;
+        const looks = this.looks;
+
+        for (const setName of Object.keys(states)) {
+            if (!definedSetNames.has(setName)) {
+                this.log(`Deleting unused set ${setName}...`);
+                delete states[setName];
+            }
+        }
+
+        for (const setName of Object.keys(looks)) {
+            if (!definedSetNames.has(setName)) {
+                this.log(`Deleting unused set look ${setName}...`);
+                delete looks[setName];
+            }
+        }
+
+        this.states = states;
+        this.looks = looks;
     }
 
     async count(): Promise<number> {
@@ -41,26 +65,43 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
 
     async findAll(): Promise<Set[]> {
         const setProvider = this.#setAutocompleteProvider();
+        const stateProvider = this.#setStateAutocompleteProvider();
+
         const definedSets = await setProvider.find('');
+        const definedStates = stateProvider.values;
 
         if (definedSets.length === 0) {
             return [];
         }
 
-        const storedStates = this.states;
         const results: Set[] = [];
 
         for (const set of definedSets) {
             const look = await this.getLook(set.name);
-            const setStates = storedStates[set.name] ?? {};
 
-            const states: SetState[] = Object.entries(setStates)
-                .map(([name, [active, lastUpdate, expiresAt]]) => ({
-                    name,
-                    active,
-                    lastUpdate: lastUpdate ?? undefined,
-                    expiresAt: expiresAt ?? undefined
-                }));
+            const states: SetState[] = definedStates
+                .filter(state => state.set === set.name)
+                .filter((value, index, arr) => arr.findIndex(v => v.state === value.state) === index)
+                .map(state => {
+                    const storedState = this.states[set.name]?.[state.state];
+
+                    if (storedState) {
+                        const [active, lastUpdate, expiresAt] = storedState;
+                        return {
+                            name: state.state,
+                            active,
+                            lastUpdate: lastUpdate ?? undefined,
+                            expiresAt: expiresAt ?? undefined
+                        };
+                    }
+
+                    return {
+                        name: state.state,
+                        active: false,
+                        lastUpdate: undefined,
+                        expiresAt: undefined
+                    };
+                });
 
             const activeStates = states.filter(state => state.active);
 
@@ -102,19 +143,39 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
     }
 
     async isActiveAll(setName: string): Promise<boolean> {
-        return false;
+        const setStates = this.states[setName];
+
+        if (!setStates) {
+            return false;
+        }
+
+        const stateEntries = Object.values(setStates);
+
+        return stateEntries.length > 0 && stateEntries.every(([active]) => active);
     }
 
     async isActiveAny(setName: string): Promise<boolean> {
-        return false;
+        const setStates = this.states[setName];
+
+        if (!setStates) {
+            return false;
+        }
+
+        return Object.values(setStates).some(([active]) => active);
     }
 
     async isInactive(setName: string): Promise<boolean> {
-        return true;
+        const setStates = this.states[setName];
+
+        if (!setStates) {
+            return true;
+        }
+
+        return Object.values(setStates).every(([active]) => !active);
     }
 
     async isStateActive(setName: string, stateName: string): Promise<boolean> {
-        return false;
+        return this.states[setName]?.[stateName]?.[0] ?? false;
     }
 
     async getLook(name: string): Promise<Look> {

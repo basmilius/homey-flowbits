@@ -12,7 +12,7 @@ export default class extends FlowConditionEntity<FlowBitsApp, Args, never> {
     }
 
     async onRun(args: Args): Promise<boolean> {
-        return true;
+        return this.app.sets.isStateActive(args.set.name, args.state.name);
     }
 }
 
