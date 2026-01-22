@@ -12,6 +12,7 @@ export default class extends FlowActionEntity<FlowBitsApp, Args> {
     }
 
     async onRun(args: Args): Promise<void> {
+        await this.app.sets.activateStateFor(args.set.name, args.state.name, args.duration, args.unit);
     }
 }
 
