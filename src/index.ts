@@ -79,6 +79,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
                 await provider.onInit();
             }
 
+            await this.sets.initialize();
             await this.timers.initialize();
             await this.tokens.initialize();
             await this.widgets.initialize();
