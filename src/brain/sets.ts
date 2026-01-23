@@ -4,6 +4,18 @@ import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, FlowBitsApp, Look, Set, SetState, Styleable } from '../types';
 import { convertDurationToSeconds } from '../util';
 
+type NativeSet<T> = globalThis.Set<T>;
+
+type SetCounts = {
+    readonly activeCount: number;
+    readonly totalCount: number;
+};
+
+type Snapshot = {
+    readonly anyActive: boolean;
+    readonly allActive: boolean;
+};
+
 type StoredSet = Record<string, [active: boolean, lastUpdate: string | null, expiresAt: string | null]>;
 type StoredSets = Record<string, StoredSet>;
 
@@ -33,7 +45,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused sets...');
 
-        const definedSetNames = new Set((await this.findAll()).map(s => s.name));
+        const definedSetNames = new Set(this.#buildDefinedMap().keys());
         const states = this.states;
         const looks = this.looks;
 
@@ -69,27 +81,25 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
     }
 
     async findAll(): Promise<Set[]> {
-        const definedSets = await this.#setAutocompleteProvider().find('');
-        const definedStates = this.#setStateAutocompleteProvider().values;
+        const definedMap = this.#buildDefinedMap();
 
-        if (definedSets.length === 0) {
+        if (definedMap.size === 0) {
             return [];
         }
 
         const results: Set[] = [];
 
-        for (const set of definedSets) {
-            const look = await this.getLook(set.name);
+        for (const [setName, stateNames] of definedMap) {
+            const look = await this.getLook(setName);
 
-            const states: SetState[] = definedStates
-                .filter(state => state.set === set.name)
-                .filter((value, index, arr) => arr.findIndex(v => v.state === value.state) === index)
-                .map(state => this.#mapStoredState(set.name, state.state));
+            const states: SetState[] = [...stateNames].map(stateName =>
+                this.#mapStoredState(setName, stateName)
+            );
 
             const activeCount = states.filter(s => s.active).length;
 
             results.push({
-                name: set.name,
+                name: setName,
                 color: look[0],
                 icon: look[1],
                 states,
@@ -329,6 +339,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
     }
 
     async update(): Promise<void> {
+        await this.#syncDefinedStates();
         await this.#triggerRealtime();
     }
 
@@ -384,7 +395,21 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         this.realtime(REALTIME_SETS_UPDATE);
     }
 
-    #snapshot(setName: string): { anyActive: boolean; allActive: boolean } {
+    #buildDefinedMap(): Map<string, NativeSet<string>> {
+        const definedStates = this.#autocompleteProvider().values;
+        const map = new Map<string, NativeSet<string>>();
+
+        for (const {set: setName, state: stateName} of definedStates) {
+            if (!map.has(setName)) {
+                map.set(setName, new Set());
+            }
+            map.get(setName)!.add(stateName);
+        }
+
+        return map;
+    }
+
+    #snapshot(setName: string): Snapshot {
         const setStates = Object.values(this.states[setName] ?? {});
         const activeCount = setStates.filter(([active]) => active).length;
 
@@ -396,7 +421,11 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
 
     #ensureSet(setName: string): StoredSets {
         const states = this.states;
-        if (!states[setName]) states[setName] = {};
+
+        if (!states[setName]) {
+            states[setName] = {};
+        }
+
         return states;
     }
 
@@ -408,15 +437,16 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
             : {name: stateName, active: false, lastUpdate: undefined, expiresAt: undefined};
     }
 
-    #getCounts(setName: string): { activeCount: number; totalCount: number } {
+    #getCounts(setName: string): SetCounts {
         const setStates = this.states[setName] ?? {};
+
         return {
             activeCount: Object.values(setStates).filter(([active]) => active).length,
             totalCount: Object.keys(setStates).length
         };
     }
 
-    async #emitActivations(setName: string, activatedStates: string[], snapshot: { anyActive: boolean; allActive: boolean }, activeCount?: number, totalCount?: number): Promise<void> {
+    async #emitActivations(setName: string, activatedStates: string[], snapshot: Snapshot, activeCount?: number, totalCount?: number): Promise<void> {
         const counts = activeCount !== undefined && totalCount !== undefined
             ? {activeCount, totalCount}
             : this.#getCounts(setName);
@@ -442,7 +472,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         await Promise.allSettled(triggers);
     }
 
-    async #emitDeactivations(setName: string, deactivatedStates: string[], snapshot: { anyActive: boolean; allActive: boolean }, activeCount?: number, totalCount?: number): Promise<void> {
+    async #emitDeactivations(setName: string, deactivatedStates: string[], snapshot: Snapshot, activeCount?: number, totalCount?: number): Promise<void> {
         const counts = activeCount !== undefined && totalCount !== undefined
             ? {activeCount, totalCount}
             : this.#getCounts(setName);
@@ -466,6 +496,50 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         triggers.push(this.#triggerSetChanged(setName, isNowAnyActive, counts.activeCount, counts.totalCount));
 
         await Promise.allSettled(triggers);
+    }
+
+    async #syncDefinedStates(): Promise<void> {
+        const definedMap = this.#buildDefinedMap();
+        const states = this.states;
+        let changed = false;
+
+        for (const [setName, stateNames] of definedMap) {
+            if (!states[setName]) {
+                states[setName] = {};
+                changed = true;
+            }
+
+            for (const stateName of stateNames) {
+                if (!(stateName in states[setName])) {
+                    states[setName][stateName] = [false, null, null];
+                    changed = true;
+                    this.log(`Registered new state ${stateName} in set ${setName}.`);
+                }
+            }
+        }
+
+        for (const [setName, setStates] of Object.entries(states)) {
+            const definedInSet = definedMap.get(setName);
+
+            for (const stateName of Object.keys(setStates)) {
+                if (!definedInSet?.has(stateName)) {
+                    this.#clearTimeout(setName, stateName);
+                    delete states[setName][stateName];
+                    changed = true;
+                    this.log(`Removed undefined state ${stateName} from set ${setName}.`);
+                }
+            }
+
+            if (Object.keys(states[setName]).length === 0) {
+                delete states[setName];
+                changed = true;
+                this.log(`Removed empty set ${setName}.`);
+            }
+        }
+
+        if (changed) {
+            this.states = states;
+        }
     }
 
     #timeoutKey(setName: string, stateName: string): string {
@@ -519,17 +593,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         }
     }
 
-    #setAutocompleteProvider(): AutocompleteProviders.Set {
-        const provider = this.registry.findAutocompleteProvider(AutocompleteProviders.Set);
-
-        if (!provider) {
-            throw new Error('Failed to get the set autocomplete provider.');
-        }
-
-        return provider;
-    }
-
-    #setStateAutocompleteProvider(): AutocompleteProviders.SetState {
+    #autocompleteProvider(): AutocompleteProviders.SetState {
         const provider = this.registry.findAutocompleteProvider(AutocompleteProviders.SetState);
 
         if (!provider) {

@@ -8,7 +8,9 @@
     "timer_new": "Ny timer i dette flow",
     "slider_new": "Ny skyder i dette flow",
     "event_new": "Ny begivenhed i dette flow",
-    "label_new": "Ny etiket i dette flow"
+    "label_new": "Ny etiket i dette flow",
+    "set_new": "Nyt sæt i dette flow",
+    "set_state_new": "Ny sæt-tilstand i dette flow, vil blive kendt efter lagring af flowet"
   },
   "notification": {
     "mode_activated": "**__name__** er aktiveret.",

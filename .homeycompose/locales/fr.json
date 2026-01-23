@@ -6,8 +6,10 @@
         "label_new": "Nouvelle étiquette dans ce flux",
         "mode_new": "Nouveau mode dans ce flux",
         "no_repeat_new": "Nouvelle fenêtre sans répétition dans ce flux",
+        "set_new": "Nouveau ensemble dans ce flux",
+        "set_state_new": "Nouvel état d'ensemble dans ce flux, sera connu après enregistrement du flux",
         "signal_new": "Nouveau signal dans ce flux",
-        "slider_new": "Nouveau curseur dans ce flow",
+        "slider_new": "Nouveau curseur dans ce flux",
         "timer_new": "Nouveau minuteur dans ce flux"
     },
     "notification": {

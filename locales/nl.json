@@ -23,7 +23,9 @@
     "no_repeat_new": "Nieuwe geen-herhalingvenster in deze flow",
     "slider_new": "Nieuwe slider in deze flow",
     "event_new": "Nieuwe gebeurtenis in deze flow",
-    "label_new": "Nieuwe label in deze flow"
+    "label_new": "Nieuwe label in deze flow",
+    "set_new": "Nieuwe set in deze flow",
+    "set_state_new": "Nieuwe set-stand in deze flow, wordt na opslaan van de flow bekend"
   },
   "notification": {
     "mode_activated": "**__name__** is geactiveerd.",

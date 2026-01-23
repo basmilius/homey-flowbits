@@ -6,6 +6,8 @@
         "label_new": "Ny etikett i denne flyten",
         "mode_new": "Ny modus i dette flyten",
         "no_repeat_new": "Nytt ikke-repeterende vindu i dette flyten",
+        "set_new": "Ny set i denne flyten",
+        "set_state_new": "Ny set-stand i denne flyten, vil bli kjent etter lagring av flyten",
         "signal_new": "Ny signal i dette flyten",
         "slider_new": "Ny skyver i denne flyten",
         "timer_new": "Ny timer i dette flyten"

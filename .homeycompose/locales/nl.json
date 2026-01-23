@@ -6,6 +6,8 @@
         "label_new": "Nieuwe label in deze flow",
         "mode_new": "Nieuwe stand in deze flow",
         "no_repeat_new": "Nieuwe geen-herhalingvenster in deze flow",
+        "set_new": "Nieuwe set in deze flow",
+        "set_state_new": "Nieuwe set-stand in deze flow, wordt na opslaan van de flow bekend",
         "signal_new": "Nieuw signaal in deze flow",
         "slider_new": "Nieuwe slider in deze flow",
         "timer_new": "Nieuwe timer in deze flow"

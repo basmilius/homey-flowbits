@@ -8,7 +8,9 @@
     "timer_new": "Ny timer i dette flyten",
     "slider_new": "Ny skyver i denne flyten",
     "event_new": "Ny hendelse i denne flyten",
-    "label_new": "Ny etikett i denne flyten"
+    "label_new": "Ny etikett i denne flyten",
+    "set_new": "Ny set i denne flyten",
+    "set_state_new": "Ny set-stand i denne flyten, vil bli kjent etter lagring av flyten"
   },
   "notification": {
     "mode_activated": "**__name__** er aktivert.",

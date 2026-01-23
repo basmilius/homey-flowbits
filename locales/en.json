@@ -19,7 +19,7 @@
     "event_new": "New event in this flow",
     "label_new": "New label in this flow",
     "set_new": "New set in this flow",
-    "set_state_new": "New set state in this flow"
+    "set_state_new": "New set state in this flow, will be known after saving the flow"
   },
   "day_period": {
     "afternoon": "Afternoon",

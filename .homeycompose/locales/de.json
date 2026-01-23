@@ -6,6 +6,8 @@
         "label_new": "Neues Etikett in diesem Fluss",
         "mode_new": "Neuer Modus in diesem Flow",
         "no_repeat_new": "Neues No-Repeat-Fenster in diesem Flow",
+        "set_new": "Neues Set in diesem Flow",
+        "set_state_new": "Neue Set-Status in diesem Flow, wird nach dem Speichern des Flows bekannt",
         "signal_new": "Neues Signal in diesem Flow",
         "slider_new": "Neuer Slider in diesem Flow",
         "timer_new": "Neuer Timer in diesem Flow"

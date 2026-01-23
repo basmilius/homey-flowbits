@@ -6,6 +6,8 @@
         "label_new": "Nueva etiqueta en este flujo",
         "mode_new": "Nuevo modo en este flujo",
         "no_repeat_new": "Nueva ventana sin repetición en este flujo",
+        "set_new": "Nuevo conjunto en este flujo",
+        "set_state_new": "Nuevo estado de conjunto en este flujo, se conocerá después de guardar el flujo",
         "signal_new": "Nueva señal en este flujo",
         "slider_new": "Nuevo deslizador en este flujo",
         "timer_new": "Nuevo temporizador en este flujo"

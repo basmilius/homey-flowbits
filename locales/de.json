@@ -8,7 +8,9 @@
     "timer_new": "Neuer Timer in diesem Flow",
     "slider_new": "Neuer Slider in diesem Flow",
     "event_new": "Neues Ereignis in diesem Fluss",
-    "label_new": "Neues Etikett in diesem Fluss"
+    "label_new": "Neues Etikett in diesem Fluss",
+    "set_new": "Neues Set in diesem Flow",
+    "set_state_new": "Neue Set-Status in diesem Flow, wird nach dem Speichern des Flows bekannt"
   },
   "notification": {
     "mode_activated": "**__name__** ist aktiviert.",

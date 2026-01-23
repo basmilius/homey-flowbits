@@ -6,6 +6,8 @@
         "label_new": "Nowa etykieta w tym przepływie",
         "mode_new": "Nowy tryb w tym przepływie",
         "no_repeat_new": "Nowe okno bez powtórzeń w tym przepływie",
+        "set_new": "Nowe set w tym przepływie",
+        "set_state_new": "Nowy stan set w tym przepływie, zostanie zidentyfikowany po zapisaniu przepływu",
         "signal_new": "Nowy sygnał w tym przepływie",
         "slider_new": "Nowy suwak w tym przepływie",
         "timer_new": "Nowy timer w tym przepływie"

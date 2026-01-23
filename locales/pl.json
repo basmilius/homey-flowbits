@@ -8,7 +8,9 @@
     "timer_new": "Nowy timer w tym przepływie",
     "slider_new": "Nowy suwak w tym przepływie",
     "event_new": "Nowe zdarzenie w tym przepływie",
-    "label_new": "Nowa etykieta w tym przepływie"
+    "label_new": "Nowa etykieta w tym przepływie",
+    "set_new": "Nowe set w tym przepływie",
+    "set_state_new": "Nowy stan set w tym przepływie, zostanie zidentyfikowany po zapisaniu przepływu"
   },
   "notification": {
     "mode_activated": "**__name__** jest aktywowany.",

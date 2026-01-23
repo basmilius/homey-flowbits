@@ -8,7 +8,9 @@
     "timer_new": "Nuevo temporizador en este flujo",
     "slider_new": "Nuevo deslizador en este flujo",
     "event_new": "Nuevo evento en este flujo",
-    "label_new": "Nueva etiqueta en este flujo"
+    "label_new": "Nueva etiqueta en este flujo",
+    "set_new": "Nuevo conjunto en este flujo",
+    "set_state_new": "Nuevo estado de conjunto en este flujo, se conocerá después de guardar el flujo"
   },
   "notification": {
     "mode_activated": "**__name__** está activado.",

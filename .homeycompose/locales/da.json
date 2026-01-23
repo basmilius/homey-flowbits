@@ -6,6 +6,8 @@
         "label_new": "Ny etiket i dette flow",
         "mode_new": "Ny tilstand i dette flow",
         "no_repeat_new": "Nyt ingen- gentagelses vindue i dette flow",
+        "set_new": "Nyt sæt i dette flow",
+        "set_state_new": "Ny sæt-tilstand i dette flow, vil blive kendt efter lagring af flowet",
         "signal_new": "Ny signal i dette flow",
         "slider_new": "Ny skyder i dette flow",
         "timer_new": "Ny timer i dette flow"

@@ -8,7 +8,9 @@
     "timer_new": "Ny timer i detta flöde",
     "slider_new": "Ny slider i detta flöde",
     "event_new": "Ny händelse i detta flöde",
-    "label_new": "Ny etikett i detta flöde"
+    "label_new": "Ny etikett i detta flöde",
+    "set_new": "Ny set i detta flöde",
+    "set_state_new": "Ny set-stand i detta flöde, kommer att bli känt efter att flödet sparas"
   },
   "notification": {
     "mode_activated": "**__name__** är aktiverad.",

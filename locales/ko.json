@@ -8,7 +8,9 @@
     "timer_new": "이 플로우에 새로운 타이머",
     "slider_new": "이 플로우의 새 슬라이더",
     "event_new": "이 흐름의 새로운 이벤트",
-    "label_new": "이 흐름의 새로운 레이블"
+    "label_new": "이 흐름의 새로운 레이블",
+    "set_new": "이 플로우에 새로운 세트",
+    "set_state_new": "이 플로우에 새로운 세트 상태, 플로우 저장 후 알려집니다"
   },
   "notification": {
     "mode_activated": "**__name__** 활성화됨.",

@@ -7,7 +7,7 @@
         "mode_new": "New mode in this flow",
         "no_repeat_new": "New no-repeat window in this flow",
         "set_new": "New set in this flow",
-        "set_state_new": "New set state in this flow",
+        "set_state_new": "New set state in this flow, will be known after saving the flow",
         "signal_new": "New signal in this flow",
         "slider_new": "New slider in this flow",
         "timer_new": "New timer in this flow"

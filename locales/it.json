@@ -6,9 +6,11 @@
     "no_repeat_new": "Nuova finestra senza ripetizione in questo flusso",
     "signal_new": "Nuovo segnale in questo flusso",
     "timer_new": "Nuovo timer in questo flusso",
-    "slider_new": "Nuovo slider in questo flow",
+    "slider_new": "Nuovo slider in questo flusso",
     "event_new": "Nuovo evento in questo flusso",
-    "label_new": "Nuova etichetta in questo flusso"
+    "label_new": "Nuova etichetta in questo flusso",
+    "set_new": "Nuovo set in questo flusso",
+    "set_state_new": "Nuovo stato set in questo flusso, sarà noto dopo il salvataggio del flusso"
   },
   "notification": {
     "mode_activated": "**__name__** è attivato.",
