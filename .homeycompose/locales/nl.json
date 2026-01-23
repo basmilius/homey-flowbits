@@ -98,6 +98,11 @@
             "description": "Er kan maar één stand tegelijk actief zijn. Maak en beheer standen via stand-acties, -voorwaarden en -triggers in je flows.",
             "empty": "Er zijn nog geen standen aangemaakt."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets zijn verzamelingen van booleaanse statussen die als groep kunnen worden geëvalueerd. Een set is actief wanneer een van zijn statussen actief is. Gebruik set-acties, -voorwaarden en -triggers in je flows om groepen statussen te beheren.",
+            "empty": "Er zijn nog geen sets aangemaakt."
+        },
         "timers": {
             "title": "Timers",
             "description": "Timers tellen af vanaf een opgegeven duur en kunnen worden gestart, gepauzeerd, gestopt en gereset. Gebruik timer-acties, -voorwaarden en -triggers in je flows om afteltijden te beheren en te reageren wanneer timers aflopen.",
@@ -112,6 +117,7 @@
             "labels": "Labels",
             "modes": "Standen",
             "no_repeats": "Geen-herhalingsvensters",
+            "sets": "Sets",
             "sliders": "Sliders",
             "timers": "Timers"
         },

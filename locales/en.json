@@ -87,7 +87,8 @@
       "title": "Statistics",
       "description": "These are feature statistics for FlowBits. They are based on your flows.",
       "events": "Events",
-      "labels": "Labels"
+      "labels": "Labels",
+      "sets": "Sets"
     },
     "card_statistics": {
       "title": "Flow card statistics",
@@ -107,6 +108,11 @@
       "title": "Timers",
       "description": "Timers count down from a specified duration and can be started, paused, stopped, and reset. Use timer actions, conditions, and triggers in your flows to manage countdowns and respond when timers finish.",
       "empty": "No timers have been created yet."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Sets are collections of boolean states that can be evaluated as a group. A set is active when any of its states is active. Use set actions, conditions, and triggers in your flows to manage grouped states.",
+      "empty": "No sets have been created yet."
     }
   },
   "color": {

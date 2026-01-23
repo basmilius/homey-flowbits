@@ -1,7 +1,18 @@
 {
     "name": {
         "en": "Timer",
-        "nl": "Timer"
+        "nl": "Timer",
+        "de": "Timer",
+        "fr": "Minuteur",
+        "it": "Timer",
+        "sv": "Timer",
+        "no": "Tidtakere",
+        "es": "Temporizador",
+        "da": "Timer",
+        "ru": "Таймер",
+        "pl": "Timer",
+        "ko": "타이머",
+        "ar": "المؤقت"
     },
     "height": 120,
     "settings": [
@@ -10,7 +21,18 @@
             "type": "autocomplete",
             "title": {
                 "en": "Timer",
-                "nl": "Timer"
+                "nl": "Timer",
+                "de": "Timer",
+                "fr": "Minuteur",
+                "it": "Timer",
+                "sv": "Timer",
+                "no": "Tidtakere",
+                "es": "Temporizador",
+                "da": "Timer",
+                "ru": "Таймер",
+                "pl": "Timer",
+                "ko": "타이머",
+                "ar": "المؤقت"
             }
         }
     ],

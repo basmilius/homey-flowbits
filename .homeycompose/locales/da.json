@@ -88,6 +88,11 @@
             "description": "Kun én tilstand kan være aktiv ad gangen. Opret og administrér tilstande via handlinger, betingelser og triggere i dine flows.",
             "empty": "Der er endnu ikke oprettet nogen tilstande."
         },
+        "sets": {
+            "title": "Sæt",
+            "description": "Sæt er samlinger af boolske tilstande, der kan evalueres som en gruppe. Et sæt er aktivt, når en af dets tilstande er aktiv. Brug sæt-handlinger, betingelser og triggere i dine flows til at administrere grupperede tilstande.",
+            "empty": "Der er endnu ikke oprettet nogen sæt."
+        },
         "timers": {
             "title": "Timere",
             "description": "Timere tæller ned fra en specificeret varighed og kan startes, sættes på pause, stoppes og nulstilles. Brug timerhandlinger, betingelser og triggere i dine flows til at administrere nedtællinger og reagere når timere er færdige.",
@@ -102,6 +107,7 @@
             "labels": "Etiketter",
             "modes": "Tilstande",
             "no_repeats": "Ingen-gentagelsesvinduer",
+            "sets": "Sæt",
             "sliders": "Skydeknapper",
             "timers": "Timere"
         },

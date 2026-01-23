@@ -88,6 +88,11 @@
             "description": "Es kann immer nur ein Modus aktiv sein. Erstellen und verwalten Sie Modi mithilfe von Aktionen, Bedingungen und Triggern in Ihren Flows.",
             "empty": "Es wurden noch keine Modi erstellt."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets sind Sammlungen von booleschen Zuständen, die als Gruppe ausgewertet werden können. Ein Set ist aktiv, wenn einer seiner Zustände aktiv ist. Verwenden Sie Set-Aktionen, Bedingungen und Trigger in Ihren Flows, um gruppierte Zustände zu verwalten.",
+            "empty": "Es wurden noch keine Sets erstellt."
+        },
         "timers": {
             "title": "Timer",
             "description": "Timer zählen von einer bestimmten Dauer herunter und können gestartet, pausiert, gestoppt und zurückgesetzt werden. Verwenden Sie Timer-Aktionen, Bedingungen und Trigger in Ihren Flows, um Countdowns zu verwalten und zu reagieren, wenn Timer ablaufen.",
@@ -102,6 +107,7 @@
             "labels": "Etiketten",
             "modes": "Modi",
             "no_repeats": "Nicht-wiederholen-Fenster",
+            "sets": "Sets",
             "sliders": "Schieberegler",
             "timers": "Timer"
         },

@@ -88,6 +88,11 @@
             "description": "Solo una modalità può essere attiva alla volta. Crea e gestisci le modalità tramite azioni, condizioni e trigger nei tuoi flow.",
             "empty": "Nessuna modalità è stata ancora creata."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets sono collezioni di stati booleani che possono essere valutati come gruppo. Un set è attivo quando uno dei suoi stati è attivo. Usa azioni, condizioni e trigger dei set nei tuoi flow per gestire gli stati raggruppati.",
+            "empty": "Nessun set è stato ancora creato."
+        },
         "timers": {
             "title": "Timer",
             "description": "I timer fanno un conto alla rovescia da una durata specificata e possono essere avviati, messi in pausa, fermati e ripristinati. Usa azioni, condizioni e trigger dei timer nei tuoi flow per gestire i conti alla rovescia e rispondere quando i timer terminano.",
@@ -102,6 +107,7 @@
             "labels": "Etichette",
             "modes": "Modalità",
             "no_repeats": "Finestre senza ripetizione",
+            "sets": "Sets",
             "sliders": "Slider",
             "timers": "Timer"
         },

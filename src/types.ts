@@ -107,6 +107,7 @@ export type Statistics = {
     readonly numberOfLabels: number;
     readonly numberOfModes: number;
     readonly numberOfNoRepeats: number;
+    readonly numberOfSets: number;
     readonly numberOfSliders: number;
     readonly numberOfTimers: number;
     readonly runsPerFlowCard: Record<string, [string, number]>;

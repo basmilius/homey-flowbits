@@ -88,6 +88,11 @@
             "description": "Tylko jeden tryb może być aktywny w danym momencie. Twórz i zarządzaj trybami za pomocą akcji, warunków i wyzwalaczy.",
             "empty": "Nie utworzono jeszcze żadnych trybów."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets to kolekcje stanów logicznych, które mogą być oceniane jako grupa. Set jest aktywny, gdy którykolwiek z jego stanów jest aktywny. Używaj akcji, warunków i wyzwalaczy setów w swoich flow, aby zarządzać grupowanymi stanami.",
+            "empty": "Nie utworzono jeszcze żadnych setów."
+        },
         "timers": {
             "title": "Timery",
             "description": "Timery odliczają czas od określonego czasu trwania i mogą być uruchamiane, wstrzymywane, zatrzymywane i resetowane. Używaj akcji, warunków i wyzwalaczy timerów w swoich przepływach, aby zarządzać odliczaniem i reagować, gdy timery się kończą.",
@@ -102,6 +107,7 @@
             "labels": "Etykiety",
             "modes": "Tryby",
             "no_repeats": "Okna bez powtórzeń",
+            "sets": "Sets",
             "sliders": "Suwaki",
             "timers": "Timery"
         },

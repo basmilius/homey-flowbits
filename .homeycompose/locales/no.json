@@ -88,6 +88,11 @@
             "description": "Bare én modus kan være aktiv om gangen. Opprett og administrer moduser via handlinger, betingelser og triggere i dine flyter.",
             "empty": "Ingen moduser har blitt opprettet enda."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets er samlinger av booleske tilstander som kan bli vurdert som en gruppe. En set er aktiv når en av sine tilstander er aktiv. Bruk set-handlinger, betingelser og triggere i dine flyter for å administrere grupperte tilstander.",
+            "empty": "Ingen sets har blitt opprettet enda."
+        },
         "timers": {
             "title": "Tidtakere",
             "description": "Tidtakere teller ned fra en spesifisert varighet og kan startes, settes på pause, stoppes og tilbakestilles. Bruk tidtakerhandlinger, betingelser og triggere i flytene dine for å administrere nedtellinger og reagere når tidtakere er ferdige.",
@@ -102,6 +107,7 @@
             "labels": "Etiketter",
             "modes": "Moduser",
             "no_repeats": "Ingen-gjentakelsesvinduer",
+            "sets": "Sets",
             "sliders": "Glidere",
             "timers": "Tidtakere"
         },

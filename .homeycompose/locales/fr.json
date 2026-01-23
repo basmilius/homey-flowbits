@@ -88,6 +88,11 @@
             "description": "Un seul mode peut être actif à la fois. Créez et gérez les modes via les actions, conditions et déclencheurs dans vos flows.",
             "empty": "Aucun mode n’a encore été créé."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
+            "empty": "Aucun set n’a encore été créé."
+        },
         "timers": {
             "title": "Minuteries",
             "description": "Les minuteries effectuent un compte à rebours à partir d'une durée spécifiée et peuvent être démarrées, mises en pause, arrêtées et réinitialisées. Utilisez les actions, conditions et déclencheurs de minuterie dans vos flux pour gérer les comptes à rebours et réagir lorsque les minuteries se terminent.",
@@ -102,6 +107,7 @@
             "labels": "Étiquettes",
             "modes": "Modes",
             "no_repeats": "Fenêtres sans répétition",
+            "sets": "Sets",
             "sliders": "Curseurs",
             "timers": "Minuteries"
         },
