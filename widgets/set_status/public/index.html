@@ -103,7 +103,7 @@
         }
 
         async function update() {
-            const set = await Homey.api('GET', `/?set=${settings.set.name}`);
+            const set = await Homey.api('GET', `/?set=${encodeURIComponent(settings.set.name)}`);
 
             render(set);
 

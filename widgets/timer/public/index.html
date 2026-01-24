@@ -135,7 +135,7 @@
         }
 
         async function update() {
-            const timer = await Homey.api('GET', `/?timer=${settings.timer.name}`);
+            const timer = await Homey.api('GET', `/?timer=${encodeURIComponent(settings.timer.name)}`);
 
             render(timer);
 

@@ -96,7 +96,7 @@
             await setValueRaw(v);
 
             if (push) {
-                await Homey.api('POST', `/?slider=${settings.slider.name}`, {value: v});
+                await Homey.api('POST', `/?slider=${encodeURIComponent(settings.slider.name)}`, {value: v});
             }
         }
 
@@ -112,7 +112,7 @@
         }
 
         async function update() {
-            const value = await Homey.api('GET', `/?slider=${settings.slider.name}`);
+            const value = await Homey.api('GET', `/?slider=${encodeURIComponent(settings.slider.name)}`);
             await setValueRaw(value);
         }
 

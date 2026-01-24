@@ -85,7 +85,7 @@
         async function update() {
             clearInterval(interval);
 
-            const event = await Homey.api('GET', `/?event=${settings.event.name}`);
+            const event = await Homey.api('GET', `/?event=${encodeURIComponent(settings.event.name)}`);
 
             eventName.innerText = event?.name ?? '—';
             eventValue.innerText = '—';
