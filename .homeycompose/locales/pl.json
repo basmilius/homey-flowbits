@@ -62,6 +62,16 @@
         "event": {
             "now": "Teraz"
         },
+        "setStates": {
+            "active": "Aktywny",
+            "inactive": "Nieaktywny"
+        },
+        "setStatus": {
+            "active": "Aktywny",
+            "full": "Pełna aktywność",
+            "inactive": "Brak aktywnych stanów",
+            "partially": "__active__ z __total__ stanów aktywnych"
+        },
         "timer": {
             "finished": "Zakończony",
             "paused": "Wstrzymany",

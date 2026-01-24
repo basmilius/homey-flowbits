@@ -62,6 +62,16 @@
         "event": {
             "now": "Nu"
         },
+        "setStates": {
+            "active": "Aktiv",
+            "inactive": "Inaktiv"
+        },
+        "setStatus": {
+            "active": "Aktiv",
+            "full": "Fuldt aktiv",
+            "inactive": "Ingen tilstande aktive",
+            "partially": "__active__ ud af __total__ tilstande aktive"
+        },
         "timer": {
             "finished": "Afsluttet",
             "paused": "Sat på pause",

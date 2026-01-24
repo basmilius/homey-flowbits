@@ -62,6 +62,16 @@
         "event": {
             "now": "Now"
         },
+        "setStates": {
+            "active": "Active",
+            "inactive": "Inactive"
+        },
+        "setStatus": {
+            "active": "Active",
+            "full": "Fully active",
+            "inactive": "No states active",
+            "partially": "__active__ out of __total__ states active"
+        },
         "timer": {
             "finished": "Finished",
             "paused": "Paused",

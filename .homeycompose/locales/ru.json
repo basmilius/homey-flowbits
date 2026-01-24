@@ -62,6 +62,16 @@
         "event": {
             "now": "Сейчас"
         },
+        "setStates": {
+            "active": "Активен",
+            "inactive": "Неактивен"
+        },
+        "setStatus": {
+            "active": "Активен",
+            "full": "Полностью активен",
+            "inactive": "Нет активных состояний",
+            "partially": "__active__ из __total__ состояний активны"
+        },
         "timer": {
             "finished": "Завершено",
             "paused": "Приостановлено",

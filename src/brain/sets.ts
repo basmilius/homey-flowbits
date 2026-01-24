@@ -392,7 +392,11 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
     }
 
     async #triggerRealtime(): Promise<void> {
-        this.realtime(REALTIME_SETS_UPDATE);
+        const sets = await this.findAll();
+
+        for (const set of sets) {
+            this.realtime(REALTIME_SETS_UPDATE, set);
+        }
     }
 
     #buildDefinedMap(): Map<string, NativeSet<string>> {

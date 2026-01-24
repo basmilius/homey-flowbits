@@ -55,6 +55,16 @@
     },
     "flags": {
       "no_filter": "No filter"
+    },
+    "setStatus": {
+      "active": "Active",
+      "inactive": "No states active",
+      "partially": "__active__ out of __total__ states active",
+      "full": "Fully active"
+    },
+    "setStates": {
+      "active": "Active",
+      "inactive": "Inactive"
     }
   },
   "settings": {

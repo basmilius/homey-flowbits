@@ -52,6 +52,16 @@
       "finished": "Afgelopen",
       "paused": "Gepauzeerd",
       "stopped": "Gestopt"
+    },
+    "setStates": {
+      "active": "Actief",
+      "inactive": "Inactief"
+    },
+    "setStatus": {
+      "active": "Actief",
+      "full": "Volledig actief",
+      "inactive": "Geen enkele status actief",
+      "partially": "__active__ van __total__ statussen actief"
     }
   },
   "settings": {
@@ -84,7 +94,8 @@
       "sliders": "Sliders",
       "timers": "Timers",
       "events": "Gebeurtenissen",
-      "labels": "Labels"
+      "labels": "Labels",
+      "sets": "Sets"
     },
     "card_statistics": {
       "title": "Flowkaartstatistieken",
@@ -104,6 +115,11 @@
       "title": "Timers",
       "description": "Timers tellen af vanaf een opgegeven duur en kunnen worden gestart, gepauzeerd, gestopt en gereset. Gebruik timer-acties, -voorwaarden en -triggers in je flows om afteltijden te beheren en te reageren wanneer timers aflopen.",
       "empty": "Er zijn nog geen timers aangemaakt."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Sets zijn verzamelingen van booleaanse statussen die als groep kunnen worden geëvalueerd. Een set is actief wanneer een van zijn statussen actief is. Gebruik set-acties, -voorwaarden en -triggers in je flows om groepen statussen te beheren.",
+      "empty": "Er zijn nog geen sets aangemaakt."
     }
   },
   "color": {

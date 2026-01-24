@@ -62,6 +62,16 @@
         "event": {
             "now": "Nu"
         },
+        "setStates": {
+            "active": "Actief",
+            "inactive": "Inactief"
+        },
+        "setStatus": {
+            "active": "Actief",
+            "full": "Volledig actief",
+            "inactive": "Geen enkele status actief",
+            "partially": "__active__ van __total__ statussen actief"
+        },
         "timer": {
             "finished": "Afgelopen",
             "paused": "Gepauzeerd",

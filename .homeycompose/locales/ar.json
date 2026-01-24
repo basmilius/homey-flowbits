@@ -62,6 +62,16 @@
         "event": {
             "now": "الآن"
         },
+        "setStates": {
+            "active": "نشيط",
+            "inactive": "غير نشط"
+        },
+        "setStatus": {
+            "active": "نشيط",
+            "full": "نشط بالكامل",
+            "inactive": "لا توجد حالات نشطة",
+            "partially": "__active__ من __total__ حالات نشطة"
+        },
         "timer": {
             "finished": "منتهي",
             "paused": "متوقف مؤقتاً",
