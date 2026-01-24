@@ -1,10 +1,8 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_SETS_UPDATE, SETTING_SET_LOOKS, SETTING_SETS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
-import type { ClockUnit, Feature, FlowBitsApp, Look, Set, SetState, Styleable } from '../types';
+import type { BitSet, BitSetState, ClockUnit, Feature, FlowBitsApp, Look, Styleable } from '../types';
 import { convertDurationToSeconds } from '../util';
-
-type NativeSet<T> = globalThis.Set<T>;
 
 type SetCounts = {
     readonly activeCount: number;
@@ -19,7 +17,7 @@ type Snapshot = {
 type StoredSet = Record<string, [active: boolean, lastUpdate: string | null, expiresAt: string | null]>;
 type StoredSets = Record<string, StoredSet>;
 
-export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>, Styleable {
+export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitSet>, Styleable {
     #timeouts: Record<string, NodeJS.Timeout> = {};
 
     get looks(): Record<string, Look> {
@@ -73,26 +71,26 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         return sets.length;
     }
 
-    async find(name: string): Promise<Set | null> {
+    async find(name: string): Promise<BitSet | null> {
         const sets = await this.findAll();
         const set = sets.find(set => set.name === name);
 
         return set ?? null;
     }
 
-    async findAll(): Promise<Set[]> {
+    async findAll(): Promise<BitSet[]> {
         const definedMap = this.#buildDefinedMap();
 
         if (definedMap.size === 0) {
             return [];
         }
 
-        const results: Set[] = [];
+        const results: BitSet[] = [];
 
         for (const [setName, stateNames] of definedMap) {
             const look = await this.getLook(setName);
 
-            const states: SetState[] = [...stateNames].map(stateName =>
+            const states: BitSetState[] = [...stateNames].map(stateName =>
                 this.#mapStoredState(setName, stateName)
             );
 
@@ -132,6 +130,10 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
             states[setName][state.name] = [true, now, null];
         }
 
+        for (const state of set.states) {
+            this.#clearTimeout(setName, state.name);
+        }
+
         this.states = states;
         this.log(`Activated all states in set ${setName}.`);
 
@@ -147,6 +149,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         const states = this.#ensureSet(setName);
 
         states[setName][stateName] = [true, DateTime.now().toISO(), null];
+        this.#clearTimeout(setName, stateName);
         this.states = states;
 
         this.log(`Activated state ${stateName} in set ${setName}.`);
@@ -180,6 +183,8 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         for (const state of statesToDeactivate) {
             this.#clearTimeout(setName, state);
         }
+
+        this.#clearTimeout(setName, stateName);
 
         this.states = states;
         this.log(`Activated state ${stateName} exclusively in set ${setName}.`);
@@ -399,9 +404,9 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         }
     }
 
-    #buildDefinedMap(): Map<string, NativeSet<string>> {
+    #buildDefinedMap(): Map<string, Set<string>> {
         const definedStates = this.#autocompleteProvider().values;
-        const map = new Map<string, NativeSet<string>>();
+        const map = new Map<string, Set<string>>();
 
         for (const {set: setName, state: stateName} of definedStates) {
             if (!map.has(setName)) {
@@ -433,7 +438,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         return states;
     }
 
-    #mapStoredState(setName: string, stateName: string): SetState {
+    #mapStoredState(setName: string, stateName: string): BitSetState {
         const stored = this.states[setName]?.[stateName];
 
         return stored

@@ -39,6 +39,20 @@ export type WithLook<T> = T & {
     readonly icon: string | undefined;
 };
 
+export type BitSet = WithLook<{
+    readonly name: string;
+    readonly states: BitSetState[];
+    readonly allActive: boolean;
+    readonly anyActive: boolean;
+}>;
+
+export type BitSetState = {
+    readonly name: string;
+    readonly active: boolean;
+    readonly lastUpdate: string | undefined;
+    readonly expiresAt: string | undefined;
+};
+
 export type Cycle = {
     readonly name: string;
     readonly step: number;
@@ -68,20 +82,6 @@ export type Mode = WithLook<{
 export type NoRepeatWindow = {
     readonly name: string;
     readonly lastUpdate: string | undefined;
-};
-
-export type Set = WithLook<{
-    readonly name: string;
-    readonly states: SetState[];
-    readonly allActive: boolean;
-    readonly anyActive: boolean;
-}>;
-
-export type SetState = {
-    readonly name: string;
-    readonly active: boolean;
-    readonly lastUpdate: string | undefined;
-    readonly expiresAt: string | undefined;
 };
 
 export type Slider = {

@@ -1,6 +1,6 @@
 import type { ApiRequest, Color, Icon } from '@basmilius/homey-common';
 import { colors, icons } from '@basmilius/homey-common';
-import type { Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Set, Slider, Statistics, Timer } from './src/types';
+import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from './src/types';
 
 export async function activateFlag({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyFlag>): Promise<boolean> {
     return await app.api.activateFlag(body.flag);
@@ -50,7 +50,7 @@ export async function getNoRepeatWindows({homey: {app}}: ApiRequest<FlowBitsApp>
     return await app.noRepeat.findAll();
 }
 
-export async function getSets({homey: {app}}: ApiRequest<FlowBitsApp>): Promise<Set[]> {
+export async function getSets({homey: {app}}: ApiRequest<FlowBitsApp>): Promise<BitSet[]> {
     return await app.api.getSets();
 }
 
