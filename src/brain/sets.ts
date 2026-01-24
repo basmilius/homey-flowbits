@@ -45,7 +45,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused sets...');
 
-        const definedSetNames = new Set(this.#buildDefinedMap().keys());
+        const definedSetNames = new globalThis.Set(this.#buildDefinedMap().keys());
         const states = this.states;
         const looks = this.looks;
 
@@ -129,6 +129,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         const states = this.#ensureSet(setName);
 
         for (const state of inactiveStates) {
+            this.#clearTimeout(setName, state.name);
             states[setName][state.name] = [true, now, null];
         }
 
@@ -146,6 +147,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         const snapshot = this.#snapshot(setName);
         const states = this.#ensureSet(setName);
 
+        this.#clearTimeout(setName, stateName);
         states[setName][stateName] = [true, DateTime.now().toISO(), null];
         this.states = states;
 
@@ -176,6 +178,9 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         if (!previousStates[stateName]) {
             states[setName][stateName] = [true, now, null];
         }
+
+        // Clear timeout for target state when making it non-expiring
+        this.#clearTimeout(setName, stateName);
 
         for (const state of statesToDeactivate) {
             this.#clearTimeout(setName, state);
@@ -405,7 +410,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
 
         for (const {set: setName, state: stateName} of definedStates) {
             if (!map.has(setName)) {
-                map.set(setName, new Set());
+                map.set(setName, new globalThis.Set());
             }
             map.get(setName)!.add(stateName);
         }
