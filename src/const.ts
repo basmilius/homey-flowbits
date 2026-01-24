@@ -24,3 +24,5 @@ export const SETTING_TIMER_LOOKS = 'flowbits-timer-looks';
 export const SETTING_TIMER_PREFIX = 'flowbits-timer:';
 
 export const EVENTS_HISTORY_LENGTH = 50;
+
+export const MAX_TIMEOUT_MS = 2147483647; // 2^31 - 1

@@ -1,5 +1,5 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { REALTIME_SETS_UPDATE, SETTING_SET_LOOKS, SETTING_SETS } from '../const';
+import { MAX_TIMEOUT_MS, REALTIME_SETS_UPDATE, SETTING_SET_LOOKS, SETTING_SETS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { BitSet, BitSetState, ClockUnit, Feature, FlowBitsApp, Look, Styleable } from '../types';
 import { convertDurationToSeconds } from '../util';
@@ -18,7 +18,7 @@ type StoredSet = Record<string, [active: boolean, lastUpdate: string | null, exp
 type StoredSets = Record<string, StoredSet>;
 
 export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitSet>, Styleable {
-    #timeouts: Record<string, NodeJS.Timeout> = {};
+    #expirationTimeout: NodeJS.Timeout | null = null;
 
     get looks(): Record<string, Look> {
         return this.settings.get(SETTING_SET_LOOKS) ?? {};
@@ -37,7 +37,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async initialize(): Promise<void> {
-        await this.#scheduleExpirations();
+        await this.#scheduleNextExpiration();
     }
 
     async cleanup(): Promise<void> {
@@ -126,34 +126,31 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         const now = DateTime.now().toISO();
         const states = this.#ensureSet(setName);
 
-        for (const state of inactiveStates) {
-            states[setName][state.name] = [true, now, null];
-        }
-
         for (const state of set.states) {
-            this.#clearTimeout(setName, state.name);
+            if (!state.active) {
+                states[setName][state.name] = [true, now, null];
+            } else {
+                states[setName][state.name] = [true, states[setName][state.name][1], null];
+            }
         }
 
         this.states = states;
         this.log(`Activated all states in set ${setName}.`);
 
+        await this.#scheduleNextExpiration();
         await this.#emitActivations(setName, inactiveStates.map(s => s.name), snapshot, set.states.length, set.states.length);
     }
 
     async activateState(setName: string, stateName: string): Promise<void> {
-        if (await this.isStateActive(setName, stateName)) {
-            return;
-        }
-
         const snapshot = this.#snapshot(setName);
         const states = this.#ensureSet(setName);
 
         states[setName][stateName] = [true, DateTime.now().toISO(), null];
-        this.#clearTimeout(setName, stateName);
         this.states = states;
 
         this.log(`Activated state ${stateName} in set ${setName}.`);
 
+        await this.#scheduleNextExpiration();
         await this.#emitActivations(setName, [stateName], snapshot);
     }
 
@@ -180,14 +177,10 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             states[setName][stateName] = [true, now, null];
         }
 
-        for (const state of statesToDeactivate) {
-            this.#clearTimeout(setName, state);
-        }
-
-        this.#clearTimeout(setName, stateName);
-
         this.states = states;
         this.log(`Activated state ${stateName} exclusively in set ${setName}.`);
+
+        await this.#scheduleNextExpiration();
 
         const triggers: Promise<void>[] = [this.#triggerRealtime()];
 
@@ -233,7 +226,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
         this.log(`Activated state ${stateName} in set ${setName} for ${duration} ${unit}.`);
 
-        await this.#scheduleExpiration(setName, stateName, expiresAt);
+        await this.#scheduleNextExpiration();
         await this.#emitActivations(setName, wasTargetActive ? [] : [stateName], snapshot);
     }
 
@@ -258,12 +251,12 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
         for (const stateName of statesToDeactivate) {
             states[setName][stateName] = [false, now, null];
-            this.#clearTimeout(setName, stateName);
         }
 
         this.states = states;
         this.log(`Deactivated all states in set ${setName}.`);
 
+        await this.#scheduleNextExpiration();
         await this.#emitDeactivations(setName, statesToDeactivate, snapshot, 0, Object.keys(states[setName]).length);
     }
 
@@ -276,11 +269,11 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         const states = this.states;
 
         states[setName][stateName] = [false, DateTime.now().toISO(), null];
-        this.#clearTimeout(setName, stateName);
         this.states = states;
 
         this.log(`Deactivated state ${stateName} in set ${setName}.`);
 
+        await this.#scheduleNextExpiration();
         await this.#emitDeactivations(setName, [stateName], snapshot);
     }
 
@@ -337,7 +330,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async getLook(name: string): Promise<Look> {
-        return this.looks[name] ?? ['#204ef6', ''];
+        return this.looks[name] ?? ['#204ef6', ''];
     }
 
     async setLook(name: string, look: Look): Promise<void> {
@@ -538,7 +531,6 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
             for (const stateName of Object.keys(setStates)) {
                 if (!definedInSet?.has(stateName)) {
-                    this.#clearTimeout(setName, stateName);
                     delete states[setName][stateName];
                     changed = true;
                     this.log(`Removed undefined state ${stateName} from set ${setName}.`);
@@ -554,57 +546,78 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
         if (changed) {
             this.states = states;
+            await this.#scheduleNextExpiration();
         }
     }
 
-    #timeoutKey(setName: string, stateName: string): string {
-        return `${setName}:${stateName}`;
-    }
-
-    #clearTimeout(setName: string, stateName: string): void {
-        const key = this.#timeoutKey(setName, stateName);
-
-        if (this.#timeouts[key]) {
-            this.clearTimeout(this.#timeouts[key]);
-            delete this.#timeouts[key];
-        }
-    }
-
-    async #scheduleExpiration(setName: string, stateName: string, expiresAt: DateTime): Promise<void> {
-        this.#clearTimeout(setName, stateName);
-
-        const diff = expiresAt.diff(DateTime.now()).as('milliseconds');
-
-        if (diff <= 0) {
-            await this.deactivateState(setName, stateName);
-            return;
+    async #scheduleNextExpiration(): Promise<void> {
+        if (this.#expirationTimeout) {
+            this.clearTimeout(this.#expirationTimeout);
+            this.#expirationTimeout = null;
         }
 
-        const key = this.#timeoutKey(setName, stateName);
-
-        this.#timeouts[key] = this.setTimeout(async () => {
-            delete this.#timeouts[key];
-            await this.deactivateState(setName, stateName);
-        }, diff);
-
-        this.log(`Scheduled expiration for ${setName}:${stateName} in ${Math.round(diff / 1000)}s`);
-    }
-
-    async #scheduleExpirations(): Promise<void> {
-        for (const key of Object.keys(this.#timeouts)) {
-            this.clearTimeout(this.#timeouts[key]);
-        }
-
-        this.#timeouts = {};
+        const now = DateTime.now();
+        let earliestExpiration: { setName: string; stateName: string; expiresAt: DateTime } | null = null;
 
         for (const [setName, setStates] of Object.entries(this.states)) {
-            for (const [stateName, [active, , expiresAt]] of Object.entries(setStates)) {
-                if (!(active && expiresAt)) {
+            for (const [stateName, [active, , expiresAtStr]] of Object.entries(setStates)) {
+                if (!active || !expiresAtStr) {
                     continue;
                 }
 
-                await this.#scheduleExpiration(setName, stateName, DateTime.fromISO(expiresAt));
+                const expiresAt = DateTime.fromISO(expiresAtStr);
+
+                if (!earliestExpiration || expiresAt < earliestExpiration.expiresAt) {
+                    earliestExpiration = {setName, stateName, expiresAt};
+                }
             }
+        }
+
+        if (!earliestExpiration) {
+            return;
+        }
+
+        const diff = earliestExpiration.expiresAt.diff(now).as('milliseconds');
+
+        if (diff <= 0) {
+            await this.#processExpirations();
+            return;
+        }
+
+        const delay = Math.min(diff, MAX_TIMEOUT_MS);
+
+        this.#expirationTimeout = this.setTimeout(async () => {
+            this.#expirationTimeout = null;
+            await this.#processExpirations();
+        }, delay);
+
+        this.log(`Scheduled next expiration check in ${Math.round(delay / 1000)}s`);
+    }
+
+    async #processExpirations(): Promise<void> {
+        const now = DateTime.now();
+        const expiredStates: { setName: string; stateName: string }[] = [];
+
+        for (const [setName, setStates] of Object.entries(this.states)) {
+            for (const [stateName, [active, , expiresAtStr]] of Object.entries(setStates)) {
+                if (!active || !expiresAtStr) {
+                    continue;
+                }
+
+                const expiresAt = DateTime.fromISO(expiresAtStr);
+
+                if (expiresAt <= now) {
+                    expiredStates.push({setName, stateName});
+                }
+            }
+        }
+
+        for (const {setName, stateName} of expiredStates) {
+            await this.deactivateState(setName, stateName);
+        }
+
+        if (expiredStates.length === 0) {
+            await this.#scheduleNextExpiration();
         }
     }
 
