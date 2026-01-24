@@ -129,6 +129,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         const states = this.#ensureSet(setName);
 
         for (const state of inactiveStates) {
+            this.#clearTimeout(setName, state.name);
             states[setName][state.name] = [true, now, null];
         }
 
@@ -146,6 +147,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
         const snapshot = this.#snapshot(setName);
         const states = this.#ensureSet(setName);
 
+        this.#clearTimeout(setName, stateName);
         states[setName][stateName] = [true, DateTime.now().toISO(), null];
         this.states = states;
 
@@ -177,6 +179,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
             states[setName][stateName] = [true, now, null];
         }
 
+        this.#clearTimeout(setName, stateName);
         for (const state of statesToDeactivate) {
             this.#clearTimeout(setName, state);
         }
