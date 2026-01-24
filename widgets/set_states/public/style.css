@@ -22,6 +22,10 @@
     border-radius: var(--homey-border-radius-small);
 }
 
+.homey-dark-mode .states-item {
+    background: var(--homey-color-mono-100);
+}
+
 .states-item-label {
     font-size: var(--homey-font-size-default);
     font-weight: var(--homey-font-weight-medium);
