@@ -168,6 +168,11 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
 
         const wasTargetActive = previousStates[stateName]?.[0] ?? false;
 
+        this.#clearTimeout(setName, stateName);
+        for (const state of statesToDeactivate) {
+            this.#clearTimeout(setName, state);
+        }
+
         states[setName] = Object.fromEntries(
             Object.keys(previousStates).map(name => [
                 name,
@@ -177,11 +182,6 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<Set>
 
         if (!previousStates[stateName]) {
             states[setName][stateName] = [true, now, null];
-        }
-
-        this.#clearTimeout(setName, stateName);
-        for (const state of statesToDeactivate) {
-            this.#clearTimeout(setName, state);
         }
 
         this.states = states;
