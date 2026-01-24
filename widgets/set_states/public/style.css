@@ -43,6 +43,8 @@
 .states-item-status-icon {
     --color: inherit;
     --size: 12px;
+
+    margin-top: 2px;
 }
 
 .states-item-status-label {

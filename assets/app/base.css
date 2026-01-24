@@ -104,15 +104,12 @@ body {
 
 .basic-widget-header-badge {
     display: flex;
-    margin-top: -3px;
     margin-left: auto;
-    padding: 3px 6px;
     align-items: center;
     flex-flow: row nowrap;
-    gap: var(--homey-su-1);
-    background: var(--homey-icon-color-green);
+    gap: var(--homey-su-2);
     border-radius: var(--homey-border-radius-small);
-    color: white;
+    color: var(--homey-icon-color-green);
     font-size: 12px;
     font-weight: 500;
     line-height: 1;
@@ -125,10 +122,10 @@ body {
 }
 
 .basic-widget-header-badge-icon {
-    --color: white;
-    --size: 14px;
+    --color: inherit;
+    --size: 15px;
 
-    margin-top: 2px;
+    margin-top: 1px;
     margin-left: -2px;
 }
 
