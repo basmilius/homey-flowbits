@@ -378,7 +378,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -419,7 +418,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -460,7 +458,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -501,7 +498,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -542,7 +538,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -583,7 +578,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"

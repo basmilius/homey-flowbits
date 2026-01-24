@@ -205,7 +205,13 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             triggers.push(this.#triggerSetBecomesActiveAny(setName));
         }
 
-        if (snapshot.allActive && Object.keys(states[setName]).length > 1) {
+        const isNowAllActive = await this.isActiveAll(setName);
+
+        if (!snapshot.allActive && isNowAllActive) {
+            triggers.push(this.#triggerSetBecomesActiveAll(setName));
+        }
+
+        if (snapshot.allActive && !isNowAllActive) {
             triggers.push(this.#triggerSetBecomesInactiveAll(setName));
         }
 

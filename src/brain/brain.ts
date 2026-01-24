@@ -109,6 +109,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
             this.labels.cleanup(),
             this.modes.cleanup(),
             this.noRepeat.cleanup(),
+            this.sets.cleanup(),
             this.sliders.cleanup(),
             this.timers.cleanup()
         ]);
