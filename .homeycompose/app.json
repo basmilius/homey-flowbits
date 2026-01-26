@@ -1,344 +1,344 @@
 {
-    "id": "com.basmilius.flowbits",
-    "version": "1.11.0",
-    "compatibility": ">=12.4.0",
-    "sdk": 3,
-    "brandColor": "#204ef6",
-    "platforms": [
-        "local"
+  "id": "com.basmilius.flowbits",
+  "version": "1.12.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "brandColor": "#204ef6",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "FlowBits",
+    "nl": "FlowBits",
+    "de": "FlowBits",
+    "fr": "FlowBits",
+    "it": "FlowBits",
+    "sv": "FlowBits",
+    "no": "FlowBits",
+    "es": "FlowBits",
+    "da": "FlowBits",
+    "ru": "FlowBits",
+    "pl": "FlowBits",
+    "ko": "FlowBits",
+    "ar": "FlowBits"
+  },
+  "description": {
+    "en": "Small bits of logic, big difference in your Flows.",
+    "nl": "Kleine stukjes logica, groot verschil in je Flows.",
+    "de": "Kleine Logikbausteine, große Wirkung in deinen Flows.",
+    "fr": "Petits bouts de logique, grande différence dans vos Flows.",
+    "it": "Piccoli pezzi di logica, grande differenza nei tuoi Flows.",
+    "sv": "Små logikbitar, stor skillnad i dina Flöden.",
+    "no": "Små logikkbiter, stor forskjell i dine Flows.",
+    "es": "Pequeños fragmentos de lógica, gran diferencia en tus Flujos.",
+    "da": "Små logikstykker, stor forskel i dine Flows.",
+    "ru": "Малые логические блоки, большое влияние на ваши потоки.",
+    "pl": "Małe elementy logiki, duża różnica w Twoich Flow.",
+    "ko": "작은 논리 조각, 당신의 흐름에 큰 차이를 만듭니다.",
+    "ar": "قطع صغيرة من المنطق، فرق كبير في تدفقاتك."
+  },
+  "category": [
+    "tools"
+  ],
+  "tags": {
+    "en": [
+      "flow",
+      "advanced flow",
+      "bits",
+      "cycle",
+      "flag",
+      "flags",
+      "mode",
+      "modes",
+      "repeat",
+      "signal",
+      "timer"
     ],
-    "name": {
-        "en": "FlowBits",
-        "nl": "FlowBits",
-        "de": "FlowBits",
-        "fr": "FlowBits",
-        "it": "FlowBits",
-        "sv": "FlowBits",
-        "no": "FlowBits",
-        "es": "FlowBits",
-        "da": "FlowBits",
-        "ru": "FlowBits",
-        "pl": "FlowBits",
-        "ko": "FlowBits",
-        "ar": "FlowBits"
-    },
-    "description": {
-        "en": "Small bits of logic, big difference in your Flows.",
-        "nl": "Kleine stukjes logica, groot verschil in je Flows.",
-        "de": "Kleine Logikbausteine, große Wirkung in deinen Flows.",
-        "fr": "Petits bouts de logique, grande différence dans vos Flows.",
-        "it": "Piccoli pezzi di logica, grande differenza nei tuoi Flows.",
-        "sv": "Små logikbitar, stor skillnad i dina Flöden.",
-        "no": "Små logikkbiter, stor forskjell i dine Flows.",
-        "es": "Pequeños fragmentos de lógica, gran diferencia en tus Flujos.",
-        "da": "Små logikstykker, stor forskel i dine Flows.",
-        "ru": "Малые логические блоки, большое влияние на ваши потоки.",
-        "pl": "Małe elementy logiki, duża różnica w Twoich Flow.",
-        "ko": "작은 논리 조각, 당신의 흐름에 큰 차이를 만듭니다.",
-        "ar": "قطع صغيرة من المنطق، فرق كبير في تدفقاتك."
-    },
-    "category": [
-        "tools"
+    "nl": [
+      "flow",
+      "advanced flow",
+      "bits",
+      "cycle",
+      "flag",
+      "flags",
+      "herhaling",
+      "mode",
+      "modes",
+      "modus",
+      "signal",
+      "timer",
+      "stappenreeks",
+      "stand",
+      "standen",
+      "signaal"
     ],
-    "tags": {
-        "en": [
-            "flow",
-            "advanced flow",
-            "bits",
-            "cycle",
-            "flag",
-            "flags",
-            "mode",
-            "modes",
-            "repeat",
-            "signal",
-            "timer"
-        ],
-        "nl": [
-            "flow",
-            "advanced flow",
-            "bits",
-            "cycle",
-            "flag",
-            "flags",
-            "herhaling",
-            "mode",
-            "modes",
-            "modus",
-            "signal",
-            "timer",
-            "stappenreeks",
-            "stand",
-            "standen",
-            "signaal"
-        ],
-        "de": [
-            "Flow",
-            "erweiterter Flow",
-            "Bits",
-            "Zyklus",
-            "Flag",
-            "Flags",
-            "Wiederholung",
-            "Modus",
-            "Modi",
-            "Signal",
-            "Timer"
-        ],
-        "fr": [
-            "flux",
-            "flux avancé",
-            "bits",
-            "cycle",
-            "drapeau",
-            "drapeaux",
-            "répétition",
-            "mode",
-            "modes",
-            "signal",
-            "minuteur"
-        ],
-        "it": [
-            "flusso",
-            "flusso avanzato",
-            "bit",
-            "ciclo",
-            "flag",
-            "flag",
-            "ripetizione",
-            "modalità",
-            "modalità",
-            "segnale",
-            "timer"
-        ],
-        "sv": [
-            "flöde",
-            "avancerat flöde",
-            "bitar",
-            "cykel",
-            "flagga",
-            "flaggor",
-            "upprepning",
-            "läge",
-            "lägen",
-            "signal",
-            "timer"
-        ],
-        "no": [
-            "flyt",
-            "avansert flyt",
-            "biter",
-            "syklus",
-            "flagg",
-            "flagg",
-            "gjenta",
-            "modus",
-            "moduser",
-            "signal",
-            "tidtaker"
-        ],
-        "es": [
-            "flujo",
-            "flujo avanzado",
-            "bits",
-            "ciclo",
-            "bandera",
-            "banderas",
-            "repetir",
-            "modo",
-            "modos",
-            "señal",
-            "temporizador"
-        ],
-        "da": [
-            "flow",
-            "avanceret flow",
-            "bits",
-            "cyklus",
-            "flag",
-            "flag",
-            "gentag",
-            "tilstand",
-            "tilstande",
-            "signal",
-            "timer"
-        ],
-        "ru": [
-            "поток",
-            "расширенный поток",
-            "биты",
-            "цикл",
-            "флаг",
-            "флаги",
-            "повтор",
-            "режим",
-            "режимы",
-            "сигнал",
-            "таймер"
-        ],
-        "pl": [
-            "przepływ",
-            "zaawansowany przepływ",
-            "bity",
-            "cykl",
-            "flaga",
-            "flagi",
-            "powtarzanie",
-            "tryb",
-            "tryby",
-            "sygnał",
-            "timer"
-        ],
-        "ko": [
-            "흐름",
-            "고급 흐름",
-            "비트",
-            "주기",
-            "플래그",
-            "플래그들",
-            "반복",
-            "모드",
-            "모드들",
-            "신호",
-            "타이머"
-        ],
-        "ar": [
-            "تدفق",
-            "تدفق متقدم",
-            "بتات",
-            "دورة",
-            "راية",
-            "رايات",
-            "وضع",
-            "أوضاع",
-            "تكرار",
-            "إشارة",
-            "مؤقت"
-        ]
-    },
-    "permissions": [],
-    "images": {
-        "small": "/assets/images/small.png",
-        "large": "/assets/images/large.png",
-        "xlarge": "/assets/images/xlarge.png"
-    },
-    "author": {
-        "name": "Bas Milius",
-        "email": "bas@mili.us"
-    },
-    "bugs": {
-        "url": "https://github.com/basmilius/homey-flowbits/issues"
-    },
-    "homepage": "https://bas.dev",
-    "source": "https://github.com/basmilius/homey-flowbits",
-    "support": "https://github.com/basmilius/homey-flowbits/issues",
-    "homeyCommunityTopicId": 145855,
-    "contributing": {
-        "donate": {
-            "paypal": {
-                "username": "basmilius"
-            },
-            "githubSponsors": {
-                "username": "basmilius"
-            }
-        }
-    },
-    "api": {
-        "activateFlag": {
-            "method": "PUT",
-            "path": "/flags"
-        },
-        "activateMode": {
-            "method": "PUT",
-            "path": "/modes"
-        },
-        "deactivateFlag": {
-            "method": "DELETE",
-            "path": "/flags"
-        },
-        "deactivateMode": {
-            "method": "DELETE",
-            "path": "/modes"
-        },
-        "toggleFlag": {
-            "method": "POST",
-            "path": "/flags"
-        },
-        "toggleMode": {
-            "method": "POST",
-            "path": "/modes"
-        },
-        "getCycles": {
-            "method": "GET",
-            "path": "/cycles"
-        },
-        "getEvents": {
-            "method": "GET",
-            "path": "/events"
-        },
-        "getFlags": {
-            "method": "GET",
-            "path": "/flags"
-        },
-        "getLabels": {
-            "method": "GET",
-            "path": "/labels"
-        },
-        "getModes": {
-            "method": "GET",
-            "path": "/modes"
-        },
-        "getNoRepeatWindows": {
-            "method": "GET",
-            "path": "/no-repeat-windows"
-        },
-        "getSets": {
-            "method": "GET",
-            "path": "/sets"
-        },
-        "getSliders": {
-            "method": "GET",
-            "path": "/sliders"
-        },
-        "getTimers": {
-            "method": "GET",
-            "path": "/timers"
-        },
-        "getColors": {
-            "method": "GET",
-            "path": "/colors"
-        },
-        "getIcons": {
-            "method": "GET",
-            "path": "/icons"
-        },
-        "setEventLook": {
-            "method": "POST",
-            "path": "/events/look"
-        },
-        "setFlagLook": {
-            "method": "POST",
-            "path": "/flags/look"
-        },
-        "setLabelLook": {
-            "method": "POST",
-            "path": "/labels/look"
-        },
-        "setModeLook": {
-            "method": "POST",
-            "path": "/modes/look"
-        },
-        "setSetLook": {
-            "method": "POST",
-            "path": "/sets/look"
-        },
-        "setTimerLook": {
-            "method": "POST",
-            "path": "/timers/look"
-        },
-        "getStatistics": {
-            "method": "GET",
-            "path": "/statistics"
-        }
+    "de": [
+      "Flow",
+      "erweiterter Flow",
+      "Bits",
+      "Zyklus",
+      "Flag",
+      "Flags",
+      "Wiederholung",
+      "Modus",
+      "Modi",
+      "Signal",
+      "Timer"
+    ],
+    "fr": [
+      "flux",
+      "flux avancé",
+      "bits",
+      "cycle",
+      "drapeau",
+      "drapeaux",
+      "répétition",
+      "mode",
+      "modes",
+      "signal",
+      "minuteur"
+    ],
+    "it": [
+      "flusso",
+      "flusso avanzato",
+      "bit",
+      "ciclo",
+      "flag",
+      "flag",
+      "ripetizione",
+      "modalità",
+      "modalità",
+      "segnale",
+      "timer"
+    ],
+    "sv": [
+      "flöde",
+      "avancerat flöde",
+      "bitar",
+      "cykel",
+      "flagga",
+      "flaggor",
+      "upprepning",
+      "läge",
+      "lägen",
+      "signal",
+      "timer"
+    ],
+    "no": [
+      "flyt",
+      "avansert flyt",
+      "biter",
+      "syklus",
+      "flagg",
+      "flagg",
+      "gjenta",
+      "modus",
+      "moduser",
+      "signal",
+      "tidtaker"
+    ],
+    "es": [
+      "flujo",
+      "flujo avanzado",
+      "bits",
+      "ciclo",
+      "bandera",
+      "banderas",
+      "repetir",
+      "modo",
+      "modos",
+      "señal",
+      "temporizador"
+    ],
+    "da": [
+      "flow",
+      "avanceret flow",
+      "bits",
+      "cyklus",
+      "flag",
+      "flag",
+      "gentag",
+      "tilstand",
+      "tilstande",
+      "signal",
+      "timer"
+    ],
+    "ru": [
+      "поток",
+      "расширенный поток",
+      "биты",
+      "цикл",
+      "флаг",
+      "флаги",
+      "повтор",
+      "режим",
+      "режимы",
+      "сигнал",
+      "таймер"
+    ],
+    "pl": [
+      "przepływ",
+      "zaawansowany przepływ",
+      "bity",
+      "cykl",
+      "flaga",
+      "flagi",
+      "powtarzanie",
+      "tryb",
+      "tryby",
+      "sygnał",
+      "timer"
+    ],
+    "ko": [
+      "흐름",
+      "고급 흐름",
+      "비트",
+      "주기",
+      "플래그",
+      "플래그들",
+      "반복",
+      "모드",
+      "모드들",
+      "신호",
+      "타이머"
+    ],
+    "ar": [
+      "تدفق",
+      "تدفق متقدم",
+      "بتات",
+      "دورة",
+      "راية",
+      "رايات",
+      "وضع",
+      "أوضاع",
+      "تكرار",
+      "إشارة",
+      "مؤقت"
+    ]
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Bas Milius",
+    "email": "bas@mili.us"
+  },
+  "bugs": {
+    "url": "https://github.com/basmilius/homey-flowbits/issues"
+  },
+  "homepage": "https://bas.dev",
+  "source": "https://github.com/basmilius/homey-flowbits",
+  "support": "https://github.com/basmilius/homey-flowbits/issues",
+  "homeyCommunityTopicId": 145855,
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "basmilius"
+      },
+      "githubSponsors": {
+        "username": "basmilius"
+      }
     }
+  },
+  "api": {
+    "activateFlag": {
+      "method": "PUT",
+      "path": "/flags"
+    },
+    "activateMode": {
+      "method": "PUT",
+      "path": "/modes"
+    },
+    "deactivateFlag": {
+      "method": "DELETE",
+      "path": "/flags"
+    },
+    "deactivateMode": {
+      "method": "DELETE",
+      "path": "/modes"
+    },
+    "toggleFlag": {
+      "method": "POST",
+      "path": "/flags"
+    },
+    "toggleMode": {
+      "method": "POST",
+      "path": "/modes"
+    },
+    "getCycles": {
+      "method": "GET",
+      "path": "/cycles"
+    },
+    "getEvents": {
+      "method": "GET",
+      "path": "/events"
+    },
+    "getFlags": {
+      "method": "GET",
+      "path": "/flags"
+    },
+    "getLabels": {
+      "method": "GET",
+      "path": "/labels"
+    },
+    "getModes": {
+      "method": "GET",
+      "path": "/modes"
+    },
+    "getNoRepeatWindows": {
+      "method": "GET",
+      "path": "/no-repeat-windows"
+    },
+    "getSets": {
+      "method": "GET",
+      "path": "/sets"
+    },
+    "getSliders": {
+      "method": "GET",
+      "path": "/sliders"
+    },
+    "getTimers": {
+      "method": "GET",
+      "path": "/timers"
+    },
+    "getColors": {
+      "method": "GET",
+      "path": "/colors"
+    },
+    "getIcons": {
+      "method": "GET",
+      "path": "/icons"
+    },
+    "setEventLook": {
+      "method": "POST",
+      "path": "/events/look"
+    },
+    "setFlagLook": {
+      "method": "POST",
+      "path": "/flags/look"
+    },
+    "setLabelLook": {
+      "method": "POST",
+      "path": "/labels/look"
+    },
+    "setModeLook": {
+      "method": "POST",
+      "path": "/modes/look"
+    },
+    "setSetLook": {
+      "method": "POST",
+      "path": "/sets/look"
+    },
+    "setTimerLook": {
+      "method": "POST",
+      "path": "/timers/look"
+    },
+    "getStatistics": {
+      "method": "GET",
+      "path": "/statistics"
+    }
+  }
 }
