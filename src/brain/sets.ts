@@ -294,35 +294,21 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async isActiveAll(setName: string): Promise<boolean> {
-        const setStates = this.states[setName];
+        const {activeCount, totalCount} = this.#getCounts(setName);
 
-        if (!setStates) {
-            return false;
-        }
-
-        const stateEntries = Object.values(setStates);
-
-        return stateEntries.length > 0 && stateEntries.every(([active]) => active);
+        return totalCount > 0 && activeCount === totalCount;
     }
 
     async isActiveAny(setName: string): Promise<boolean> {
-        const setStates = this.states[setName];
+        const {activeCount} = this.#getCounts(setName);
 
-        if (!setStates) {
-            return false;
-        }
-
-        return Object.values(setStates).some(([active]) => active);
+        return activeCount > 0;
     }
 
     async isInactive(setName: string): Promise<boolean> {
-        const setStates = this.states[setName];
+        const {activeCount, totalCount} = this.#getCounts(setName);
 
-        if (!setStates) {
-            return true;
-        }
-
-        return Object.values(setStates).every(([active]) => !active);
+        return totalCount === 0 || activeCount === 0;
     }
 
     async isStateActive(setName: string, stateName: string): Promise<boolean> {
@@ -418,12 +404,11 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     #snapshot(setName: string): Snapshot {
-        const setStates = Object.values(this.states[setName] ?? {});
-        const activeCount = setStates.filter(([active]) => active).length;
+        const {activeCount, totalCount} = this.#getCounts(setName);
 
         return {
             anyActive: activeCount > 0,
-            allActive: setStates.length > 0 && activeCount === setStates.length
+            allActive: totalCount > 0 && activeCount === totalCount
         };
     }
 
@@ -446,12 +431,16 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     #getCounts(setName: string): SetCounts {
-        const setStates = this.states[setName] ?? {};
+        const definedStates = this.#buildDefinedMap().get(setName);
 
-        return {
-            activeCount: Object.values(setStates).filter(([active]) => active).length,
-            totalCount: Object.keys(setStates).length
-        };
+        if (!definedStates || definedStates.size === 0) {
+            return {activeCount: 0, totalCount: 0};
+        }
+
+        const activeCount = [...definedStates]
+            .filter(stateName => this.#mapStoredState(setName, stateName).active).length;
+
+        return {activeCount, totalCount: definedStates.size};
     }
 
     async #emitActivations(setName: string, activatedStates: string[], snapshot: Snapshot, activeCount?: number, totalCount?: number): Promise<void> {

@@ -86,7 +86,7 @@
       "timers": "Timery",
       "events": "Zdarzenia",
       "labels": "Etykiety",
-      "sets": "Sets"
+      "sets": "Zestawy"
     },
     "card_statistics": {
       "title": "Statystyki kart przepływów",
@@ -98,9 +98,9 @@
       "empty": "Nie utworzono jeszcze żadnych timerów."
     },
     "sets": {
-      "title": "Sets",
-      "description": "Sets to kolekcje stanów logicznych, które mogą być oceniane jako grupa. Set jest aktywny, gdy którykolwiek z jego stanów jest aktywny. Używaj akcji, warunków i wyzwalaczy setów w swoich flow, aby zarządzać grupowanymi stanami.",
-      "empty": "Nie utworzono jeszcze żadnych setów."
+      "title": "Zestawy",
+      "description": "Zestawy to kolekcje stanów logicznych, które mogą być oceniane jako grupa. Zestaw jest aktywny, gdy którykolwiek z jego stanów jest aktywny. Używaj akcji, warunków i wyzwalaczy zestawów w swoich przepływach, aby zarządzać grupowanymi stanami.",
+      "empty": "Nie utworzono jeszcze żadnych zestawów."
     }
   },
   "color": {

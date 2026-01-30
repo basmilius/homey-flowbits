@@ -9,8 +9,8 @@
     "slider_new": "Ny slider i detta flöde",
     "event_new": "Ny händelse i detta flöde",
     "label_new": "Ny etikett i detta flöde",
-    "set_new": "Ny set i detta flöde",
-    "set_state_new": "Ny set-stand i detta flöde, kommer att bli känt efter att flödet sparas"
+    "set_new": "Nytt set i detta flöde",
+    "set_state_new": "Nytt set-tillstånd i detta flöde, kommer att bli känt efter att flödet sparas"
   },
   "notification": {
     "mode_activated": "**__name__** är aktiverad.",
