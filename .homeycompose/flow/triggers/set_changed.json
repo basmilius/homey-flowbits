@@ -108,6 +108,25 @@
                 "ko": "전체 상태 수",
                 "ar": "إجمالي عدد الحالات"
             }
+        },
+        {
+            "name": "activeStates",
+            "type": "string",
+            "title": {
+                "en": "Active states",
+                "nl": "Actieve statussen",
+                "de": "Aktive Zustände",
+                "fr": "États actifs",
+                "it": "Stati attivi",
+                "sv": "Aktiva tillstånd",
+                "no": "Aktive tilstander",
+                "es": "Estados activos",
+                "da": "Aktive tilstande",
+                "ru": "Активные состояния",
+                "pl": "Aktywne stany",
+                "ko": "활성 상태",
+                "ar": "الحالات النشطة"
+            }
         }
     ]
 }

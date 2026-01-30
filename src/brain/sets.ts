@@ -208,8 +208,9 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             triggers.push(this.#triggerSetBecomesInactiveAll(setName));
         }
 
+        const activeStates = this.#getActiveStateNames(setName);
         const counts = this.#getCounts(setName);
-        triggers.push(this.#triggerSetChanged(setName, true, counts.activeCount, counts.totalCount));
+        triggers.push(this.#triggerSetChanged(setName, true, counts.activeCount, counts.totalCount, activeStates));
 
         await Promise.allSettled(triggers);
     }
@@ -270,8 +271,9 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             triggers.push(this.#triggerSetBecomesInactiveAll(setName));
         }
 
+        const activeStates = this.#getActiveStateNames(setName);
         const counts = this.#getCounts(setName);
-        triggers.push(this.#triggerSetChanged(setName, true, counts.activeCount, counts.totalCount));
+        triggers.push(this.#triggerSetChanged(setName, true, counts.activeCount, counts.totalCount, activeStates));
 
         await Promise.allSettled(triggers);
     }
@@ -420,10 +422,10 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             ?.trigger({set});
     }
 
-    async #triggerSetChanged(set: string, active: boolean, activeCount: number, totalCount: number): Promise<void> {
+    async #triggerSetChanged(set: string, active: boolean, activeCount: number, totalCount: number, activeStates: string): Promise<void> {
         this.registry
             .findTrigger(Triggers.SetChanged)
-            ?.trigger({set}, {active, activeCount, totalCount});
+            ?.trigger({set}, {active, activeCount, totalCount, activeStates});
     }
 
     async #triggerStateActivated(set: string, state: string): Promise<void> {
@@ -493,6 +495,18 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             : {name: stateName, active: false, lastUpdate: undefined, expiresAt: undefined};
     }
 
+    #getActiveStateNames(setName: string): string {
+        const definedStates = this.#buildDefinedMap().get(setName);
+
+        if (!definedStates || definedStates.size === 0) {
+            return '';
+        }
+
+        return [...definedStates]
+            .filter(stateName => this.#mapStoredState(setName, stateName).active)
+            .join(', ');
+    }
+
     #getCounts(setName: string): SetCounts {
         const definedStates = this.#buildDefinedMap().get(setName);
 
@@ -507,6 +521,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async #emitActivations(setName: string, activatedStates: string[], snapshot: Snapshot): Promise<void> {
+        const activeStates = this.#getActiveStateNames(setName);
         const counts = this.#getCounts(setName);
         const isNowAllActive = await this.isActiveAll(setName);
         const triggers: Promise<void>[] = [this.#triggerRealtime()];
@@ -523,12 +538,13 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             triggers.push(this.#triggerSetBecomesActiveAll(setName));
         }
 
-        triggers.push(this.#triggerSetChanged(setName, true, counts.activeCount, counts.totalCount));
+        triggers.push(this.#triggerSetChanged(setName, true, counts.activeCount, counts.totalCount, activeStates));
 
         await Promise.allSettled(triggers);
     }
 
     async #emitDeactivations(setName: string, deactivatedStates: string[], snapshot: Snapshot): Promise<void> {
+        const activeStates = this.#getActiveStateNames(setName);
         const counts = this.#getCounts(setName);
         const isNowAnyActive = await this.isActiveAny(setName);
         const triggers: Promise<void>[] = [this.#triggerRealtime()];
@@ -545,7 +561,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             triggers.push(this.#triggerSetBecomesInactiveAll(setName));
         }
 
-        triggers.push(this.#triggerSetChanged(setName, isNowAnyActive, counts.activeCount, counts.totalCount));
+        triggers.push(this.#triggerSetChanged(setName, isNowAnyActive, counts.activeCount, counts.totalCount, activeStates));
 
         await Promise.allSettled(triggers);
     }

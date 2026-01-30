@@ -29,4 +29,5 @@ type Tokens = {
     readonly active: boolean;
     readonly activeCount: number;
     readonly totalCount: number;
+    readonly activeStates: string;
 };
