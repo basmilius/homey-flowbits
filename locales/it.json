@@ -99,7 +99,7 @@
     },
     "sets": {
       "title": "Sets",
-      "description": "Sets sono collezioni di stati booleani che possono essere valutati come gruppo. Un set è attivo quando uno dei suoi stati è attivo. Usa azioni, condizioni e trigger dei set nei tuoi flow per gestire gli stati raggruppati.",
+      "description": "I sets sono collezioni di stati booleani che possono essere valutati come gruppo. Un set è attivo quando uno dei suoi stati è attivo. Usa azioni, condizioni e trigger dei set nei tuoi flow per gestire gli stati raggruppati.",
       "empty": "Nessun set è stato ancora creato."
     }
   },

@@ -99,9 +99,9 @@
             "empty": "Aún no se han creado modos."
         },
         "sets": {
-            "title": "Sets",
-            "description": "Sets son colecciones de estados booleanos que se pueden evaluar como grupo. Un set está activo cuando cualquiera de sus estados está activo. Utiliza acciones, condiciones y disparadores de set en tus flujos para gestionar estados agrupados.",
-            "empty": "Aún no se han creado sets."
+            "title": "Conjuntos",
+            "description": "Los conjuntos son colecciones de estados booleanos que se pueden evaluar como grupo. Un conjunto está activo cuando cualquiera de sus estados está activo. Utiliza acciones, condiciones y disparadores de conjuntos en tus flujos para gestionar estados agrupados.",
+            "empty": "Aún no se han creado conjuntos."
         },
         "timers": {
             "title": "Temporizadores",
@@ -117,7 +117,7 @@
             "labels": "Etiquetas",
             "modes": "Modos",
             "no_repeats": "Ventanas sin repetición",
-            "sets": "Sets",
+            "sets": "Conjuntos",
             "sliders": "Deslizadores",
             "timers": "Temporizadores"
         },

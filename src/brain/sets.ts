@@ -138,7 +138,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         this.log(`Activated all states in set ${setName}.`);
 
         await this.#scheduleNextExpiration();
-        await this.#emitActivations(setName, inactiveStates.map(s => s.name), snapshot, set.states.length, set.states.length);
+        await this.#emitActivations(setName, inactiveStates.map(s => s.name), snapshot);
     }
 
     async activateState(setName: string, stateName: string): Promise<void> {
@@ -208,7 +208,70 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             triggers.push(this.#triggerSetBecomesInactiveAll(setName));
         }
 
-        triggers.push(this.#triggerSetChanged(setName, true, 1, Object.keys(states[setName]).length));
+        const counts = this.#getCounts(setName);
+        triggers.push(this.#triggerSetChanged(setName, true, counts.activeCount, counts.totalCount));
+
+        await Promise.allSettled(triggers);
+    }
+
+    async activateStateExclusiveFor(setName: string, stateName: string, duration: number, unit: ClockUnit): Promise<void> {
+        const snapshot = this.#snapshot(setName);
+        const now = DateTime.now();
+        const expiresAt = now.plus({seconds: convertDurationToSeconds(duration, unit)});
+        const nowISO = now.toISO();
+        const states = this.states;
+        const previousStates = states[setName] ?? {};
+
+        const statesToDeactivate = Object.entries(previousStates)
+            .filter(([name, [active]]) => active && name !== stateName)
+            .map(([name]) => name);
+
+        const wasTargetActive = previousStates[stateName]?.[0] ?? false;
+
+        states[setName] = Object.fromEntries(
+            Object.keys(previousStates).map(name => [
+                name,
+                [name === stateName, nowISO, name === stateName ? expiresAt.toISO() : null] as [boolean, string, string | null]
+            ])
+        );
+
+        if (!previousStates[stateName]) {
+            states[setName][stateName] = [true, nowISO, expiresAt.toISO()];
+        }
+
+        this.states = states;
+        this.log(`Activated state ${stateName} exclusively in set ${setName} for ${duration} ${unit}.`);
+
+        await this.#scheduleNextExpiration();
+
+        const triggers: Promise<void>[] = [this.#triggerRealtime()];
+
+        for (const state of statesToDeactivate) {
+            triggers.push(this.#triggerStateDeactivated(setName, state));
+            triggers.push(this.#triggerStateChanged(setName, state, false));
+        }
+
+        if (!wasTargetActive) {
+            triggers.push(this.#triggerStateActivated(setName, stateName));
+            triggers.push(this.#triggerStateChanged(setName, stateName, true));
+        }
+
+        if (!snapshot.anyActive) {
+            triggers.push(this.#triggerSetBecomesActiveAny(setName));
+        }
+
+        const isNowAllActive = await this.isActiveAll(setName);
+
+        if (!snapshot.allActive && isNowAllActive) {
+            triggers.push(this.#triggerSetBecomesActiveAll(setName));
+        }
+
+        if (snapshot.allActive && !isNowAllActive) {
+            triggers.push(this.#triggerSetBecomesInactiveAll(setName));
+        }
+
+        const counts = this.#getCounts(setName);
+        triggers.push(this.#triggerSetChanged(setName, true, counts.activeCount, counts.totalCount));
 
         await Promise.allSettled(triggers);
     }
@@ -257,7 +320,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         this.log(`Deactivated all states in set ${setName}.`);
 
         await this.#scheduleNextExpiration();
-        await this.#emitDeactivations(setName, statesToDeactivate, snapshot, 0, Object.keys(states[setName]).length);
+        await this.#emitDeactivations(setName, statesToDeactivate, snapshot);
     }
 
     async deactivateState(setName: string, stateName: string): Promise<void> {
@@ -443,13 +506,9 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         return {activeCount, totalCount: definedStates.size};
     }
 
-    async #emitActivations(setName: string, activatedStates: string[], snapshot: Snapshot, activeCount?: number, totalCount?: number): Promise<void> {
-        const counts = activeCount !== undefined && totalCount !== undefined
-            ? {activeCount, totalCount}
-            : this.#getCounts(setName);
-
+    async #emitActivations(setName: string, activatedStates: string[], snapshot: Snapshot): Promise<void> {
+        const counts = this.#getCounts(setName);
         const isNowAllActive = await this.isActiveAll(setName);
-
         const triggers: Promise<void>[] = [this.#triggerRealtime()];
 
         for (const state of activatedStates) {
@@ -469,13 +528,9 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         await Promise.allSettled(triggers);
     }
 
-    async #emitDeactivations(setName: string, deactivatedStates: string[], snapshot: Snapshot, activeCount?: number, totalCount?: number): Promise<void> {
-        const counts = activeCount !== undefined && totalCount !== undefined
-            ? {activeCount, totalCount}
-            : this.#getCounts(setName);
-
+    async #emitDeactivations(setName: string, deactivatedStates: string[], snapshot: Snapshot): Promise<void> {
+        const counts = this.#getCounts(setName);
         const isNowAnyActive = await this.isActiveAny(setName);
-
         const triggers: Promise<void>[] = [this.#triggerRealtime()];
 
         for (const state of deactivatedStates) {

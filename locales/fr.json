@@ -99,7 +99,7 @@
     },
     "sets": {
       "title": "Sets",
-      "description": "Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
+      "description": "Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
       "empty": "Aucun set n’a encore été créé."
     }
   },
