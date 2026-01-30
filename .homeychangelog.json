@@ -196,5 +196,8 @@
   },
   "1.12.0": {
     "en": "This update introduces Sets, which are groups of boolean values. It also fixes a bug with encoding of names and an issue with timers where the remaining trigger could in rare cases fire after the timer was finished."
+  },
+  "1.12.1": {
+    "en": "This update introduces Sets, which are groups of boolean values."
   }
 }
