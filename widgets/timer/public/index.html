@@ -51,7 +51,7 @@
 
         async function init() {
             Homey.on('flowbits-timer-update', (timer) => {
-                if (timer?.name === settings.timer?.name) {
+                if (timer?.name === settings.timer.name) {
                     render(timer);
                 }
             });
@@ -129,7 +129,7 @@
                 } else if (timer.status === 'stopped') {
                     timerValue.innerText = Homey.__('widget.timer.stopped');
                 }
-            } else if (settings.timer?.name) {
+            } else if (settings.timer.name) {
                 timerValue.innerText = Homey.__('widget.timer.stopped');
             }
         }

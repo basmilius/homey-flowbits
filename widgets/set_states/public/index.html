@@ -60,7 +60,7 @@
 
         async function init() {
             Homey.on('flowbits-sets-update', (set) => {
-                if (set?.name === settings.set?.name) {
+                if (set?.name === settings.set.name) {
                     render(set);
                 }
             });
@@ -69,7 +69,7 @@
         }
 
         function buildStates(states) {
-            statesContainer.innerHTML = '';
+            statesContainer.innerText = '';
 
             if (!states || states.length === 0) {
                 return;

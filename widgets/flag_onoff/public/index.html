@@ -72,7 +72,7 @@
 
         async function update() {
             const flag = settings.flag.name;
-            name.innerHTML = flag;
+            name.innerText = flag;
 
             const state = await Homey.api('GET', `/?flag=${encodeURIComponent(flag)}`);
 
