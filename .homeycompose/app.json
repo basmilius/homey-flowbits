@@ -1,6 +1,6 @@
 {
   "id": "com.basmilius.flowbits",
-  "version": "1.12.2",
+  "version": "1.12.3",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "brandColor": "#204ef6",

@@ -202,5 +202,8 @@
   },
   "1.12.2": {
     "en": "This update introduces Sets, which are groups of boolean values."
+  },
+  "1.12.3": {
+    "en": "This update introduces Sets, which are groups of boolean values."
   }
 }
