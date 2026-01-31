@@ -222,6 +222,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         const nowISO = now.toISO();
         const states = this.states;
         const previousStates = states[setName] ?? {};
+        const definedStates = this.#buildDefinedMap().get(setName) ?? new Set<string>();
 
         const statesToDeactivate = Object.entries(previousStates)
             .filter(([name, [active]]) => active && name !== stateName)
@@ -229,14 +230,16 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
         const wasTargetActive = previousStates[stateName]?.[0] ?? false;
 
-        states[setName] = Object.fromEntries(
-            Object.keys(previousStates).map(name => [
-                name,
-                [name === stateName, nowISO, name === stateName ? expiresAt.toISO() : null] as [boolean, string, string | null]
-            ])
-        );
+        states[setName] = {};
+        for (const name of definedStates) {
+            if (name === stateName) {
+                states[setName][name] = [true, nowISO, expiresAt.toISO()];
+            } else {
+                states[setName][name] = [false, nowISO, null];
+            }
+        }
 
-        if (!previousStates[stateName]) {
+        if (!definedStates.has(stateName)) {
             states[setName][stateName] = [true, nowISO, expiresAt.toISO()];
         }
 
