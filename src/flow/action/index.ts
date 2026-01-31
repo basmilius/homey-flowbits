@@ -18,6 +18,7 @@ export { default as RandomFact } from './randomFact';
 export { default as SetActivateAll } from './setActivateAll';
 export { default as SetActivateState } from './setActivateState';
 export { default as SetActivateStateExclusive } from './setActivateStateExclusive';
+export { default as SetActivateStateExclusiveFor } from './setActivateStateExclusiveFor';
 export { default as SetActivateStateFor } from './setActivateStateFor';
 export { default as SetDeactivateAll } from './setDeactivateAll';
 export { default as SetDeactivateState } from './setDeactivateState';

@@ -114,6 +114,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.SetActivateAll);
         this.registry.action(Actions.SetActivateState);
         this.registry.action(Actions.SetActivateStateExclusive);
+        this.registry.action(Actions.SetActivateStateExclusiveFor);
         this.registry.action(Actions.SetActivateStateFor);
         this.registry.action(Actions.SetDeactivateAll);
         this.registry.action(Actions.SetDeactivateState);
