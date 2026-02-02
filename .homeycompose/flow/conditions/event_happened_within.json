@@ -12,7 +12,8 @@
         "sv": "Händelsen !{{inträffade|inträffade inte}} inom",
         "pl": "Wydarzenie !{{miało miejsce|nie miało miejsca}} w ciągu",
         "ru": "Событие !{{произошло|не произошло}} в течение",
-        "ko": "이벤트가 !{{발생했습니다|발생하지 않았습니다}} 기간 내에"
+        "ko": "이벤트가 !{{발생했습니다|발생하지 않았습니다}} 기간 내에",
+        "ar": "الحدث !{{وقع|لم يقع}} خلال"
     },
     "titleFormatted": {
         "en": "Event [[event]] !{{happened|didn't happen}} within [[duration]] [[unit]]",
@@ -26,7 +27,8 @@
         "sv": "Händelsen [[event]] !{{inträffade|inträffade inte}} inom [[duration]] [[unit]]",
         "pl": "Wydarzenie [[event]] !{{miało miejsce|nie miało miejsca}} w ciągu [[duration]] [[unit]]",
         "ru": "Событие [[event]] !{{произошло|не произошло}} в течение [[duration]] [[unit]]",
-        "ko": "이벤트 [[event]]가 [[duration]] [[unit]] 내에 !{{발생했습니다|발생하지 않았습니다}}"
+        "ko": "이벤트 [[event]]가 [[duration]] [[unit]] 내에 !{{발생했습니다|발생하지 않았습니다}}",
+        "ar": "الحدث [[event]] !{{وقع|لم يقع}} خلال [[duration]] [[unit]]"
     },
     "hint": {
         "en": "Checks if the event has or hasn't happened within the given period.",
@@ -40,7 +42,8 @@
         "sv": "Kontrollerar om händelsen har inträffat eller inte inom den angivna perioden.",
         "pl": "Sprawdza, czy wydarzenie miało lub nie miało miejsca w podanym okresie.",
         "ru": "Проверяет, произошло ли событие или не произошло в указанный период.",
-        "ko": "주어진 기간 내에 이벤트가 발생했는지 또는 발생하지 않았는지 확인합니다."
+        "ko": "주어진 기간 내에 이벤트가 발생했는지 또는 발생하지 않았는지 확인합니다.",
+        "ar": "يتحقق مما إذا كان الحدث قد وقع أم لم يقع خلال الفترة المحددة."
     },
     "args": [
         {
@@ -58,7 +61,8 @@
                 "sv": "Händelse",
                 "pl": "Wydarzenie",
                 "ru": "Событие",
-                "ko": "이벤트"
+                "ko": "이벤트",
+                "ar": "حدث"
             }
         },
         {
@@ -78,7 +82,8 @@
                 "da": "Varighed",
                 "ru": "Длительность",
                 "pl": "Czas trwania",
-                "ko": "지속 시간"
+                "ko": "지속 시간",
+                "ar": "المدة"
             },
             "placeholder": {
                 "en": "E.g. 10",
@@ -92,7 +97,8 @@
                 "da": "Fx 10",
                 "ru": "Напр. 10",
                 "pl": "Np. 10",
-                "ko": "예: 10"
+                "ko": "예: 10",
+                "ar": "مثال: 10"
             }
         },
         {
@@ -110,7 +116,8 @@
                 "da": "Enhed",
                 "ru": "Единица",
                 "pl": "Jednostka",
-                "ko": "단위"
+                "ko": "단위",
+                "ar": "الوحدة"
             },
             "values": [
                 {
@@ -127,7 +134,8 @@
                         "da": "sekunder",
                         "ru": "секунды",
                         "pl": "sekundy",
-                        "ko": "초"
+                        "ko": "초",
+                        "ar": "ثوانٍ"
                     }
                 },
                 {
@@ -144,7 +152,8 @@
                         "da": "minutter",
                         "ru": "минуты",
                         "pl": "minuty",
-                        "ko": "분"
+                        "ko": "분",
+                        "ar": "دقائق"
                     }
                 },
                 {
@@ -161,7 +170,8 @@
                         "da": "timer",
                         "ru": "часы",
                         "pl": "godziny",
-                        "ko": "시간"
+                        "ko": "시간",
+                        "ar": "ساعات"
                     }
                 },
                 {
@@ -178,7 +188,8 @@
                         "da": "dage",
                         "ru": "дни",
                         "pl": "dni",
-                        "ko": "일"
+                        "ko": "일",
+                        "ar": "أيام"
                     }
                 }
             ]

@@ -12,7 +12,7 @@
         "sv": "Händelsen inträffade !{{minst|färre än}} N gånger idag",
         "pl": "Wydarzenie miało miejsce !{{co najmniej|mniej niż}} N razy dzisiaj",
         "ru": "Событие произошло !{{по меньшей мере|менее чем}} N раз сегодня",
-        "ko": "이벤트가 오늘 !{{최소|두 번 이하}} N번 발생했습니다",
+        "ko": "이벤트가 오늘 !{{최소|미만}} N번 발생했습니다",
         "ar": "حدث !{{على الأقل|أقل من}} N مرة اليوم"
     },
     "titleFormatted": {
@@ -27,8 +27,8 @@
         "sv": "Händelsen [[event]] inträffade !{{minst|färre än}} [[times]] gånger idag",
         "pl": "Wydarzenie [[event]] miało miejsce !{{co najmniej|mniej niż}} [[times]] razy dzisiaj",
         "ru": "Событие [[event]] произошло !{{по меньшей мере|менее чем}} [[times]] раз сегодня",
-        "ko": "이벤트 [[event]]가 오늘 !{{최소|두 번 이하}} [[times]]번 발생했습니다",
-        "ar": "حدث [[event]] !{{N|أقل من}} [[times]] مرة اليوم"
+        "ko": "이벤트 [[event]]가 오늘 !{{최소|미만}} [[times]]번 발생했습니다",
+        "ar": "حدث [[event]] !{{على الأقل|أقل من}} [[times]] مرة اليوم"
     },
     "hint": {
         "en": "Checks if the event has or hasn't happened N times today.",
