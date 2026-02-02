@@ -31,19 +31,19 @@
         "ar": "حدث [[event]] !{{على الأقل|أقل من}} [[times]] مرة اليوم"
     },
     "hint": {
-        "en": "Checks if the event has or hasn't happened N times today.",
-        "nl": "Controleert of de gebeurtenis vandaag N keer is gebeurd of vandaag minder dan N keer is gebeurd.",
-        "da": "Tjekker om begivenheden er sket N gange i dag eller færre end N gange.",
-        "de": "Überprüft, ob das Ereignis heute N Mal passiert ist oder weniger als N Mal.",
-        "es": "Verifica si el evento ha ocurrido N veces hoy o menos de N veces.",
-        "fr": "Vérifie si l'événement s'est produit N fois aujourd'hui ou moins de N fois.",
-        "it": "Controlla se l'evento è accaduto N volte oggi o meno di N volte.",
-        "no": "Sjekker om hendelsen har skjedd N ganger i dag eller færre enn N ganger.",
-        "sv": "Kontrollerar om händelsen har inträffat N gånger idag eller färre gånger.",
-        "pl": "Sprawdza, czy wydarzenie miało miejsce N razy dzisiaj lub mniej niż N razy.",
-        "ru": "Проверяет, произошло ли событие N раз сегодня или менее N раз.",
-        "ko": "이벤트가 오늘 N번 발생했는지 또는 그보다 적게 발생했는지 확인합니다.",
-        "ar": "يتحقق مما إذا كان الحدث قد حدث N مرة اليوم أو أقل."
+        "en": "Checks if the event happened at least or fewer than N times today.",
+        "nl": "Controleert of het evenement minstens of minder dan N keer vandaag is gebeurd.",
+        "da": "Kontrollerer om begivenheden mindst eller færre end N gange i dag er sket.",
+        "de": "Überprüft, ob das Ereignis mindestens oder weniger als N Mal heute passiert ist.",
+        "es": "Comprueba si el evento ocurrió al menos o menos de N veces hoy.",
+        "fr": "Vérifie si l'événement s'est produit au moins ou moins de N fois aujourd'hui.",
+        "it": "Verifica se l'evento è avvenuto almeno o meno di N volte oggi.",
+        "no": "Sjekker om hendelsen har skjedd minst eller færre enn N ganger i dag.",
+        "sv": "Kontrollerar om händelsen inträffade minst eller färre än N gånger idag.",
+        "pl": "Sprawdza, czy wydarzenie miało miejsce co najmniej lub mniej niż N razy dzisiaj.",
+        "ru": "Проверяет, произошло ли событие по крайней мере или менее N раз сегодня.",
+        "ko": "오늘 이벤트가 최소 N번 또는 그보다 적게 발생했는지 확인합니다.",
+        "ar": "يتحقق مما إذا كان الحدث قد حدث على الأقل أو أقل من N مرة اليوم."
     },
     "args": [
         {
