@@ -106,8 +106,13 @@
 
             if (event?.lastUpdate) {
                 const lastUpdate = new Date(event.lastUpdate);
-                interval = setInterval(() => tick(lastUpdate), 1000);
-                tick(lastUpdate);
+
+                if (settings.view_mode === 'relative') {
+                    interval = setInterval(() => tick(lastUpdate), 1000);
+                    tick(lastUpdate);
+                } else {
+                    eventValue.innerText = formatterDate.format(lastUpdate);
+                }
             }
 
             const height = document.body.getBoundingClientRect().height;

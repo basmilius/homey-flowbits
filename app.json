@@ -10074,6 +10074,64 @@
             "ko": "이벤트",
             "ar": "حدث"
           }
+        },
+        {
+          "id": "view_mode",
+          "type": "dropdown",
+          "title": {
+            "en": "View mode",
+            "nl": "Weergavemodus",
+            "de": "Ansichtsmodus",
+            "fr": "Mode d’affichage",
+            "it": "Modalità di visualizzazione",
+            "sv": "Visningsläge",
+            "no": "Visningsmodus",
+            "es": "Modo de vista",
+            "da": "Visningstilstand",
+            "ru": "Режим просмотра",
+            "pl": "Tryb widoku",
+            "ko": "보기 모드",
+            "ar": "وضع العرض"
+          },
+          "value": "relative",
+          "values": [
+            {
+              "id": "relative",
+              "title": {
+                "en": "Relative time",
+                "nl": "Relatieve tijd",
+                "de": "Relative Zeit",
+                "fr": "Temps relatif",
+                "it": "Tempo relativo",
+                "sv": "Relativ tid",
+                "no": "Relativ tid",
+                "es": "Tiempo relativo",
+                "da": "Relativ tid",
+                "ru": "Относительное время",
+                "pl": "Czas względny",
+                "ko": "상대 시간",
+                "ar": "الوقت النسبي"
+              }
+            },
+            {
+              "id": "absolute",
+              "title": {
+                "en": "Absolute time",
+                "nl": "Absolute tijd",
+                "de": "Absolute Zeit",
+                "fr": "Temps absolu",
+                "it": "Tempo assoluto",
+                "sv": "Absolut tid",
+                "no": "Absolutt tid",
+                "es": "Tiempo absoluto",
+                "da": "Absolut tid",
+                "ru": "Абсолютное время",
+                "pl": "Czas bezwzględny",
+                "ko": "절대 시간",
+                "ar": "الوقت المطلق"
+              }
+            }
+          ]
         }
       ],
       "api": {
