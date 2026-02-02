@@ -54,6 +54,10 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
     }
 
     async cycle(name: string, minValue: number, maxValue: number): Promise<void> {
+        if (minValue > maxValue) {
+            [minValue, maxValue] = [maxValue, minValue];
+        }
+
         let value = this.#get(name);
 
         if (value === null) {
@@ -71,6 +75,10 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
     }
 
     async cyclePrevious(name: string, minValue: number, maxValue: number): Promise<void> {
+        if (minValue > maxValue) {
+            [minValue, maxValue] = [maxValue, minValue];
+        }
+
         let value = this.#get(name);
 
         if (value === null) {
