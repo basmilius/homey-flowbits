@@ -5692,6 +5692,252 @@
         ]
       },
       {
+        "id": "cycle_between_previous",
+        "title": {
+          "en": "Previous step in sequence",
+          "nl": "Vorige stap in stappenreeks",
+          "de": "Vorheriger Schritt in der Sequenz",
+          "fr": "Étape précédente dans la séquence",
+          "it": "Passo precedente nella sequenza",
+          "sv": "Föregående steg i sekvensen",
+          "no": "Forrige trinn i sekvensen",
+          "es": "Paso anterior en la secuencia",
+          "da": "Forrige trin i sekvensen",
+          "ru": "Предыдущий шаг в последовательности",
+          "pl": "Poprzedni krok w sekwencji",
+          "ko": "시퀀스의 이전 단계",
+          "ar": "الخطوة السابقة في التسلسل"
+        },
+        "titleFormatted": {
+          "en": "Previous step in [[name]] ([[min_value]]—[[max_value]])",
+          "nl": "Vorige stap in [[name]] ([[min_value]]—[[max_value]])",
+          "de": "Vorheriger Schritt in [[name]] ([[min_value]]—[[max_value]])",
+          "fr": "Étape précédente dans [[name]] ([[min_value]]—[[max_value]])",
+          "it": "Passo precedente in [[name]] ([[min_value]]—[[max_value]])",
+          "sv": "Föregående steg in [[name]] ([[min_value]]—[[max_value]])",
+          "no": "Forrige trinn in [[name]] ([[min_value]]—[[max_value]])",
+          "es": "Paso anterior en [[name]] ([[min_value]]—[[max_value]])",
+          "da": "Forrige trin in [[name]] ([[min_value]]—[[max_value]])",
+          "ru": "Предыдущий шаг в [[name]] ([[min_value]]—[[max_value]])",
+          "pl": "Poprzedni krok w [[name]] ([[min_value]]—[[max_value]])",
+          "ko": "[[name]]의 이전 단계 ([[min_value]]—[[max_value]])",
+          "ar": "الخطوة السابقة في [[name]] ([[min_value]]—[[max_value]])"
+        },
+        "hint": {
+          "en": "Go to the previous step in a sequence. When the first value is reached, the sequence starts from the end.",
+          "nl": "Ga naar de vorige stap in een stappenreeks. Bij de eerste waarde begint de reeks opnieuw vanaf het einde.",
+          "de": "Zum vorherigen Schritt der Sequenz wechseln. Erreicht der Wert den Anfang, beginnt die Sequenz vom Ende.",
+          "fr": "Aller à l'étape précédente d'une séquence. Une fois la première valeur atteinte, la séquence recommence depuis la fin.",
+          "it": "Vai al passo precedente di una sequenza. Quando si raggiunge il primo valore, la sequenza riparte dalla fine.",
+          "sv": "Gå till föregående steg i en sekvens. När första värdet nås startar sekvensen om från slutet.",
+          "no": "Gå til forrige trinn i en sekvens. Når første verdi er nådd starter sekvensen på nytt fra slutten.",
+          "es": "Ir al paso anterior de una secuencia. Cuando se alcanza el primer valor, la secuencia empieza de nuevo desde el final.",
+          "da": "Gå til forrige trin i en sekvens. Når første værdi er nået starter sekvensen forfra fra slutningen.",
+          "ru": "Перейти к предыдущему шагу последовательности. Когда достигнуто первое значение, последовательность начинается с конца.",
+          "pl": "Przejdź do poprzedniego kroku sekwencji. Po osiągnięciu pierwszej wartości sekwencja zaczyna się od końca.",
+          "ko": "시퀀스의 이전 단계로 이동합니다. 첫 번째 값에 도달하면 시퀀스가 끝에서 다시 시작됩니다.",
+          "ar": "انتقل إلى الخطوة السابقة في التسلسل. عندما يتم الوصول إلى القيمة الأولى، يبدأ التسلسل من النهاية."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name",
+              "fr": "Nom",
+              "it": "Nome",
+              "sv": "Namn",
+              "no": "Navn",
+              "es": "Nombre",
+              "da": "Navn",
+              "ru": "Имя",
+              "pl": "Nazwa",
+              "ko": "이름",
+              "ar": "الاسم"
+            }
+          },
+          {
+            "type": "number",
+            "name": "max_value",
+            "min": 2,
+            "step": 1,
+            "title": {
+              "en": "Max",
+              "nl": "Maximum",
+              "de": "Maximum",
+              "fr": "Maximum",
+              "it": "Massimo",
+              "sv": "Maxvärde",
+              "no": "Maks",
+              "es": "Máximo",
+              "da": "Maks",
+              "ru": "Максимум",
+              "pl": "Maksimum",
+              "ko": "최대",
+              "ar": "الأقصى"
+            },
+            "placeholder": {
+              "en": "E.g. 5",
+              "nl": "Bijv. 5",
+              "de": "Z. B. 5",
+              "fr": "P. ex. 5",
+              "it": "Es. 5",
+              "sv": "T.ex. 5",
+              "no": "F.eks. 5",
+              "es": "P. ej. 5",
+              "da": "F.eks. 5",
+              "ru": "Напр. 5",
+              "pl": "Np. 5",
+              "ko": "예: 5",
+              "ar": "مثلاً: 5"
+            }
+          },
+          {
+            "type": "number",
+            "name": "min_value",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Min",
+              "nl": "Minimum",
+              "de": "Minimum",
+              "fr": "Minimum",
+              "it": "Minimo",
+              "sv": "Minvärde",
+              "no": "Min",
+              "es": "Mínimo",
+              "da": "Min",
+              "ru": "Минимум",
+              "pl": "Minimum",
+              "ko": "최소",
+              "ar": "الأدنى"
+            },
+            "placeholder": {
+              "en": "E.g. 5",
+              "nl": "Bijv. -5",
+              "de": "Z. B. -5",
+              "fr": "P. ex. -5",
+              "it": "Es. -5",
+              "sv": "T.ex. -5",
+              "no": "F.eks. -5",
+              "es": "P. ej. -5",
+              "da": "F.eks. -5",
+              "ru": "Напр. -5",
+              "pl": "Np. -5",
+              "ko": "예: -5",
+              "ar": "مثلاً: -5"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cycle_previous",
+        "title": {
+          "en": "Previous step in sequence",
+          "nl": "Vorige stap in stappenreeks",
+          "de": "Vorheriger Schritt in der Sequenz",
+          "fr": "Étape précédente dans la séquence",
+          "it": "Passo precedente nella sequenza",
+          "sv": "Föregående steg i sekvensen",
+          "no": "Forrige trinn i sekvensen",
+          "es": "Paso anterior en la secuencia",
+          "da": "Forrige trin i sekvensen",
+          "ru": "Предыдущий шаг в последовательности",
+          "pl": "Poprzedni krok w sekwencji",
+          "ko": "시퀀스의 이전 단계",
+          "ar": "الخطوة السابقة في التسلسل"
+        },
+        "titleFormatted": {
+          "en": "Previous step in [[name]] ( 1—[[max_value]])",
+          "nl": "Vorige stap in [[name]] ( 1—[[max_value]])",
+          "de": "Vorheriger Schritt in [[name]] (1—[[max_value]])",
+          "fr": "Étape précédente dans [[name]] (1—[[max_value]])",
+          "it": "Passo precedente in [[name]] (1—[[max_value]])",
+          "sv": "Föregående steg in [[name]] (1—[[max_value]])",
+          "no": "Forrige trinn in [[name]] (1—[[max_value]])",
+          "es": "Paso anterior en [[name]] (1—[[max_value]])",
+          "da": "Forrige trin in [[name]] (1—[[max_value]])",
+          "ru": "Предыдущий шаг в [[name]] (1—[[max_value]])",
+          "pl": "Poprzedni krok w [[name]] (1—[[max_value]])",
+          "ko": "[[name]]의 이전 단계 (1—[[max_value]])",
+          "ar": "الخطوة السابقة في [[name]] (1—[[max_value]])"
+        },
+        "hint": {
+          "en": "Go to the previous step in a sequence. When the first value is reached, the sequence starts from the end.",
+          "nl": "Ga naar de vorige stap in een stappenreeks. Bij de eerste waarde begint de reeks opnieuw vanaf het einde.",
+          "de": "Zum vorherigen Schritt der Sequenz wechseln. Erreicht der Wert den Anfang, beginnt die Sequenz vom Ende.",
+          "fr": "Aller à l'étape précédente d'une séquence. Une fois la première valeur atteinte, la séquence recommence depuis la fin.",
+          "it": "Vai al passo precedente di una sequenza. Quando si raggiunge il primo valore, la sequenza riparte dalla fine.",
+          "sv": "Gå till föregående steg i en sekvens. När första värdet nås startar sekvensen om från slutet.",
+          "no": "Gå til forrige trinn i en sekvens. Når første verdi er nådd starter sekvensen på nytt fra slutten.",
+          "es": "Ir al paso anterior de una secuencia. Cuando se alcanza el primer valor, la secuencia empieza de nuevo desde el final.",
+          "da": "Gå til forrige trin i en sekvens. Når første værdi er nået starter sekvensen forfra fra slutningen.",
+          "ru": "Перейти к предыдущему шагу последовательности. Когда достигнуто первое значение, последовательность начинается с конца.",
+          "pl": "Przejdź do poprzedniego kroku sekwencji. Po osiągnięciu pierwszej wartości sekwencja zaczyna się od końca.",
+          "ko": "시퀀스의 이전 단계로 이동합니다. 첫 번째 값에 도달하면 시퀀스가 끝에서 다시 시작됩니다.",
+          "ar": "انتقل إلى الخطوة السابقة في تسلسل. عندما يتم الوصول إلى القيمة الأولى، تبدأ السلسلة من النهاية."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name",
+              "fr": "Nom",
+              "it": "Nome",
+              "sv": "Namn",
+              "no": "Navn",
+              "es": "Nombre",
+              "da": "Navn",
+              "ru": "Имя",
+              "pl": "Nazwa",
+              "ko": "이름",
+              "ar": "الاسم"
+            }
+          },
+          {
+            "type": "number",
+            "name": "max_value",
+            "min": 2,
+            "step": 1,
+            "title": {
+              "en": "Max",
+              "nl": "Maximum",
+              "de": "Maximum",
+              "fr": "Maximum",
+              "it": "Massimo",
+              "sv": "Maxvärde",
+              "no": "Maks",
+              "es": "Máximo",
+              "da": "Maks",
+              "ru": "Максимум",
+              "pl": "Maksimum",
+              "ko": "최대",
+              "ar": "الحد الأقصى"
+            },
+            "placeholder": {
+              "en": "E.g. 5",
+              "nl": "Bijv. 5",
+              "de": "Z. B. 5",
+              "fr": "P. ex. 5",
+              "it": "Es. 5",
+              "sv": "T.ex. 5",
+              "no": "F.eks. 5",
+              "es": "P. ej. 5",
+              "da": "F.eks. 5",
+              "ru": "Напр. 5",
+              "pl": "Np. 5",
+              "ko": "예: 5",
+              "ar": "مثال: 5"
+            }
+          }
+        ]
+      },
+      {
         "id": "cycle_to",
         "title": {
           "en": "Set sequence to",
