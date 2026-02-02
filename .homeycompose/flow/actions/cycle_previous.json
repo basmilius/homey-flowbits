@@ -18,17 +18,17 @@
     "titleFormatted": {
         "en": "Previous step in [[name]] ( 1—[[max_value]])",
         "nl": "Vorige stap in [[name]] ( 1—[[max_value]])",
-        "de": "Vorheriger Schritt in [[name]] (1—[[max_value]])",
-        "fr": "Étape précédente dans [[name]] (1—[[max_value]])",
-        "it": "Passo precedente in [[name]] (1—[[max_value]])",
-        "sv": "Föregående steg in [[name]] (1—[[max_value]])",
-        "no": "Forrige trinn in [[name]] (1—[[max_value]])",
-        "es": "Paso anterior en [[name]] (1—[[max_value]])",
-        "da": "Forrige trin in [[name]] (1—[[max_value]])",
-        "ru": "Предыдущий шаг в [[name]] (1—[[max_value]])",
-        "pl": "Poprzedni krok w [[name]] (1—[[max_value]])",
-        "ko": "[[name]]의 이전 단계 (1—[[max_value]])",
-        "ar": "الخطوة السابقة في [[name]] (1—[[max_value]])"
+        "de": "Vorheriger Schritt in [[name]] ( 1—[[max_value]])",
+        "fr": "Étape précédente dans [[name]] ( 1—[[max_value]])",
+        "it": "Passo precedente in [[name]] ( 1—[[max_value]])",
+        "sv": "Föregående steg in [[name]] ( 1—[[max_value]])",
+        "no": "Forrige trinn in [[name]] ( 1—[[max_value]])",
+        "es": "Paso anterior en [[name]] ( 1—[[max_value]])",
+        "da": "Forrige trin in [[name]] ( 1—[[max_value]])",
+        "ru": "Предыдущий шаг в [[name]] ( 1—[[max_value]])",
+        "pl": "Poprzedni krok w [[name]] ( 1—[[max_value]])",
+        "ko": "[[name]]의 이전 단계 ( 1—[[max_value]])",
+        "ar": "الخطوة السابقة في [[name]] (1—[[max_value]] )"
     },
     "hint": {
         "en": "Go to the previous step in a sequence. When the first value is reached, the sequence starts from the end.",

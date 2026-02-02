@@ -18,17 +18,17 @@
     "titleFormatted": {
         "en": "Next step in [[name]] ( 1—[[max_value]])",
         "nl": "Volgende stap in [[name]] ( 1—[[max_value]])",
-        "de": "Nächster Schritt in [[name]] (1—[[max_value]])",
-        "fr": "Étape suivante dans [[name]] (1—[[max_value]])",
-        "it": "Passo successivo in [[name]] (1—[[max_value]])",
-        "sv": "Nästa steg in [[name]] (1—[[max_value]])",
-        "no": "Neste trinn in [[name]] (1—[[max_value]])",
-        "es": "Siguiente paso en [[name]] (1—[[max_value]])",
-        "da": "Næste trin in [[name]] (1—[[max_value]])",
-        "ru": "Следующий шаг в [[name]] (1—[[max_value]])",
-        "pl": "Następny krok w [[name]] (1—[[max_value]])",
-        "ko": "[[name]]의 다음 단계 (1—[[max_value]])",
-        "ar": "الخطوة التالية في [[name]] (1—[[max_value]])"
+        "de": "Nächster Schritt in [[name]] ( 1—[[max_value]])",
+        "fr": "Étape suivante dans [[name]] ( 1—[[max_value]])",
+        "it": "Passo successivo in [[name]] ( 1—[[max_value]])",
+        "sv": "Nästa steg in [[name]] ( 1—[[max_value]])",
+        "no": "Neste trinn in [[name]] ( 1—[[max_value]])",
+        "es": "Siguiente paso en [[name]] ( 1—[[max_value]])",
+        "da": "Næste trin in [[name]] ( 1—[[max_value]])",
+        "ru": "Следующий шаг в [[name]] ( 1—[[max_value]])",
+        "pl": "Następny krok w [[name]] ( 1—[[max_value]])",
+        "ko": "[[name]]의 다음 단계 ( 1—[[max_value]])",
+        "ar": "الخطوة التالية في [[name]] (1—[[max_value]] )"
     },
     "hint": {
         "en": "Go to the next step in a sequence. When the last value is reached, the sequence starts from the beginning.",
