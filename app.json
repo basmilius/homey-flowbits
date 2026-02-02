@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.basmilius.flowbits",
-  "version": "1.11.0",
+  "version": "1.12.3",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "brandColor": "#204ef6",
@@ -293,6 +293,10 @@
       "method": "GET",
       "path": "/no-repeat-windows"
     },
+    "getSets": {
+      "method": "GET",
+      "path": "/sets"
+    },
     "getSliders": {
       "method": "GET",
       "path": "/sliders"
@@ -324,6 +328,10 @@
     "setModeLook": {
       "method": "POST",
       "path": "/modes/look"
+    },
+    "setSetLook": {
+      "method": "POST",
+      "path": "/sets/look"
     },
     "setTimerLook": {
       "method": "POST",
@@ -1586,6 +1594,624 @@
               "pl": "Tryb",
               "ko": "모드",
               "ar": "وضع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_becomes_active_all",
+        "title": {
+          "en": "All states in set become active",
+          "nl": "Alle statussen in set worden actief",
+          "de": "Alle Zustände im Set werden aktiv",
+          "fr": "Tous les états de l’ensemble deviennent actifs",
+          "it": "Tutti gli stati nel set diventano attivi",
+          "sv": "Alla tillstånd i uppsättningen blir aktiva",
+          "no": "Alle tilstander i settet blir aktive",
+          "es": "Todos los estados en el conjunto se activan",
+          "da": "Alle tilstande i sættet bliver aktive",
+          "ru": "Все состояния в наборе становятся активными",
+          "pl": "Wszystkie stany w zestawie stają się aktywne",
+          "ko": "세트의 모든 상태가 활성화됨",
+          "ar": "تصبح جميع الحالات في المجموعة نشطة"
+        },
+        "titleFormatted": {
+          "en": "All states in set [[set]] become active",
+          "nl": "Alle statussen in set [[set]] worden actief",
+          "de": "Alle Zustände im Set [[set]] werden aktiv",
+          "fr": "Tous les états de l’ensemble [[set]] deviennent actifs",
+          "it": "Tutti gli stati nel set [[set]] diventano attivi",
+          "sv": "Alla tillstånd i uppsättningen [[set]] blir aktiva",
+          "no": "Alle tilstander i settet [[set]] blir aktive",
+          "es": "Todos los estados en el conjunto [[set]] se activan",
+          "da": "Alle tilstande i sættet [[set]] bliver aktive",
+          "ru": "Все состояния в наборе [[set]] становятся активными",
+          "pl": "Wszystkie stany w zestawie [[set]] stają się aktywne",
+          "ko": "세트 [[set]]의 모든 상태가 활성화됨",
+          "ar": "تصبح جميع الحالات في المجموعة [[set]] نشطة"
+        },
+        "hint": {
+          "en": "Triggers when all states in a set become active.",
+          "nl": "Triggers wanneer alle statussen in een set actief worden.",
+          "de": "Wird ausgelöst, wenn alle Zustände in einem Set aktiv werden.",
+          "fr": "Se déclenche lorsque tous les états d’un ensemble deviennent actifs.",
+          "it": "Si attiva quando tutti gli stati in un set diventano attivi.",
+          "sv": "Utlöses när alla tillstånd i en uppsättning blir aktiva.",
+          "no": "Utløses når alle tilstander i et sett blir aktive.",
+          "es": "Se activa cuando todos los estados de un conjunto se activan.",
+          "da": "Udløses når alle tilstande i et sæt bliver aktive.",
+          "ru": "Срабатывает, когда все состояния в наборе становятся активными.",
+          "pl": "Wyzwalane, gdy wszystkie stany w zestawie stają się aktywne.",
+          "ko": "세트의 모든 상태가 활성화되면 트리거됩니다.",
+          "ar": "يتم التشغيل عند تفعيل جميع الحالات في مجموعة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_becomes_active_any",
+        "title": {
+          "en": "Set becomes active",
+          "nl": "Set wordt actief",
+          "de": "Set wird aktiv",
+          "fr": "L’ensemble devient actif",
+          "it": "Il set diventa attivo",
+          "sv": "Uppsättningen blir aktiv",
+          "no": "Sett blir aktivt",
+          "es": "El conjunto se activa",
+          "da": "Sættet bliver aktivt",
+          "ru": "Набор становится активным",
+          "pl": "Zestaw staje się aktywny",
+          "ko": "세트가 활성화됨",
+          "ar": "تصبح المجموعة نشطة"
+        },
+        "titleFormatted": {
+          "en": "Set [[set]] becomes active",
+          "nl": "Set [[set]] wordt actief",
+          "de": "Set [[set]] wird aktiv",
+          "fr": "L’ensemble [[set]] devient actif",
+          "it": "Il set [[set]] diventa attivo",
+          "sv": "Uppsättningen [[set]] blir aktiv",
+          "no": "Sett [[set]] blir aktivt",
+          "es": "El conjunto [[set]] se activa",
+          "da": "Sættet [[set]] bliver aktivt",
+          "ru": "Набор [[set]] становится активным",
+          "pl": "Zestaw [[set]] staje się aktywny",
+          "ko": "세트 [[set]]가 활성화됨",
+          "ar": "تصبح المجموعة [[set]] نشطة"
+        },
+        "hint": {
+          "en": "Triggers when a set becomes active (was inactive, now has at least one active state).",
+          "nl": "Triggers wanneer een set actief wordt (was inactief, heeft nu minimaal één actieve status).",
+          "de": "Wird ausgelöst, wenn ein Set aktiv wird (war inaktiv und hat nun mindestens einen aktiven Zustand).",
+          "fr": "Se déclenche lorsqu’un ensemble devient actif (était inactif et possède désormais au moins un état actif).",
+          "it": "Si attiva quando un set diventa attivo (era inattivo e ora ha almeno uno stato attivo).",
+          "sv": "Utlöses när en uppsättning blir aktiv (var inaktiv och har nu minst ett aktivt tillstånd).",
+          "no": "Utløses når et sett blir aktivt (var inaktivt og har nå minst én aktiv tilstand).",
+          "es": "Se activa cuando un conjunto se vuelve activo (estaba inactivo y ahora tiene al menos un estado activo).",
+          "da": "Udløses når et sæt bliver aktivt (var inaktivt og har nu mindst én aktiv tilstand).",
+          "ru": "Срабатывает, когда набор становится активным (был неактивен и теперь имеет хотя бы одно активное состояние).",
+          "pl": "Wyzwalane, gdy zestaw staje się aktywny (był nieaktywny i ma teraz co najmniej jeden aktywny stan).",
+          "ko": "세트가 활성화될 때 트리거됩니다(이전에는 비활성이었으며 이제 최소 하나의 활성 상태를 가짐).",
+          "ar": "يتم التشغيل عندما تصبح المجموعة نشطة (كانت غير نشطة ولديها الآن حالة نشطة واحدة على الأقل)."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_becomes_inactive",
+        "title": {
+          "en": "Set becomes inactive",
+          "nl": "Set wordt inactief",
+          "de": "Set wird inaktiv",
+          "fr": "L’ensemble devient inactif",
+          "it": "Il set diventa inattivo",
+          "sv": "Uppsättningen blir inaktiv",
+          "no": "Sett blir inaktivt",
+          "es": "El conjunto se desactiva",
+          "da": "Sættet bliver inaktivt",
+          "ru": "Набор становится неактивным",
+          "pl": "Zestaw staje się nieaktywny",
+          "ko": "세트가 비활성화됨",
+          "ar": "تصبح المجموعة غير نشطة"
+        },
+        "titleFormatted": {
+          "en": "Set [[set]] becomes inactive",
+          "nl": "Set [[set]] wordt inactief",
+          "de": "Set [[set]] wird inaktiv",
+          "fr": "L’ensemble [[set]] devient inactif",
+          "it": "Il set [[set]] diventa inattivo",
+          "sv": "Uppsättningen [[set]] blir inaktiv",
+          "no": "Sett [[set]] blir inaktivt",
+          "es": "El conjunto [[set]] se desactiva",
+          "da": "Sættet [[set]] bliver inaktivt",
+          "ru": "Набор [[set]] становится неактивным",
+          "pl": "Zestaw [[set]] staje się nieaktywny",
+          "ko": "세트 [[set]]가 비활성화됨",
+          "ar": "تصبح المجموعة [[set]] غير نشطة"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_becomes_inactive_all",
+        "title": {
+          "en": "Set no longer has all states active",
+          "nl": "Set heeft niet alle statussen meer actief",
+          "de": "Set hat nicht mehr alle Zustände aktiv",
+          "fr": "L’ensemble n’a plus tous les états actifs",
+          "it": "Il set non ha più tutti gli stati attivi",
+          "sv": "Uppsättningen har inte längre alla tillstånd aktiva",
+          "no": "Sett har ikke lenger alle tilstander aktive",
+          "es": "El conjunto ya no tiene todos los estados activos",
+          "da": "Sættet har ikke længere alle tilstande aktive",
+          "ru": "В наборе больше не все состояния активны",
+          "pl": "Zestaw nie ma już wszystkich stanów aktywnych",
+          "ko": "세트에 더 이상 모든 상태가 활성화되어 있지 않음",
+          "ar": "لم تعد جميع الحالات في المجموعة نشطة"
+        },
+        "titleFormatted": {
+          "en": "Set [[set]] no longer has all states active",
+          "nl": "Set [[set]] heeft niet alle statussen meer actief",
+          "de": "Set [[set]] hat nicht mehr alle Zustände aktiv",
+          "fr": "L’ensemble [[set]] n’a plus tous les états actifs",
+          "it": "Il set [[set]] non ha più tutti gli stati attivi",
+          "sv": "Uppsättningen [[set]] har inte längre alla tillstånd aktiva",
+          "no": "Sett [[set]] har ikke lenger alle tilstander aktive",
+          "es": "El conjunto [[set]] ya no tiene todos los estados activos",
+          "da": "Sættet [[set]] har ikke længere alle tilstande aktive",
+          "ru": "В наборе [[set]] больше не все состояния активны",
+          "pl": "Zestaw [[set]] nie ma już wszystkich stanów aktywnych",
+          "ko": "세트 [[set]]에 더 이상 모든 상태가 활성화되어 있지 않음",
+          "ar": "لم تعد جميع الحالات في المجموعة [[set]] نشطة"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_changed",
+        "title": {
+          "en": "Set changed",
+          "nl": "Set is gewijzigd",
+          "de": "Set wurde geändert",
+          "fr": "L’ensemble a changé",
+          "it": "Il set è cambiato",
+          "sv": "Uppsättningen har ändrats",
+          "no": "Sett er endret",
+          "es": "El conjunto ha cambiado",
+          "da": "Sættet er ændret",
+          "ru": "Набор изменён",
+          "pl": "Zestaw został zmieniony",
+          "ko": "세트가 변경됨",
+          "ar": "تم تغيير المجموعة"
+        },
+        "titleFormatted": {
+          "en": "Set [[set]] changed",
+          "nl": "Set [[set]] is gewijzigd",
+          "de": "Set [[set]] wurde geändert",
+          "fr": "L’ensemble [[set]] a changé",
+          "it": "Il set [[set]] è cambiato",
+          "sv": "Uppsättningen [[set]] har ändrats",
+          "no": "Sett [[set]] er endret",
+          "es": "El conjunto [[set]] ha cambiado",
+          "da": "Sættet [[set]] er ændret",
+          "ru": "Набор [[set]] изменён",
+          "pl": "Zestaw [[set]] został zmieniony",
+          "ko": "세트 [[set]]가 변경됨",
+          "ar": "تم تغيير المجموعة [[set]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "active",
+            "type": "boolean",
+            "title": {
+              "en": "Active",
+              "nl": "Actief",
+              "de": "Aktiv",
+              "fr": "Actif",
+              "it": "Attivo",
+              "sv": "Aktiv",
+              "no": "Aktiv",
+              "es": "Activo",
+              "da": "Aktiv",
+              "ru": "Активный",
+              "pl": "Aktywny",
+              "ko": "활성",
+              "ar": "نشط"
+            }
+          },
+          {
+            "name": "activeCount",
+            "type": "number",
+            "title": {
+              "en": "Active count",
+              "nl": "Aantal actieve statussen",
+              "de": "Anzahl aktiver Zustände",
+              "fr": "Nombre d’états actifs",
+              "it": "Numero di stati attivi",
+              "sv": "Antal aktiva tillstånd",
+              "no": "Antall aktive tilstander",
+              "es": "Cantidad de estados activos",
+              "da": "Antal aktive tilstande",
+              "ru": "Количество активных состояний",
+              "pl": "Liczba aktywnych stanów",
+              "ko": "활성 상태 수",
+              "ar": "عدد الحالات النشطة"
+            }
+          },
+          {
+            "name": "totalCount",
+            "type": "number",
+            "title": {
+              "en": "Total count",
+              "nl": "Totaal aantal statussen",
+              "de": "Gesamtanzahl der Zustände",
+              "fr": "Nombre total d’états",
+              "it": "Numero totale di stati",
+              "sv": "Totalt antal tillstånd",
+              "no": "Totalt antall tilstander",
+              "es": "Cantidad total de estados",
+              "da": "Samlet antal tilstande",
+              "ru": "Общее количество состояний",
+              "pl": "Łączna liczba stanów",
+              "ko": "전체 상태 수",
+              "ar": "إجمالي عدد الحالات"
+            }
+          },
+          {
+            "name": "activeStates",
+            "type": "string",
+            "title": {
+              "en": "Active states",
+              "nl": "Actieve statussen",
+              "de": "Aktive Zustände",
+              "fr": "États actifs",
+              "it": "Stati attivi",
+              "sv": "Aktiva tillstånd",
+              "no": "Aktive tilstander",
+              "es": "Estados activos",
+              "da": "Aktive tilstande",
+              "ru": "Активные состояния",
+              "pl": "Aktywne stany",
+              "ko": "활성 상태",
+              "ar": "الحالات النشطة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_activated",
+        "title": {
+          "en": "State in set was activated",
+          "nl": "Status in set werd geactiveerd",
+          "de": "Zustand im Set wurde aktiviert",
+          "fr": "L’état dans l’ensemble a été activé",
+          "it": "Lo stato nel set è stato attivato",
+          "sv": "Tillstånd i uppsättningen aktiverades",
+          "no": "Tilstand i settet ble aktivert",
+          "es": "El estado en el conjunto fue activado",
+          "da": "Tilstand i sættet blev aktiveret",
+          "ru": "Состояние в наборе было активировано",
+          "pl": "Stan w zestawie został aktywowany",
+          "ko": "세트의 상태가 활성화됨",
+          "ar": "تم تفعيل الحالة في المجموعة"
+        },
+        "titleFormatted": {
+          "en": "State [[state]] in set [[set]] was activated",
+          "nl": "Status [[state]] in set [[set]] werd geactiveerd",
+          "de": "Zustand [[state]] im Set [[set]] wurde aktiviert",
+          "fr": "L’état [[state]] dans l’ensemble [[set]] a été activé",
+          "it": "Lo stato [[state]] nel set [[set]] è stato attivato",
+          "sv": "Tillstånd [[state]] i uppsättningen [[set]] aktiverades",
+          "no": "Tilstand [[state]] i settet [[set]] ble aktivert",
+          "es": "El estado [[state]] en el conjunto [[set]] fue activado",
+          "da": "Tilstand [[state]] i sættet [[set]] blev aktiveret",
+          "ru": "Состояние [[state]] в наборе [[set]] было активировано",
+          "pl": "Stan [[state]] w zestawie [[set]] został aktywowany",
+          "ko": "세트 [[set]]의 상태 [[state]]가 활성화됨",
+          "ar": "تم تفعيل الحالة [[state]] في المجموعة [[set]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_changed",
+        "title": {
+          "en": "State in set changed",
+          "nl": "Status in set is gewijzigd",
+          "de": "Zustand im Set wurde geändert",
+          "fr": "L’état dans l’ensemble a changé",
+          "it": "Lo stato nel set è cambiato",
+          "sv": "Tillstånd i uppsättningen har ändrats",
+          "no": "Tilstand i settet er endret",
+          "es": "El estado en el conjunto ha cambiado",
+          "da": "Tilstand i sættet er ændret",
+          "ru": "Состояние в наборе изменено",
+          "pl": "Stan w zestawie został zmieniony",
+          "ko": "세트의 상태가 변경됨",
+          "ar": "تم تغيير الحالة في المجموعة"
+        },
+        "titleFormatted": {
+          "en": "State [[state]] in set [[set]] changed",
+          "nl": "Status [[state]] in set [[set]] is gewijzigd",
+          "de": "Zustand [[state]] im Set [[set]] wurde geändert",
+          "fr": "L’état [[state]] dans l’ensemble [[set]] a changé",
+          "it": "Lo stato [[state]] nel set [[set]] è cambiato",
+          "sv": "Tillstånd [[state]] i uppsättningen [[set]] har ändrats",
+          "no": "Tilstand [[state]] i settet [[set]] er endret",
+          "es": "El estado [[state]] en el conjunto [[set]] ha cambiado",
+          "da": "Tilstand [[state]] i sættet [[set]] er ændret",
+          "ru": "Состояние [[state]] в наборе [[set]] изменено",
+          "pl": "Stan [[state]] w zestawie [[set]] został zmieniony",
+          "ko": "세트 [[set]]의 상태 [[state]]가 변경됨",
+          "ar": "تم تغيير الحالة [[state]] في المجموعة [[set]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "active",
+            "type": "boolean",
+            "title": {
+              "en": "Active",
+              "nl": "Actief",
+              "de": "Aktiv",
+              "fr": "Actif",
+              "it": "Attivo",
+              "sv": "Aktiv",
+              "no": "Aktiv",
+              "es": "Activo",
+              "da": "Aktiv",
+              "ru": "Активный",
+              "pl": "Aktywny",
+              "ko": "활성",
+              "ar": "نشط"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_deactivated",
+        "title": {
+          "en": "State in set was deactivated",
+          "nl": "Status in set werd gedeactiveerd",
+          "de": "Zustand im Set wurde deaktiviert",
+          "fr": "L’état dans l’ensemble a été désactivé",
+          "it": "Lo stato nel set è stato disattivato",
+          "sv": "Tillstånd i uppsättningen avaktiverades",
+          "no": "Tilstand i settet ble deaktivert",
+          "es": "El estado en el conjunto fue desactivado",
+          "da": "Tilstand i sættet blev deaktiveret",
+          "ru": "Состояние в наборе было деактивировано",
+          "pl": "Stan w zestawie został dezaktywowany",
+          "ko": "세트의 상태가 비활성화됨",
+          "ar": "تم إلغاء تنشيط الحالة في المجموعة"
+        },
+        "titleFormatted": {
+          "en": "State [[state]] in set [[set]] was deactivated",
+          "nl": "Status [[state]] in set [[set]] werd gedeactiveerd",
+          "de": "Zustand [[state]] im Set [[set]] wurde deaktiviert",
+          "fr": "L’état [[state]] dans l’ensemble [[set]] a été désactivé",
+          "it": "Lo stato [[state]] nel set [[set]] è stato disattivato",
+          "sv": "Tillstånd [[state]] i uppsättningen [[set]] avaktiverades",
+          "no": "Tilstand [[state]] i settet [[set]] ble deaktivert",
+          "es": "El estado [[state]] en el conjunto [[set]] fue desactivado",
+          "da": "Tilstand [[state]] i sættet [[set]] blev deaktiveret",
+          "ru": "Состояние [[state]] в наборе [[set]] было деактивировано",
+          "pl": "Stan [[state]] w zestawie [[set]] został dezaktywowany",
+          "ko": "세트 [[set]]의 상태 [[state]]가 비활성화됨",
+          "ar": "تم إلغاء تنشيط الحالة [[state]] في المجموعة [[set]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
             }
           }
         ]
@@ -3610,6 +4236,286 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "set_active_all",
+        "title": {
+          "en": "All states in set are active",
+          "nl": "Alle statussen in de set zijn actief",
+          "de": "Alle Zustände im Set sind aktiv",
+          "fr": "Tous les états dans l’ensemble sont actifs",
+          "it": "Tutti gli stati nel set sono attivi",
+          "sv": "Alla tillstånd i uppsättningen är aktiva",
+          "no": "Alle tilstander i settet er aktive",
+          "es": "Todos los estados en el conjunto están activos",
+          "da": "Alle tilstande i sættet er aktive",
+          "ru": "Все состояния в наборе активны",
+          "pl": "Wszystkie stany w zestawie są aktywne",
+          "ko": "세트의 모든 상태가 활성화됨",
+          "ar": "جميع الحالات في المجموعة نشطة"
+        },
+        "titleFormatted": {
+          "en": "All states in set [[set]] are active",
+          "nl": "Alle statussen in set [[set]] zijn actief",
+          "de": "Alle Zustände im Set [[set]] sind aktiv",
+          "fr": "Tous les états dans l’ensemble [[set]] sont actifs",
+          "it": "Tutti gli stati nel set [[set]] sono attivi",
+          "sv": "Alla tillstånd i uppsättningen [[set]] är aktiva",
+          "no": "Alle tilstander i settet [[set]] er aktive",
+          "es": "Todos los estados en el conjunto [[set]] están activos",
+          "da": "Alle tilstande i sættet [[set]] er aktive",
+          "ru": "Все состояния в наборе [[set]] активны",
+          "pl": "Wszystkie stany w zestawie [[set]] są aktywne",
+          "ko": "세트 [[set]]의 모든 상태가 활성화됨",
+          "ar": "جميع الحالات في المجموعة [[set]] نشطة"
+        },
+        "hint": {
+          "en": "All states in a set are active.",
+          "nl": "Alle statussen in een set zijn actief.",
+          "de": "Alle Zustände in einem Set sind aktiv.",
+          "fr": "Tous les états d’un ensemble sont actifs.",
+          "it": "Tutti gli stati in un set sono attivi.",
+          "sv": "Alla tillstånd i en uppsättning är aktiva.",
+          "no": "Alle tilstander i et sett er aktive.",
+          "es": "Todos los estados en un conjunto están activos.",
+          "da": "Alle tilstande i et sæt er aktive.",
+          "ru": "Все состояния в наборе активны.",
+          "pl": "Wszystkie stany w zestawie są aktywne.",
+          "ko": "세트의 모든 상태가 활성화되어 있습니다.",
+          "ar": "جميع الحالات في مجموعة نشطة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_active_any",
+        "title": {
+          "en": "Any state in set is active",
+          "nl": "Minstens één status in de set is actief",
+          "de": "Mindestens ein Zustand im Set ist aktiv",
+          "fr": "Au moins un état dans l’ensemble est actif",
+          "it": "Almeno uno stato nel set è attivo",
+          "sv": "Minst ett tillstånd i uppsättningen är aktivt",
+          "no": "Minst én tilstand i settet er aktiv",
+          "es": "Al menos un estado en el conjunto está activo",
+          "da": "Mindst én tilstand i sættet er aktiv",
+          "ru": "По крайней мере одно состояние в наборе активно",
+          "pl": "Co najmniej jeden stan w zestawie jest aktywny",
+          "ko": "세트에서 하나 이상의 상태가 활성화됨",
+          "ar": "على الأقل حالة واحدة في المجموعة نشطة"
+        },
+        "titleFormatted": {
+          "en": "Any state in set [[set]] is active",
+          "nl": "Minstens één status in set [[set]] is actief",
+          "de": "Mindestens ein Zustand im Set [[set]] ist aktiv",
+          "fr": "Au moins un état dans l’ensemble [[set]] est actif",
+          "it": "Almeno uno stato nel set [[set]] è attivo",
+          "sv": "Minst ett tillstånd i uppsättningen [[set]] är aktivt",
+          "no": "Minst én tilstand i settet [[set]] er aktiv",
+          "es": "Al menos un estado en el conjunto [[set]] está activo",
+          "da": "Mindst én tilstand i sættet [[set]] er aktiv",
+          "ru": "По крайней мере одно состояние в наборе [[set]] активно",
+          "pl": "Co najmniej jeden stan w zestawie [[set]] jest aktywny",
+          "ko": "세트 [[set]]에서 하나 이상의 상태가 활성화됨",
+          "ar": "على الأقل حالة واحدة في المجموعة [[set]] نشطة"
+        },
+        "hint": {
+          "en": "At least one state in a set is active.",
+          "nl": "Ten minste één status in een set is actief.",
+          "de": "Mindestens ein Zustand in einem Set ist aktiv.",
+          "fr": "Au moins un état d’un ensemble est actif.",
+          "it": "Almeno uno stato in un set è attivo.",
+          "sv": "Minst ett tillstånd i en uppsättning är aktivt.",
+          "no": "Minst én tilstand i et sett er aktiv.",
+          "es": "Al menos un estado en un conjunto está activo.",
+          "da": "Mindst én tilstand i et sæt er aktiv.",
+          "ru": "По крайней мере одно состояние в наборе активно.",
+          "pl": "Co najmniej jeden stan w zestawie jest aktywny.",
+          "ko": "세트에서 하나 이상의 상태가 활성화되어 있습니다.",
+          "ar": "على الأقل حالة واحدة في مجموعة نشطة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_inactive",
+        "title": {
+          "en": "No state in set is active",
+          "nl": "Geen enkele status in de set is actief",
+          "de": "Kein Zustand im Set ist aktiv",
+          "fr": "Aucun état dans l’ensemble n’est actif",
+          "it": "Nessuno stato nel set è attivo",
+          "sv": "Inget tillstånd i uppsättningen är aktivt",
+          "no": "Ingen tilstand i settet er aktiv",
+          "es": "Ningún estado en el conjunto está activo",
+          "da": "Ingen tilstand i sættet er aktiv",
+          "ru": "Ни одно состояние в наборе не активно",
+          "pl": "Żaden stan w zestawie nie jest aktywny",
+          "ko": "세트에서 활성화된 상태가 없음",
+          "ar": "لا توجد أي حالة نشطة في المجموعة"
+        },
+        "titleFormatted": {
+          "en": "No state in set [[set]] is active",
+          "nl": "Geen enkele status in set [[set]] is actief",
+          "de": "Kein Zustand im Set [[set]] ist aktiv",
+          "fr": "Aucun état dans l’ensemble [[set]] n’est actif",
+          "it": "Nessuno stato nel set [[set]] è attivo",
+          "sv": "Inget tillstånd i uppsättningen [[set]] är aktivt",
+          "no": "Ingen tilstand i settet [[set]] er aktiv",
+          "es": "Ningún estado en el conjunto [[set]] está activo",
+          "da": "Ingen tilstand i sættet [[set]] er aktiv",
+          "ru": "Ни одно состояние в наборе [[set]] не активно",
+          "pl": "Żaden stan w zestawie [[set]] nie jest aktywny",
+          "ko": "세트 [[set]]에서 활성화된 상태가 없음",
+          "ar": "لا توجد أي حالة نشطة في المجموعة [[set]]"
+        },
+        "hint": {
+          "en": "No state in a set is active.",
+          "nl": "Geen status in een set is actief.",
+          "de": "Kein Zustand in einem Set ist aktiv.",
+          "fr": "Aucun état d’un ensemble n’est actif.",
+          "it": "Nessuno stato in un set è attivo.",
+          "sv": "Inget tillstånd i en uppsättning är aktivt.",
+          "no": "Ingen tilstand i et sett er aktiv.",
+          "es": "Ningún estado en un conjunto está activo.",
+          "da": "Ingen tilstand i et sæt er aktiv.",
+          "ru": "Ни одно состояние в наборе не активно.",
+          "pl": "Żaden stan w zestawie nie jest aktywny.",
+          "ko": "세트에서 활성화된 상태가 없습니다.",
+          "ar": "لا توجد أي حالة نشطة في مجموعة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_is",
+        "title": {
+          "en": "State in set is active",
+          "nl": "Status in set is actief",
+          "de": "Zustand im Set ist aktiv",
+          "fr": "L’état dans l’ensemble est actif",
+          "it": "Lo stato nel set è attivo",
+          "sv": "Tillstånd i uppsättningen är aktivt",
+          "no": "Tilstand i settet er aktiv",
+          "es": "El estado en el conjunto está activo",
+          "da": "Tilstand i sættet er aktiv",
+          "ru": "Состояние в наборе активно",
+          "pl": "Stan w zestawie jest aktywny",
+          "ko": "세트의 상태가 활성화됨",
+          "ar": "الحالة في المجموعة نشطة"
+        },
+        "titleFormatted": {
+          "en": "State [[state]] in set [[set]] is !{{active|inactive}}",
+          "nl": "Status [[state]] in set [[set]] is !{{actief|inactief}}",
+          "de": "Zustand [[state]] im Set [[set]] ist !{{aktiv|inaktiv}}",
+          "fr": "L’état [[state]] dans l’ensemble [[set]] est !{{actif|inactif}}",
+          "it": "Lo stato [[state]] nel set [[set]] è !{{attivo|inattivo}}",
+          "sv": "Tillstånd [[state]] i uppsättningen [[set]] är !{{aktivt|inaktivt}}",
+          "no": "Tilstand [[state]] i settet [[set]] er !{{aktiv|inaktiv}}",
+          "es": "El estado [[state]] en el conjunto [[set]] está !{{activo|inactivo}}",
+          "da": "Tilstand [[state]] i sættet [[set]] er !{{aktiv|inaktiv}}",
+          "ru": "Состояние [[state]] в наборе [[set]] !{{активно|неактивно}}",
+          "pl": "Stan [[state]] w zestawie [[set]] jest !{{aktywny|nieaktywny}}",
+          "ko": "세트 [[set]]의 상태 [[state]]가 !{{활성|비활성}}",
+          "ar": "الحالة [[state]] في المجموعة [[set]] !{{نشطة|غير نشطة}}"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
           }
         ]
       },
@@ -5806,6 +6712,1147 @@
               "ko": "무작위 사실",
               "ar": "حقيقة عشوائية"
             }
+          }
+        ]
+      },
+      {
+        "id": "set_activate_all",
+        "title": {
+          "en": "Activate all states in set",
+          "nl": "Activeer alle statussen in set",
+          "de": "Alle Zustände im Set aktivieren",
+          "fr": "Activer tous les états dans l’ensemble",
+          "it": "Attiva tutti gli stati nel set",
+          "sv": "Aktivera alla tillstånd i uppsättningen",
+          "no": "Aktiver alle tilstander i settet",
+          "es": "Activar todos los estados en el conjunto",
+          "da": "Aktivér alle tilstande i sættet",
+          "ru": "Активировать все состояния в наборе",
+          "pl": "Aktywuj wszystkie stany w zestawie",
+          "ko": "세트의 모든 상태 활성화",
+          "ar": "تفعيل جميع الحالات في المجموعة"
+        },
+        "titleFormatted": {
+          "en": "Activate all states in set [[set]]",
+          "nl": "Activeer alle statussen in set [[set]]",
+          "de": "Alle Zustände im Set [[set]] aktivieren",
+          "fr": "Activer tous les états dans l’ensemble [[set]]",
+          "it": "Attiva tutti gli stati nel set [[set]]",
+          "sv": "Aktivera alla tillstånd i uppsättningen [[set]]",
+          "no": "Aktiver alle tilstander i settet [[set]]",
+          "es": "Activar todos los estados en el conjunto [[set]]",
+          "da": "Aktivér alle tilstande i sættet [[set]]",
+          "ru": "Активировать все состояния в наборе [[set]]",
+          "pl": "Aktywuj wszystkie stany w zestawie [[set]]",
+          "ko": "세트 [[set]]의 모든 상태 활성화",
+          "ar": "تفعيل جميع الحالات في المجموعة [[set]]"
+        },
+        "hint": {
+          "en": "Activates all states in a set.",
+          "nl": "Activeert alle statussen in een set.",
+          "de": "Aktiviert alle Zustände in einem Set.",
+          "fr": "Active tous les états d’un ensemble.",
+          "it": "Attiva tutti gli stati in un set.",
+          "sv": "Aktiverar alla tillstånd i en uppsättning.",
+          "no": "Aktiverer alle tilstander i et sett.",
+          "es": "Activa todos los estados en un conjunto.",
+          "da": "Aktiverer alle tilstande i et sæt.",
+          "ru": "Активирует все состояния в наборе.",
+          "pl": "Aktywuje wszystkie stany w zestawie.",
+          "ko": "세트의 모든 상태를 활성화합니다.",
+          "ar": "يقوم بتفعيل جميع الحالات في مجموعة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_activate_state",
+        "title": {
+          "en": "Activate state in set",
+          "nl": "Activeer status in set",
+          "de": "Zustand im Set aktivieren",
+          "fr": "Activer un état dans l’ensemble",
+          "it": "Attiva uno stato nel set",
+          "sv": "Aktivera tillstånd i uppsättningen",
+          "no": "Aktiver tilstand i settet",
+          "es": "Activar estado en el conjunto",
+          "da": "Aktivér tilstand i sættet",
+          "ru": "Активировать состояние в наборе",
+          "pl": "Aktywuj stan w zestawie",
+          "ko": "세트에서 상태 활성화",
+          "ar": "تفعيل حالة في المجموعة"
+        },
+        "titleFormatted": {
+          "en": "Activate [[state]] in set [[set]]",
+          "nl": "Activeer [[state]] in set [[set]]",
+          "de": "Zustand [[state]] im Set [[set]] aktivieren",
+          "fr": "Activer [[state]] dans l’ensemble [[set]]",
+          "it": "Attiva [[state]] nel set [[set]]",
+          "sv": "Aktivera [[state]] i uppsättningen [[set]]",
+          "no": "Aktiver [[state]] i settet [[set]]",
+          "es": "Activar [[state]] en el conjunto [[set]]",
+          "da": "Aktivér [[state]] i sættet [[set]]",
+          "ru": "Активировать состояние [[state]] в наборе [[set]]",
+          "pl": "Aktywuj stan [[state]] w zestawie [[set]]",
+          "ko": "세트 [[set]]에서 [[state]] 활성화",
+          "ar": "تفعيل [[state]] في المجموعة [[set]]"
+        },
+        "hint": {
+          "en": "Activates a state in a set.",
+          "nl": "Activeert een status in een set.",
+          "de": "Aktiviert einen Zustand in einem Set.",
+          "fr": "Active un état dans un ensemble.",
+          "it": "Attiva uno stato in un set.",
+          "sv": "Aktiverar ett tillstånd i en uppsättning.",
+          "no": "Aktiverer en tilstand i et sett.",
+          "es": "Activa un estado en un conjunto.",
+          "da": "Aktiverer en tilstand i et sæt.",
+          "ru": "Активирует состояние в наборе.",
+          "pl": "Aktywuje stan w zestawie.",
+          "ko": "세트에서 상태를 활성화합니다.",
+          "ar": "يقوم بتفعيل حالة في مجموعة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_activate_state_exclusive",
+        "title": {
+          "en": "Activate state in set exclusively",
+          "nl": "Activeer status in set exclusief",
+          "de": "Zustand im Set exklusiv aktivieren",
+          "fr": "Activer un état dans l’ensemble exclusivement",
+          "it": "Attiva uno stato nel set in modo esclusivo",
+          "sv": "Aktivera tillstånd i uppsättningen exklusivt",
+          "no": "Aktiver tilstand i settet eksklusivt",
+          "es": "Activar estado en el conjunto de forma exclusiva",
+          "da": "Aktivér tilstand i sættet eksklusivt",
+          "ru": "Активировать состояние в наборе эксклюзивно",
+          "pl": "Aktywuj stan w zestawie wyłącznie",
+          "ko": "세트에서 상태를 독점적으로 활성화",
+          "ar": "تفعيل حالة في المجموعة بشكل حصري"
+        },
+        "titleFormatted": {
+          "en": "Activate [[state]] in set [[set]] exclusively",
+          "nl": "Activeer [[state]] in set [[set]] exclusief",
+          "de": "Zustand [[state]] im Set [[set]] exklusiv aktivieren",
+          "fr": "Activer [[state]] dans l’ensemble [[set]] exclusivement",
+          "it": "Attiva [[state]] nel set [[set]] in modo esclusivo",
+          "sv": "Aktivera [[state]] i uppsättningen [[set]] exklusivt",
+          "no": "Aktiver [[state]] i settet [[set]] eksklusivt",
+          "es": "Activar [[state]] en el conjunto [[set]] de forma exclusiva",
+          "da": "Aktivér [[state]] i sættet [[set]] eksklusivt",
+          "ru": "Активировать состояние [[state]] в наборе [[set]] эксклюзивно",
+          "pl": "Aktywuj stan [[state]] w zestawie [[set]] wyłącznie",
+          "ko": "세트 [[set]]에서 [[state]]를 독점적으로 활성화",
+          "ar": "تفعيل [[state]] في المجموعة [[set]] بشكل حصري"
+        },
+        "hint": {
+          "en": "Activates a state in a set exclusively.",
+          "nl": "Activeert een status in een set exclusief.",
+          "de": "Aktiviert einen Zustand in einem Set exklusiv.",
+          "fr": "Active un état dans un ensemble de manière exclusive.",
+          "it": "Attiva uno stato in un set in modo esclusivo.",
+          "sv": "Aktiverar ett tillstånd i en uppsättning exklusivt.",
+          "no": "Aktiverer en tilstand i et sett eksklusivt.",
+          "es": "Activa un estado en un conjunto de forma exclusiva.",
+          "da": "Aktiverer en tilstand i et sæt eksklusivt.",
+          "ru": "Активирует состояние в наборе эксклюзивно.",
+          "pl": "Aktywuje stan w zestawie wyłącznie.",
+          "ko": "세트에서 상태를 독점적으로 활성화합니다.",
+          "ar": "يقوم بتفعيل حالة في مجموعة بشكل حصري."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_activate_state_exclusive_for",
+        "title": {
+          "en": "Activate state in set exclusively for",
+          "nl": "Activeer status in set exclusief voor",
+          "de": "Zustand im Set exklusiv aktivieren für",
+          "fr": "Activer un état dans l'ensemble exclusivement pour",
+          "it": "Attiva uno stato nel set in modo esclusivo per",
+          "sv": "Aktivera tillstånd i uppsättningen exklusivt för",
+          "no": "Aktiver tilstand i settet eksklusivt for",
+          "es": "Activar estado en el conjunto de forma exclusiva durante",
+          "da": "Aktivér tilstand i sættet eksklusivt i",
+          "ru": "Активировать состояние в наборе эксклюзивно на",
+          "pl": "Aktywuj stan w zestawie wyłącznie przez",
+          "ko": "세트에서 상태를 독점적으로 활성화 시간",
+          "ar": "تفعيل حالة في المجموعة بشكل حصري لمدة"
+        },
+        "titleFormatted": {
+          "en": "Activate [[state]] in set [[set]] exclusively for [[duration]] [[unit]]",
+          "nl": "Activeer [[state]] in set [[set]] exclusief voor [[duration]] [[unit]]",
+          "de": "Zustand [[state]] im Set [[set]] exklusiv aktivieren für [[duration]] [[unit]]",
+          "fr": "Activer [[state]] dans l'ensemble [[set]] exclusivement pour [[duration]] [[unit]]",
+          "it": "Attiva [[state]] nel set [[set]] in modo esclusivo per [[duration]] [[unit]]",
+          "sv": "Aktivera [[state]] i uppsättningen [[set]] exklusivt för [[duration]] [[unit]]",
+          "no": "Aktiver [[state]] i settet [[set]] eksklusivt for [[duration]] [[unit]]",
+          "es": "Activar [[state]] en el conjunto [[set]] de forma exclusiva durante [[duration]] [[unit]]",
+          "da": "Aktivér [[state]] i sættet [[set]] eksklusivt i [[duration]] [[unit]]",
+          "ru": "Активировать состояние [[state]] в наборе [[set]] эксклюзивно на [[duration]] [[unit]]",
+          "pl": "Aktywuj stan [[state]] w zestawie [[set]] wyłącznie przez [[duration]] [[unit]]",
+          "ko": "세트 [[set]]에서 [[state]]를 [[duration]] [[unit]] 동안 독점적으로 활성화",
+          "ar": "تفعيل [[state]] في المجموعة [[set]] بشكل حصري لمدة [[duration]] [[unit]]"
+        },
+        "hint": {
+          "en": "Activates a state in a set exclusively for a specified duration.",
+          "nl": "Activeert een status in een set exclusief voor een opgegeven duur.",
+          "de": "Aktiviert einen Zustand in einem Set exklusiv für eine bestimmte Dauer.",
+          "fr": "Active un état dans un ensemble de manière exclusive pendant une durée spécifiée.",
+          "it": "Attiva uno stato in un set in modo esclusivo per una durata specificata.",
+          "sv": "Aktiverar ett tillstånd i en uppsättning exklusivt under en angiven varaktighet.",
+          "no": "Aktiverer en tilstand i et sett eksklusivt for en spesifisert varighet.",
+          "es": "Activa un estado en un conjunto de forma exclusiva durante un tiempo especificado.",
+          "da": "Aktiverer en tilstand i et sæt eksklusivt i en specificeret varighed.",
+          "ru": "Активирует состояние в наборе эксклюзивно на указанную длительность.",
+          "pl": "Aktywuje stan w zestawie wyłącznie przez określony czas trwania.",
+          "ko": "지정된 기간 동안 세트에서 상태를 독점적으로 활성화합니다.",
+          "ar": "يقوم بتفعيل حالة في مجموعة بشكل حصري لمدة محددة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer",
+              "fr": "Durée",
+              "it": "Durata",
+              "sv": "Varaktighet",
+              "no": "Varighet",
+              "es": "Duración",
+              "da": "Varighed",
+              "ru": "Длительность",
+              "pl": "Czas trwania",
+              "ko": "지속 시간",
+              "ar": "المدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "Ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "Fx 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "fr": "Unité",
+              "it": "Unità",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Unidad",
+              "da": "Enhed",
+              "ru": "Единица",
+              "pl": "Jednostka",
+              "ko": "단위",
+              "ar": "الوحدة"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثواني"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_activate_state_for",
+        "title": {
+          "en": "Activate state in set for",
+          "nl": "Activeer status in set voor",
+          "de": "Zustand im Set aktivieren für",
+          "fr": "Activer un état dans l’ensemble pendant",
+          "it": "Attiva uno stato nel set per",
+          "sv": "Aktivera tillstånd i uppsättningen i",
+          "no": "Aktiver tilstand i settet i",
+          "es": "Activar estado en el conjunto durante",
+          "da": "Aktivér tilstand i sættet i",
+          "ru": "Активировать состояние в наборе на",
+          "pl": "Aktywuj stan w zestawie na",
+          "ko": "세트에서 상태를 다음 시간 동안 활성화",
+          "ar": "تفعيل حالة في المجموعة لمدة"
+        },
+        "titleFormatted": {
+          "en": "Activate [[state]] in set [[set]] for [[duration]] [[unit]]",
+          "nl": "Activeer [[state]] in set [[set]] voor [[duration]] [[unit]]",
+          "de": "Zustand [[state]] im Set [[set]] für [[duration]] [[unit]] aktivieren",
+          "fr": "Activer [[state]] dans l’ensemble [[set]] pendant [[duration]] [[unit]]",
+          "it": "Attiva [[state]] nel set [[set]] per [[duration]] [[unit]]",
+          "sv": "Aktivera [[state]] i uppsättningen [[set]] i [[duration]] [[unit]]",
+          "no": "Aktiver [[state]] i settet [[set]] i [[duration]] [[unit]]",
+          "es": "Activar [[state]] en el conjunto [[set]] durante [[duration]] [[unit]]",
+          "da": "Aktivér [[state]] i sættet [[set]] i [[duration]] [[unit]]",
+          "ru": "Активировать состояние [[state]] в наборе [[set]] на [[duration]] [[unit]]",
+          "pl": "Aktywuj stan [[state]] w zestawie [[set]] na [[duration]] [[unit]]",
+          "ko": "세트 [[set]]에서 [[state]]를 [[duration]] [[unit]] 동안 활성화",
+          "ar": "تفعيل [[state]] في المجموعة [[set]] لمدة [[duration]] [[unit]]"
+        },
+        "hint": {
+          "en": "Activates a state in a set for a specified duration.",
+          "nl": "Activeert een status in een set voor een opgegeven duur.",
+          "de": "Aktiviert einen Zustand in einem Set für eine angegebene Dauer.",
+          "fr": "Active un état dans un ensemble pendant une durée spécifiée.",
+          "it": "Attiva uno stato in un set per una durata specificata.",
+          "sv": "Aktiverar ett tillstånd i en uppsättning under en angiven tid.",
+          "no": "Aktiverer en tilstand i et sett i en angitt varighet.",
+          "es": "Activa un estado en un conjunto durante una duración especificada.",
+          "da": "Aktiverer en tilstand i et sæt i en angivet varighed.",
+          "ru": "Активирует состояние в наборе на указанную продолжительность.",
+          "pl": "Aktywuje stan w zestawie na określony czas.",
+          "ko": "세트에서 지정된 기간 동안 상태를 활성화합니다.",
+          "ar": "يقوم بتفعيل حالة في مجموعة لمدة محددة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer",
+              "fr": "Durée",
+              "it": "Durata",
+              "sv": "Varaktighet",
+              "no": "Varighet",
+              "es": "Duración",
+              "da": "Varighed",
+              "ru": "Длительность",
+              "pl": "Czas trwania",
+              "ko": "지속 시간",
+              "ar": "المدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "Ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "Fx 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "fr": "Unité",
+              "it": "Unità",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Unidad",
+              "da": "Enhed",
+              "ru": "Единица",
+              "pl": "Jednostka",
+              "ko": "단위",
+              "ar": "الوحدة"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثواني"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "set_deactivate_all",
+        "title": {
+          "en": "Deactivate all states in set",
+          "nl": "Deactiveer alle statussen in set",
+          "de": "Alle Zustände im Set deaktivieren",
+          "fr": "Désactiver tous les états dans l’ensemble",
+          "it": "Disattiva tutti gli stati nel set",
+          "sv": "Inaktivera alla tillstånd i uppsättningen",
+          "no": "Deaktiver alle tilstander i settet",
+          "es": "Desactivar todos los estados en el conjunto",
+          "da": "Deaktivér alle tilstande i sættet",
+          "ru": "Деактивировать все состояния в наборе",
+          "pl": "Dezaktywuj wszystkie stany w zestawie",
+          "ko": "세트의 모든 상태 비활성화",
+          "ar": "إلغاء تفعيل جميع الحالات في المجموعة"
+        },
+        "titleFormatted": {
+          "en": "Deactivate all states in set [[set]]",
+          "nl": "Deactiveer alle statussen in set [[set]]",
+          "de": "Alle Zustände im Set [[set]] deaktivieren",
+          "fr": "Désactiver tous les états dans l’ensemble [[set]]",
+          "it": "Disattiva tutti gli stati nel set [[set]]",
+          "sv": "Inaktivera alla tillstånd i uppsättningen [[set]]",
+          "no": "Deaktiver alle tilstander i settet [[set]]",
+          "es": "Desactivar todos los estados en el conjunto [[set]]",
+          "da": "Deaktivér alle tilstande i sættet [[set]]",
+          "ru": "Деактивировать все состояния в наборе [[set]]",
+          "pl": "Dezaktywuj wszystkie stany w zestawie [[set]]",
+          "ko": "세트 [[set]]의 모든 상태 비활성화",
+          "ar": "إلغاء تفعيل جميع الحالات في المجموعة [[set]]"
+        },
+        "hint": {
+          "en": "Deactivates all states in a set.",
+          "nl": "Deactiveert alle statussen in een set.",
+          "de": "Deaktiviert alle Zustände in einem Set.",
+          "fr": "Désactive tous les états d’un ensemble.",
+          "it": "Disattiva tutti gli stati in un set.",
+          "sv": "Inaktiverar alla tillstånd i en uppsättning.",
+          "no": "Deaktiverer alle tilstander i et sett.",
+          "es": "Desactiva todos los estados en un conjunto.",
+          "da": "Deaktiverer alle tilstande i et sæt.",
+          "ru": "Деактивирует все состояния в наборе.",
+          "pl": "Dezaktywuje wszystkie stany w zestawie.",
+          "ko": "세트의 모든 상태를 비활성화합니다.",
+          "ar": "يقوم بإلغاء تفعيل جميع الحالات في مجموعة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_deactivate_state",
+        "title": {
+          "en": "Deactivate state in set",
+          "nl": "Deactiveer status in set",
+          "de": "Zustand im Set deaktivieren",
+          "fr": "Désactiver un état dans l’ensemble",
+          "it": "Disattiva uno stato nel set",
+          "sv": "Inaktivera tillstånd i uppsättningen",
+          "no": "Deaktiver tilstand i settet",
+          "es": "Desactivar estado en el conjunto",
+          "da": "Deaktivér tilstand i sættet",
+          "ru": "Деактивировать состояние в наборе",
+          "pl": "Dezaktywuj stan w zestawie",
+          "ko": "세트에서 상태 비활성화",
+          "ar": "إلغاء تفعيل حالة في المجموعة"
+        },
+        "titleFormatted": {
+          "en": "Deactivate [[state]] in set [[set]]",
+          "nl": "Deactiveer [[state]] in set [[set]]",
+          "de": "Zustand [[state]] im Set [[set]] deaktivieren",
+          "fr": "Désactiver [[state]] dans l’ensemble [[set]]",
+          "it": "Disattiva [[state]] nel set [[set]]",
+          "sv": "Inaktivera [[state]] i uppsättningen [[set]]",
+          "no": "Deaktiver [[state]] i settet [[set]]",
+          "es": "Desactivar [[state]] en el conjunto [[set]]",
+          "da": "Deaktivér [[state]] i sættet [[set]]",
+          "ru": "Деактивировать состояние [[state]] в наборе [[set]]",
+          "pl": "Dezaktywuj stan [[state]] w zestawie [[set]]",
+          "ko": "세트 [[set]]에서 [[state]] 비활성화",
+          "ar": "إلغاء تفعيل [[state]] في المجموعة [[set]]"
+        },
+        "hint": {
+          "en": "Deactivates a state in a set.",
+          "nl": "Deactiveert een status in een set.",
+          "de": "Deaktiviert einen Zustand in einem Set.",
+          "fr": "Désactive un état dans un ensemble.",
+          "it": "Disattiva uno stato in un set.",
+          "sv": "Inaktiverar ett tillstånd i en uppsättning.",
+          "no": "Deaktiverer en tilstand i et sett.",
+          "es": "Desactiva un estado en un conjunto.",
+          "da": "Deaktiverer en tilstand i et sæt.",
+          "ru": "Деактивирует состояние в наборе.",
+          "pl": "Dezaktywuje stan w zestawie.",
+          "ko": "세트에서 상태를 비활성화합니다.",
+          "ar": "يقوم بإلغاء تفعيل حالة في مجموعة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_toggle_state",
+        "title": {
+          "en": "Toggle state in set",
+          "nl": "Schakel status in set om",
+          "de": "Zustand im Set umschalten",
+          "fr": "Basculer un état dans l’ensemble",
+          "it": "Attiva/disattiva uno stato nel set",
+          "sv": "Växla tillstånd i uppsättningen",
+          "no": "Veksle tilstand i settet",
+          "es": "Alternar estado en el conjunto",
+          "da": "Skift tilstand i sættet",
+          "ru": "Переключить состояние в наборе",
+          "pl": "Przełącz stan w zestawie",
+          "ko": "세트에서 상태 전환",
+          "ar": "تبديل حالة في المجموعة"
+        },
+        "titleFormatted": {
+          "en": "Toggle [[state]] in set [[set]]",
+          "nl": "Schakel [[state]] in set [[set]] om",
+          "de": "Zustand [[state]] im Set [[set]] umschalten",
+          "fr": "Basculer [[state]] dans l’ensemble [[set]]",
+          "it": "Attiva/disattiva [[state]] nel set [[set]]",
+          "sv": "Växla [[state]] i uppsättningen [[set]]",
+          "no": "Veksle [[state]] i settet [[set]]",
+          "es": "Alternar [[state]] en el conjunto [[set]]",
+          "da": "Skift [[state]] i sættet [[set]]",
+          "ru": "Переключить состояние [[state]] в наборе [[set]]",
+          "pl": "Przełącz stan [[state]] w zestawie [[set]]",
+          "ko": "세트 [[set]]에서 [[state]] 전환",
+          "ar": "تبديل [[state]] في المجموعة [[set]]"
+        },
+        "hint": {
+          "en": "Toggles a state in a set.",
+          "nl": "Schakelt een status in een set om.",
+          "de": "Schaltet einen Zustand in einem Set um.",
+          "fr": "Bascule un état dans un ensemble.",
+          "it": "Attiva/disattiva uno stato in un set.",
+          "sv": "Växlar ett tillstånd i en uppsättning.",
+          "no": "Veksler en tilstand i et sett.",
+          "es": "Alterna un estado en un conjunto.",
+          "da": "Skifter en tilstand i et sæt.",
+          "ru": "Переключает состояние в наборе.",
+          "pl": "Przełącza stan w zestawie.",
+          "ko": "세트에서 상태를 전환합니다.",
+          "ar": "يقوم بتبديل حالة في مجموعة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_toggle_state_for",
+        "title": {
+          "en": "Toggle state in set for",
+          "nl": "Schakel status in set om voor",
+          "de": "Zustand im Set umschalten für",
+          "fr": "Basculer un état dans l’ensemble pendant",
+          "it": "Attiva/disattiva uno stato nel set per",
+          "sv": "Växla tillstånd i uppsättningen i",
+          "no": "Veksle tilstand i settet i",
+          "es": "Alternar estado en el conjunto durante",
+          "da": "Skift tilstand i sættet i",
+          "ru": "Переключить состояние в наборе на",
+          "pl": "Przełącz stan w zestawie na",
+          "ko": "세트에서 상태 전환 후 유지 시간",
+          "ar": "تبديل حالة في المجموعة لمدة"
+        },
+        "titleFormatted": {
+          "en": "Toggle [[state]] in set [[set]] for [[duration]] [[unit]]",
+          "nl": "Schakel [[state]] in set [[set]] om voor [[duration]] [[unit]]",
+          "de": "Zustand [[state]] im Set [[set]] für [[duration]] [[unit]] umschalten",
+          "fr": "Basculer [[state]] dans l’ensemble [[set]] pendant [[duration]] [[unit]]",
+          "it": "Attiva/disattiva [[state]] nel set [[set]] per [[duration]] [[unit]]",
+          "sv": "Växla [[state]] i uppsättningen [[set]] i [[duration]] [[unit]]",
+          "no": "Veksle [[state]] i settet [[set]] i [[duration]] [[unit]]",
+          "es": "Alternar [[state]] en el conjunto [[set]] durante [[duration]] [[unit]]",
+          "da": "Skift [[state]] i sættet [[set]] i [[duration]] [[unit]]",
+          "ru": "Переключить состояние [[state]] в наборе [[set]] на [[duration]] [[unit]]",
+          "pl": "Przełącz stan [[state]] w zestawie [[set]] na [[duration]] [[unit]]",
+          "ko": "세트 [[set]]에서 [[state]] 전환 후 [[duration]] [[unit]] 동안 유지",
+          "ar": "تبديل [[state]] في المجموعة [[set]] لمدة [[duration]] [[unit]]"
+        },
+        "hint": {
+          "en": "Toggles a state in a set. If the state becomes active, it will remain active for the specified duration.",
+          "nl": "Schakelt een status in een set. Als de status actief wordt, blijft deze actief voor de opgegeven duur.",
+          "de": "Schaltet einen Zustand in einem Set um. Wenn der Zustand aktiv wird, bleibt er für die angegebene Dauer aktiv.",
+          "fr": "Bascule un état dans un ensemble. Si l’état devient actif, il le restera pendant la durée spécifiée.",
+          "it": "Attiva/disattiva uno stato in un set. Se lo stato diventa attivo, rimarrà attivo per la durata specificata.",
+          "sv": "Växlar ett tillstånd i en uppsättning. Om tillståndet blir aktivt förblir det aktivt under den angivna tiden.",
+          "no": "Veksler en tilstand i et sett. Hvis tilstanden blir aktiv, forblir den aktiv i den angitte varigheten.",
+          "es": "Alterna un estado en un conjunto. Si el estado se activa, permanecerá activo durante la duración especificada.",
+          "da": "Skifter en tilstand i et sæt. Hvis tilstanden bliver aktiv, forbliver den aktiv i den angivne varighed.",
+          "ru": "Переключает состояние в наборе. Если состояние становится активным, оно останется активным на указанную продолжительность.",
+          "pl": "Przełącza stan w zestawie. Jeśli stan stanie się aktywny, pozostanie aktywny przez określony czas.",
+          "ko": "세트에서 상태를 전환합니다. 상태가 활성화되면 지정된 기간 동안 활성 상태로 유지됩니다.",
+          "ar": "يقوم بتبديل حالة في مجموعة. إذا أصبحت الحالة نشطة، فستبقى نشطة لمدة محددة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Set",
+              "nl": "Set",
+              "de": "Satz",
+              "fr": "Ensemble",
+              "it": "Set",
+              "sv": "Uppsättning",
+              "no": "Sett",
+              "es": "Conjunto",
+              "da": "Sæt",
+              "ru": "Набор",
+              "pl": "Zestaw",
+              "ko": "세트",
+              "ar": "مجموعة"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+              "en": "State",
+              "nl": "Status",
+              "de": "Zustand",
+              "fr": "État",
+              "it": "Stato",
+              "sv": "Tillstånd",
+              "no": "Tilstand",
+              "es": "Estado",
+              "da": "Tilstand",
+              "ru": "Состояние",
+              "pl": "Stan",
+              "ko": "상태",
+              "ar": "حالة"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer",
+              "fr": "Durée",
+              "it": "Durata",
+              "sv": "Varaktighet",
+              "no": "Varighet",
+              "es": "Duración",
+              "da": "Varighed",
+              "ru": "Длительность",
+              "pl": "Czas trwania",
+              "ko": "지속 시간",
+              "ar": "المدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "Ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "Fx 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "fr": "Unité",
+              "it": "Unità",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Unidad",
+              "da": "Enhed",
+              "ru": "Единица",
+              "pl": "Jednostka",
+              "ko": "단위",
+              "ar": "الوحدة"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثواني"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
           }
         ]
       },
@@ -8198,6 +10245,156 @@
       },
       "id": "modes"
     },
+    "set_states": {
+      "name": {
+        "en": "Set states",
+        "nl": "Set statussen",
+        "de": "Set-Zustände",
+        "fr": "États de l’ensemble",
+        "it": "Stati del set",
+        "sv": "Uppsättningsstatus",
+        "no": "Sett-tilstander",
+        "es": "Estados del conjunto",
+        "da": "Sæt tilstande",
+        "ru": "Состояния набора",
+        "pl": "Stany zestawu",
+        "ko": "세트 상태",
+        "ar": "حالات المجموعة"
+      },
+      "height": 120,
+      "settings": [
+        {
+          "id": "set",
+          "type": "autocomplete",
+          "title": {
+            "en": "Set",
+            "nl": "Set",
+            "de": "Satz",
+            "fr": "Ensemble",
+            "it": "Set",
+            "sv": "Uppsättning",
+            "no": "Sett",
+            "es": "Conjunto",
+            "da": "Sæt",
+            "ru": "Набор",
+            "pl": "Zestaw",
+            "ko": "세트",
+            "ar": "مجموعة"
+          }
+        },
+        {
+          "id": "view_mode",
+          "type": "dropdown",
+          "title": {
+            "en": "View mode",
+            "nl": "Weergavemodus",
+            "de": "Ansichtsmodus",
+            "fr": "Mode d'affichage",
+            "it": "Modalità di visualizzazione",
+            "sv": "Visningsläge",
+            "no": "Visningsmodus",
+            "es": "Modo de vista",
+            "da": "Visningstilstand",
+            "ru": "Режим просмотра",
+            "pl": "Tryb widoku",
+            "ko": "보기 모드",
+            "ar": "وضع العرض"
+          },
+          "value": "grid",
+          "values": [
+            {
+              "id": "grid",
+              "title": {
+                "en": "Grid",
+                "nl": "Grid",
+                "de": "Raster",
+                "fr": "Grille",
+                "it": "Griglia",
+                "sv": "Rutnät",
+                "no": "Rutenett",
+                "es": "Cuadrícula",
+                "da": "Gitter",
+                "ru": "Сетка",
+                "pl": "Siatka",
+                "ko": "그리드",
+                "ar": "شبكة"
+              }
+            },
+            {
+              "id": "list",
+              "title": {
+                "en": "List",
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
+              }
+            }
+          ]
+        }
+      ],
+      "api": {
+        "get": {
+          "method": "GET",
+          "path": "/"
+        }
+      },
+      "id": "set_states"
+    },
+    "set_status": {
+      "name": {
+        "en": "Set status",
+        "nl": "Setstatus",
+        "de": "Set-Status",
+        "fr": "Statut de l’ensemble",
+        "it": "Stato del set",
+        "sv": "Uppsättningsstatus",
+        "no": "Settstatus",
+        "es": "Estado del conjunto",
+        "da": "Sætstatus",
+        "ru": "Статус набора",
+        "pl": "Status zestawu",
+        "ko": "세트 상태",
+        "ar": "حالة المجموعة"
+      },
+      "height": 120,
+      "settings": [
+        {
+          "id": "set",
+          "type": "autocomplete",
+          "title": {
+            "en": "Set",
+            "nl": "Set",
+            "de": "Satz",
+            "fr": "Ensemble",
+            "it": "Set",
+            "sv": "Uppsättning",
+            "no": "Sett",
+            "es": "Conjunto",
+            "da": "Sæt",
+            "ru": "Набор",
+            "pl": "Zestaw",
+            "ko": "세트",
+            "ar": "مجموعة"
+          }
+        }
+      ],
+      "api": {
+        "get": {
+          "method": "GET",
+          "path": "/"
+        }
+      },
+      "id": "set_status"
+    },
     "slider": {
       "name": {
         "en": "Slider",
@@ -8598,7 +10795,18 @@
     "timer": {
       "name": {
         "en": "Timer",
-        "nl": "Timer"
+        "nl": "Timer",
+        "de": "Timer",
+        "fr": "Minuteur",
+        "it": "Timer",
+        "sv": "Timer",
+        "no": "Tidtakere",
+        "es": "Temporizador",
+        "da": "Timer",
+        "ru": "Таймер",
+        "pl": "Timer",
+        "ko": "타이머",
+        "ar": "المؤقت"
       },
       "height": 120,
       "settings": [
@@ -8607,7 +10815,18 @@
           "type": "autocomplete",
           "title": {
             "en": "Timer",
-            "nl": "Timer"
+            "nl": "Timer",
+            "de": "Timer",
+            "fr": "Minuteur",
+            "it": "Timer",
+            "sv": "Timer",
+            "no": "Tidtakere",
+            "es": "Temporizador",
+            "da": "Timer",
+            "ru": "Таймер",
+            "pl": "Timer",
+            "ko": "타이머",
+            "ar": "المؤقت"
           }
         }
       ],

@@ -1,5 +1,5 @@
 import { App, Luxon } from '@basmilius/homey-common';
-import type { Api, Cycles, Events, Flags, Labels, Modes, NoRepeat, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
+import type { Api, Cycles, Events, Flags, Labels, Modes, NoRepeat, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
 import { Brain } from './brain';
 import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
 import { roundStep } from './util';
@@ -31,6 +31,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
 
     get noRepeat(): NoRepeat {
         return this.#brain.noRepeat;
+    }
+
+    get sets(): Sets {
+        return this.#brain.sets;
     }
 
     get signals(): Signals {
@@ -75,6 +79,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
                 await provider.onInit();
             }
 
+            await this.sets.initialize();
             await this.timers.initialize();
             await this.tokens.initialize();
             await this.widgets.initialize();
@@ -106,6 +111,15 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.ModeToggle);
         this.registry.action(Actions.NoRepeatClear);
         this.registry.action(Actions.RandomFact);
+        this.registry.action(Actions.SetActivateAll);
+        this.registry.action(Actions.SetActivateState);
+        this.registry.action(Actions.SetActivateStateExclusive);
+        this.registry.action(Actions.SetActivateStateExclusiveFor);
+        this.registry.action(Actions.SetActivateStateFor);
+        this.registry.action(Actions.SetDeactivateAll);
+        this.registry.action(Actions.SetDeactivateState);
+        this.registry.action(Actions.SetToggleState);
+        this.registry.action(Actions.SetToggleStateFor);
         this.registry.action(Actions.SignalSend);
         this.registry.action(Actions.SliderSet);
         this.registry.action(Actions.TimerPause);
@@ -137,6 +151,8 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.autocompleteProvider(AutocompleteProviders.Mode);
         this.registry.autocompleteProvider(AutocompleteProviders.NoRepeat);
         this.registry.autocompleteProvider(AutocompleteProviders.SchoolVacation);
+        this.registry.autocompleteProvider(AutocompleteProviders.Set);
+        this.registry.autocompleteProvider(AutocompleteProviders.SetState);
         this.registry.autocompleteProvider(AutocompleteProviders.Signal);
         this.registry.autocompleteProvider(AutocompleteProviders.Slider);
         this.registry.autocompleteProvider(AutocompleteProviders.Timer);
@@ -158,6 +174,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.condition(Conditions.MoonPhaseIs);
         this.registry.condition(Conditions.NoRepeatWindow);
         this.registry.condition(Conditions.SchoolHolidayIs);
+        this.registry.condition(Conditions.SetActiveAll);
+        this.registry.condition(Conditions.SetActiveAny);
+        this.registry.condition(Conditions.SetInactive);
+        this.registry.condition(Conditions.SetStateIs);
         this.registry.condition(Conditions.TimerDuration);
         this.registry.condition(Conditions.TimerFinished);
         this.registry.condition(Conditions.TimerPaused);
@@ -181,6 +201,14 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.trigger(Triggers.ModeChanged);
         this.registry.trigger(Triggers.ModeCurrentChanged);
         this.registry.trigger(Triggers.ModeDeactivated);
+        this.registry.trigger(Triggers.SetBecomesActiveAll);
+        this.registry.trigger(Triggers.SetBecomesActiveAny);
+        this.registry.trigger(Triggers.SetBecomesInactive);
+        this.registry.trigger(Triggers.SetBecomesInactiveAll);
+        this.registry.trigger(Triggers.SetChanged);
+        this.registry.trigger(Triggers.SetStateActivated);
+        this.registry.trigger(Triggers.SetStateChanged);
+        this.registry.trigger(Triggers.SetStateDeactivated);
         this.registry.trigger(Triggers.SignalReceive);
         this.registry.trigger(Triggers.SliderChanged);
         this.registry.trigger(Triggers.TimerFinished);

@@ -1,0 +1,69 @@
+{
+    "id": "set_active_any",
+    "title": {
+        "en": "Any state in set is active",
+        "nl": "Minstens één status in de set is actief",
+        "de": "Mindestens ein Zustand im Set ist aktiv",
+        "fr": "Au moins un état dans l’ensemble est actif",
+        "it": "Almeno uno stato nel set è attivo",
+        "sv": "Minst ett tillstånd i uppsättningen är aktivt",
+        "no": "Minst én tilstand i settet er aktiv",
+        "es": "Al menos un estado en el conjunto está activo",
+        "da": "Mindst én tilstand i sættet er aktiv",
+        "ru": "По крайней мере одно состояние в наборе активно",
+        "pl": "Co najmniej jeden stan w zestawie jest aktywny",
+        "ko": "세트에서 하나 이상의 상태가 활성화됨",
+        "ar": "على الأقل حالة واحدة في المجموعة نشطة"
+    },
+    "titleFormatted": {
+        "en": "Any state in set [[set]] is active",
+        "nl": "Minstens één status in set [[set]] is actief",
+        "de": "Mindestens ein Zustand im Set [[set]] ist aktiv",
+        "fr": "Au moins un état dans l’ensemble [[set]] est actif",
+        "it": "Almeno uno stato nel set [[set]] è attivo",
+        "sv": "Minst ett tillstånd i uppsättningen [[set]] är aktivt",
+        "no": "Minst én tilstand i settet [[set]] er aktiv",
+        "es": "Al menos un estado en el conjunto [[set]] está activo",
+        "da": "Mindst én tilstand i sættet [[set]] er aktiv",
+        "ru": "По крайней мере одно состояние в наборе [[set]] активно",
+        "pl": "Co najmniej jeden stan w zestawie [[set]] jest aktywny",
+        "ko": "세트 [[set]]에서 하나 이상의 상태가 활성화됨",
+        "ar": "على الأقل حالة واحدة في المجموعة [[set]] نشطة"
+    },
+    "hint": {
+        "en": "At least one state in a set is active.",
+        "nl": "Ten minste één status in een set is actief.",
+        "de": "Mindestens ein Zustand in einem Set ist aktiv.",
+        "fr": "Au moins un état d’un ensemble est actif.",
+        "it": "Almeno uno stato in un set è attivo.",
+        "sv": "Minst ett tillstånd i en uppsättning är aktivt.",
+        "no": "Minst én tilstand i et sett er aktiv.",
+        "es": "Al menos un estado en un conjunto está activo.",
+        "da": "Mindst én tilstand i et sæt er aktiv.",
+        "ru": "По крайней мере одно состояние в наборе активно.",
+        "pl": "Co najmniej jeden stan w zestawie jest aktywny.",
+        "ko": "세트에서 하나 이상의 상태가 활성화되어 있습니다.",
+        "ar": "على الأقل حالة واحدة في مجموعة نشطة."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "id": "set_active_all",
+    "title": {
+        "en": "All states in set are active",
+        "nl": "Alle statussen in de set zijn actief",
+        "de": "Alle Zustände im Set sind aktiv",
+        "fr": "Tous les états dans l’ensemble sont actifs",
+        "it": "Tutti gli stati nel set sono attivi",
+        "sv": "Alla tillstånd i uppsättningen är aktiva",
+        "no": "Alle tilstander i settet er aktive",
+        "es": "Todos los estados en el conjunto están activos",
+        "da": "Alle tilstande i sættet er aktive",
+        "ru": "Все состояния в наборе активны",
+        "pl": "Wszystkie stany w zestawie są aktywne",
+        "ko": "세트의 모든 상태가 활성화됨",
+        "ar": "جميع الحالات في المجموعة نشطة"
+    },
+    "titleFormatted": {
+        "en": "All states in set [[set]] are active",
+        "nl": "Alle statussen in set [[set]] zijn actief",
+        "de": "Alle Zustände im Set [[set]] sind aktiv",
+        "fr": "Tous les états dans l’ensemble [[set]] sont actifs",
+        "it": "Tutti gli stati nel set [[set]] sono attivi",
+        "sv": "Alla tillstånd i uppsättningen [[set]] är aktiva",
+        "no": "Alle tilstander i settet [[set]] er aktive",
+        "es": "Todos los estados en el conjunto [[set]] están activos",
+        "da": "Alle tilstande i sættet [[set]] er aktive",
+        "ru": "Все состояния в наборе [[set]] активны",
+        "pl": "Wszystkie stany w zestawie [[set]] są aktywne",
+        "ko": "세트 [[set]]의 모든 상태가 활성화됨",
+        "ar": "جميع الحالات في المجموعة [[set]] نشطة"
+    },
+    "hint": {
+        "en": "All states in a set are active.",
+        "nl": "Alle statussen in een set zijn actief.",
+        "de": "Alle Zustände in einem Set sind aktiv.",
+        "fr": "Tous les états d’un ensemble sont actifs.",
+        "it": "Tutti gli stati in un set sono attivi.",
+        "sv": "Alla tillstånd i en uppsättning är aktiva.",
+        "no": "Alle tilstander i et sett er aktive.",
+        "es": "Todos los estados en un conjunto están activos.",
+        "da": "Alle tilstande i et sæt er aktive.",
+        "ru": "Все состояния в наборе активны.",
+        "pl": "Wszystkie stany w zestawie są aktywne.",
+        "ko": "세트의 모든 상태가 활성화되어 있습니다.",
+        "ar": "جميع الحالات في مجموعة نشطة."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        }
+    ]
+}

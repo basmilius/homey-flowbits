@@ -50,7 +50,7 @@
         }
 
         async function update() {
-            const label = await Homey.api('GET', `/?label=${settings.label.name}`);
+            const label = await Homey.api('GET', `/?label=${encodeURIComponent(settings.label.name)}`);
 
             labelName.innerText = label?.name ?? '—';
             labelValue.innerText = label?.value ?? '—';

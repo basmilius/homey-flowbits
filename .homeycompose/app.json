@@ -1,6 +1,6 @@
 {
   "id": "com.basmilius.flowbits",
-  "version": "1.11.0",
+  "version": "1.12.3",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "brandColor": "#204ef6",
@@ -292,6 +292,10 @@
       "method": "GET",
       "path": "/no-repeat-windows"
     },
+    "getSets": {
+      "method": "GET",
+      "path": "/sets"
+    },
     "getSliders": {
       "method": "GET",
       "path": "/sliders"
@@ -323,6 +327,10 @@
     "setModeLook": {
       "method": "POST",
       "path": "/modes/look"
+    },
+    "setSetLook": {
+      "method": "POST",
+      "path": "/sets/look"
     },
     "setTimerLook": {
       "method": "POST",

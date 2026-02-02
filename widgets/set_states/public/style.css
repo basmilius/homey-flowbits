@@ -1,0 +1,85 @@
+@import '../../assets/app/base.css';
+@import '../../assets/app/icons.css';
+
+.states {
+    display: grid;
+    margin-top: var(--homey-su-2);
+}
+
+.states-grid {
+    grid-gap: var(--homey-su-1);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.states-list {
+    grid-gap: var(--homey-su-1);
+    grid-template-columns: 1fr;
+}
+
+.states-item {
+    display: flex;
+    background: var(--homey-color-mono-025);
+    border-radius: var(--homey-border-radius-small);
+}
+
+.homey-dark-mode .states-item {
+    background: var(--homey-color-mono-100);
+}
+
+.states-item-label {
+    font-size: var(--homey-font-size-default);
+    font-weight: var(--homey-font-weight-medium);
+    line-height: 1;
+}
+
+.states-item-status {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    gap: var(--homey-su-1);
+    line-height: 1;
+}
+
+.states-item-status-icon {
+    --color: inherit;
+    --size: 12px;
+
+    margin-top: 2px;
+}
+
+.states-item-status-label {
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    font-weight: var(--homey-font-weight-medium);
+}
+
+.states-item.active .states-item-status {
+    color: var(--homey-color-green-500);
+}
+
+.states-item.active .states-item-status-icon {
+    --icon: '';
+    --icon-secondary: '';
+}
+
+.states-item.inactive .states-item-status-icon {
+    display: none;
+}
+
+.states-grid .states-item {
+    padding-top: var(--homey-su-3);
+    padding-bottom: var(--homey-su-3);
+    align-items: center;
+    flex-flow: column;
+    gap: var(--homey-su-2);
+}
+
+.states-list .states-item {
+    padding: var(--homey-su-3);
+    align-items: center;
+    gap: var(--homey-su-2);
+}
+
+.states-list .states-item-label {
+    flex-grow: 1;
+}

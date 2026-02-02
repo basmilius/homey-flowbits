@@ -1,0 +1,73 @@
+{
+    "id": "set_state_deactivated",
+    "title": {
+        "en": "State in set was deactivated",
+        "nl": "Status in set werd gedeactiveerd",
+        "de": "Zustand im Set wurde deaktiviert",
+        "fr": "L’état dans l’ensemble a été désactivé",
+        "it": "Lo stato nel set è stato disattivato",
+        "sv": "Tillstånd i uppsättningen avaktiverades",
+        "no": "Tilstand i settet ble deaktivert",
+        "es": "El estado en el conjunto fue desactivado",
+        "da": "Tilstand i sættet blev deaktiveret",
+        "ru": "Состояние в наборе было деактивировано",
+        "pl": "Stan w zestawie został dezaktywowany",
+        "ko": "세트의 상태가 비활성화됨",
+        "ar": "تم إلغاء تنشيط الحالة في المجموعة"
+    },
+    "titleFormatted": {
+        "en": "State [[state]] in set [[set]] was deactivated",
+        "nl": "Status [[state]] in set [[set]] werd gedeactiveerd",
+        "de": "Zustand [[state]] im Set [[set]] wurde deaktiviert",
+        "fr": "L’état [[state]] dans l’ensemble [[set]] a été désactivé",
+        "it": "Lo stato [[state]] nel set [[set]] è stato disattivato",
+        "sv": "Tillstånd [[state]] i uppsättningen [[set]] avaktiverades",
+        "no": "Tilstand [[state]] i settet [[set]] ble deaktivert",
+        "es": "El estado [[state]] en el conjunto [[set]] fue desactivado",
+        "da": "Tilstand [[state]] i sættet [[set]] blev deaktiveret",
+        "ru": "Состояние [[state]] в наборе [[set]] было деактивировано",
+        "pl": "Stan [[state]] w zestawie [[set]] został dezaktywowany",
+        "ko": "세트 [[set]]의 상태 [[state]]가 비활성화됨",
+        "ar": "تم إلغاء تنشيط الحالة [[state]] في المجموعة [[set]]"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status",
+                "de": "Zustand",
+                "fr": "État",
+                "it": "Stato",
+                "sv": "Tillstånd",
+                "no": "Tilstand",
+                "es": "Estado",
+                "da": "Tilstand",
+                "ru": "Состояние",
+                "pl": "Stan",
+                "ko": "상태",
+                "ar": "حالة"
+            }
+        }
+    ]
+}

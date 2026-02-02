@@ -109,6 +109,23 @@
         };
     }
 
+    function useSets() {
+        const items = ref([]);
+        const isLoading = ref(true);
+
+        const load = async () => {
+            isLoading.value = true;
+            items.value = await Homey.api('GET', '/sets');
+            isLoading.value = false;
+        };
+
+        return {
+            isLoading,
+            items,
+            load
+        };
+    }
+
     function useTimers() {
         const items = ref([]);
         const isLoading = ref(true);
@@ -361,7 +378,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -402,7 +418,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -443,7 +458,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -484,7 +498,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -495,6 +508,46 @@
                     v-else
                     class="items-empty">
                     {{ t('settings.modes.empty') }}
+                </div>
+            </FormGroup>
+        `,
+
+        setup(_, {emit}) {
+            const onClick = item => emit('edit', item);
+
+            return {
+                onClick
+            };
+        }
+    });
+
+    const Sets = defineComponent({
+        components: {
+            FormGroup,
+            Item
+        },
+
+        props: ['items'],
+
+        template: `
+            <FormGroup
+                :title="t('settings.sets.title')"
+                :description="t('settings.sets.description')">
+                <div
+                    v-if="items.length > 0"
+                    class="items">
+                    <Item
+                        v-for="item of items"
+                        :name="item.name"
+                        :color="item.color"
+                        :icon="item.icon"
+                        @click="onClick(item)"/>
+                </div>
+
+                <div
+                    v-else
+                    class="items-empty">
+                    {{ t('settings.sets.empty') }}
                 </div>
             </FormGroup>
         `,
@@ -525,7 +578,6 @@
                     class="items">
                     <Item
                         v-for="item of items"
-                        :active="item.active"
                         :name="item.name"
                         :color="item.color"
                         :icon="item.icon"
@@ -589,30 +641,42 @@
                             icon=""
                             :name="t('settings.statistics.cycles')"
                             :value="result.numberOfCycles"/>
+                        
                         <Statistic
                             icon=""
                             :name="t('settings.statistics.events')"
                             :value="result.numberOfEvents"/>
+                        
                         <Statistic
                             icon=""
                             :name="t('settings.statistics.flags')"
                             :value="result.numberOfFlags"/>
+                        
                         <Statistic
                             icon=""
                             :name="t('settings.statistics.labels')"
                             :value="result.numberOfLabels"/>
+                        
                         <Statistic
                             icon=""
                             :name="t('settings.statistics.modes')"
                             :value="result.numberOfModes"/>
+                        
                         <Statistic
                             icon=""
                             :name="t('settings.statistics.no_repeats')"
                             :value="result.numberOfNoRepeats"/>
+                        
+                        <Statistic
+                            icon=""
+                            :name="t('settings.statistics.sets')"
+                            :value="result.numberOfSets"/>
+                        
                         <Statistic
                             icon=""
                             :name="t('settings.statistics.sliders')"
                             :value="result.numberOfSliders"/>
+                        
                         <Statistic
                             icon=""
                             :name="t('settings.statistics.timers')"
@@ -654,6 +718,7 @@
             Flags,
             Labels,
             Modes,
+            Sets,
             Timers,
             Statistics
         },
@@ -669,22 +734,32 @@
                     v-if="modes.length > 0"
                     :items="modes"
                     @edit="onEditMode"/>
+
                 <Flags
                     v-if="flags.length > 0"
                     :items="flags"
                     @edit="onEditFlag"/>
+
                 <Timers
                     v-if="timers.length > 0"
                     :items="timers"
                     @edit="onEditTimer"/>
+
                 <Labels
                     v-if="labels.length > 0"
                     :items="labels"
                     @edit="onEditLabel"/>
+
+                <Sets
+                    v-if="sets.length > 0"
+                    :items="sets"
+                    @edit="onEditSet"/>
+
                 <Events
                     v-if="events.length > 0"
                     :items="events"
                     @edit="onEditEvent"/>
+
                 <Statistics/>
             </form>
 
@@ -726,6 +801,15 @@
                     @save="form => onSaveMode(editingMode.name, form)"/>
 
                 <Edit
+                    v-else-if="editingSet"
+                    :name="editingSet.name"
+                    :color="editingSet.color"
+                    :icon="editingSet.icon"
+                    :saving="isSaving"
+                    @close="editingSet = null"
+                    @save="form => onSaveSet(editingSet.name, form)"/>
+
+                <Edit
                     v-else-if="editingTimer"
                     :name="editingTimer.name"
                     :color="editingTimer.color"
@@ -741,6 +825,7 @@
             const {items: flags, load: loadFlags} = useFlags();
             const {items: labels, load: loadLabels} = useLabels();
             const {items: modes, load: loadModes} = useModes();
+            const {items: sets, load: loadSets} = useSets();
             const {items: timers, load: loadTimers} = useTimers();
             const {items: colors, load: loadColors} = useColors();
             const {items: icons, load: loadIcons} = useIcons();
@@ -749,6 +834,7 @@
             const editingFlag = ref(null);
             const editingLabel = ref(null);
             const editingMode = ref(null);
+            const editingSet = ref(null);
             const editingTimer = ref(null);
             const isSaving = ref(false);
 
@@ -763,6 +849,7 @@
                     loadFlags(),
                     loadLabels(),
                     loadModes(),
+                    loadSets(),
                     loadTimers()
                 ]);
             });
@@ -771,6 +858,7 @@
             const onEditFlag = flag => editingFlag.value = flag;
             const onEditLabel = label => editingLabel.value = label;
             const onEditMode = mode => editingMode.value = mode;
+            const onEditSet = set => editingSet.value = set;
             const onEditTimer = timer => editingTimer.value = timer;
 
             const onSaveEvent = async (name, {color, icon}) => {
@@ -833,6 +921,21 @@
                 isSaving.value = false;
             };
 
+            const onSaveSet = async (name, {color, icon}) => {
+                isSaving.value = true;
+
+                await Homey.api('POST', '/sets/look', {
+                    name,
+                    color,
+                    icon
+                });
+
+                await loadSets();
+
+                editingSet.value = null;
+                isSaving.value = false;
+            };
+
             const onSaveTimer = async (name, {color, icon}) => {
                 isSaving.value = true;
 
@@ -857,22 +960,26 @@
                 editingFlag,
                 editingLabel,
                 editingMode,
+                editingSet,
                 editingTimer,
                 events,
                 flags,
                 labels,
                 modes,
+                sets,
                 timers,
 
                 onEditEvent,
                 onEditFlag,
                 onEditLabel,
                 onEditMode,
+                onEditSet,
                 onEditTimer,
                 onSaveEvent,
                 onSaveFlag,
                 onSaveLabel,
                 onSaveMode,
+                onSaveSet,
                 onSaveTimer
             };
         }

@@ -6,6 +6,8 @@
         "label_new": "Ny etiket i dette flow",
         "mode_new": "Ny tilstand i dette flow",
         "no_repeat_new": "Nyt ingen- gentagelses vindue i dette flow",
+        "set_new": "Nyt sæt i dette flow",
+        "set_state_new": "Ny sæt-tilstand i dette flow, vil blive kendt efter lagring af flowet",
         "signal_new": "Ny signal i dette flow",
         "slider_new": "Ny skyder i dette flow",
         "timer_new": "Ny timer i dette flow"
@@ -60,6 +62,16 @@
         "event": {
             "now": "Nu"
         },
+        "setStates": {
+            "active": "Aktiv",
+            "inactive": "Inaktiv"
+        },
+        "setStatus": {
+            "active": "Aktiv",
+            "full": "Fuldt aktiv",
+            "inactive": "Ingen tilstande aktive",
+            "partially": "__active__ ud af __total__ tilstande aktive"
+        },
         "timer": {
             "finished": "Afsluttet",
             "paused": "Sat på pause",
@@ -86,6 +98,11 @@
             "description": "Kun én tilstand kan være aktiv ad gangen. Opret og administrér tilstande via handlinger, betingelser og triggere i dine flows.",
             "empty": "Der er endnu ikke oprettet nogen tilstande."
         },
+        "sets": {
+            "title": "Sæt",
+            "description": "Sæt er samlinger af boolske tilstande, der kan evalueres som en gruppe. Et sæt er aktivt, når en af dets tilstande er aktiv. Brug sæt-handlinger, betingelser og triggere i dine flows til at administrere grupperede tilstande.",
+            "empty": "Der er endnu ikke oprettet nogen sæt."
+        },
         "timers": {
             "title": "Timere",
             "description": "Timere tæller ned fra en specificeret varighed og kan startes, sættes på pause, stoppes og nulstilles. Brug timerhandlinger, betingelser og triggere i dine flows til at administrere nedtællinger og reagere når timere er færdige.",
@@ -100,6 +117,7 @@
             "labels": "Etiketter",
             "modes": "Tilstande",
             "no_repeats": "Ingen-gentagelsesvinduer",
+            "sets": "Sæt",
             "sliders": "Skydeknapper",
             "timers": "Timere"
         },

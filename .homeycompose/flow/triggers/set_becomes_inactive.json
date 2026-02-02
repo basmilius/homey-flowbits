@@ -1,0 +1,54 @@
+{
+    "id": "set_becomes_inactive",
+    "title": {
+        "en": "Set becomes inactive",
+        "nl": "Set wordt inactief",
+        "de": "Set wird inaktiv",
+        "fr": "L’ensemble devient inactif",
+        "it": "Il set diventa inattivo",
+        "sv": "Uppsättningen blir inaktiv",
+        "no": "Sett blir inaktivt",
+        "es": "El conjunto se desactiva",
+        "da": "Sættet bliver inaktivt",
+        "ru": "Набор становится неактивным",
+        "pl": "Zestaw staje się nieaktywny",
+        "ko": "세트가 비활성화됨",
+        "ar": "تصبح المجموعة غير نشطة"
+    },
+    "titleFormatted": {
+        "en": "Set [[set]] becomes inactive",
+        "nl": "Set [[set]] wordt inactief",
+        "de": "Set [[set]] wird inaktiv",
+        "fr": "L’ensemble [[set]] devient inactif",
+        "it": "Il set [[set]] diventa inattivo",
+        "sv": "Uppsättningen [[set]] blir inaktiv",
+        "no": "Sett [[set]] blir inaktivt",
+        "es": "El conjunto [[set]] se desactiva",
+        "da": "Sættet [[set]] bliver inaktivt",
+        "ru": "Набор [[set]] становится неактивным",
+        "pl": "Zestaw [[set]] staje się nieaktywny",
+        "ko": "세트 [[set]]가 비활성화됨",
+        "ar": "تصبح المجموعة [[set]] غير نشطة"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        }
+    ]
+}

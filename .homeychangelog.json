@@ -193,5 +193,17 @@
   },
   "1.11.0": {
     "en": "This update adds a new utility flow card to calculate the percentage between two timestamps."
+  },
+  "1.12.0": {
+    "en": "This update introduces Sets, which are groups of boolean values. It also fixes a bug with encoding of names and an issue with timers where the remaining trigger could in rare cases fire after the timer was finished."
+  },
+  "1.12.1": {
+    "en": "This update introduces Sets, which are groups of boolean values."
+  },
+  "1.12.2": {
+    "en": "This update introduces Sets, which are groups of boolean values."
+  },
+  "1.12.3": {
+    "en": "This update introduces Sets, which are groups of boolean values."
   }
 }

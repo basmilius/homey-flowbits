@@ -1,0 +1,69 @@
+{
+    "id": "set_deactivate_all",
+    "title": {
+        "en": "Deactivate all states in set",
+        "nl": "Deactiveer alle statussen in set",
+        "de": "Alle Zustände im Set deaktivieren",
+        "fr": "Désactiver tous les états dans l’ensemble",
+        "it": "Disattiva tutti gli stati nel set",
+        "sv": "Inaktivera alla tillstånd i uppsättningen",
+        "no": "Deaktiver alle tilstander i settet",
+        "es": "Desactivar todos los estados en el conjunto",
+        "da": "Deaktivér alle tilstande i sættet",
+        "ru": "Деактивировать все состояния в наборе",
+        "pl": "Dezaktywuj wszystkie stany w zestawie",
+        "ko": "세트의 모든 상태 비활성화",
+        "ar": "إلغاء تفعيل جميع الحالات في المجموعة"
+    },
+    "titleFormatted": {
+        "en": "Deactivate all states in set [[set]]",
+        "nl": "Deactiveer alle statussen in set [[set]]",
+        "de": "Alle Zustände im Set [[set]] deaktivieren",
+        "fr": "Désactiver tous les états dans l’ensemble [[set]]",
+        "it": "Disattiva tutti gli stati nel set [[set]]",
+        "sv": "Inaktivera alla tillstånd i uppsättningen [[set]]",
+        "no": "Deaktiver alle tilstander i settet [[set]]",
+        "es": "Desactivar todos los estados en el conjunto [[set]]",
+        "da": "Deaktivér alle tilstande i sættet [[set]]",
+        "ru": "Деактивировать все состояния в наборе [[set]]",
+        "pl": "Dezaktywuj wszystkie stany w zestawie [[set]]",
+        "ko": "세트 [[set]]의 모든 상태 비활성화",
+        "ar": "إلغاء تفعيل جميع الحالات في المجموعة [[set]]"
+    },
+    "hint": {
+        "en": "Deactivates all states in a set.",
+        "nl": "Deactiveert alle statussen in een set.",
+        "de": "Deaktiviert alle Zustände in einem Set.",
+        "fr": "Désactive tous les états d’un ensemble.",
+        "it": "Disattiva tutti gli stati in un set.",
+        "sv": "Inaktiverar alla tillstånd i en uppsättning.",
+        "no": "Deaktiverer alle tilstander i et sett.",
+        "es": "Desactiva todos los estados en un conjunto.",
+        "da": "Deaktiverer alle tilstande i et sæt.",
+        "ru": "Деактивирует все состояния в наборе.",
+        "pl": "Dezaktywuje wszystkie stany w zestawie.",
+        "ko": "세트의 모든 상태를 비활성화합니다.",
+        "ar": "يقوم بإلغاء تفعيل جميع الحالات في مجموعة."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        }
+    ]
+}

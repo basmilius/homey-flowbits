@@ -1,0 +1,88 @@
+{
+    "id": "set_toggle_state",
+    "title": {
+        "en": "Toggle state in set",
+        "nl": "Schakel status in set om",
+        "de": "Zustand im Set umschalten",
+        "fr": "Basculer un état dans l’ensemble",
+        "it": "Attiva/disattiva uno stato nel set",
+        "sv": "Växla tillstånd i uppsättningen",
+        "no": "Veksle tilstand i settet",
+        "es": "Alternar estado en el conjunto",
+        "da": "Skift tilstand i sættet",
+        "ru": "Переключить состояние в наборе",
+        "pl": "Przełącz stan w zestawie",
+        "ko": "세트에서 상태 전환",
+        "ar": "تبديل حالة في المجموعة"
+    },
+    "titleFormatted": {
+        "en": "Toggle [[state]] in set [[set]]",
+        "nl": "Schakel [[state]] in set [[set]] om",
+        "de": "Zustand [[state]] im Set [[set]] umschalten",
+        "fr": "Basculer [[state]] dans l’ensemble [[set]]",
+        "it": "Attiva/disattiva [[state]] nel set [[set]]",
+        "sv": "Växla [[state]] i uppsättningen [[set]]",
+        "no": "Veksle [[state]] i settet [[set]]",
+        "es": "Alternar [[state]] en el conjunto [[set]]",
+        "da": "Skift [[state]] i sættet [[set]]",
+        "ru": "Переключить состояние [[state]] в наборе [[set]]",
+        "pl": "Przełącz stan [[state]] w zestawie [[set]]",
+        "ko": "세트 [[set]]에서 [[state]] 전환",
+        "ar": "تبديل [[state]] في المجموعة [[set]]"
+    },
+    "hint": {
+        "en": "Toggles a state in a set.",
+        "nl": "Schakelt een status in een set om.",
+        "de": "Schaltet einen Zustand in einem Set um.",
+        "fr": "Bascule un état dans un ensemble.",
+        "it": "Attiva/disattiva uno stato in un set.",
+        "sv": "Växlar ett tillstånd i en uppsättning.",
+        "no": "Veksler en tilstand i et sett.",
+        "es": "Alterna un estado en un conjunto.",
+        "da": "Skifter en tilstand i et sæt.",
+        "ru": "Переключает состояние в наборе.",
+        "pl": "Przełącza stan w zestawie.",
+        "ko": "세트에서 상태를 전환합니다.",
+        "ar": "يقوم بتبديل حالة في مجموعة."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status",
+                "de": "Zustand",
+                "fr": "État",
+                "it": "Stato",
+                "sv": "Tillstånd",
+                "no": "Tilstand",
+                "es": "Estado",
+                "da": "Tilstand",
+                "ru": "Состояние",
+                "pl": "Stan",
+                "ko": "상태",
+                "ar": "حالة"
+            }
+        }
+    ]
+}

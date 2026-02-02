@@ -6,8 +6,10 @@
         "label_new": "Nuova etichetta in questo flusso",
         "mode_new": "Nuova modalità in questo flusso",
         "no_repeat_new": "Nuova finestra senza ripetizione in questo flusso",
+        "set_new": "Nuovo set in questo flusso",
+        "set_state_new": "Nuovo stato set in questo flusso, sarà noto dopo il salvataggio del flusso",
         "signal_new": "Nuovo segnale in questo flusso",
-        "slider_new": "Nuovo slider in questo flow",
+        "slider_new": "Nuovo slider in questo flusso",
         "timer_new": "Nuovo timer in questo flusso"
     },
     "notification": {
@@ -60,6 +62,16 @@
         "event": {
             "now": "Adesso"
         },
+        "setStates": {
+            "active": "Attivo",
+            "inactive": "Inattivo"
+        },
+        "setStatus": {
+            "active": "Attivo",
+            "full": "Attivo completamente",
+            "inactive": "Nessun stato attivo",
+            "partially": "__active__ di __total__ stati attivi"
+        },
         "timer": {
             "finished": "Terminato",
             "paused": "In pausa",
@@ -86,6 +98,11 @@
             "description": "Solo una modalità può essere attiva alla volta. Crea e gestisci le modalità tramite azioni, condizioni e trigger nei tuoi flow.",
             "empty": "Nessuna modalità è stata ancora creata."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "I sets sono collezioni di stati booleani che possono essere valutati come gruppo. Un set è attivo quando uno dei suoi stati è attivo. Usa azioni, condizioni e trigger dei set nei tuoi flow per gestire gli stati raggruppati.",
+            "empty": "Nessun set è stato ancora creato."
+        },
         "timers": {
             "title": "Timer",
             "description": "I timer fanno un conto alla rovescia da una durata specificata e possono essere avviati, messi in pausa, fermati e ripristinati. Usa azioni, condizioni e trigger dei timer nei tuoi flow per gestire i conti alla rovescia e rispondere quando i timer terminano.",
@@ -100,6 +117,7 @@
             "labels": "Etichette",
             "modes": "Modalità",
             "no_repeats": "Finestre senza ripetizione",
+            "sets": "Sets",
             "sliders": "Slider",
             "timers": "Timer"
         },

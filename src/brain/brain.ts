@@ -7,6 +7,7 @@ import Flags from './flags';
 import Labels from './labels';
 import Modes from './modes';
 import NoRepeat from './noRepeat';
+import Sets from './sets';
 import Signals from './signals';
 import Sliders from './sliders';
 import Timers from './timers';
@@ -42,6 +43,10 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         return this.#noRepeat;
     }
 
+    get sets(): Sets {
+        return this.#sets;
+    }
+
     get signals(): Signals {
         return this.#signals;
     }
@@ -69,6 +74,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
     readonly #labels: Labels;
     readonly #modes: Modes;
     readonly #noRepeat: NoRepeat;
+    readonly #sets: Sets;
     readonly #signals: Signals;
     readonly #sliders: Sliders;
     readonly #timers: Timers;
@@ -85,6 +91,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         this.#labels = new Labels(app);
         this.#modes = new Modes(app);
         this.#noRepeat = new NoRepeat(app);
+        this.#sets = new Sets(app);
         this.#signals = new Signals(app);
         this.#sliders = new Sliders(app);
         this.#timers = new Timers(app);
@@ -102,6 +109,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
             this.labels.cleanup(),
             this.modes.cleanup(),
             this.noRepeat.cleanup(),
+            this.sets.cleanup(),
             this.sliders.cleanup(),
             this.timers.cleanup()
         ]);

@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <title>Set states</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+</head>
+
+<body class="homey-widget">
+
+<div class="basic-widget">
+    <div
+        class="basic-widget-icon flowbits-icon"
+        id="set-icon"></div>
+
+    <div class="basic-widget-caption">
+        <div class="basic-widget-header">
+            <span
+                class="basic-widget-header-title"
+                id="set-name">&mdash;</span>
+
+            <div
+                class="basic-widget-header-badge hidden"
+                id="set-active">
+                <span
+                    class="basic-widget-header-badge-icon flowbits-icon"
+                    style="--icon: ''; --icon-secondary: ''"></span>
+
+                <span
+                    class="basic-widget-header-badge-label"
+                    data-i18n="widget.setStatus.active"></span>
+            </div>
+
+            <span
+                class="basic-widget-header-icon flowbits-icon"
+                style="--icon: ''; --icon-secondary: ''"></span>
+        </div>
+
+        <div
+            class="states"
+            id="states"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onHomeyReady(Homey) {
+        const setActive = document.getElementById('set-active');
+        const setIcon = document.getElementById('set-icon');
+        const setName = document.getElementById('set-name');
+        const statesContainer = document.getElementById('states');
+        let ready = false;
+        let interval;
+
+        const settings = Homey.getSettings();
+        const viewMode = settings.view_mode ?? 'grid';
+
+        statesContainer.classList.add(`states-${viewMode}`);
+
+        async function init() {
+            Homey.on('flowbits-sets-update', (set) => {
+                if (set?.name === settings.set.name) {
+                    render(set);
+                }
+            });
+
+            await update();
+        }
+
+        function buildStates(states) {
+            statesContainer.innerText = '';
+
+            if (!states || states.length === 0) {
+                return;
+            }
+
+            for (const state of states) {
+                const item = document.createElement('div');
+                item.className = 'states-item';
+
+                if (state.active) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.add('inactive');
+                }
+
+                if (state.expiresAt) {
+                    item.classList.add('expiring');
+                }
+
+                const label = document.createElement('div');
+                label.className = 'states-item-label';
+                label.textContent = state.name;
+
+                const status = document.createElement('div');
+                status.className = 'states-item-status';
+
+                const statusIcon = document.createElement('div');
+                statusIcon.className = 'states-item-status-icon flowbits-icon';
+
+                const statusLabel = document.createElement('div');
+                statusLabel.className = 'states-item-status-label';
+
+                if (state.active) {
+                    if (state.expiresAt) {
+                        statusLabel.textContent = formatRemainingTime(state.expiresAt);
+                        statusLabel.dataset.expiresAt = state.expiresAt;
+                    } else {
+                        statusLabel.textContent = Homey.__('widget.setStates.active');
+                    }
+                } else {
+                    statusLabel.textContent = Homey.__('widget.setStates.inactive');
+                }
+
+                status.appendChild(statusIcon);
+                status.appendChild(statusLabel);
+
+                item.appendChild(label);
+                item.appendChild(status);
+
+                statesContainer.appendChild(item);
+            }
+        }
+
+        function updateExpiringStates() {
+            const expiringLabels = statesContainer.querySelectorAll('.states-item-status-label[data-expires-at]');
+
+            for (const label of expiringLabels) {
+                const expiresAt = label.dataset.expiresAt;
+                label.textContent = formatRemainingTime(expiresAt);
+            }
+        }
+
+        function formatRemainingTime(expiresAt) {
+            const now = Date.now();
+            const expires = new Date(expiresAt).getTime();
+            const remaining = Math.max(0, Math.floor((expires - now) / 1000)) + 1;
+
+            const minutes = Math.floor(remaining / 60);
+            const seconds = remaining % 60;
+
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function render(set) {
+            clearInterval(interval);
+
+            setName.innerText = set?.name ?? '—';
+
+            if (set?.color) {
+                setIcon.style.setProperty('--color', set.color);
+            } else {
+                setIcon.style.removeProperty('--color');
+            }
+
+            if (set?.icon) {
+                setIcon.style.setProperty('--icon', JSON.stringify(set.icon));
+                setIcon.style.setProperty('--icon-secondary', JSON.stringify(set.icon + set.icon));
+            } else {
+                setIcon.style.removeProperty('--icon');
+                setIcon.style.removeProperty('--icon-secondary');
+            }
+
+            if (set?.anyActive) {
+                setActive.classList.remove('hidden');
+            } else {
+                setActive.classList.add('hidden');
+            }
+
+            buildStates(set?.states ?? []);
+
+            const hasExpiringStates = (set?.states ?? []).some(state => state.expiresAt);
+
+            if (hasExpiringStates) {
+                interval = setInterval(updateExpiringStates, 1000);
+            }
+        }
+
+        async function update() {
+            const set = await Homey.api('GET', `/?set=${encodeURIComponent(settings.set.name)}`);
+
+            render(set);
+
+            const height = document.body.getBoundingClientRect().height;
+
+            if (ready) {
+                await Homey.setHeight(height);
+            } else {
+                Homey.ready({height});
+                ready = true;
+            }
+        }
+
+        init();
+    }
+</script>
+
+</body>
+</html>

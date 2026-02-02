@@ -6,6 +6,8 @@
         "label_new": "Nieuwe label in deze flow",
         "mode_new": "Nieuwe stand in deze flow",
         "no_repeat_new": "Nieuwe geen-herhalingvenster in deze flow",
+        "set_new": "Nieuwe set in deze flow",
+        "set_state_new": "Nieuwe set-stand in deze flow, wordt na opslaan van de flow bekend",
         "signal_new": "Nieuw signaal in deze flow",
         "slider_new": "Nieuwe slider in deze flow",
         "timer_new": "Nieuwe timer in deze flow"
@@ -60,6 +62,16 @@
         "event": {
             "now": "Nu"
         },
+        "setStates": {
+            "active": "Actief",
+            "inactive": "Inactief"
+        },
+        "setStatus": {
+            "active": "Actief",
+            "full": "Volledig actief",
+            "inactive": "Geen enkele status actief",
+            "partially": "__active__ van __total__ statussen actief"
+        },
         "timer": {
             "finished": "Afgelopen",
             "paused": "Gepauzeerd",
@@ -96,6 +108,11 @@
             "description": "Er kan maar één stand tegelijk actief zijn. Maak en beheer standen via stand-acties, -voorwaarden en -triggers in je flows.",
             "empty": "Er zijn nog geen standen aangemaakt."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets zijn verzamelingen van booleaanse statussen die als groep kunnen worden geëvalueerd. Een set is actief wanneer een van zijn statussen actief is. Gebruik set-acties, -voorwaarden en -triggers in je flows om groepen statussen te beheren.",
+            "empty": "Er zijn nog geen sets aangemaakt."
+        },
         "timers": {
             "title": "Timers",
             "description": "Timers tellen af vanaf een opgegeven duur en kunnen worden gestart, gepauzeerd, gestopt en gereset. Gebruik timer-acties, -voorwaarden en -triggers in je flows om afteltijden te beheren en te reageren wanneer timers aflopen.",
@@ -110,6 +127,7 @@
             "labels": "Labels",
             "modes": "Standen",
             "no_repeats": "Geen-herhalingsvensters",
+            "sets": "Sets",
             "sliders": "Sliders",
             "timers": "Timers"
         },

@@ -1,0 +1,69 @@
+{
+    "id": "set_inactive",
+    "title": {
+        "en": "No state in set is active",
+        "nl": "Geen enkele status in de set is actief",
+        "de": "Kein Zustand im Set ist aktiv",
+        "fr": "Aucun état dans l’ensemble n’est actif",
+        "it": "Nessuno stato nel set è attivo",
+        "sv": "Inget tillstånd i uppsättningen är aktivt",
+        "no": "Ingen tilstand i settet er aktiv",
+        "es": "Ningún estado en el conjunto está activo",
+        "da": "Ingen tilstand i sættet er aktiv",
+        "ru": "Ни одно состояние в наборе не активно",
+        "pl": "Żaden stan w zestawie nie jest aktywny",
+        "ko": "세트에서 활성화된 상태가 없음",
+        "ar": "لا توجد أي حالة نشطة في المجموعة"
+    },
+    "titleFormatted": {
+        "en": "No state in set [[set]] is active",
+        "nl": "Geen enkele status in set [[set]] is actief",
+        "de": "Kein Zustand im Set [[set]] ist aktiv",
+        "fr": "Aucun état dans l’ensemble [[set]] n’est actif",
+        "it": "Nessuno stato nel set [[set]] è attivo",
+        "sv": "Inget tillstånd i uppsättningen [[set]] är aktivt",
+        "no": "Ingen tilstand i settet [[set]] er aktiv",
+        "es": "Ningún estado en el conjunto [[set]] está activo",
+        "da": "Ingen tilstand i sættet [[set]] er aktiv",
+        "ru": "Ни одно состояние в наборе [[set]] не активно",
+        "pl": "Żaden stan w zestawie [[set]] nie jest aktywny",
+        "ko": "세트 [[set]]에서 활성화된 상태가 없음",
+        "ar": "لا توجد أي حالة نشطة في المجموعة [[set]]"
+    },
+    "hint": {
+        "en": "No state in a set is active.",
+        "nl": "Geen status in een set is actief.",
+        "de": "Kein Zustand in einem Set ist aktiv.",
+        "fr": "Aucun état d’un ensemble n’est actif.",
+        "it": "Nessuno stato in un set è attivo.",
+        "sv": "Inget tillstånd i en uppsättning är aktivt.",
+        "no": "Ingen tilstand i et sett er aktiv.",
+        "es": "Ningún estado en un conjunto está activo.",
+        "da": "Ingen tilstand i et sæt er aktiv.",
+        "ru": "Ни одно состояние в наборе не активно.",
+        "pl": "Żaden stan w zestawie nie jest aktywny.",
+        "ko": "세트에서 활성화된 상태가 없습니다.",
+        "ar": "لا توجد أي حالة نشطة في مجموعة."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        }
+    ]
+}

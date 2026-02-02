@@ -8,7 +8,9 @@
     "timer_new": "Nuevo temporizador en este flujo",
     "slider_new": "Nuevo deslizador en este flujo",
     "event_new": "Nuevo evento en este flujo",
-    "label_new": "Nueva etiqueta en este flujo"
+    "label_new": "Nueva etiqueta en este flujo",
+    "set_new": "Nuevo conjunto en este flujo",
+    "set_state_new": "Nuevo estado de conjunto en este flujo, se conocerá después de guardar el flujo"
   },
   "notification": {
     "mode_activated": "**__name__** está activado.",
@@ -41,6 +43,16 @@
       "finished": "Finalizado",
       "paused": "Pausado",
       "stopped": "Detenido"
+    },
+    "setStates": {
+      "active": "Activo",
+      "inactive": "Inactivo"
+    },
+    "setStatus": {
+      "active": "Activo",
+      "full": "Completo",
+      "inactive": "Sin estados activos",
+      "partially": "__active__ de __total__ estados activos"
     }
   },
   "settings": {
@@ -73,7 +85,8 @@
       "sliders": "Deslizadores",
       "timers": "Temporizadores",
       "events": "Eventos",
-      "labels": "Etiquetas"
+      "labels": "Etiquetas",
+      "sets": "Conjuntos"
     },
     "card_statistics": {
       "title": "Estadísticas de tarjetas de flujo",
@@ -83,6 +96,11 @@
       "title": "Temporizadores",
       "description": "Los temporizadores cuentan hacia atrás desde una duración especificada y pueden iniciarse, pausarse, detenerse y reiniciarse. Utiliza acciones, condiciones y disparadores de temporizador en tus flujos para gestionar cuentas regresivas y responder cuando los temporizadores finalicen.",
       "empty": "Aún no se han creado temporizadores."
+    },
+    "sets": {
+      "title": "Conjuntos",
+      "description": "Los conjuntos son colecciones de estados booleanos que se pueden evaluar como grupo. Un conjunto está activo cuando cualquiera de sus estados está activo. Utiliza acciones, condiciones y disparadores de conjuntos en tus flujos para gestionar estados agrupados.",
+      "empty": "Aún no se han creado conjuntos."
     }
   },
   "color": {

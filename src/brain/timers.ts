@@ -103,7 +103,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async finish(timer: StoredTimer): Promise<void> {
-        await this.#update(timer.name, timer.duration, 0, timer.target, 'finished');
+        this.#update(timer.name, timer.duration, 0, timer.target, 'finished');
         this.log(`Finish timer ${timer.name}.`);
 
         await Promise.allSettled([
@@ -113,7 +113,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async pause(name: string): Promise<void> {
-        const timer = await this.#find(name);
+        const timer = this.#find(name);
 
         if (!timer) {
             return;
@@ -122,7 +122,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const now = DateTime.now();
         const target = DateTime.fromSeconds(timer.target);
 
-        await this.#update(timer.name, timer.duration, target.diff(now).as('seconds'), timer.target, 'paused');
+        this.#update(timer.name, timer.duration, target.diff(now).as('seconds'), timer.target, 'paused');
         this.log(`Pause timer ${timer.name}.`);
 
         await this.#schedule();
@@ -133,7 +133,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async resume(name: string): Promise<void> {
-        const timer = await this.#find(name);
+        const timer = this.#find(name);
 
         if (!timer) {
             return;
@@ -142,7 +142,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const now = DateTime.now();
         const target = now.plus({seconds: timer.remaining});
 
-        await this.#update(timer.name, timer.duration, timer.remaining, target.toSeconds(), 'running');
+        this.#update(timer.name, timer.duration, timer.remaining, target.toSeconds(), 'running');
         this.log(`Resume timer ${timer.name}.`);
 
         await this.#schedule();
@@ -153,20 +153,20 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async set(name: string, duration: number, unit: ClockUnit): Promise<void> {
-        const timer = await this.#find(name);
+        const timer = this.#find(name);
 
         if (!timer) {
             return;
         }
 
-        await this.#save(name, duration, unit, timer.status);
+        this.#save(name, duration, unit, timer.status);
         await this.#schedule();
 
         this.log(`Set timer ${timer.name} to ${duration} ${unit}.`);
     }
 
     async start(name: string, duration: number, unit: ClockUnit): Promise<void> {
-        await this.#save(name, duration, unit, 'running');
+        this.#save(name, duration, unit, 'running');
         await this.#schedule();
 
         this.log(`Start timer ${name} for ${duration} ${unit}.`);
@@ -178,14 +178,14 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async stop(name: string): Promise<void> {
-        const timer = await this.#find(name);
+        const timer = this.#find(name);
 
         if (!timer) {
             return;
         }
 
-        await this.#clear(timer);
-        await this.#remove(timer.id);
+        this.#clear(timer);
+        this.#remove(timer.id);
 
         this.log(`Stop timer ${timer.name}.`);
 
@@ -196,7 +196,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async isDuration(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
-        const timer = await this.#find(name);
+        const timer = this.#find(name);
 
         if (!timer) {
             return false;
@@ -209,19 +209,19 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async isFinished(name: string): Promise<boolean> {
-        const timer = await this.#find(name);
+        const timer = this.#find(name);
 
         return timer?.status === 'finished';
     }
 
     async isPaused(name: string): Promise<boolean> {
-        const timer = await this.#find(name);
+        const timer = this.#find(name);
 
         return timer?.status === 'paused';
     }
 
     async isRunning(name: string): Promise<boolean> {
-        const timer = await this.#find(name);
+        const timer = this.#find(name);
 
         return timer?.status === 'running';
     }
@@ -243,7 +243,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         return `${SETTING_TIMER_PREFIX}${slugify(name)}`;
     }
 
-    async #clear(timer: StoredTimer): Promise<void> {
+    #clear(timer: StoredTimer): void {
         const timeouts = this.#timeouts[timer.id];
 
         if (!timeouts) {
@@ -255,7 +255,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         delete this.#timeouts[timer.id];
     }
 
-    async #find(name: string): Promise<StoredTimer | null> {
+    #find(name: string): StoredTimer | null {
         return Object.values(this.#timers).find(t => t.name === name) ?? null;
     }
 
@@ -275,7 +275,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             const isValid = timer && checkKeys.every(key => key in timer);
 
             if (!isValid || !definedTimers.find(t => t.name === timer.name)) {
-                timer && await this.#remove(timer.id);
+                timer && this.#remove(timer.id);
                 continue;
             }
 
@@ -292,17 +292,17 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         return timers;
     }
 
-    async #remove(id: string): Promise<void> {
+    #remove(id: string): void {
         this.settings.unset(id);
         delete this.#timers[id];
     }
 
-    async #save(name: string, duration: number, unit: ClockUnit, status: ClockState): Promise<void> {
+    #save(name: string, duration: number, unit: ClockUnit, status: ClockState): void {
         const now = DateTime.now().toSeconds();
         const remaining = convertDurationToSeconds(duration, unit);
         const target = now + remaining + 1;
 
-        await this.#update(name, remaining, remaining, target, status);
+        this.#update(name, remaining, remaining, target, status);
     }
 
     async #schedule(): Promise<void> {
@@ -316,7 +316,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         this.#timers = {};
 
         for (const timer of timers) {
-            await this.#clear(timer);
+            this.#clear(timer);
 
             const diff = Math.floor(timer.target - now);
             const triggers = remainingTriggers
@@ -337,7 +337,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
 
                 for (const trigger of triggers) {
                     const triggerDuration = convertDurationToSeconds(trigger.duration, trigger.unit);
-                    const triggerDiff = Math.abs(triggerDuration - diff);
+                    const triggerDiff = diff - triggerDuration;
 
                     if (triggerDiff <= 0) {
                         continue;
@@ -361,7 +361,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         }
     }
 
-    async #update(name: string, duration: number, remaining: number, target: number, status: ClockState): Promise<void> {
+    #update(name: string, duration: number, remaining: number, target: number, status: ClockState): void {
         const id = this.#id(name);
 
         this.settings.set(id, {

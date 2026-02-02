@@ -1,0 +1,132 @@
+{
+    "id": "set_changed",
+    "title": {
+        "en": "Set changed",
+        "nl": "Set is gewijzigd",
+        "de": "Set wurde geändert",
+        "fr": "L’ensemble a changé",
+        "it": "Il set è cambiato",
+        "sv": "Uppsättningen har ändrats",
+        "no": "Sett er endret",
+        "es": "El conjunto ha cambiado",
+        "da": "Sættet er ændret",
+        "ru": "Набор изменён",
+        "pl": "Zestaw został zmieniony",
+        "ko": "세트가 변경됨",
+        "ar": "تم تغيير المجموعة"
+    },
+    "titleFormatted": {
+        "en": "Set [[set]] changed",
+        "nl": "Set [[set]] is gewijzigd",
+        "de": "Set [[set]] wurde geändert",
+        "fr": "L’ensemble [[set]] a changé",
+        "it": "Il set [[set]] è cambiato",
+        "sv": "Uppsättningen [[set]] har ändrats",
+        "no": "Sett [[set]] er endret",
+        "es": "El conjunto [[set]] ha cambiado",
+        "da": "Sættet [[set]] er ændret",
+        "ru": "Набор [[set]] изменён",
+        "pl": "Zestaw [[set]] został zmieniony",
+        "ko": "세트 [[set]]가 변경됨",
+        "ar": "تم تغيير المجموعة [[set]]"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "name": "active",
+            "type": "boolean",
+            "title": {
+                "en": "Active",
+                "nl": "Actief",
+                "de": "Aktiv",
+                "fr": "Actif",
+                "it": "Attivo",
+                "sv": "Aktiv",
+                "no": "Aktiv",
+                "es": "Activo",
+                "da": "Aktiv",
+                "ru": "Активный",
+                "pl": "Aktywny",
+                "ko": "활성",
+                "ar": "نشط"
+            }
+        },
+        {
+            "name": "activeCount",
+            "type": "number",
+            "title": {
+                "en": "Active count",
+                "nl": "Aantal actieve statussen",
+                "de": "Anzahl aktiver Zustände",
+                "fr": "Nombre d’états actifs",
+                "it": "Numero di stati attivi",
+                "sv": "Antal aktiva tillstånd",
+                "no": "Antall aktive tilstander",
+                "es": "Cantidad de estados activos",
+                "da": "Antal aktive tilstande",
+                "ru": "Количество активных состояний",
+                "pl": "Liczba aktywnych stanów",
+                "ko": "활성 상태 수",
+                "ar": "عدد الحالات النشطة"
+            }
+        },
+        {
+            "name": "totalCount",
+            "type": "number",
+            "title": {
+                "en": "Total count",
+                "nl": "Totaal aantal statussen",
+                "de": "Gesamtanzahl der Zustände",
+                "fr": "Nombre total d’états",
+                "it": "Numero totale di stati",
+                "sv": "Totalt antal tillstånd",
+                "no": "Totalt antall tilstander",
+                "es": "Cantidad total de estados",
+                "da": "Samlet antal tilstande",
+                "ru": "Общее количество состояний",
+                "pl": "Łączna liczba stanów",
+                "ko": "전체 상태 수",
+                "ar": "إجمالي عدد الحالات"
+            }
+        },
+        {
+            "name": "activeStates",
+            "type": "string",
+            "title": {
+                "en": "Active states",
+                "nl": "Actieve statussen",
+                "de": "Aktive Zustände",
+                "fr": "États actifs",
+                "it": "Stati attivi",
+                "sv": "Aktiva tillstånd",
+                "no": "Aktive tilstander",
+                "es": "Estados activos",
+                "da": "Aktive tilstande",
+                "ru": "Активные состояния",
+                "pl": "Aktywne stany",
+                "ko": "활성 상태",
+                "ar": "الحالات النشطة"
+            }
+        }
+    ]
+}

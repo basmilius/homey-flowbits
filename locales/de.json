@@ -8,7 +8,9 @@
     "timer_new": "Neuer Timer in diesem Flow",
     "slider_new": "Neuer Slider in diesem Flow",
     "event_new": "Neues Ereignis in diesem Fluss",
-    "label_new": "Neues Etikett in diesem Fluss"
+    "label_new": "Neues Etikett in diesem Fluss",
+    "set_new": "Neues Set in diesem Flow",
+    "set_state_new": "Neue Set-Status in diesem Flow, wird nach dem Speichern des Flows bekannt"
   },
   "notification": {
     "mode_activated": "**__name__** ist aktiviert.",
@@ -41,6 +43,16 @@
       "finished": "Beendet",
       "paused": "Pausiert",
       "stopped": "Gestoppt"
+    },
+    "setStates": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "setStatus": {
+      "active": "Aktiv",
+      "full": "Vollständig aktiv",
+      "inactive": "Keine Zustände aktiv",
+      "partially": "__active__ von __total__ Zuständen aktiv"
     }
   },
   "settings": {
@@ -73,7 +85,8 @@
       "sliders": "Schieberegler",
       "timers": "Timer",
       "events": "Ereignisse",
-      "labels": "Etiketten"
+      "labels": "Etiketten",
+      "sets": "Sets"
     },
     "card_statistics": {
       "title": "Flowkarten-Statistiken",
@@ -83,6 +96,11 @@
       "title": "Timer",
       "description": "Timer zählen von einer bestimmten Dauer herunter und können gestartet, pausiert, gestoppt und zurückgesetzt werden. Verwenden Sie Timer-Aktionen, Bedingungen und Trigger in Ihren Flows, um Countdowns zu verwalten und zu reagieren, wenn Timer ablaufen.",
       "empty": "Es wurden noch keine Timer erstellt."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Sets sind Sammlungen von booleschen Zuständen, die als Gruppe ausgewertet werden können. Ein Set ist aktiv, wenn einer seiner Zustände aktiv ist. Verwenden Sie Set-Aktionen, Bedingungen und Trigger in Ihren Flows, um gruppierte Zustände zu verwalten.",
+      "empty": "Es wurden noch keine Sets erstellt."
     }
   },
   "color": {

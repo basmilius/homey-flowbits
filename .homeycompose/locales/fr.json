@@ -6,8 +6,10 @@
         "label_new": "Nouvelle étiquette dans ce flux",
         "mode_new": "Nouveau mode dans ce flux",
         "no_repeat_new": "Nouvelle fenêtre sans répétition dans ce flux",
+        "set_new": "Nouveau ensemble dans ce flux",
+        "set_state_new": "Nouvel état d'ensemble dans ce flux, sera connu après enregistrement du flux",
         "signal_new": "Nouveau signal dans ce flux",
-        "slider_new": "Nouveau curseur dans ce flow",
+        "slider_new": "Nouveau curseur dans ce flux",
         "timer_new": "Nouveau minuteur dans ce flux"
     },
     "notification": {
@@ -60,6 +62,16 @@
         "event": {
             "now": "Maintenant"
         },
+        "setStates": {
+            "active": "Actif",
+            "inactive": "Inactif"
+        },
+        "setStatus": {
+            "active": "Actif",
+            "full": "Complètement actif",
+            "inactive": "Aucun état actif",
+            "partially": "__active__ de __total__ états actifs"
+        },
         "timer": {
             "finished": "Terminé",
             "paused": "En pause",
@@ -86,6 +98,11 @@
             "description": "Un seul mode peut être actif à la fois. Créez et gérez les modes via les actions, conditions et déclencheurs dans vos flows.",
             "empty": "Aucun mode n’a encore été créé."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
+            "empty": "Aucun set n’a encore été créé."
+        },
         "timers": {
             "title": "Minuteries",
             "description": "Les minuteries effectuent un compte à rebours à partir d'une durée spécifiée et peuvent être démarrées, mises en pause, arrêtées et réinitialisées. Utilisez les actions, conditions et déclencheurs de minuterie dans vos flux pour gérer les comptes à rebours et réagir lorsque les minuteries se terminent.",
@@ -100,6 +117,7 @@
             "labels": "Étiquettes",
             "modes": "Modes",
             "no_repeats": "Fenêtres sans répétition",
+            "sets": "Sets",
             "sliders": "Curseurs",
             "timers": "Minuteries"
         },

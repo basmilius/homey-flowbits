@@ -8,7 +8,9 @@
     "timer_new": "Nowy timer w tym przepływie",
     "slider_new": "Nowy suwak w tym przepływie",
     "event_new": "Nowe zdarzenie w tym przepływie",
-    "label_new": "Nowa etykieta w tym przepływie"
+    "label_new": "Nowa etykieta w tym przepływie",
+    "set_new": "Nowe set w tym przepływie",
+    "set_state_new": "Nowy stan set w tym przepływie, zostanie zidentyfikowany po zapisaniu przepływu"
   },
   "notification": {
     "mode_activated": "**__name__** jest aktywowany.",
@@ -41,6 +43,16 @@
       "finished": "Zakończony",
       "paused": "Wstrzymany",
       "stopped": "Zatrzymany"
+    },
+    "setStates": {
+      "active": "Aktywny",
+      "inactive": "Nieaktywny"
+    },
+    "setStatus": {
+      "active": "Aktywny",
+      "full": "Pełna aktywność",
+      "inactive": "Brak aktywnych stanów",
+      "partially": "__active__ z __total__ stanów aktywnych"
     }
   },
   "settings": {
@@ -73,7 +85,8 @@
       "sliders": "Suwaki",
       "timers": "Timery",
       "events": "Zdarzenia",
-      "labels": "Etykiety"
+      "labels": "Etykiety",
+      "sets": "Zestawy"
     },
     "card_statistics": {
       "title": "Statystyki kart przepływów",
@@ -83,6 +96,11 @@
       "title": "Timery",
       "description": "Timery odliczają czas od określonego czasu trwania i mogą być uruchamiane, wstrzymywane, zatrzymywane i resetowane. Używaj akcji, warunków i wyzwalaczy timerów w swoich przepływach, aby zarządzać odliczaniem i reagować, gdy timery się kończą.",
       "empty": "Nie utworzono jeszcze żadnych timerów."
+    },
+    "sets": {
+      "title": "Zestawy",
+      "description": "Zestawy to kolekcje stanów logicznych, które mogą być oceniane jako grupa. Zestaw jest aktywny, gdy którykolwiek z jego stanów jest aktywny. Używaj akcji, warunków i wyzwalaczy zestawów w swoich przepływach, aby zarządzać grupowanymi stanami.",
+      "empty": "Nie utworzono jeszcze żadnych zestawów."
     }
   },
   "color": {

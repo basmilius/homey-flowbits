@@ -8,7 +8,9 @@
     "timer_new": "Ny timer i detta flöde",
     "slider_new": "Ny slider i detta flöde",
     "event_new": "Ny händelse i detta flöde",
-    "label_new": "Ny etikett i detta flöde"
+    "label_new": "Ny etikett i detta flöde",
+    "set_new": "Nytt set i detta flöde",
+    "set_state_new": "Nytt set-tillstånd i detta flöde, kommer att bli känt efter att flödet sparas"
   },
   "notification": {
     "mode_activated": "**__name__** är aktiverad.",
@@ -41,6 +43,16 @@
       "finished": "Avslutad",
       "paused": "Pausad",
       "stopped": "Stoppad"
+    },
+    "setStates": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "setStatus": {
+      "active": "Aktiv",
+      "full": "Fullständigt aktiv",
+      "inactive": "Ingen status aktiv",
+      "partially": "__active__ av __total__ tillstånd aktiv"
     }
   },
   "settings": {
@@ -73,7 +85,8 @@
       "sliders": "Reglage",
       "timers": "Timers",
       "events": "Händelser",
-      "labels": "Etiketter"
+      "labels": "Etiketter",
+      "sets": "Sets"
     },
     "card_statistics": {
       "title": "Flödeskortsstatistik",
@@ -83,6 +96,11 @@
       "title": "Timers",
       "description": "Timers räknar ner från en angiven varaktighet och kan startas, pausas, stoppas och återställas. Använd timeråtgärder, villkor och triggers i dina flöden för att hantera nedräkningar och reagera när timers är klara.",
       "empty": "Inga timers har skapats ännu."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Sets är samlingar av booleska tillstånd som kan utvärderas som en grupp. En set är aktiv när något av dess tillstånd är aktivt. Använd set-åtgärder, villkor och triggers i dina flöden för att hantera grupperade tillstånd.",
+      "empty": "Inga sets har skapats ännu."
     }
   },
   "color": {

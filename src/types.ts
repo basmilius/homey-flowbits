@@ -39,6 +39,20 @@ export type WithLook<T> = T & {
     readonly icon: string | undefined;
 };
 
+export type BitSet = WithLook<{
+    readonly name: string;
+    readonly states: BitSetState[];
+    readonly allActive: boolean;
+    readonly anyActive: boolean;
+}>;
+
+export type BitSetState = {
+    readonly name: string;
+    readonly active: boolean;
+    readonly lastUpdate: string | undefined;
+    readonly expiresAt: string | undefined;
+};
+
 export type Cycle = {
     readonly name: string;
     readonly step: number;
@@ -93,6 +107,7 @@ export type Statistics = {
     readonly numberOfLabels: number;
     readonly numberOfModes: number;
     readonly numberOfNoRepeats: number;
+    readonly numberOfSets: number;
     readonly numberOfSliders: number;
     readonly numberOfTimers: number;
     readonly runsPerFlowCard: Record<string, [string, number]>;

@@ -1,5 +1,5 @@
 import { Shortcuts } from '@basmilius/homey-common';
-import type { Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from '../types';
+import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from '../types';
 
 export default class extends Shortcuts<FlowBitsApp> {
     async getCycles(): Promise<Cycle[]> {
@@ -158,6 +158,22 @@ export default class extends Shortcuts<FlowBitsApp> {
         return await this.app.noRepeat.findAll();
     }
 
+    async getSets(): Promise<BitSet[]> {
+        return await this.app.sets.findAll();
+    }
+
+    async setSetLook(setName: string, color: string, icon: string): Promise<boolean> {
+        const set = await this.app.sets.find(setName);
+
+        if (!set) {
+            return false;
+        }
+
+        await this.app.sets.setLook(set.name, [color, icon]);
+
+        return true;
+    }
+
     async getSliders(): Promise<Slider[]> {
         return await this.app.sliders.findAll();
     }
@@ -192,6 +208,7 @@ export default class extends Shortcuts<FlowBitsApp> {
             numberOfLabels: await this.app.labels.count(),
             numberOfModes: await this.app.modes.count(),
             numberOfNoRepeats: await this.app.noRepeat.count(),
+            numberOfSets: await this.app.sets.count(),
             numberOfSliders: await this.app.sliders.count(),
             numberOfTimers: await this.app.timers.count(),
 

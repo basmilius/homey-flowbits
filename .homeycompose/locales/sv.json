@@ -6,6 +6,8 @@
         "label_new": "Ny etikett i detta flöde",
         "mode_new": "Nytt läge i detta flöde",
         "no_repeat_new": "Nytt icke-repetitionsfönster i detta flöde",
+        "set_new": "Nytt set i detta flöde",
+        "set_state_new": "Nytt set-tillstånd i detta flöde, kommer att bli känt efter att flödet sparas",
         "signal_new": "Ny signal i detta flöde",
         "slider_new": "Ny slider i detta flöde",
         "timer_new": "Ny timer i detta flöde"
@@ -60,6 +62,16 @@
         "event": {
             "now": "Nu"
         },
+        "setStates": {
+            "active": "Aktiv",
+            "inactive": "Inaktiv"
+        },
+        "setStatus": {
+            "active": "Aktiv",
+            "full": "Fullständigt aktiv",
+            "inactive": "Ingen status aktiv",
+            "partially": "__active__ av __total__ tillstånd aktiv"
+        },
         "timer": {
             "finished": "Avslutad",
             "paused": "Pausad",
@@ -86,6 +98,11 @@
             "description": "Endast ett läge kan vara aktivt åt gången. Skapa och hantera lägen i dina flöden.",
             "empty": "Inga lägen har skapats ännu."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets är samlingar av booleska tillstånd som kan utvärderas som en grupp. En set är aktiv när något av dess tillstånd är aktivt. Använd set-åtgärder, villkor och triggers i dina flöden för att hantera grupperade tillstånd.",
+            "empty": "Inga sets har skapats ännu."
+        },
         "timers": {
             "title": "Timers",
             "description": "Timers räknar ner från en angiven varaktighet och kan startas, pausas, stoppas och återställas. Använd timeråtgärder, villkor och triggers i dina flöden för att hantera nedräkningar och reagera när timers är klara.",
@@ -100,6 +117,7 @@
             "labels": "Etiketter",
             "modes": "Lägen",
             "no_repeats": "Inga-upprepningsfönster",
+            "sets": "Sets",
             "sliders": "Reglage",
             "timers": "Timers"
         },

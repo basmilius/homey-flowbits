@@ -1,0 +1,69 @@
+{
+    "id": "set_becomes_active_any",
+    "title": {
+        "en": "Set becomes active",
+        "nl": "Set wordt actief",
+        "de": "Set wird aktiv",
+        "fr": "L’ensemble devient actif",
+        "it": "Il set diventa attivo",
+        "sv": "Uppsättningen blir aktiv",
+        "no": "Sett blir aktivt",
+        "es": "El conjunto se activa",
+        "da": "Sættet bliver aktivt",
+        "ru": "Набор становится активным",
+        "pl": "Zestaw staje się aktywny",
+        "ko": "세트가 활성화됨",
+        "ar": "تصبح المجموعة نشطة"
+    },
+    "titleFormatted": {
+        "en": "Set [[set]] becomes active",
+        "nl": "Set [[set]] wordt actief",
+        "de": "Set [[set]] wird aktiv",
+        "fr": "L’ensemble [[set]] devient actif",
+        "it": "Il set [[set]] diventa attivo",
+        "sv": "Uppsättningen [[set]] blir aktiv",
+        "no": "Sett [[set]] blir aktivt",
+        "es": "El conjunto [[set]] se activa",
+        "da": "Sættet [[set]] bliver aktivt",
+        "ru": "Набор [[set]] становится активным",
+        "pl": "Zestaw [[set]] staje się aktywny",
+        "ko": "세트 [[set]]가 활성화됨",
+        "ar": "تصبح المجموعة [[set]] نشطة"
+    },
+    "hint": {
+        "en": "Triggers when a set becomes active (was inactive, now has at least one active state).",
+        "nl": "Triggers wanneer een set actief wordt (was inactief, heeft nu minimaal één actieve status).",
+        "de": "Wird ausgelöst, wenn ein Set aktiv wird (war inaktiv und hat nun mindestens einen aktiven Zustand).",
+        "fr": "Se déclenche lorsqu’un ensemble devient actif (était inactif et possède désormais au moins un état actif).",
+        "it": "Si attiva quando un set diventa attivo (era inattivo e ora ha almeno uno stato attivo).",
+        "sv": "Utlöses när en uppsättning blir aktiv (var inaktiv och har nu minst ett aktivt tillstånd).",
+        "no": "Utløses når et sett blir aktivt (var inaktivt og har nå minst én aktiv tilstand).",
+        "es": "Se activa cuando un conjunto se vuelve activo (estaba inactivo y ahora tiene al menos un estado activo).",
+        "da": "Udløses når et sæt bliver aktivt (var inaktivt og har nu mindst én aktiv tilstand).",
+        "ru": "Срабатывает, когда набор становится активным (был неактивен и теперь имеет хотя бы одно активное состояние).",
+        "pl": "Wyzwalane, gdy zestaw staje się aktywny (był nieaktywny i ma teraz co najmniej jeden aktywny stan).",
+        "ko": "세트가 활성화될 때 트리거됩니다(이전에는 비활성이었으며 이제 최소 하나의 활성 상태를 가짐).",
+        "ar": "يتم التشغيل عندما تصبح المجموعة نشطة (كانت غير نشطة ولديها الآن حالة نشطة واحدة على الأقل)."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        }
+    ]
+}

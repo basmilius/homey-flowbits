@@ -6,9 +6,11 @@
     "no_repeat_new": "Nouvelle fenêtre sans répétition dans ce flux",
     "signal_new": "Nouveau signal dans ce flux",
     "timer_new": "Nouveau minuteur dans ce flux",
-    "slider_new": "Nouveau curseur dans ce flow",
+    "slider_new": "Nouveau curseur dans ce flux",
     "event_new": "Nouvel événement dans ce flux",
-    "label_new": "Nouvelle étiquette dans ce flux"
+    "label_new": "Nouvelle étiquette dans ce flux",
+    "set_new": "Nouveau ensemble dans ce flux",
+    "set_state_new": "Nouvel état d'ensemble dans ce flux, sera connu après enregistrement du flux"
   },
   "notification": {
     "mode_activated": "**__name__** est activé.",
@@ -41,6 +43,16 @@
       "finished": "Terminé",
       "paused": "En pause",
       "stopped": "Arrêté"
+    },
+    "setStates": {
+      "active": "Actif",
+      "inactive": "Inactif"
+    },
+    "setStatus": {
+      "active": "Actif",
+      "full": "Complètement actif",
+      "inactive": "Aucun état actif",
+      "partially": "__active__ de __total__ états actifs"
     }
   },
   "settings": {
@@ -73,7 +85,8 @@
       "sliders": "Curseurs",
       "timers": "Minuteries",
       "events": "Événements",
-      "labels": "Étiquettes"
+      "labels": "Étiquettes",
+      "sets": "Sets"
     },
     "card_statistics": {
       "title": "Statistiques des cartes de flux",
@@ -83,6 +96,11 @@
       "title": "Minuteries",
       "description": "Les minuteries effectuent un compte à rebours à partir d'une durée spécifiée et peuvent être démarrées, mises en pause, arrêtées et réinitialisées. Utilisez les actions, conditions et déclencheurs de minuterie dans vos flux pour gérer les comptes à rebours et réagir lorsque les minuteries se terminent.",
       "empty": "Aucune minuterie n'a encore été créée."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
+      "empty": "Aucun set n’a encore été créé."
     }
   },
   "color": {

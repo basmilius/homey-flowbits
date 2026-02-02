@@ -1,0 +1,103 @@
+{
+    "name": {
+        "en": "Set states",
+        "nl": "Set statussen",
+        "de": "Set-Zustände",
+        "fr": "États de l’ensemble",
+        "it": "Stati del set",
+        "sv": "Uppsättningsstatus",
+        "no": "Sett-tilstander",
+        "es": "Estados del conjunto",
+        "da": "Sæt tilstande",
+        "ru": "Состояния набора",
+        "pl": "Stany zestawu",
+        "ko": "세트 상태",
+        "ar": "حالات المجموعة"
+    },
+    "height": 120,
+    "settings": [
+        {
+            "id": "set",
+            "type": "autocomplete",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        },
+        {
+            "id": "view_mode",
+            "type": "dropdown",
+            "title": {
+                "en": "View mode",
+                "nl": "Weergavemodus",
+                "de": "Ansichtsmodus",
+                "fr": "Mode d'affichage",
+                "it": "Modalità di visualizzazione",
+                "sv": "Visningsläge",
+                "no": "Visningsmodus",
+                "es": "Modo de vista",
+                "da": "Visningstilstand",
+                "ru": "Режим просмотра",
+                "pl": "Tryb widoku",
+                "ko": "보기 모드",
+                "ar": "وضع العرض"
+            },
+            "value": "grid",
+            "values": [
+                {
+                    "id": "grid",
+                    "title": {
+                        "en": "Grid",
+                        "nl": "Grid",
+                        "de": "Raster",
+                        "fr": "Grille",
+                        "it": "Griglia",
+                        "sv": "Rutnät",
+                        "no": "Rutenett",
+                        "es": "Cuadrícula",
+                        "da": "Gitter",
+                        "ru": "Сетка",
+                        "pl": "Siatka",
+                        "ko": "그리드",
+                        "ar": "شبكة"
+                    }
+                },
+                {
+                    "id": "list",
+                    "title": {
+                        "en": "List",
+                        "nl": "Lijst",
+                        "de": "Liste",
+                        "fr": "Liste",
+                        "it": "Elenco",
+                        "sv": "Lista",
+                        "no": "Liste",
+                        "es": "Lista",
+                        "da": "Liste",
+                        "ru": "Список",
+                        "pl": "Lista",
+                        "ko": "목록",
+                        "ar": "قائمة"
+                    }
+                }
+            ]
+        }
+    ],
+    "api": {
+        "get": {
+            "method": "GET",
+            "path": "/"
+        }
+    }
+}

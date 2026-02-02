@@ -6,6 +6,8 @@
         "label_new": "New label in this flow",
         "mode_new": "New mode in this flow",
         "no_repeat_new": "New no-repeat window in this flow",
+        "set_new": "New set in this flow",
+        "set_state_new": "New set state in this flow, will be known after saving the flow",
         "signal_new": "New signal in this flow",
         "slider_new": "New slider in this flow",
         "timer_new": "New timer in this flow"
@@ -60,6 +62,16 @@
         "event": {
             "now": "Now"
         },
+        "setStates": {
+            "active": "Active",
+            "inactive": "Inactive"
+        },
+        "setStatus": {
+            "active": "Active",
+            "full": "Fully active",
+            "inactive": "No states active",
+            "partially": "__active__ out of __total__ states active"
+        },
         "timer": {
             "finished": "Finished",
             "paused": "Paused",
@@ -96,6 +108,11 @@
             "description": "Only one mode can be active at a time. Create and manage modes using mode actions, conditions, and triggers in your flows.",
             "empty": "No modes have been created yet."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets are collections of boolean states that can be evaluated as a group. A set is active when any of its states is active. Use set actions, conditions, and triggers in your flows to manage grouped states.",
+            "empty": "No sets have been created yet."
+        },
         "timers": {
             "title": "Timers",
             "description": "Timers count down from a specified duration and can be started, paused, stopped, and reset. Use timer actions, conditions, and triggers in your flows to manage countdowns and respond when timers finish.",
@@ -110,6 +127,7 @@
             "labels": "Labels",
             "modes": "Modes",
             "no_repeats": "No-repeat windows",
+            "sets": "Sets",
             "sliders": "Sliders",
             "timers": "Timers"
         },

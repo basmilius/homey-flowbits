@@ -1,0 +1,54 @@
+{
+    "id": "set_becomes_inactive_all",
+    "title": {
+        "en": "Set no longer has all states active",
+        "nl": "Set heeft niet alle statussen meer actief",
+        "de": "Set hat nicht mehr alle Zustände aktiv",
+        "fr": "L’ensemble n’a plus tous les états actifs",
+        "it": "Il set non ha più tutti gli stati attivi",
+        "sv": "Uppsättningen har inte längre alla tillstånd aktiva",
+        "no": "Sett har ikke lenger alle tilstander aktive",
+        "es": "El conjunto ya no tiene todos los estados activos",
+        "da": "Sættet har ikke længere alle tilstande aktive",
+        "ru": "В наборе больше не все состояния активны",
+        "pl": "Zestaw nie ma już wszystkich stanów aktywnych",
+        "ko": "세트에 더 이상 모든 상태가 활성화되어 있지 않음",
+        "ar": "لم تعد جميع الحالات في المجموعة نشطة"
+    },
+    "titleFormatted": {
+        "en": "Set [[set]] no longer has all states active",
+        "nl": "Set [[set]] heeft niet alle statussen meer actief",
+        "de": "Set [[set]] hat nicht mehr alle Zustände aktiv",
+        "fr": "L’ensemble [[set]] n’a plus tous les états actifs",
+        "it": "Il set [[set]] non ha più tutti gli stati attivi",
+        "sv": "Uppsättningen [[set]] har inte längre alla tillstånd aktiva",
+        "no": "Sett [[set]] har ikke lenger alle tilstander aktive",
+        "es": "El conjunto [[set]] ya no tiene todos los estados activos",
+        "da": "Sættet [[set]] har ikke længere alle tilstande aktive",
+        "ru": "В наборе [[set]] больше не все состояния активны",
+        "pl": "Zestaw [[set]] nie ma już wszystkich stanów aktywnych",
+        "ko": "세트 [[set]]에 더 이상 모든 상태가 활성화되어 있지 않음",
+        "ar": "لم تعد جميع الحالات في المجموعة [[set]] نشطة"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        }
+    ]
+}

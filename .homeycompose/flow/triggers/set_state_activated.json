@@ -1,0 +1,73 @@
+{
+    "id": "set_state_activated",
+    "title": {
+        "en": "State in set was activated",
+        "nl": "Status in set werd geactiveerd",
+        "de": "Zustand im Set wurde aktiviert",
+        "fr": "L’état dans l’ensemble a été activé",
+        "it": "Lo stato nel set è stato attivato",
+        "sv": "Tillstånd i uppsättningen aktiverades",
+        "no": "Tilstand i settet ble aktivert",
+        "es": "El estado en el conjunto fue activado",
+        "da": "Tilstand i sættet blev aktiveret",
+        "ru": "Состояние в наборе было активировано",
+        "pl": "Stan w zestawie został aktywowany",
+        "ko": "세트의 상태가 활성화됨",
+        "ar": "تم تفعيل الحالة في المجموعة"
+    },
+    "titleFormatted": {
+        "en": "State [[state]] in set [[set]] was activated",
+        "nl": "Status [[state]] in set [[set]] werd geactiveerd",
+        "de": "Zustand [[state]] im Set [[set]] wurde aktiviert",
+        "fr": "L’état [[state]] dans l’ensemble [[set]] a été activé",
+        "it": "Lo stato [[state]] nel set [[set]] è stato attivato",
+        "sv": "Tillstånd [[state]] i uppsättningen [[set]] aktiverades",
+        "no": "Tilstand [[state]] i settet [[set]] ble aktivert",
+        "es": "El estado [[state]] en el conjunto [[set]] fue activado",
+        "da": "Tilstand [[state]] i sættet [[set]] blev aktiveret",
+        "ru": "Состояние [[state]] в наборе [[set]] было активировано",
+        "pl": "Stan [[state]] w zestawie [[set]] został aktywowany",
+        "ko": "세트 [[set]]의 상태 [[state]]가 활성화됨",
+        "ar": "تم تفعيل الحالة [[state]] في المجموعة [[set]]"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status",
+                "de": "Zustand",
+                "fr": "État",
+                "it": "Stato",
+                "sv": "Tillstånd",
+                "no": "Tilstand",
+                "es": "Estado",
+                "da": "Tilstand",
+                "ru": "Состояние",
+                "pl": "Stan",
+                "ko": "상태",
+                "ar": "حالة"
+            }
+        }
+    ]
+}

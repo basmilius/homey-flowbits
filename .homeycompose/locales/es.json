@@ -6,6 +6,8 @@
         "label_new": "Nueva etiqueta en este flujo",
         "mode_new": "Nuevo modo en este flujo",
         "no_repeat_new": "Nueva ventana sin repetición en este flujo",
+        "set_new": "Nuevo conjunto en este flujo",
+        "set_state_new": "Nuevo estado de conjunto en este flujo, se conocerá después de guardar el flujo",
         "signal_new": "Nueva señal en este flujo",
         "slider_new": "Nuevo deslizador en este flujo",
         "timer_new": "Nuevo temporizador en este flujo"
@@ -60,6 +62,16 @@
         "event": {
             "now": "Ahora"
         },
+        "setStates": {
+            "active": "Activo",
+            "inactive": "Inactivo"
+        },
+        "setStatus": {
+            "active": "Activo",
+            "full": "Completo",
+            "inactive": "Sin estados activos",
+            "partially": "__active__ de __total__ estados activos"
+        },
         "timer": {
             "finished": "Finalizado",
             "paused": "Pausado",
@@ -86,6 +98,11 @@
             "description": "Solo un modo puede estar activo a la vez. Crea y gestiona modos mediante acciones, condiciones y disparadores en tus flujos.",
             "empty": "Aún no se han creado modos."
         },
+        "sets": {
+            "title": "Conjuntos",
+            "description": "Los conjuntos son colecciones de estados booleanos que se pueden evaluar como grupo. Un conjunto está activo cuando cualquiera de sus estados está activo. Utiliza acciones, condiciones y disparadores de conjuntos en tus flujos para gestionar estados agrupados.",
+            "empty": "Aún no se han creado conjuntos."
+        },
         "timers": {
             "title": "Temporizadores",
             "description": "Los temporizadores cuentan hacia atrás desde una duración especificada y pueden iniciarse, pausarse, detenerse y reiniciarse. Utiliza acciones, condiciones y disparadores de temporizador en tus flujos para gestionar cuentas regresivas y responder cuando los temporizadores finalicen.",
@@ -100,6 +117,7 @@
             "labels": "Etiquetas",
             "modes": "Modos",
             "no_repeats": "Ventanas sin repetición",
+            "sets": "Conjuntos",
             "sliders": "Deslizadores",
             "timers": "Temporizadores"
         },

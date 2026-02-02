@@ -1,0 +1,45 @@
+{
+    "name": {
+        "en": "Set status",
+        "nl": "Setstatus",
+        "de": "Set-Status",
+        "fr": "Statut de l’ensemble",
+        "it": "Stato del set",
+        "sv": "Uppsättningsstatus",
+        "no": "Settstatus",
+        "es": "Estado del conjunto",
+        "da": "Sætstatus",
+        "ru": "Статус набора",
+        "pl": "Status zestawu",
+        "ko": "세트 상태",
+        "ar": "حالة المجموعة"
+    },
+    "height": 120,
+    "settings": [
+        {
+            "id": "set",
+            "type": "autocomplete",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        }
+    ],
+    "api": {
+        "get": {
+            "method": "GET",
+            "path": "/"
+        }
+    }
+}

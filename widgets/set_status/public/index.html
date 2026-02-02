@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <title>Set status</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+</head>
+
+<body class="homey-widget">
+
+<div class="basic-widget">
+    <div
+        class="basic-widget-icon flowbits-icon"
+        id="set-icon"></div>
+
+    <div class="basic-widget-caption">
+        <div class="basic-widget-header">
+            <span
+                class="basic-widget-header-title"
+                id="set-name">&mdash;</span>
+
+            <div
+                class="basic-widget-header-badge hidden"
+                id="set-active">
+                <span
+                    class="basic-widget-header-badge-icon flowbits-icon"
+                    style="--icon: ''; --icon-secondary: ''"></span>
+
+                <span
+                    class="basic-widget-header-badge-label"
+                    data-i18n="widget.setStatus.active"></span>
+            </div>
+
+            <span
+                class="basic-widget-header-icon flowbits-icon"
+                style="--icon: ''; --icon-secondary: ''"></span>
+        </div>
+
+        <div
+            class="basic-widget-info"
+            id="set-value">
+            &mdash;
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onHomeyReady(Homey) {
+        const setActive = document.getElementById('set-active');
+        const setIcon = document.getElementById('set-icon');
+        const setName = document.getElementById('set-name');
+        const setValue = document.getElementById('set-value');
+        let ready = false;
+
+        const settings = Homey.getSettings();
+
+        async function init() {
+            Homey.on('flowbits-sets-update', (set) => {
+                if (set?.name === settings.set.name) {
+                    render(set);
+                }
+            });
+
+            await update();
+        }
+
+        function render(set) {
+            setName.innerText = set?.name ?? '—';
+            setValue.innerText = '—';
+
+            if (set?.color) {
+                setIcon.style.setProperty('--color', set.color);
+            } else {
+                setIcon.style.removeProperty('--color');
+            }
+
+            if (set?.icon) {
+                setIcon.style.setProperty('--icon', JSON.stringify(set.icon));
+                setIcon.style.setProperty('--icon-secondary', JSON.stringify(set.icon + set.icon));
+            } else {
+                setIcon.style.removeProperty('--icon');
+                setIcon.style.removeProperty('--icon-secondary');
+            }
+
+            if (set?.anyActive) {
+                setActive.classList.remove('hidden');
+            } else {
+                setActive.classList.add('hidden');
+            }
+
+            if (set?.allActive) {
+                setValue.innerText = Homey.__('widget.setStatus.full');
+            } else if (set?.anyActive) {
+                setValue.innerText = Homey.__('widget.setStatus.partially', {
+                    active: set.states.filter(s => s.active).length,
+                    total: set.states.length
+                });
+            } else {
+                setValue.innerText = Homey.__('widget.setStatus.inactive');
+            }
+        }
+
+        async function update() {
+            const set = await Homey.api('GET', `/?set=${encodeURIComponent(settings.set.name)}`);
+
+            render(set);
+
+            const height = document.body.getBoundingClientRect().height;
+
+            if (ready) {
+                await Homey.setHeight(height);
+            } else {
+                Homey.ready({height});
+                ready = true;
+            }
+        }
+
+        init();
+    }
+</script>
+
+</body>
+</html>

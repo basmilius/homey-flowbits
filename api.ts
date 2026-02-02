@@ -1,6 +1,6 @@
 import type { ApiRequest, Color, Icon } from '@basmilius/homey-common';
 import { colors, icons } from '@basmilius/homey-common';
-import type { Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from './src/types';
+import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from './src/types';
 
 export async function activateFlag({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyFlag>): Promise<boolean> {
     return await app.api.activateFlag(body.flag);
@@ -50,6 +50,10 @@ export async function getNoRepeatWindows({homey: {app}}: ApiRequest<FlowBitsApp>
     return await app.noRepeat.findAll();
 }
 
+export async function getSets({homey: {app}}: ApiRequest<FlowBitsApp>): Promise<BitSet[]> {
+    return await app.api.getSets();
+}
+
 export async function getSliders({homey: {app}}: ApiRequest<FlowBitsApp>): Promise<Slider[]> {
     return await app.sliders.findAll();
 }
@@ -80,6 +84,10 @@ export async function setLabelLook({homey: {app}, body}: ApiRequest<FlowBitsApp,
 
 export async function setModeLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {
     return await app.api.setModeLook(body.name, body.color, body.icon);
+}
+
+export async function setSetLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {
+    return await app.api.setSetLook(body.name, body.color, body.icon);
 }
 
 export async function setTimerLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {

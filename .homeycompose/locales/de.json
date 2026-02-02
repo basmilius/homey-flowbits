@@ -6,6 +6,8 @@
         "label_new": "Neues Etikett in diesem Fluss",
         "mode_new": "Neuer Modus in diesem Flow",
         "no_repeat_new": "Neues No-Repeat-Fenster in diesem Flow",
+        "set_new": "Neues Set in diesem Flow",
+        "set_state_new": "Neue Set-Status in diesem Flow, wird nach dem Speichern des Flows bekannt",
         "signal_new": "Neues Signal in diesem Flow",
         "slider_new": "Neuer Slider in diesem Flow",
         "timer_new": "Neuer Timer in diesem Flow"
@@ -60,6 +62,16 @@
         "event": {
             "now": "Jetzt"
         },
+        "setStates": {
+            "active": "Aktiv",
+            "inactive": "Inaktiv"
+        },
+        "setStatus": {
+            "active": "Aktiv",
+            "full": "Vollständig aktiv",
+            "inactive": "Keine Zustände aktiv",
+            "partially": "__active__ von __total__ Zuständen aktiv"
+        },
         "timer": {
             "finished": "Beendet",
             "paused": "Pausiert",
@@ -86,6 +98,11 @@
             "description": "Es kann immer nur ein Modus aktiv sein. Erstellen und verwalten Sie Modi mithilfe von Aktionen, Bedingungen und Triggern in Ihren Flows.",
             "empty": "Es wurden noch keine Modi erstellt."
         },
+        "sets": {
+            "title": "Sets",
+            "description": "Sets sind Sammlungen von booleschen Zuständen, die als Gruppe ausgewertet werden können. Ein Set ist aktiv, wenn einer seiner Zustände aktiv ist. Verwenden Sie Set-Aktionen, Bedingungen und Trigger in Ihren Flows, um gruppierte Zustände zu verwalten.",
+            "empty": "Es wurden noch keine Sets erstellt."
+        },
         "timers": {
             "title": "Timer",
             "description": "Timer zählen von einer bestimmten Dauer herunter und können gestartet, pausiert, gestoppt und zurückgesetzt werden. Verwenden Sie Timer-Aktionen, Bedingungen und Trigger in Ihren Flows, um Countdowns zu verwalten und zu reagieren, wenn Timer ablaufen.",
@@ -100,6 +117,7 @@
             "labels": "Etiketten",
             "modes": "Modi",
             "no_repeats": "Nicht-wiederholen-Fenster",
+            "sets": "Sets",
             "sliders": "Schieberegler",
             "timers": "Timer"
         },

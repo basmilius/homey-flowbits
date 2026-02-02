@@ -8,7 +8,9 @@
     "timer_new": "Ny timer i dette flow",
     "slider_new": "Ny skyder i dette flow",
     "event_new": "Ny begivenhed i dette flow",
-    "label_new": "Ny etiket i dette flow"
+    "label_new": "Ny etiket i dette flow",
+    "set_new": "Nyt sæt i dette flow",
+    "set_state_new": "Ny sæt-tilstand i dette flow, vil blive kendt efter lagring af flowet"
   },
   "notification": {
     "mode_activated": "**__name__** er aktiveret.",
@@ -41,6 +43,16 @@
       "finished": "Afsluttet",
       "paused": "Sat på pause",
       "stopped": "Stoppet"
+    },
+    "setStates": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
+    },
+    "setStatus": {
+      "active": "Aktiv",
+      "full": "Fuldt aktiv",
+      "inactive": "Ingen tilstande aktive",
+      "partially": "__active__ ud af __total__ tilstande aktive"
     }
   },
   "settings": {
@@ -73,7 +85,8 @@
       "sliders": "Skydeknapper",
       "timers": "Timere",
       "events": "Begivenheder",
-      "labels": "Etiketter"
+      "labels": "Etiketter",
+      "sets": "Sæt"
     },
     "card_statistics": {
       "title": "Flowkortstatistik",
@@ -83,6 +96,11 @@
       "title": "Timere",
       "description": "Timere tæller ned fra en specificeret varighed og kan startes, sættes på pause, stoppes og nulstilles. Brug timerhandlinger, betingelser og triggere i dine flows til at administrere nedtællinger og reagere når timere er færdige.",
       "empty": "Der er endnu ikke oprettet nogen timere."
+    },
+    "sets": {
+      "title": "Sæt",
+      "description": "Sæt er samlinger af boolske tilstande, der kan evalueres som en gruppe. Et sæt er aktivt, når en af dets tilstande er aktiv. Brug sæt-handlinger, betingelser og triggere i dine flows til at administrere grupperede tilstande.",
+      "empty": "Der er endnu ikke oprettet nogen sæt."
     }
   },
   "color": {

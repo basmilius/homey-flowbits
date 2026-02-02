@@ -1,0 +1,73 @@
+{
+    "id": "set_state_is",
+    "title": {
+        "en": "State in set is active",
+        "nl": "Status in set is actief",
+        "de": "Zustand im Set ist aktiv",
+        "fr": "L’état dans l’ensemble est actif",
+        "it": "Lo stato nel set è attivo",
+        "sv": "Tillstånd i uppsättningen är aktivt",
+        "no": "Tilstand i settet er aktiv",
+        "es": "El estado en el conjunto está activo",
+        "da": "Tilstand i sættet er aktiv",
+        "ru": "Состояние в наборе активно",
+        "pl": "Stan w zestawie jest aktywny",
+        "ko": "세트의 상태가 활성화됨",
+        "ar": "الحالة في المجموعة نشطة"
+    },
+    "titleFormatted": {
+        "en": "State [[state]] in set [[set]] is !{{active|inactive}}",
+        "nl": "Status [[state]] in set [[set]] is !{{actief|inactief}}",
+        "de": "Zustand [[state]] im Set [[set]] ist !{{aktiv|inaktiv}}",
+        "fr": "L’état [[state]] dans l’ensemble [[set]] est !{{actif|inactif}}",
+        "it": "Lo stato [[state]] nel set [[set]] è !{{attivo|inattivo}}",
+        "sv": "Tillstånd [[state]] i uppsättningen [[set]] är !{{aktivt|inaktivt}}",
+        "no": "Tilstand [[state]] i settet [[set]] er !{{aktiv|inaktiv}}",
+        "es": "El estado [[state]] en el conjunto [[set]] está !{{activo|inactivo}}",
+        "da": "Tilstand [[state]] i sættet [[set]] er !{{aktiv|inaktiv}}",
+        "ru": "Состояние [[state]] в наборе [[set]] !{{активно|неактивно}}",
+        "pl": "Stan [[state]] w zestawie [[set]] jest !{{aktywny|nieaktywny}}",
+        "ko": "세트 [[set]]의 상태 [[state]]가 !{{활성|비활성}}",
+        "ar": "الحالة [[state]] في المجموعة [[set]] !{{نشطة|غير نشطة}}"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status",
+                "de": "Zustand",
+                "fr": "État",
+                "it": "Stato",
+                "sv": "Tillstånd",
+                "no": "Tilstand",
+                "es": "Estado",
+                "da": "Tilstand",
+                "ru": "Состояние",
+                "pl": "Stan",
+                "ko": "상태",
+                "ar": "حالة"
+            }
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "id": "set_deactivate_state",
+    "title": {
+        "en": "Deactivate state in set",
+        "nl": "Deactiveer status in set",
+        "de": "Zustand im Set deaktivieren",
+        "fr": "Désactiver un état dans l’ensemble",
+        "it": "Disattiva uno stato nel set",
+        "sv": "Inaktivera tillstånd i uppsättningen",
+        "no": "Deaktiver tilstand i settet",
+        "es": "Desactivar estado en el conjunto",
+        "da": "Deaktivér tilstand i sættet",
+        "ru": "Деактивировать состояние в наборе",
+        "pl": "Dezaktywuj stan w zestawie",
+        "ko": "세트에서 상태 비활성화",
+        "ar": "إلغاء تفعيل حالة في المجموعة"
+    },
+    "titleFormatted": {
+        "en": "Deactivate [[state]] in set [[set]]",
+        "nl": "Deactiveer [[state]] in set [[set]]",
+        "de": "Zustand [[state]] im Set [[set]] deaktivieren",
+        "fr": "Désactiver [[state]] dans l’ensemble [[set]]",
+        "it": "Disattiva [[state]] nel set [[set]]",
+        "sv": "Inaktivera [[state]] i uppsättningen [[set]]",
+        "no": "Deaktiver [[state]] i settet [[set]]",
+        "es": "Desactivar [[state]] en el conjunto [[set]]",
+        "da": "Deaktivér [[state]] i sættet [[set]]",
+        "ru": "Деактивировать состояние [[state]] в наборе [[set]]",
+        "pl": "Dezaktywuj stan [[state]] w zestawie [[set]]",
+        "ko": "세트 [[set]]에서 [[state]] 비활성화",
+        "ar": "إلغاء تفعيل [[state]] في المجموعة [[set]]"
+    },
+    "hint": {
+        "en": "Deactivates a state in a set.",
+        "nl": "Deactiveert een status in een set.",
+        "de": "Deaktiviert einen Zustand in einem Set.",
+        "fr": "Désactive un état dans un ensemble.",
+        "it": "Disattiva uno stato in un set.",
+        "sv": "Inaktiverar ett tillstånd i en uppsättning.",
+        "no": "Deaktiverer en tilstand i et sett.",
+        "es": "Desactiva un estado en un conjunto.",
+        "da": "Deaktiverer en tilstand i et sæt.",
+        "ru": "Деактивирует состояние в наборе.",
+        "pl": "Dezaktywuje stan w zestawie.",
+        "ko": "세트에서 상태를 비활성화합니다.",
+        "ar": "يقوم بإلغاء تفعيل حالة في مجموعة."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Set",
+                "nl": "Set",
+                "de": "Satz",
+                "fr": "Ensemble",
+                "it": "Set",
+                "sv": "Uppsättning",
+                "no": "Sett",
+                "es": "Conjunto",
+                "da": "Sæt",
+                "ru": "Набор",
+                "pl": "Zestaw",
+                "ko": "세트",
+                "ar": "مجموعة"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "state",
+            "title": {
+                "en": "State",
+                "nl": "Status",
+                "de": "Zustand",
+                "fr": "État",
+                "it": "Stato",
+                "sv": "Tillstånd",
+                "no": "Tilstand",
+                "es": "Estado",
+                "da": "Tilstand",
+                "ru": "Состояние",
+                "pl": "Stan",
+                "ko": "상태",
+                "ar": "حالة"
+            }
+        }
+    ]
+}
