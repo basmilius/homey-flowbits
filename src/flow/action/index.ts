@@ -1,5 +1,7 @@
 export { default as Cycle } from './cycle';
 export { default as CycleBetween } from './cycleBetween';
+export { default as CycleBetweenPrevious } from './cycleBetweenPrevious';
+export { default as CyclePrevious } from './cyclePrevious';
 export { default as CycleTo } from './cycleTo';
 export { default as EventClear } from './eventClear';
 export { default as EventClearAll } from './eventClearAll';

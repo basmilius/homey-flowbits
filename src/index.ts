@@ -96,6 +96,8 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
     #registerActions(): void {
         this.registry.action(Actions.Cycle);
         this.registry.action(Actions.CycleBetween);
+        this.registry.action(Actions.CycleBetweenPrevious);
+        this.registry.action(Actions.CyclePrevious);
         this.registry.action(Actions.CycleTo);
         this.registry.action(Actions.EventClear);
         this.registry.action(Actions.EventClearAll);

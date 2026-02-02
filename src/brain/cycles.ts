@@ -70,6 +70,23 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
         await this.cycleTo(name, value);
     }
 
+    async cyclePrevious(name: string, minValue: number, maxValue: number): Promise<void> {
+        let value = this.#get(name);
+
+        if (value === null) {
+            value = maxValue;
+        } else {
+            value = Math.min(value, maxValue);
+            value--;
+
+            if (value < minValue) {
+                value = maxValue;
+            }
+        }
+
+        await this.cycleTo(name, value);
+    }
+
     async cycleTo(name: string, value: number): Promise<void> {
         this.#set(name, value);
 
