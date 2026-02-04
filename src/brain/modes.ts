@@ -126,10 +126,16 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         }
 
         this.currentMode = name;
-        this.lastUpdates = {
-            ...this.lastUpdates,
-            [name]: DateTime.now()
-        };
+        
+        const now = DateTime.now();
+        const updates = {...this.lastUpdates, [name]: now};
+        
+        // Also update the timestamp for the previously active mode
+        if (current !== null) {
+            updates[current] = now;
+        }
+        
+        this.lastUpdates = updates;
 
         this.log(`Activate mode ${name}.`);
 
