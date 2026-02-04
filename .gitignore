@@ -2,6 +2,7 @@
 /node_modules/
 /.homeybuild/
 .idea/*
+/package-lock.json
 
 /docs/.vitepress/dist
 /docs/.vitepress/cache

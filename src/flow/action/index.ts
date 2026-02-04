@@ -14,6 +14,7 @@ export { default as LabelSet } from './labelSet';
 export { default as ModeActivate } from './modeActivate';
 export { default as ModeDeactivate } from './modeDeactivate';
 export { default as ModeReactivate } from './modeReactivate';
+export { default as ModeReactivateCurrent } from './modeReactivateCurrent';
 export { default as ModeToggle } from './modeToggle';
 export { default as NoRepeatClear } from './noRepeatClear';
 export { default as RandomFact } from './randomFact';

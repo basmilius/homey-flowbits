@@ -1,0 +1,33 @@
+{
+    "id": "mode_reactivate_current",
+    "title": {
+        "en": "Reactivate current mode",
+        "nl": "Activeer huidige stand opnieuw",
+        "de": "Aktuellen Modus erneut aktivieren",
+        "fr": "Réactiver le mode actuel",
+        "it": "Riattiva modalità corrente",
+        "sv": "Aktivera aktuellt läge igen",
+        "no": "Aktiver nåværende modus på nytt",
+        "es": "Reactivar modo actual",
+        "da": "Genaktivér aktuel tilstand",
+        "ru": "Повторно активировать текущий режим",
+        "pl": "Ponownie aktywuj aktualny tryb",
+        "ko": "현재 모드를 다시 활성화",
+        "ar": "أعد تفعيل النمط الحالي"
+    },
+    "hint": {
+        "en": "Re-triggers all 'mode is activated' cards for the currently active mode.",
+        "nl": "Trigger alle 'stand is geactiveerd' kaarten opnieuw voor de huidige stand.",
+        "de": "Löst alle 'Modus ist aktiviert'-Karten für den aktuellen Modus erneut aus.",
+        "fr": "Relance toutes les cartes « mode est activé » pour le mode actuel.",
+        "it": "Riattiva tutte le schede « modalità è attivata » per la modalità corrente.",
+        "sv": "Triggar alla 'läge är aktiverat'-kort igen för det aktuella läget.",
+        "no": "Gjenutløser alle «modus er aktivert» kort for nåværende modus.",
+        "es": "Vuelve a activar todas las tarjetas «modo está activado» para el modo actual.",
+        "da": "Gentrigger alle 'tilstand er aktiveret'-kort for den aktuelle tilstand.",
+        "ru": "Повторно запускает все карточки «режим активирован» для текущего режима.",
+        "pl": "Ponownie wyzwala wszystkie karty «tryb jest aktywowany» dla aktualnego trybu.",
+        "ko": "현재 활성화된 모드에 대한 모든 '모드가 활성화되었습니다' 카드를 다시 트리거합니다.",
+        "ar": "يعيد تفعيل جميع البطاقات \"تم تفعيل النمط\" للنمط الحالي."
+    }
+}
