@@ -15,6 +15,21 @@
         "ko": "현재 모드를 다시 활성화",
         "ar": "أعد تفعيل النمط الحالي"
     },
+    "titleFormatted": {
+        "en": "Reactivate current mode",
+        "nl": "Activeer huidige stand opnieuw",
+        "de": "Aktuellen Modus erneut aktivieren",
+        "fr": "Réactiver le mode actuel",
+        "it": "Riattiva modalità corrente",
+        "sv": "Aktivera aktuellt läge igen",
+        "no": "Aktiver nåværende modus på nytt",
+        "es": "Reactivar modo actual",
+        "da": "Genaktivér aktuel tilstand",
+        "ru": "Повторно активировать текущий режим",
+        "pl": "Ponownie aktywuj aktualny tryb",
+        "ko": "현재 모드를 다시 활성화",
+        "ar": "أعد تفعيل النمط الحالي"
+    },
     "hint": {
         "en": "Re-triggers all 'mode is activated' cards for the currently active mode.",
         "nl": "Trigger alle 'stand is geactiveerd' kaarten opnieuw voor de huidige stand.",
