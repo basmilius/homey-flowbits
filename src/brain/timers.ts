@@ -479,7 +479,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         // Ensure min is not greater than max
         const min = Math.min(minSeconds, maxSeconds);
         const max = Math.max(minSeconds, maxSeconds);
-        
+
         // Generate a random number between min and max (inclusive)
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
