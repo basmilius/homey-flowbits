@@ -42,4 +42,4 @@ Gebruik sliders voor ventilatorsnelheid, overgangsschaling, mediavolume, of elke
 - Sliders gebruiken altijd een 0–100 bereik.
 - Sliders bewaren de waarde; flows blijven staatloos.
 - Je kunt een willekeurig aantal sliders maken, elk geïdentificeerd door naam.
-- Stapgrootte bepaalt hoe nauwkeurig de gebruikersinvoer kan zijn.
+- Stapgrootte bepaalt hoe nauwkeurig de gebruikersinvoer kan zijn. Bijvoorbeeld, een stapgrootte van 5 betekent dat de slider zal springen naar waarden zoals 0, 5, 10, 15, enz. De standaard stapgrootte is 1.

@@ -91,7 +91,11 @@
             const rect = slider.getBoundingClientRect();
             const x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
             const ratio = x / rect.width;
-            const v = Math.round(ratio * 100);
+            const rawValue = ratio * 100;
+            
+            // Apply step size
+            const step = settings.step || 1;
+            const v = Math.round(rawValue / step) * step;
 
             await setValueRaw(v);
 

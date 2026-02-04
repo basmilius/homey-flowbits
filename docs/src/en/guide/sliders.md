@@ -61,4 +61,4 @@ Use sliders for fan speed, transition duration scaling, media volume, or any per
 - Sliders always use a 0–100 range.
 - Sliders hold the value; flows remain stateless.
 - You can create any number of sliders, each identified by name.
-- Step size controls how precise the user input can be.
+- Step size controls how precise the user input can be. For example, a step size of 5 means the slider will snap to values like 0, 5, 10, 15, etc. The default step size is 1.
