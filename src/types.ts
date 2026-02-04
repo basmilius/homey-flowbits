@@ -65,6 +65,7 @@ export type Event = WithLook<{
 
 export type Flag = WithLook<{
     readonly active: boolean;
+    readonly lastUpdate: string | undefined;
     readonly name: string;
 }>;
 
@@ -76,6 +77,7 @@ export type Label = WithLook<{
 
 export type Mode = WithLook<{
     readonly active: boolean;
+    readonly lastUpdate: string | undefined;
     readonly name: string;
 }>;
 

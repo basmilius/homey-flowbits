@@ -1,5 +1,5 @@
-import { Shortcuts } from '@basmilius/homey-common';
-import { REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_LOOKS } from '../const';
+import { DateTime, Shortcuts } from '@basmilius/homey-common';
+import { REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { Feature, FlowBitsApp, Look, Mode, Styleable } from '../types';
 
@@ -20,11 +20,32 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         this.settings.set(SETTING_MODE_LOOKS, value);
     }
 
+    get lastUpdates(): Record<string, DateTime> {
+        return Object.fromEntries(
+            Object.entries<string>(this.settings.get(SETTING_MODE_LAST_UPDATES) ?? {})
+                .map(([key, value]) => [
+                    key,
+                    DateTime.fromISO(value)
+                ])
+        );
+    }
+
+    set lastUpdates(value: Record<string, DateTime>) {
+        this.settings.set(SETTING_MODE_LAST_UPDATES, Object.fromEntries(
+            Object.entries(value)
+                .map(([key, value]) => [
+                    key,
+                    value.toISO()
+                ])
+        ));
+    }
+
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused modes...');
 
         const defined = await this.findAll();
         const looks = this.looks;
+        const lastUpdates = this.lastUpdates;
 
         if (this.currentMode && !defined.find(d => d.name === this.currentMode)) {
             this.currentMode = null;
@@ -39,7 +60,17 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             delete looks[key];
         }
 
+        for (const key of Object.keys(this.lastUpdates)) {
+            if (defined.find(d => d.name === key)) {
+                continue;
+            }
+
+            this.log(`Deleting unused mode last update ${key}...`);
+            delete lastUpdates[key];
+        }
+
         this.looks = looks;
+        this.lastUpdates = lastUpdates;
     }
 
     async count(): Promise<number> {
@@ -58,6 +89,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     async findAll(): Promise<Mode[]> {
         const provider = this.#autocompleteProvider();
         const current = this.currentMode;
+        const lastUpdates = this.lastUpdates;
         const modes = await provider.find('');
 
         if (modes.length === 0) {
@@ -68,11 +100,13 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         for (const mode of modes) {
             const look = await this.getLook(mode.name);
+            const lastUpdate = lastUpdates[mode.name];
 
             results.push({
                 active: current === mode.name,
                 color: look[0],
                 icon: look[1],
+                lastUpdate: lastUpdate?.toISO() ?? undefined,
                 name: mode.name
             });
         }
@@ -92,6 +126,10 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         }
 
         this.currentMode = name;
+        this.lastUpdates = {
+            ...this.lastUpdates,
+            [name]: DateTime.now()
+        };
 
         this.log(`Activate mode ${name}.`);
 
@@ -110,6 +148,10 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         }
 
         this.currentMode = null;
+        this.lastUpdates = {
+            ...this.lastUpdates,
+            [name]: DateTime.now()
+        };
 
         this.log(`Deactivate mode ${name}.`);
 
@@ -122,6 +164,10 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
     async reactivate(name: string): Promise<void> {
         this.currentMode = name;
+        this.lastUpdates = {
+            ...this.lastUpdates,
+            [name]: DateTime.now()
+        };
 
         this.log(`Reactivate mode ${name}.`);
 

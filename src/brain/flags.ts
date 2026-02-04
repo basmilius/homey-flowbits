@@ -1,5 +1,5 @@
-import { Shortcuts } from '@basmilius/homey-common';
-import { REALTIME_FLAGS_UPDATE, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
+import { DateTime, Shortcuts } from '@basmilius/homey-common';
+import { REALTIME_FLAGS_UPDATE, SETTING_FLAG_LAST_UPDATES, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { Feature, Flag, FlowBitsApp, Look, Styleable } from '../types';
 
@@ -20,11 +20,32 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         this.settings.set(SETTING_FLAG_LOOKS, value);
     }
 
+    get lastUpdates(): Record<string, DateTime> {
+        return Object.fromEntries(
+            Object.entries<string>(this.settings.get(SETTING_FLAG_LAST_UPDATES) ?? {})
+                .map(([key, value]) => [
+                    key,
+                    DateTime.fromISO(value)
+                ])
+        );
+    }
+
+    set lastUpdates(value: Record<string, DateTime>) {
+        this.settings.set(SETTING_FLAG_LAST_UPDATES, Object.fromEntries(
+            Object.entries(value)
+                .map(([key, value]) => [
+                    key,
+                    value.toISO()
+                ])
+        ));
+    }
+
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused flags...');
 
         const defined = await this.findAll();
         const looks = this.looks;
+        const lastUpdates = this.lastUpdates;
 
         this.currentFlags = this.currentFlags.filter(flag => defined.find(d => d.name === flag));
 
@@ -37,7 +58,17 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
             delete looks[key];
         }
 
+        for (const key of Object.keys(this.lastUpdates)) {
+            if (defined.find(d => d.name === key)) {
+                continue;
+            }
+
+            this.log(`Deleting unused flag last update ${key}...`);
+            delete lastUpdates[key];
+        }
+
         this.looks = looks;
+        this.lastUpdates = lastUpdates;
     }
 
     async count(): Promise<number> {
@@ -56,6 +87,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     async findAll(): Promise<Flag[]> {
         const provider = this.#autocompleteProvider();
         const current = this.currentFlags;
+        const lastUpdates = this.lastUpdates;
         const flags = await provider.find('');
 
         if (flags.length === 0) {
@@ -66,11 +98,13 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
         for (const flag of flags) {
             const look = await this.getLook(flag.name);
+            const lastUpdate = lastUpdates[flag.name];
 
             results.push({
                 active: current.includes(flag.name),
                 color: look[0],
                 icon: look[1],
+                lastUpdate: lastUpdate?.toISO() ?? undefined,
                 name: flag.name
             });
         }
@@ -86,6 +120,10 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         }
 
         this.currentFlags = [...current, name];
+        this.lastUpdates = {
+            ...this.lastUpdates,
+            [name]: DateTime.now()
+        };
 
         this.log(`Activate flag ${name}.`);
 
@@ -104,6 +142,10 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         }
 
         this.currentFlags = current.filter(f => f !== name);
+        this.lastUpdates = {
+            ...this.lastUpdates,
+            [name]: DateTime.now()
+        };
 
         this.log(`Deactivate flag ${name}.`);
 
