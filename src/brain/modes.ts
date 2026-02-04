@@ -136,6 +136,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         const current = this.currentMode;
 
         if (current === null) {
+            this.log('No current mode to reactivate.');
             return;
         }
 
