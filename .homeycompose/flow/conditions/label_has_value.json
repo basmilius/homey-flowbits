@@ -16,19 +16,19 @@
         "ar": "التسمية لديها قيمة"
     },
     "titleFormatted": {
-        "en": "Label [[label]] has value [[value]]",
-        "nl": "Label [[label]] heeft waarde [[value]]",
-        "da": "Mærkat [[label]] har værdi [[value]]",
-        "de": "Etikett [[label]] hat Wert [[value]]",
-        "es": "La etiqueta [[label]] tiene valor [[value]]",
-        "fr": "L'étiquette [[label]] a une valeur [[value]]",
-        "it": "L'etichetta [[label]] ha valore [[value]]",
-        "no": "Etikett [[label]] har verdi [[value]]",
-        "sv": "Etikett [[label]] har värde [[value]]",
-        "pl": "Etykieta [[label]] ma wartość [[value]]",
-        "ru": "Метка [[label]] имеет значение [[value]]",
-        "ko": "레이블 [[label]]에 값이 있음 [[value]]",
-        "ar": "التسمية [[label]] لديها قيمة [[value]]"
+        "en": "Label [[label]] !{{has|does not have}} value [[value]]",
+        "nl": "Label [[label]] !{{heeft|heeft niet}} waarde [[value]]",
+        "da": "Mærkat [[label]] !{{har|har ikke}} værdi [[value]]",
+        "de": "Etikett [[label]] !{{hat|hat nicht}} Wert [[value]]",
+        "es": "La etiqueta [[label]] !{{tiene|no tiene}} valor [[value]]",
+        "fr": "L'étiquette [[label]] !{{a|n'a pas}} une valeur [[value]]",
+        "it": "L'etichetta [[label]] !{{ha|non ha}} valore [[value]]",
+        "no": "Etikett [[label]] !{{har|har ikke}} verdi [[value]]",
+        "sv": "Etikett [[label]] !{{har|har inte}} värde [[value]]",
+        "pl": "Etykieta [[label]] !{{ma|nie ma}} wartość [[value]]",
+        "ru": "Метка [[label]] !{{имеет|не имеет}} значение [[value]]",
+        "ko": "레이블 [[label]]!{{에 값이 있음|에 값이 없음}} [[value]]",
+        "ar": "التسمية [[label]] !{{لديها|ليس لديها}} قيمة [[value]]"
     },
     "args": [
         {

@@ -16,19 +16,19 @@
         "ar": "جميع الحالات في المجموعة نشطة"
     },
     "titleFormatted": {
-        "en": "All states in set [[set]] are active",
-        "nl": "Alle statussen in set [[set]] zijn actief",
-        "de": "Alle Zustände im Set [[set]] sind aktiv",
-        "fr": "Tous les états dans l’ensemble [[set]] sont actifs",
-        "it": "Tutti gli stati nel set [[set]] sono attivi",
-        "sv": "Alla tillstånd i uppsättningen [[set]] är aktiva",
-        "no": "Alle tilstander i settet [[set]] er aktive",
-        "es": "Todos los estados en el conjunto [[set]] están activos",
-        "da": "Alle tilstande i sættet [[set]] er aktive",
-        "ru": "Все состояния в наборе [[set]] активны",
-        "pl": "Wszystkie stany w zestawie [[set]] są aktywne",
-        "ko": "세트 [[set]]의 모든 상태가 활성화됨",
-        "ar": "جميع الحالات في المجموعة [[set]] نشطة"
+        "en": "!{{All|Not all}} states in set [[set]] are active",
+        "nl": "!{{Alle|Niet alle}} statussen in set [[set]] zijn actief",
+        "de": "!{{Alle|Nicht alle}} Zustände im Set [[set]] sind aktiv",
+        "fr": "!{{Tous les|Pas tous les}} états dans l'ensemble [[set]] sont actifs",
+        "it": "!{{Tutti gli|Non tutti gli}} stati nel set [[set]] sono attivi",
+        "sv": "!{{Alla|Inte alla}} tillstånd i uppsättningen [[set]] är aktiva",
+        "no": "!{{Alle|Ikke alle}} tilstander i settet [[set]] er aktive",
+        "es": "!{{Todos los|No todos los}} estados en el conjunto [[set]] están activos",
+        "da": "!{{Alle|Ikke alle}} tilstande i sættet [[set]] er aktive",
+        "ru": "!{{Все|Не все}} состояния в наборе [[set]] активны",
+        "pl": "!{{Wszystkie|Nie wszystkie}} stany w zestawie [[set]] są aktywne",
+        "ko": "세트 [[set]]의 !{{모든|모든 것은 아닌}} 상태가 활성화됨",
+        "ar": "!{{جميع|ليس كل}} الحالات في المجموعة [[set]] نشطة"
     },
     "hint": {
         "en": "All states in a set are active.",

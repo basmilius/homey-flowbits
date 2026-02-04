@@ -16,19 +16,19 @@
         "ar": "قم برمي النرد"
     },
     "titleFormatted": {
-        "en": "Dice rolls [[result]]",
-        "nl": "Dobbelsteen gooit [[result]]",
-        "de": "Der Würfel zeigt [[result]]",
-        "fr": "Le dé affiche [[result]]",
-        "it": "Il dado mostra [[result]]",
-        "sv": "Tärningen visar [[result]]",
-        "no": "Terningen viser [[result]]",
-        "es": "El dado muestra [[result]]",
-        "da": "Terningen viser [[result]]",
-        "ru": "Кубик показывает [[result]]",
-        "pl": "Kostka pokazuje [[result]]",
-        "ko": "주사위 결과 [[result]]",
-        "ar": "النرد يوضح [[result]]"
+        "en": "Dice !{{rolls|does not roll}} [[result]]",
+        "nl": "Dobbelsteen !{{gooit|gooit niet}} [[result]]",
+        "de": "Der Würfel !{{zeigt|zeigt nicht}} [[result]]",
+        "fr": "Le dé !{{affiche|n'affiche pas}} [[result]]",
+        "it": "Il dado !{{mostra|non mostra}} [[result]]",
+        "sv": "Tärningen !{{visar|visar inte}} [[result]]",
+        "no": "Terningen !{{viser|viser ikke}} [[result]]",
+        "es": "El dado !{{muestra|no muestra}} [[result]]",
+        "da": "Terningen !{{viser|viser ikke}} [[result]]",
+        "ru": "Кубик !{{показывает|не показывает}} [[result]]",
+        "pl": "Kostka !{{pokazuje|nie pokazuje}} [[result]]",
+        "ko": "주사위 결과 !{{[[result]]|[[result]]이(가) 아님}}",
+        "ar": "النرد !{{يوضح|لا يوضح}} [[result]]"
     },
     "args": [
         {

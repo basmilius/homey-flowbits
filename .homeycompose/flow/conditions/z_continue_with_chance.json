@@ -16,19 +16,19 @@
         "ar": "استمر مع فرصة"
     },
     "titleFormatted": {
-        "en": "Continue with [[chance]] chance",
-        "nl": "Ga door met [[chance]] kans",
-        "de": "Mit [[chance]] Wahrscheinlichkeit fortfahren",
-        "fr": "Continuer avec [[chance]] de chance",
-        "it": "Continua con [[chance]] probabilità",
-        "sv": "Fortsätt med [[chance]] sannolikhet",
-        "no": "Fortsett med [[chance]] sannsynlighet",
-        "es": "Continuar con [[chance]] probabilidad",
-        "da": "Fortsæt med [[chance]] sandsynlighed",
-        "ru": "Продолжить с шансом [[chance]]",
-        "pl": "Kontynuuj z [[chance]] szansą",
-        "ko": "[[chance]] 확률로 계속",
-        "ar": "استمر مع [[chance]] فرصة"
+        "en": "!{{Continue|Don't continue}} with [[chance]] chance",
+        "nl": "!{{Ga door|Ga niet door}} met [[chance]] kans",
+        "de": "!{{Fortfahren|Nicht fortfahren}} mit [[chance]] Wahrscheinlichkeit",
+        "fr": "!{{Continuer|Ne pas continuer}} avec [[chance]] de chance",
+        "it": "!{{Continua|Non continuare}} con [[chance]] probabilità",
+        "sv": "!{{Fortsätt|Fortsätt inte}} med [[chance]] sannolikhet",
+        "no": "!{{Fortsett|Ikke fortsett}} med [[chance]] sannsynlighet",
+        "es": "!{{Continuar|No continuar}} con [[chance]] probabilidad",
+        "da": "!{{Fortsæt|Fortsæt ikke}} med [[chance]] sandsynlighed",
+        "ru": "!{{Продолжить|Не продолжать}} с шансом [[chance]]",
+        "pl": "!{{Kontynuuj|Nie kontynuuj}} z [[chance]] szansą",
+        "ko": "[[chance]] 확률로 !{{계속|계속하지 않음}}",
+        "ar": "!{{استمر|لا تستمر}} مع [[chance]] فرصة"
     },
     "args": [
         {

@@ -16,19 +16,19 @@
         "ar": "على الأقل حالة واحدة في المجموعة نشطة"
     },
     "titleFormatted": {
-        "en": "Any state in set [[set]] is active",
-        "nl": "Minstens één status in set [[set]] is actief",
-        "de": "Mindestens ein Zustand im Set [[set]] ist aktiv",
-        "fr": "Au moins un état dans l’ensemble [[set]] est actif",
-        "it": "Almeno uno stato nel set [[set]] è attivo",
-        "sv": "Minst ett tillstånd i uppsättningen [[set]] är aktivt",
-        "no": "Minst én tilstand i settet [[set]] er aktiv",
-        "es": "Al menos un estado en el conjunto [[set]] está activo",
-        "da": "Mindst én tilstand i sættet [[set]] er aktiv",
-        "ru": "По крайней мере одно состояние в наборе [[set]] активно",
-        "pl": "Co najmniej jeden stan w zestawie [[set]] jest aktywny",
-        "ko": "세트 [[set]]에서 하나 이상의 상태가 활성화됨",
-        "ar": "على الأقل حالة واحدة في المجموعة [[set]] نشطة"
+        "en": "Any state in set [[set]] !{{is|is not}} active",
+        "nl": "Minstens één status in set [[set]] !{{is|is niet}} actief",
+        "de": "Mindestens ein Zustand im Set [[set]] !{{ist|ist nicht}} aktiv",
+        "fr": "Au moins un état dans l'ensemble [[set]] !{{est|n'est pas}} actif",
+        "it": "Almeno uno stato nel set [[set]] !{{è|non è}} attivo",
+        "sv": "Minst ett tillstånd i uppsättningen [[set]] !{{är|är inte}} aktivt",
+        "no": "Minst én tilstand i settet [[set]] !{{er|er ikke}} aktiv",
+        "es": "Al menos un estado en el conjunto [[set]] !{{está|no está}} activo",
+        "da": "Mindst én tilstand i sættet [[set]] !{{er|er ikke}} aktiv",
+        "ru": "По крайней мере одно состояние в наборе [[set]] !{{активно|неактивно}}",
+        "pl": "Co najmniej jeden stan w zestawie [[set]] !{{jest|nie jest}} aktywny",
+        "ko": "세트 [[set]]에서 하나 이상의 상태가 !{{활성화됨|비활성화됨}}",
+        "ar": "على الأقل حالة واحدة في المجموعة [[set]] !{{نشطة|غير نشطة}}"
     },
     "hint": {
         "en": "At least one state in a set is active.",
