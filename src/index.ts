@@ -110,6 +110,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.ModeActivate);
         this.registry.action(Actions.ModeDeactivate);
         this.registry.action(Actions.ModeReactivate);
+        this.registry.action(Actions.ModeReactivateCurrent);
         this.registry.action(Actions.ModeToggle);
         this.registry.action(Actions.NoRepeatClear);
         this.registry.action(Actions.RandomFact);
