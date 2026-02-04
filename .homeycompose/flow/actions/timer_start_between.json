@@ -1,0 +1,327 @@
+{
+    "id": "timer_start_between",
+    "title": {
+        "en": "Start timer (random)",
+        "nl": "Start timer (willekeurig)",
+        "de": "Timer starten (zufällig)",
+        "fr": "Démarrer le minuteur (aléatoire)",
+        "it": "Avvia timer (casuale)",
+        "sv": "Starta timer (slumpmässig)",
+        "no": "Start timer (tilfeldig)",
+        "es": "Iniciar temporizador (aleatorio)",
+        "da": "Start timer (tilfældig)",
+        "ru": "Запустить таймер (случайный)",
+        "pl": "Uruchom timer (losowy)",
+        "ko": "타이머 시작 (무작위)",
+        "ar": "ابدأ المؤقت (عشوائي)"
+    },
+    "titleFormatted": {
+        "en": "Start timer [[timer]] between [[duration1]] [[unit1]] and [[duration2]] [[unit2]]",
+        "nl": "Start timer [[timer]] tussen [[duration1]] [[unit1]] en [[duration2]] [[unit2]]",
+        "de": "Starte Timer [[timer]] zwischen [[duration1]] [[unit1]] und [[duration2]] [[unit2]]",
+        "fr": "Démarrer le minuteur [[timer]] entre [[duration1]] [[unit1]] et [[duration2]] [[unit2]]",
+        "it": "Avvia il timer [[timer]] tra [[duration1]] [[unit1]] e [[duration2]] [[unit2]]",
+        "sv": "Starta timern [[timer]] mellan [[duration1]] [[unit1]] och [[duration2]] [[unit2]]",
+        "no": "Start timeren [[timer]] mellom [[duration1]] [[unit1]] og [[duration2]] [[unit2]]",
+        "es": "Iniciar el temporizador [[timer]] entre [[duration1]] [[unit1]] y [[duration2]] [[unit2]]",
+        "da": "Start timeren [[timer]] mellem [[duration1]] [[unit1]] og [[duration2]] [[unit2]]",
+        "ru": "Запустить таймер [[timer]] между [[duration1]] [[unit1]] и [[duration2]] [[unit2]]",
+        "pl": "Uruchom timer [[timer]] między [[duration1]] [[unit1]] a [[duration2]] [[unit2]]",
+        "ko": "타이머 [[timer]]을 [[duration1]] [[unit1]]와 [[duration2]] [[unit2]] 사이로 시작",
+        "ar": "ابدأ المؤقت [[timer]] بين [[duration1]] [[unit1]] و [[duration2]] [[unit2]]"
+    },
+    "hint": {
+        "en": "Starts a fresh timer with a random duration between the specified minimum and maximum.",
+        "nl": "Start een nieuwe timer met een willekeurige looptijd tussen het opgegeven minimum en maximum.",
+        "de": "Startet einen neuen Timer mit einer zufälligen Dauer zwischen dem angegebenen Minimum und Maximum.",
+        "fr": "Démarre un nouveau minuteur avec une durée aléatoire entre le minimum et le maximum spécifiés.",
+        "it": "Avvia un nuovo timer con una durata casuale tra il minimo e il massimo specificati.",
+        "sv": "Startar en ny timer med en slumpmässig varaktighet mellan angiven minimum och maximum.",
+        "no": "Starter en ny timer med en tilfeldig varighet mellom angitt minimum og maksimum.",
+        "es": "Inicia un nuevo temporizador con una duración aleatoria entre el mínimo y el máximo indicados.",
+        "da": "Starter en ny timer med en tilfældig varighed mellem det angivne minimum og maksimum.",
+        "ru": "Запускает новый таймер со случайной длительностью между указанными минимумом и максимумом.",
+        "pl": "Uruchamia nowy timer z losowym czasem trwania między podanym minimum a maksimum.",
+        "ko": "지정된 최소값과 최대값 사이의 무작위 시간으로 새 타이머를 시작합니다.",
+        "ar": "يبدأ مؤقتًا جديدًا بمدة عشوائية بين الحد الأدنى والحد الأقصى المحدد."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "timer",
+            "title": {
+                "en": "Name",
+                "nl": "Naam",
+                "de": "Name",
+                "fr": "Nom",
+                "it": "Nome",
+                "sv": "Namn",
+                "no": "Navn",
+                "es": "Nombre",
+                "da": "Navn",
+                "ru": "Имя",
+                "pl": "Nazwa",
+                "ko": "이름",
+                "ar": "الاسم"
+            }
+        },
+        {
+            "type": "number",
+            "name": "duration1",
+            "min": 1,
+            "step": 1,
+            "title": {
+                "en": "Minimum duration",
+                "nl": "Minimum looptijd",
+                "de": "Minimaldauer",
+                "fr": "Durée minimale",
+                "it": "Durata minima",
+                "sv": "Minsta varaktighet",
+                "no": "Minimum varighet",
+                "es": "Duración mínima",
+                "da": "Mindste varighed",
+                "ru": "Минимальная длительность",
+                "pl": "Minimalny czas trwania",
+                "ko": "최소 지속 시간",
+                "ar": "المدة الدنيا"
+            },
+            "placeholder": {
+                "en": "E.g. 5",
+                "nl": "Bijv. 5",
+                "de": "Z. B. 5",
+                "fr": "P. ex. 5",
+                "it": "Es. 5",
+                "sv": "T.ex. 5",
+                "no": "F.eks. 5",
+                "es": "P. ej. 5",
+                "da": "F.eks. 5",
+                "ru": "Напр. 5",
+                "pl": "Np. 5",
+                "ko": "예: 5",
+                "ar": "مثال: 5"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "unit1",
+            "title": {
+                "en": "Unit",
+                "nl": "Eenheid",
+                "de": "Einheit",
+                "fr": "Unité",
+                "it": "Unità",
+                "sv": "Enhet",
+                "no": "Enhet",
+                "es": "Unidad",
+                "da": "Enhed",
+                "ru": "Единица",
+                "pl": "Jednostka",
+                "ko": "단위",
+                "ar": "الوحدة"
+            },
+            "values": [
+                {
+                    "id": "seconds",
+                    "title": {
+                        "en": "seconds",
+                        "nl": "seconden",
+                        "de": "Sekunden",
+                        "fr": "secondes",
+                        "it": "secondi",
+                        "sv": "sekunder",
+                        "no": "sekunder",
+                        "es": "segundos",
+                        "da": "sekunder",
+                        "ru": "секунды",
+                        "pl": "sekundy",
+                        "ko": "초",
+                        "ar": "ثواني"
+                    }
+                },
+                {
+                    "id": "minutes",
+                    "title": {
+                        "en": "minutes",
+                        "nl": "minuten",
+                        "de": "Minuten",
+                        "fr": "minutes",
+                        "it": "minuti",
+                        "sv": "minuter",
+                        "no": "minutter",
+                        "es": "minutos",
+                        "da": "minutter",
+                        "ru": "минуты",
+                        "pl": "minuty",
+                        "ko": "분",
+                        "ar": "دقائق"
+                    }
+                },
+                {
+                    "id": "hours",
+                    "title": {
+                        "en": "hours",
+                        "nl": "uren",
+                        "de": "Stunden",
+                        "fr": "heures",
+                        "it": "ore",
+                        "sv": "timmar",
+                        "no": "timer",
+                        "es": "horas",
+                        "da": "timer",
+                        "ru": "часы",
+                        "pl": "godziny",
+                        "ko": "시간",
+                        "ar": "ساعات"
+                    }
+                },
+                {
+                    "id": "days",
+                    "title": {
+                        "en": "days",
+                        "nl": "dagen",
+                        "de": "Tage",
+                        "fr": "jours",
+                        "it": "giorni",
+                        "sv": "dagar",
+                        "no": "dager",
+                        "es": "días",
+                        "da": "dage",
+                        "ru": "дни",
+                        "pl": "dni",
+                        "ko": "일",
+                        "ar": "أيام"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "number",
+            "name": "duration2",
+            "min": 1,
+            "step": 1,
+            "title": {
+                "en": "Maximum duration",
+                "nl": "Maximum looptijd",
+                "de": "Maximaldauer",
+                "fr": "Durée maximale",
+                "it": "Durata massima",
+                "sv": "Maximal varaktighet",
+                "no": "Maksimal varighet",
+                "es": "Duración máxima",
+                "da": "Maksimal varighed",
+                "ru": "Максимальная длительность",
+                "pl": "Maksymalny czas trwania",
+                "ko": "최대 지속 시간",
+                "ar": "المدة القصوى"
+            },
+            "placeholder": {
+                "en": "E.g. 15",
+                "nl": "Bijv. 15",
+                "de": "Z. B. 15",
+                "fr": "P. ex. 15",
+                "it": "Es. 15",
+                "sv": "T.ex. 15",
+                "no": "F.eks. 15",
+                "es": "P. ej. 15",
+                "da": "F.eks. 15",
+                "ru": "Напр. 15",
+                "pl": "Np. 15",
+                "ko": "예: 15",
+                "ar": "مثال: 15"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "unit2",
+            "title": {
+                "en": "Unit",
+                "nl": "Eenheid",
+                "de": "Einheit",
+                "fr": "Unité",
+                "it": "Unità",
+                "sv": "Enhet",
+                "no": "Enhet",
+                "es": "Unidad",
+                "da": "Enhed",
+                "ru": "Единица",
+                "pl": "Jednostka",
+                "ko": "단위",
+                "ar": "الوحدة"
+            },
+            "values": [
+                {
+                    "id": "seconds",
+                    "title": {
+                        "en": "seconds",
+                        "nl": "seconden",
+                        "de": "Sekunden",
+                        "fr": "secondes",
+                        "it": "secondi",
+                        "sv": "sekunder",
+                        "no": "sekunder",
+                        "es": "segundos",
+                        "da": "sekunder",
+                        "ru": "секунды",
+                        "pl": "sekundy",
+                        "ko": "초",
+                        "ar": "ثواني"
+                    }
+                },
+                {
+                    "id": "minutes",
+                    "title": {
+                        "en": "minutes",
+                        "nl": "minuten",
+                        "de": "Minuten",
+                        "fr": "minutes",
+                        "it": "minuti",
+                        "sv": "minuter",
+                        "no": "minutter",
+                        "es": "minutos",
+                        "da": "minutter",
+                        "ru": "минуты",
+                        "pl": "minuty",
+                        "ko": "분",
+                        "ar": "دقائق"
+                    }
+                },
+                {
+                    "id": "hours",
+                    "title": {
+                        "en": "hours",
+                        "nl": "uren",
+                        "de": "Stunden",
+                        "fr": "heures",
+                        "it": "ore",
+                        "sv": "timmar",
+                        "no": "timer",
+                        "es": "horas",
+                        "da": "timer",
+                        "ru": "часы",
+                        "pl": "godziny",
+                        "ko": "시간",
+                        "ar": "ساعات"
+                    }
+                },
+                {
+                    "id": "days",
+                    "title": {
+                        "en": "days",
+                        "nl": "dagen",
+                        "de": "Tage",
+                        "fr": "jours",
+                        "it": "giorni",
+                        "sv": "dagar",
+                        "no": "dager",
+                        "es": "días",
+                        "da": "dage",
+                        "ru": "дни",
+                        "pl": "dni",
+                        "ko": "일",
+                        "ar": "أيام"
+                    }
+                }
+            ]
+        }
+    ]
+}

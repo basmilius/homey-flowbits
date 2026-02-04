@@ -165,11 +165,44 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         this.log(`Set timer ${timer.name} to ${duration} ${unit}.`);
     }
 
+    async setBetween(name: string, duration1: number, unit1: ClockUnit, duration2: number, unit2: ClockUnit): Promise<void> {
+        const timer = this.#find(name);
+
+        if (!timer) {
+            return;
+        }
+
+        const minSeconds = convertDurationToSeconds(duration1, unit1);
+        const maxSeconds = convertDurationToSeconds(duration2, unit2);
+        const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
+
+        this.#save(name, randomSeconds, 'seconds', timer.status);
+        await this.#schedule();
+
+        this.log(`Set timer ${timer.name} to random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomSeconds} seconds).`);
+    }
+
     async start(name: string, duration: number, unit: ClockUnit): Promise<void> {
         this.#save(name, duration, unit, 'running');
         await this.#schedule();
 
         this.log(`Start timer ${name} for ${duration} ${unit}.`);
+
+        await Promise.allSettled([
+            this.#triggerRealtime(name),
+            this.#triggerStarted(name)
+        ]);
+    }
+
+    async startBetween(name: string, duration1: number, unit1: ClockUnit, duration2: number, unit2: ClockUnit): Promise<void> {
+        const minSeconds = convertDurationToSeconds(duration1, unit1);
+        const maxSeconds = convertDurationToSeconds(duration2, unit2);
+        const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
+
+        this.#save(name, randomSeconds, 'seconds', 'running');
+        await this.#schedule();
+
+        this.log(`Start timer ${name} for random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomSeconds} seconds).`);
 
         await Promise.allSettled([
             this.#triggerRealtime(name),
@@ -440,6 +473,15 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         }
 
         return provider;
+    }
+
+    #getRandomDuration(minSeconds: number, maxSeconds: number): number {
+        // Ensure min is not greater than max
+        const min = Math.min(minSeconds, maxSeconds);
+        const max = Math.max(minSeconds, maxSeconds);
+        
+        // Generate a random number between min and max (inclusive)
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }
 

@@ -32,6 +32,8 @@ export { default as SliderSet } from './sliderSet';
 export { default as TimerPause } from './timerPause';
 export { default as TimerResume } from './timerResume';
 export { default as TimerSet } from './timerSet';
+export { default as TimerSetBetween } from './timerSetBetween';
 export { default as TimerStart } from './timerStart';
+export { default as TimerStartBetween } from './timerStartBetween';
 export { default as TimerStop } from './timerStop';
 export { default as UtilityPercentageBetweenTimestamps } from './utilityPercentageBetweenTimestamps';
