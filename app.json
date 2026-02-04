@@ -405,10 +405,10 @@
               "no": "Navn",
               "es": "Nombre",
               "da": "Navn",
-              "ru": "Название",
+              "ru": "Имя",
               "pl": "Nazwa",
               "ko": "이름",
-              "ar": "اسم"
+              "ar": "الاسم"
             }
           },
           {
@@ -440,11 +440,11 @@
               "sv": "T.ex. 5",
               "no": "F.eks. 5",
               "es": "P. ej. 5",
-              "da": "Fx 5",
+              "da": "F.eks. 5",
               "ru": "Напр. 5",
               "pl": "Np. 5",
               "ko": "예: 5",
-              "ar": "على سبيل المثال 5"
+              "ar": "مثال: 5"
             }
           }
         ]
@@ -510,10 +510,10 @@
               "no": "Navn",
               "es": "Nombre",
               "da": "Navn",
-              "ru": "Название",
+              "ru": "Имя",
               "pl": "Nazwa",
               "ko": "이름",
-              "ar": "اسم"
+              "ar": "الاسم"
             }
           }
         ],
@@ -534,7 +534,7 @@
               "ru": "Значение",
               "pl": "Wartość",
               "ko": "값",
-              "ar": "القيمة"
+              "ar": "قيمة"
             }
           }
         ]
@@ -1167,7 +1167,7 @@
           "sv": "Etikett blir",
           "pl": "Etykieta staje się",
           "ru": "Метка становится",
-          "ko": "라벨이 [[value]]로 변경됨",
+          "ko": "라벨이 변경됨",
           "ar": "تصبح التسمية"
         },
         "titleFormatted": {
@@ -2513,7 +2513,7 @@
           "es": "[[duration]] [[unit]] restantes para el temporizador [[timer]]",
           "da": "[[duration]] [[unit]] tilbage for timer [[timer]]",
           "ru": "[[duration]] [[unit]] осталось для таймера [[timer]]",
-          "pl": "[[duration]] [[unit]] pozostało для timera [[timer]]",
+          "pl": "[[duration]] [[unit]] pozostało dla timera [[timer]]",
           "ko": "타이머 [[timer]]에 [[duration]] [[unit]] 남음",
           "ar": "المؤقت [[timer]] يحقق [[duration]] [[unit]] متبقية"
         },
@@ -2560,12 +2560,12 @@
             "placeholder": {
               "en": "E.g. 10",
               "nl": "Bijv. 10",
-              "de": "Z.B. 10",
-              "fr": "Ex. 10",
+              "de": "Z. B. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
-              "es": "Ej. 10",
+              "es": "P. ej. 10",
               "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
@@ -2881,7 +2881,7 @@
               "ru": "Имя",
               "pl": "Nazwa",
               "ko": "이름",
-              "ar": "اسم"
+              "ar": "الاسم"
             }
           },
           {
@@ -2917,7 +2917,7 @@
               "ru": "Напр. 5",
               "pl": "Np. 5",
               "ko": "예: 5",
-              "ar": "مثال 5"
+              "ar": "مثال: 5"
             }
           }
         ]
@@ -3323,12 +3323,12 @@
               "en": "E.g. 10",
               "nl": "Bijv. 10",
               "de": "Z. B. 10",
-              "fr": "Ex. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
               "es": "P. ej. 10",
-              "da": "Fx 10",
+              "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
               "ko": "예: 10",
@@ -3590,12 +3590,12 @@
               "en": "E.g. 10",
               "nl": "Bijv. 10",
               "de": "Z. B. 10",
-              "fr": "Ex. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
               "es": "P. ej. 10",
-              "da": "Fx 10",
+              "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
               "ko": "예: 10",
@@ -3784,19 +3784,19 @@
           "ar": "التسمية لديها قيمة"
         },
         "titleFormatted": {
-          "en": "Label [[label]] has value [[value]]",
-          "nl": "Label [[label]] heeft waarde [[value]]",
-          "da": "Mærkat [[label]] har værdi [[value]]",
-          "de": "Etikett [[label]] hat Wert [[value]]",
-          "es": "La etiqueta [[label]] tiene valor [[value]]",
-          "fr": "L'étiquette [[label]] a une valeur [[value]]",
-          "it": "L'etichetta [[label]] ha valore [[value]]",
-          "no": "Etikett [[label]] har verdi [[value]]",
-          "sv": "Etikett [[label]] har värde [[value]]",
-          "pl": "Etykieta [[label]] ma wartość [[value]]",
-          "ru": "Метка [[label]] имеет значение [[value]]",
-          "ko": "레이블 [[label]]에 값이 있음 [[value]]",
-          "ar": "التسمية [[label]] لديها قيمة [[value]]"
+          "en": "Label [[label]] !{{has|does not have}} value [[value]]",
+          "nl": "Label [[label]] !{{heeft|heeft niet}} waarde [[value]]",
+          "da": "Mærkat [[label]] !{{har|har ikke}} værdi [[value]]",
+          "de": "Etikett [[label]] !{{hat|hat nicht}} Wert [[value]]",
+          "es": "La etiqueta [[label]] !{{tiene|no tiene}} valor [[value]]",
+          "fr": "L'étiquette [[label]] !{{a|n'a pas}} une valeur [[value]]",
+          "it": "L'etichetta [[label]] !{{ha|non ha}} valore [[value]]",
+          "no": "Etikett [[label]] !{{har|har ikke}} verdi [[value]]",
+          "sv": "Etikett [[label]] !{{har|har inte}} värde [[value]]",
+          "pl": "Etykieta [[label]] !{{ma|nie ma}} wartość [[value]]",
+          "ru": "Метка [[label]] !{{имеет|не имеет}} значение [[value]]",
+          "ko": "레이블 [[label]]!{{에 값이 있음|에 값이 없음}} [[value]]",
+          "ar": "التسمية [[label]] !{{لديها|ليس لديها}} قيمة [[value]]"
         },
         "args": [
           {
@@ -3969,7 +3969,7 @@
               "no": "Navn",
               "es": "Nombre",
               "da": "Navn",
-              "ru": "Название",
+              "ru": "Имя",
               "pl": "Nazwa",
               "ko": "이름",
               "ar": "الاسم"
@@ -3999,12 +3999,12 @@
               "en": "E.g. 10",
               "nl": "Bijv. 10",
               "de": "Z. B. 10",
-              "fr": "Ex. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
-              "es": "Ej. 10",
-              "da": "Fx 10",
+              "es": "P. ej. 10",
+              "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
               "ko": "예: 10",
@@ -4268,19 +4268,19 @@
           "ar": "جميع الحالات في المجموعة نشطة"
         },
         "titleFormatted": {
-          "en": "All states in set [[set]] are active",
-          "nl": "Alle statussen in set [[set]] zijn actief",
-          "de": "Alle Zustände im Set [[set]] sind aktiv",
-          "fr": "Tous les états dans l’ensemble [[set]] sont actifs",
-          "it": "Tutti gli stati nel set [[set]] sono attivi",
-          "sv": "Alla tillstånd i uppsättningen [[set]] är aktiva",
-          "no": "Alle tilstander i settet [[set]] er aktive",
-          "es": "Todos los estados en el conjunto [[set]] están activos",
-          "da": "Alle tilstande i sættet [[set]] er aktive",
-          "ru": "Все состояния в наборе [[set]] активны",
-          "pl": "Wszystkie stany w zestawie [[set]] są aktywne",
-          "ko": "세트 [[set]]의 모든 상태가 활성화됨",
-          "ar": "جميع الحالات في المجموعة [[set]] نشطة"
+          "en": "!{{All|Not all}} states in set [[set]] are active",
+          "nl": "!{{Alle|Niet alle}} statussen in set [[set]] zijn actief",
+          "de": "!{{Alle|Nicht alle}} Zustände im Set [[set]] sind aktiv",
+          "fr": "!{{Tous les|Pas tous les}} états dans l'ensemble [[set]] sont actifs",
+          "it": "!{{Tutti gli|Non tutti gli}} stati nel set [[set]] sono attivi",
+          "sv": "!{{Alla|Inte alla}} tillstånd i uppsättningen [[set]] är aktiva",
+          "no": "!{{Alle|Ikke alle}} tilstander i settet [[set]] er aktive",
+          "es": "!{{Todos los|No todos los}} estados en el conjunto [[set]] están activos",
+          "da": "!{{Alle|Ikke alle}} tilstande i sættet [[set]] er aktive",
+          "ru": "!{{Все|Не все}} состояния в наборе [[set]] активны",
+          "pl": "!{{Wszystkie|Nie wszystkie}} stany w zestawie [[set]] są aktywne",
+          "ko": "세트 [[set]]의 !{{모든|모든 것은 아닌}} 상태가 활성화됨",
+          "ar": "!{{جميع|ليس كل}} الحالات في المجموعة [[set]] نشطة"
         },
         "hint": {
           "en": "All states in a set are active.",
@@ -4337,19 +4337,19 @@
           "ar": "على الأقل حالة واحدة في المجموعة نشطة"
         },
         "titleFormatted": {
-          "en": "Any state in set [[set]] is active",
-          "nl": "Minstens één status in set [[set]] is actief",
-          "de": "Mindestens ein Zustand im Set [[set]] ist aktiv",
-          "fr": "Au moins un état dans l’ensemble [[set]] est actif",
-          "it": "Almeno uno stato nel set [[set]] è attivo",
-          "sv": "Minst ett tillstånd i uppsättningen [[set]] är aktivt",
-          "no": "Minst én tilstand i settet [[set]] er aktiv",
-          "es": "Al menos un estado en el conjunto [[set]] está activo",
-          "da": "Mindst én tilstand i sættet [[set]] er aktiv",
-          "ru": "По крайней мере одно состояние в наборе [[set]] активно",
-          "pl": "Co najmniej jeden stan w zestawie [[set]] jest aktywny",
-          "ko": "세트 [[set]]에서 하나 이상의 상태가 활성화됨",
-          "ar": "على الأقل حالة واحدة في المجموعة [[set]] نشطة"
+          "en": "Any state in set [[set]] !{{is|is not}} active",
+          "nl": "Minstens één status in set [[set]] !{{is|is niet}} actief",
+          "de": "Mindestens ein Zustand im Set [[set]] !{{ist|ist nicht}} aktiv",
+          "fr": "Au moins un état dans l'ensemble [[set]] !{{est|n'est pas}} actif",
+          "it": "Almeno uno stato nel set [[set]] !{{è|non è}} attivo",
+          "sv": "Minst ett tillstånd i uppsättningen [[set]] !{{är|är inte}} aktivt",
+          "no": "Minst én tilstand i settet [[set]] !{{er|er ikke}} aktiv",
+          "es": "Al menos un estado en el conjunto [[set]] !{{está|no está}} activo",
+          "da": "Mindst én tilstand i sættet [[set]] !{{er|er ikke}} aktiv",
+          "ru": "По крайней мере одно состояние в наборе [[set]] !{{активно|неактивно}}",
+          "pl": "Co najmniej jeden stan w zestawie [[set]] !{{jest|nie jest}} aktywny",
+          "ko": "세트 [[set]]에서 하나 이상의 상태가 !{{활성화됨|비활성화됨}}",
+          "ar": "على الأقل حالة واحدة في المجموعة [[set]] !{{نشطة|غير نشطة}}"
         },
         "hint": {
           "en": "At least one state in a set is active.",
@@ -4406,19 +4406,19 @@
           "ar": "لا توجد أي حالة نشطة في المجموعة"
         },
         "titleFormatted": {
-          "en": "No state in set [[set]] is active",
-          "nl": "Geen enkele status in set [[set]] is actief",
-          "de": "Kein Zustand im Set [[set]] ist aktiv",
-          "fr": "Aucun état dans l’ensemble [[set]] n’est actif",
-          "it": "Nessuno stato nel set [[set]] è attivo",
-          "sv": "Inget tillstånd i uppsättningen [[set]] är aktivt",
-          "no": "Ingen tilstand i settet [[set]] er aktiv",
-          "es": "Ningún estado en el conjunto [[set]] está activo",
-          "da": "Ingen tilstand i sættet [[set]] er aktiv",
-          "ru": "Ни одно состояние в наборе [[set]] не активно",
-          "pl": "Żaden stan w zestawie [[set]] nie jest aktywny",
-          "ko": "세트 [[set]]에서 활성화된 상태가 없음",
-          "ar": "لا توجد أي حالة نشطة في المجموعة [[set]]"
+          "en": "No state in set [[set]] !{{is|is not}} active",
+          "nl": "Geen enkele status in set [[set]] !{{is|is niet}} actief",
+          "de": "Kein Zustand im Set [[set]] !{{ist|ist nicht}} aktiv",
+          "fr": "Aucun état dans l'ensemble [[set]] !{{n'est|est}} actif",
+          "it": "Nessuno stato nel set [[set]] !{{è|non è}} attivo",
+          "sv": "Inget tillstånd i uppsättningen [[set]] !{{är|är inte}} aktivt",
+          "no": "Ingen tilstand i settet [[set]] !{{er|er ikke}} aktiv",
+          "es": "Ningún estado en el conjunto [[set]] !{{está|no está}} activo",
+          "da": "Ingen tilstand i sættet [[set]] !{{er|er ikke}} aktiv",
+          "ru": "Ни одно состояние в наборе [[set]] !{{не активно|активно}}",
+          "pl": "Żaden stan w zestawie [[set]] !{{nie jest|jest}} aktywny",
+          "ko": "세트 [[set]]에서 활성화된 상태가 !{{없음|있음}}",
+          "ar": "لا توجد أي حالة !{{نشطة|غير نشطة}} في المجموعة [[set]]"
         },
         "hint": {
           "en": "No state in a set is active.",
@@ -4544,7 +4544,8 @@
           "da": "Timeren har mere end ... tilbage",
           "ru": "Таймер имеет больше чем ... осталось",
           "pl": "Timer ma więcej niż ... pozostało",
-          "ko": "타이머에 ... 이상 남음"
+          "ko": "타이머에 ... 이상 남음",
+          "ar": "المؤقت لديه أكثر من ... متبقي"
         },
         "titleFormatted": {
           "en": "Timer [[timer]] has !{{more|less}} than [[duration]] [[unit]] left",
@@ -4558,7 +4559,8 @@
           "da": "Timeren [[timer]] har !{{mere|mindre}} end [[duration]] [[unit]] tilbage",
           "ru": "Таймер [[timer]] имеет !{{больше|меньше}} чем [[duration]] [[unit]] осталось",
           "pl": "Timer [[timer]] ma !{{więcej|mniej}} niż [[duration]] [[unit]] pozostało",
-          "ko": "타이머 [[timer]]는 [[duration]] [[unit]]보다 !{{더 많음|더 적음}}"
+          "ko": "타이머 [[timer]]는 [[duration]] [[unit]]보다 !{{더 많음|더 적음}}",
+          "ar": "المؤقت [[timer]] لديه !{{أكثر|أقل}} من [[duration]] [[unit]] متبقي"
         },
         "args": [
           {
@@ -4576,7 +4578,8 @@
               "da": "Navn",
               "ru": "Имя",
               "pl": "Nazwa",
-              "ko": "이름"
+              "ko": "이름",
+              "ar": "الاسم"
             }
           },
           {
@@ -4596,21 +4599,23 @@
               "da": "Varighed",
               "ru": "Длительность",
               "pl": "Czas trwania",
-              "ko": "지속 시간"
+              "ko": "지속 시간",
+              "ar": "المدة"
             },
             "placeholder": {
               "en": "E.g. 10",
               "nl": "Bijv. 10",
               "de": "Z. B. 10",
-              "fr": "Ex. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
-              "es": "Ej. 10",
-              "da": "Fx 10",
+              "es": "P. ej. 10",
+              "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
-              "ko": "예: 10"
+              "ko": "예: 10",
+              "ar": "مثال: 10"
             }
           },
           {
@@ -4628,7 +4633,8 @@
               "da": "Enhed",
               "ru": "Единица",
               "pl": "Jednostka",
-              "ko": "단위"
+              "ko": "단위",
+              "ar": "الوحدة"
             },
             "values": [
               {
@@ -4645,7 +4651,8 @@
                   "da": "sekunder",
                   "ru": "секунды",
                   "pl": "sekundy",
-                  "ko": "초"
+                  "ko": "초",
+                  "ar": "ثواني"
                 }
               },
               {
@@ -4662,7 +4669,8 @@
                   "da": "minutter",
                   "ru": "минуты",
                   "pl": "minuty",
-                  "ko": "분"
+                  "ko": "분",
+                  "ar": "دقائق"
                 }
               },
               {
@@ -4679,7 +4687,8 @@
                   "da": "timer",
                   "ru": "часы",
                   "pl": "godziny",
-                  "ko": "시간"
+                  "ko": "시간",
+                  "ar": "ساعات"
                 }
               },
               {
@@ -4696,7 +4705,8 @@
                   "da": "dage",
                   "ru": "дни",
                   "pl": "dni",
-                  "ko": "일"
+                  "ko": "일",
+                  "ar": "أيام"
                 }
               }
             ]
@@ -4883,19 +4893,19 @@
           "ar": "استمر مع فرصة"
         },
         "titleFormatted": {
-          "en": "Continue with [[chance]] chance",
-          "nl": "Ga door met [[chance]] kans",
-          "de": "Mit [[chance]] Wahrscheinlichkeit fortfahren",
-          "fr": "Continuer avec [[chance]] de chance",
-          "it": "Continua con [[chance]] probabilità",
-          "sv": "Fortsätt med [[chance]] sannolikhet",
-          "no": "Fortsett med [[chance]] sannsynlighet",
-          "es": "Continuar con [[chance]] probabilidad",
-          "da": "Fortsæt med [[chance]] sandsynlighed",
-          "ru": "Продолжить с шансом [[chance]]",
-          "pl": "Kontynuuj z [[chance]] szansą",
-          "ko": "[[chance]] 확률로 계속",
-          "ar": "استمر مع [[chance]] فرصة"
+          "en": "!{{Continue|Don't continue}} with [[chance]] chance",
+          "nl": "!{{Ga door|Ga niet door}} met [[chance]] kans",
+          "de": "!{{Fortfahren|Nicht fortfahren}} mit [[chance]] Wahrscheinlichkeit",
+          "fr": "!{{Continuer|Ne pas continuer}} avec [[chance]] de chance",
+          "it": "!{{Continua|Non continuare}} con [[chance]] probabilità",
+          "sv": "!{{Fortsätt|Fortsätt inte}} med [[chance]] sannolikhet",
+          "no": "!{{Fortsett|Ikke fortsett}} med [[chance]] sannsynlighet",
+          "es": "!{{Continuar|No continuar}} con [[chance]] probabilidad",
+          "da": "!{{Fortsæt|Fortsæt ikke}} med [[chance]] sandsynlighed",
+          "ru": "!{{Продолжить|Не продолжать}} с шансом [[chance]]",
+          "pl": "!{{Kontynuuj|Nie kontynuuj}} z [[chance]] szansą",
+          "ko": "[[chance]] 확률로 !{{계속|계속하지 않음}}",
+          "ar": "!{{استمر|لا تستمر}} مع [[chance]] فرصة"
         },
         "args": [
           {
@@ -4942,19 +4952,19 @@
           "ar": "قم برمي النرد"
         },
         "titleFormatted": {
-          "en": "Dice rolls [[result]]",
-          "nl": "Dobbelsteen gooit [[result]]",
-          "de": "Der Würfel zeigt [[result]]",
-          "fr": "Le dé affiche [[result]]",
-          "it": "Il dado mostra [[result]]",
-          "sv": "Tärningen visar [[result]]",
-          "no": "Terningen viser [[result]]",
-          "es": "El dado muestra [[result]]",
-          "da": "Terningen viser [[result]]",
-          "ru": "Кубик показывает [[result]]",
-          "pl": "Kostka pokazuje [[result]]",
-          "ko": "주사위 결과 [[result]]",
-          "ar": "النرد يوضح [[result]]"
+          "en": "Dice !{{rolls|does not roll}} [[result]]",
+          "nl": "Dobbelsteen !{{gooit|gooit niet}} [[result]]",
+          "de": "Der Würfel !{{zeigt|zeigt nicht}} [[result]]",
+          "fr": "Le dé !{{affiche|n'affiche pas}} [[result]]",
+          "it": "Il dado !{{mostra|non mostra}} [[result]]",
+          "sv": "Tärningen !{{visar|visar inte}} [[result]]",
+          "no": "Terningen !{{viser|viser ikke}} [[result]]",
+          "es": "El dado !{{muestra|no muestra}} [[result]]",
+          "da": "Terningen !{{viser|viser ikke}} [[result]]",
+          "ru": "Кубик !{{показывает|не показывает}} [[result]]",
+          "pl": "Kostka !{{pokazuje|nie pokazuje}} [[result]]",
+          "ko": "주사위 결과 [[result]]!{{|이(가) 아님}}",
+          "ar": "النرد !{{يوضح|لا يوضح}} [[result]]"
         },
         "args": [
           {
@@ -4973,7 +4983,7 @@
               "ru": "Результат",
               "pl": "Wynik",
               "ko": "결과",
-              "ar": "النتيجة"
+              "ar": "نتيجة"
             },
             "min": 1,
             "max": 6,
@@ -5479,10 +5489,10 @@
           "de": "Nächster Schritt in [[name]] ( 1—[[max_value]])",
           "fr": "Étape suivante dans [[name]] ( 1—[[max_value]])",
           "it": "Passo successivo in [[name]] ( 1—[[max_value]])",
-          "sv": "Nästa steg in [[name]] ( 1—[[max_value]])",
-          "no": "Neste trinn in [[name]] ( 1—[[max_value]])",
+          "sv": "Nästa steg i [[name]] ( 1—[[max_value]])",
+          "no": "Neste trinn i [[name]] ( 1—[[max_value]])",
           "es": "Siguiente paso en [[name]] ( 1—[[max_value]])",
-          "da": "Næste trin in [[name]] ( 1—[[max_value]])",
+          "da": "Næste trin i [[name]] ( 1—[[max_value]])",
           "ru": "Следующий шаг в [[name]] ( 1—[[max_value]])",
           "pl": "Następny krok w [[name]] ( 1—[[max_value]])",
           "ko": "[[name]]의 다음 단계 ( 1—[[max_value]])",
@@ -5584,10 +5594,10 @@
           "de": "Nächster Schritt in [[name]] ([[min_value]]—[[max_value]])",
           "fr": "Étape suivante dans [[name]] ([[min_value]]—[[max_value]])",
           "it": "Passo successivo in [[name]] ([[min_value]]—[[max_value]])",
-          "sv": "Nästa steg in [[name]] ([[min_value]]—[[max_value]])",
-          "no": "Neste trinn in [[name]] ([[min_value]]—[[max_value]])",
+          "sv": "Nästa steg i [[name]] ([[min_value]]—[[max_value]])",
+          "no": "Neste trinn i [[name]] ([[min_value]]—[[max_value]])",
           "es": "Siguiente paso en [[name]] ([[min_value]]—[[max_value]])",
-          "da": "Næste trin in [[name]] ([[min_value]]—[[max_value]])",
+          "da": "Næste trin i [[name]] ([[min_value]]—[[max_value]])",
           "ru": "Следующий шаг в [[name]] ([[min_value]]—[[max_value]])",
           "pl": "Następny krok w [[name]] ([[min_value]]—[[max_value]])",
           "ko": "[[name]]의 다음 단계 ([[min_value]]—[[max_value]])",
@@ -5646,7 +5656,7 @@
               "ru": "Максимум",
               "pl": "Maksimum",
               "ko": "최대",
-              "ar": "الأقصى"
+              "ar": "الحد الأقصى"
             },
             "placeholder": {
               "en": "E.g. 5",
@@ -5661,7 +5671,7 @@
               "ru": "Напр. 5",
               "pl": "Np. 5",
               "ko": "예: 5",
-              "ar": "مثلاً: 5"
+              "ar": "مثال: 5"
             }
           },
           {
@@ -5697,7 +5707,7 @@
               "ru": "Напр. 5",
               "pl": "Np. 5",
               "ko": "예: 5",
-              "ar": "مثلاً: 5"
+              "ar": "مثال: 5"
             }
           }
         ]
@@ -5725,10 +5735,10 @@
           "de": "Vorheriger Schritt in [[name]] ([[min_value]]—[[max_value]])",
           "fr": "Étape précédente dans [[name]] ([[min_value]]—[[max_value]])",
           "it": "Passo precedente in [[name]] ([[min_value]]—[[max_value]])",
-          "sv": "Föregående steg in [[name]] ([[min_value]]—[[max_value]])",
-          "no": "Forrige trinn in [[name]] ([[min_value]]—[[max_value]])",
+          "sv": "Föregående steg i [[name]] ([[min_value]]—[[max_value]])",
+          "no": "Forrige trinn i [[name]] ([[min_value]]—[[max_value]])",
           "es": "Paso anterior en [[name]] ([[min_value]]—[[max_value]])",
-          "da": "Forrige trin in [[name]] ([[min_value]]—[[max_value]])",
+          "da": "Forrige trin i [[name]] ([[min_value]]—[[max_value]])",
           "ru": "Предыдущий шаг в [[name]] ([[min_value]]—[[max_value]])",
           "pl": "Poprzedni krok w [[name]] ([[min_value]]—[[max_value]])",
           "ko": "[[name]]의 이전 단계 ([[min_value]]—[[max_value]])",
@@ -5787,7 +5797,7 @@
               "ru": "Максимум",
               "pl": "Maksimum",
               "ko": "최대",
-              "ar": "الأقصى"
+              "ar": "الحد الأقصى"
             },
             "placeholder": {
               "en": "E.g. 5",
@@ -5802,7 +5812,7 @@
               "ru": "Напр. 5",
               "pl": "Np. 5",
               "ko": "예: 5",
-              "ar": "مثلاً: 5"
+              "ar": "مثال: 5"
             }
           },
           {
@@ -5838,7 +5848,7 @@
               "ru": "Напр. 5",
               "pl": "Np. 5",
               "ko": "예: 5",
-              "ar": "مثلاً: 5"
+              "ar": "مثال: 5"
             }
           }
         ]
@@ -5866,10 +5876,10 @@
           "de": "Vorheriger Schritt in [[name]] ( 1—[[max_value]])",
           "fr": "Étape précédente dans [[name]] ( 1—[[max_value]])",
           "it": "Passo precedente in [[name]] ( 1—[[max_value]])",
-          "sv": "Föregående steg in [[name]] ( 1—[[max_value]])",
-          "no": "Forrige trinn in [[name]] ( 1—[[max_value]])",
+          "sv": "Föregående steg i [[name]] ( 1—[[max_value]])",
+          "no": "Forrige trinn i [[name]] ( 1—[[max_value]])",
           "es": "Paso anterior en [[name]] ( 1—[[max_value]])",
-          "da": "Forrige trin in [[name]] ( 1—[[max_value]])",
+          "da": "Forrige trin i [[name]] ( 1—[[max_value]])",
           "ru": "Предыдущий шаг в [[name]] ( 1—[[max_value]])",
           "pl": "Poprzedni krok w [[name]] ( 1—[[max_value]])",
           "ko": "[[name]]의 이전 단계 ( 1—[[max_value]])",
@@ -6012,7 +6022,7 @@
               "ru": "Имя",
               "pl": "Nazwa",
               "ko": "이름",
-              "ar": "اسم"
+              "ar": "الاسم"
             }
           },
           {
@@ -6048,7 +6058,7 @@
               "ru": "Напр. 5",
               "pl": "Np. 5",
               "ko": "예: 5",
-              "ar": "مثال 5"
+              "ar": "مثال: 5"
             }
           }
         ]
@@ -6483,19 +6493,19 @@
             "type": "autocomplete",
             "name": "label",
             "title": {
-              "en": "label",
+              "en": "Label",
               "nl": "Label",
-              "da": "etiket",
+              "da": "Mærkat",
               "de": "Etikett",
-              "es": "etiqueta",
-              "fr": "étiquette",
-              "it": "etichetta",
-              "no": "etikett",
-              "sv": "etikett",
-              "pl": "etykieta",
-              "ru": "метка",
-              "ko": "라벨",
-              "ar": "ملصق"
+              "es": "Etiqueta",
+              "fr": "Étiquette",
+              "it": "Etichetta",
+              "no": "Etikett",
+              "sv": "Etikett",
+              "pl": "Etykieta",
+              "ru": "Метка",
+              "ko": "레이블",
+              "ar": "تسمية"
             }
           }
         ]
@@ -6513,7 +6523,7 @@
           "no": "Sett etikett",
           "sv": "Ställ in etikett",
           "pl": "Ustaw etykietę",
-          "ru": "Установить ярлык",
+          "ru": "Установить метку",
           "ko": "레이블 설정",
           "ar": "تعيين الملصق"
         },
@@ -6528,7 +6538,7 @@
           "no": "Sett etikett [[label]] til [[value]]",
           "sv": "Ställ in etikett [[label]] till [[value]]",
           "pl": "Ustaw etykietę [[label]] na [[value]]",
-          "ru": "Установить ярлык [[label]] на [[value]]",
+          "ru": "Установить метку [[label]] на [[value]]",
           "ko": "[[label]] 레이블을 [[value]]으로 설정",
           "ar": "تعيين الملصق [[label]] إلى [[value]]"
         },
@@ -6537,19 +6547,19 @@
             "type": "autocomplete",
             "name": "label",
             "title": {
-              "en": "label",
+              "en": "Label",
               "nl": "Label",
-              "da": "etiket",
-              "de": "Label",
-              "es": "etiqueta",
-              "fr": "étiquette",
-              "it": "etichetta",
-              "no": "etikett",
-              "sv": "etikett",
-              "pl": "etykieta",
-              "ru": "ярлык",
+              "da": "Mærkat",
+              "de": "Etikett",
+              "es": "Etiqueta",
+              "fr": "Étiquette",
+              "it": "Etichetta",
+              "no": "Etikett",
+              "sv": "Etikett",
+              "pl": "Etykieta",
+              "ru": "Метка",
               "ko": "레이블",
-              "ar": "ملصق"
+              "ar": "تسمية"
             }
           },
           {
@@ -6775,7 +6785,7 @@
               "ru": "Режим",
               "pl": "Tryb",
               "ko": "모드",
-              "ar": "نمط"
+              "ar": "وضع"
             }
           }
         ]
@@ -6913,7 +6923,7 @@
               "ru": "Имя",
               "pl": "Nazwa",
               "ko": "이름",
-              "ar": "اسم"
+              "ar": "الاسم"
             }
           }
         ]
@@ -7327,12 +7337,12 @@
               "en": "E.g. 10",
               "nl": "Bijv. 10",
               "de": "Z. B. 10",
-              "fr": "Ex. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
               "es": "P. ej. 10",
-              "da": "Fx 10",
+              "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
               "ko": "예: 10",
@@ -7544,12 +7554,12 @@
               "en": "E.g. 10",
               "nl": "Bijv. 10",
               "de": "Z. B. 10",
-              "fr": "Ex. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
               "es": "P. ej. 10",
-              "da": "Fx 10",
+              "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
               "ko": "예: 10",
@@ -8006,12 +8016,12 @@
               "en": "E.g. 10",
               "nl": "Bijv. 10",
               "de": "Z. B. 10",
-              "fr": "Ex. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
               "es": "P. ej. 10",
-              "da": "Fx 10",
+              "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
               "ko": "예: 10",
@@ -8271,7 +8281,7 @@
               "ru": "Значение",
               "pl": "Wartość",
               "ko": "값",
-              "ar": "القيمة"
+              "ar": "قيمة"
             }
           }
         ]
@@ -8475,12 +8485,12 @@
               "en": "E.g. 10",
               "nl": "Bijv. 10",
               "de": "Z. B. 10",
-              "fr": "Ex. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
               "es": "P. ej. 10",
-              "da": "Fx 10",
+              "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
               "ko": "예: 10",
@@ -8673,12 +8683,12 @@
               "en": "E.g. 10",
               "nl": "Bijv. 10",
               "de": "Z. B. 10",
-              "fr": "Ex. 10",
+              "fr": "P. ex. 10",
               "it": "Es. 10",
               "sv": "T.ex. 10",
               "no": "F.eks. 10",
               "es": "P. ej. 10",
-              "da": "Fx 10",
+              "da": "F.eks. 10",
               "ru": "Напр. 10",
               "pl": "Np. 10",
               "ko": "예: 10",
@@ -8996,7 +9006,7 @@
               "ru": "Значение",
               "pl": "Wartość",
               "ko": "값",
-              "ar": "القيمة"
+              "ar": "قيمة"
             },
             "placeholder": {
               "en": "E.g. 13",
@@ -9068,7 +9078,7 @@
               "ru": "Результат",
               "pl": "Wynik",
               "ko": "결과",
-              "ar": "النتيجة"
+              "ar": "نتيجة"
             }
           }
         ]
@@ -9234,7 +9244,7 @@
               "ru": "Напр. 13",
               "pl": "Np. 13",
               "ko": "예: 13",
-              "ar": "مثلاً 13"
+              "ar": "مثال: 13"
             }
           },
           {
@@ -9270,7 +9280,7 @@
               "ru": "Напр. 1",
               "pl": "Np. 1",
               "ko": "예: 1",
-              "ar": "مثلاً 1"
+              "ar": "مثال: 1"
             }
           }
         ],
@@ -9360,7 +9370,7 @@
               "ru": "Значение",
               "pl": "Wartość",
               "ko": "값",
-              "ar": "القيمة"
+              "ar": "قيمة"
             },
             "placeholder": {
               "en": "E.g. 13",
@@ -9396,7 +9406,7 @@
               "ru": "Результат",
               "pl": "Wynik",
               "ko": "결과",
-              "ar": "النتيجه"
+              "ar": "نتيجة"
             }
           }
         ]
@@ -9465,7 +9475,7 @@
               "ru": "Значение",
               "pl": "Wartość",
               "ko": "값",
-              "ar": "القيمة"
+              "ar": "قيمة"
             },
             "placeholder": {
               "en": "E.g. 13",
@@ -9555,7 +9565,7 @@
               "ru": "Значение",
               "pl": "Wartość",
               "ko": "값",
-              "ar": "القيمة"
+              "ar": "قيمة"
             }
           },
           {
@@ -9598,7 +9608,7 @@
               "ru": "Результат",
               "pl": "Wynik",
               "ko": "결과",
-              "ar": "النتيجة"
+              "ar": "نتيجة"
             }
           }
         ]
@@ -9667,7 +9677,7 @@
               "ru": "Напр. 13",
               "pl": "Np. 13",
               "ko": "예: 13",
-              "ar": "مثال 13"
+              "ar": "مثال: 13"
             }
           }
         ],
@@ -9812,7 +9822,8 @@
           "da": "Rund av til trinn",
           "ru": "Округлить по шагу",
           "pl": "Zaokrąglij do kroku",
-          "ko": "스텝 단위로 반올림"
+          "ko": "스텝 단위로 반올림",
+          "ar": "تقريب إلى خطوة"
         },
         "titleFormatted": {
           "en": "Round [[value]] to [[step]]",
@@ -9826,7 +9837,8 @@
           "da": "Rund av [[value]] til [[step]]",
           "ru": "Округлить [[value]] по [[step]]",
           "pl": "Zaokrąglij [[value]] do [[step]]",
-          "ko": "[[value]]을(를) [[step]] 단위로 반올림"
+          "ko": "[[value]]을(를) [[step]] 단위로 반올림",
+          "ar": "تقريب [[value]] إلى [[step]]"
         },
         "hint": {
           "en": "Rounds to the nearest multiple of the step.",
@@ -9840,7 +9852,8 @@
           "da": "Runder av til nærmeste multiplum av trinnet.",
           "ru": "Округляет до ближайшего кратного шагу.",
           "pl": "Zaokrągla do najbliższego wielokrotności kroku.",
-          "ko": "스텝의 가장 가까운 배수로 반올림합니다."
+          "ko": "스텝의 가장 가까운 배수로 반올림합니다.",
+          "ar": "يقرب إلى أقرب مضاعف للخطوة."
         },
         "args": [
           {
@@ -9858,7 +9871,8 @@
               "da": "Verdi",
               "ru": "Значение",
               "pl": "Wartość",
-              "ko": "값"
+              "ko": "값",
+              "ar": "قيمة"
             },
             "placeholder": {
               "en": "E.g. 13",
@@ -9872,7 +9886,8 @@
               "da": "F.eks. 13",
               "ru": "Напр. 13",
               "pl": "Np. 13",
-              "ko": "예: 13"
+              "ko": "예: 13",
+              "ar": "مثال: 13"
             }
           },
           {
@@ -9891,7 +9906,8 @@
               "da": "Trinn",
               "ru": "Шаг",
               "pl": "Krok",
-              "ko": "스텝"
+              "ko": "스텝",
+              "ar": "خطوة"
             },
             "placeholder": {
               "en": "E.g. 5",
@@ -9905,7 +9921,8 @@
               "da": "F.eks. 5",
               "ru": "Напр. 5",
               "pl": "Np. 5",
-              "ko": "예: 5"
+              "ko": "예: 5",
+              "ar": "مثال: 5"
             }
           }
         ],
@@ -9925,7 +9942,8 @@
               "da": "Resultat",
               "ru": "Результат",
               "pl": "Wynik",
-              "ko": "결과"
+              "ko": "결과",
+              "ar": "نتيجة"
             }
           }
         ]
@@ -9994,7 +10012,7 @@
               "ru": "Значение",
               "pl": "Wartość",
               "ko": "값",
-              "ar": "القيمة"
+              "ar": "قيمة"
             },
             "placeholder": {
               "en": "E.g. 13",
@@ -10030,7 +10048,7 @@
               "ru": "Результат",
               "pl": "Wynik",
               "ko": "결과",
-              "ar": "النتيجة"
+              "ar": "نتيجة"
             }
           }
         ]

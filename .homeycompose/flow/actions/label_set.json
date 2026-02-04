@@ -11,7 +11,7 @@
         "no": "Sett etikett",
         "sv": "Ställ in etikett",
         "pl": "Ustaw etykietę",
-        "ru": "Установить ярлык",
+        "ru": "Установить метку",
         "ko": "레이블 설정",
         "ar": "تعيين الملصق"
     },
@@ -26,7 +26,7 @@
         "no": "Sett etikett [[label]] til [[value]]",
         "sv": "Ställ in etikett [[label]] till [[value]]",
         "pl": "Ustaw etykietę [[label]] na [[value]]",
-        "ru": "Установить ярлык [[label]] на [[value]]",
+        "ru": "Установить метку [[label]] на [[value]]",
         "ko": "[[label]] 레이블을 [[value]]으로 설정",
         "ar": "تعيين الملصق [[label]] إلى [[value]]"
     },
@@ -35,19 +35,19 @@
             "type": "autocomplete",
             "name": "label",
             "title": {
-                "en": "label",
+                "en": "Label",
                 "nl": "Label",
-                "da": "etiket",
-                "de": "Label",
-                "es": "etiqueta",
-                "fr": "étiquette",
-                "it": "etichetta",
-                "no": "etikett",
-                "sv": "etikett",
-                "pl": "etykieta",
-                "ru": "ярлык",
+                "da": "Mærkat",
+                "de": "Etikett",
+                "es": "Etiqueta",
+                "fr": "Étiquette",
+                "it": "Etichetta",
+                "no": "Etikett",
+                "sv": "Etikett",
+                "pl": "Etykieta",
+                "ru": "Метка",
                 "ko": "레이블",
-                "ar": "ملصق"
+                "ar": "تسمية"
             }
         },
         {

@@ -68,7 +68,7 @@
         },
         "setStatus": {
             "active": "Activo",
-            "full": "Completo",
+            "full": "Totalmente activo",
             "inactive": "Sin estados activos",
             "partially": "__active__ de __total__ estados activos"
         },

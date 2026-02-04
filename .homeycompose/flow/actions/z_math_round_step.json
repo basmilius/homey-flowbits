@@ -12,7 +12,8 @@
         "da": "Rund av til trinn",
         "ru": "Округлить по шагу",
         "pl": "Zaokrąglij do kroku",
-        "ko": "스텝 단위로 반올림"
+        "ko": "스텝 단위로 반올림",
+        "ar": "تقريب إلى خطوة"
     },
     "titleFormatted": {
         "en": "Round [[value]] to [[step]]",
@@ -26,7 +27,8 @@
         "da": "Rund av [[value]] til [[step]]",
         "ru": "Округлить [[value]] по [[step]]",
         "pl": "Zaokrąglij [[value]] do [[step]]",
-        "ko": "[[value]]을(를) [[step]] 단위로 반올림"
+        "ko": "[[value]]을(를) [[step]] 단위로 반올림",
+        "ar": "تقريب [[value]] إلى [[step]]"
     },
     "hint": {
         "en": "Rounds to the nearest multiple of the step.",
@@ -40,7 +42,8 @@
         "da": "Runder av til nærmeste multiplum av trinnet.",
         "ru": "Округляет до ближайшего кратного шагу.",
         "pl": "Zaokrągla do najbliższego wielokrotności kroku.",
-        "ko": "스텝의 가장 가까운 배수로 반올림합니다."
+        "ko": "스텝의 가장 가까운 배수로 반올림합니다.",
+        "ar": "يقرب إلى أقرب مضاعف للخطوة."
     },
     "args": [
         {
@@ -58,7 +61,8 @@
                 "da": "Verdi",
                 "ru": "Значение",
                 "pl": "Wartość",
-                "ko": "값"
+                "ko": "값",
+                "ar": "قيمة"
             },
             "placeholder": {
                 "en": "E.g. 13",
@@ -72,7 +76,8 @@
                 "da": "F.eks. 13",
                 "ru": "Напр. 13",
                 "pl": "Np. 13",
-                "ko": "예: 13"
+                "ko": "예: 13",
+                "ar": "مثال: 13"
             }
         },
         {
@@ -91,7 +96,8 @@
                 "da": "Trinn",
                 "ru": "Шаг",
                 "pl": "Krok",
-                "ko": "스텝"
+                "ko": "스텝",
+                "ar": "خطوة"
             },
             "placeholder": {
                 "en": "E.g. 5",
@@ -105,7 +111,8 @@
                 "da": "F.eks. 5",
                 "ru": "Напр. 5",
                 "pl": "Np. 5",
-                "ko": "예: 5"
+                "ko": "예: 5",
+                "ar": "مثال: 5"
             }
         }
     ],
@@ -125,7 +132,8 @@
                 "da": "Resultat",
                 "ru": "Результат",
                 "pl": "Wynik",
-                "ko": "결과"
+                "ko": "결과",
+                "ar": "نتيجة"
             }
         }
     ]

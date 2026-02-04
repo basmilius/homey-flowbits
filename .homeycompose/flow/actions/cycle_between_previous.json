@@ -21,10 +21,10 @@
         "de": "Vorheriger Schritt in [[name]] ([[min_value]]—[[max_value]])",
         "fr": "Étape précédente dans [[name]] ([[min_value]]—[[max_value]])",
         "it": "Passo precedente in [[name]] ([[min_value]]—[[max_value]])",
-        "sv": "Föregående steg in [[name]] ([[min_value]]—[[max_value]])",
-        "no": "Forrige trinn in [[name]] ([[min_value]]—[[max_value]])",
+        "sv": "Föregående steg i [[name]] ([[min_value]]—[[max_value]])",
+        "no": "Forrige trinn i [[name]] ([[min_value]]—[[max_value]])",
         "es": "Paso anterior en [[name]] ([[min_value]]—[[max_value]])",
-        "da": "Forrige trin in [[name]] ([[min_value]]—[[max_value]])",
+        "da": "Forrige trin i [[name]] ([[min_value]]—[[max_value]])",
         "ru": "Предыдущий шаг в [[name]] ([[min_value]]—[[max_value]])",
         "pl": "Poprzedni krok w [[name]] ([[min_value]]—[[max_value]])",
         "ko": "[[name]]의 이전 단계 ([[min_value]]—[[max_value]])",
@@ -83,7 +83,7 @@
                 "ru": "Максимум",
                 "pl": "Maksimum",
                 "ko": "최대",
-                "ar": "الأقصى"
+                "ar": "الحد الأقصى"
             },
             "placeholder": {
                 "en": "E.g. 5",
@@ -98,7 +98,7 @@
                 "ru": "Напр. 5",
                 "pl": "Np. 5",
                 "ko": "예: 5",
-                "ar": "مثلاً: 5"
+                "ar": "مثال: 5"
             }
         },
         {
@@ -134,7 +134,7 @@
                 "ru": "Напр. 5",
                 "pl": "Np. 5",
                 "ko": "예: 5",
-                "ar": "مثلاً: 5"
+                "ar": "مثال: 5"
             }
         }
     ]

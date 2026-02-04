@@ -35,19 +35,19 @@
             "type": "autocomplete",
             "name": "label",
             "title": {
-                "en": "label",
+                "en": "Label",
                 "nl": "Label",
-                "da": "etiket",
+                "da": "Mærkat",
                 "de": "Etikett",
-                "es": "etiqueta",
-                "fr": "étiquette",
-                "it": "etichetta",
-                "no": "etikett",
-                "sv": "etikett",
-                "pl": "etykieta",
-                "ru": "метка",
-                "ko": "라벨",
-                "ar": "ملصق"
+                "es": "Etiqueta",
+                "fr": "Étiquette",
+                "it": "Etichetta",
+                "no": "Etikett",
+                "sv": "Etikett",
+                "pl": "Etykieta",
+                "ru": "Метка",
+                "ko": "레이블",
+                "ar": "تسمية"
             }
         }
     ]

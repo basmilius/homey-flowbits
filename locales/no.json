@@ -7,8 +7,8 @@
     "mode_new": "Ny modus i denne flyten",
     "no_repeat_new": "Nytt ikke-repeterende vindu i denne flyten",
     "set_new": "Ny set i denne flyten",
-    "set_state_new": "Ny set-stand i denne flyten, vil bli kjent etter lagring av flyten",
-    "signal_new": "Ny signal i denne flyten",
+    "set_state_new": "Ny set-tilstand i denne flyten...",
+    "signal_new": "Nytt signal i denne flyten",
     "slider_new": "Ny skyver i denne flyten",
     "timer_new": "Ny timer i denne flyten"
   },

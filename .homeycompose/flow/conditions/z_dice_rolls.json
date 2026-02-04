@@ -27,7 +27,7 @@
         "da": "Terningen !{{viser|viser ikke}} [[result]]",
         "ru": "Кубик !{{показывает|не показывает}} [[result]]",
         "pl": "Kostka !{{pokazuje|nie pokazuje}} [[result]]",
-        "ko": "주사위 결과 !{{[[result]]|[[result]]이(가) 아님}}",
+        "ko": "주사위 결과 [[result]]!{{|이(가) 아님}}",
         "ar": "النرد !{{يوضح|لا يوضح}} [[result]]"
     },
     "args": [
@@ -47,7 +47,7 @@
                 "ru": "Результат",
                 "pl": "Wynik",
                 "ko": "결과",
-                "ar": "النتيجة"
+                "ar": "نتيجة"
             },
             "min": 1,
             "max": 6,
