@@ -42,6 +42,9 @@ These flow cards let you manage modes directly from your flows, enabling you to 
     <FlowCardExplainer content="Reactivate a mode, even if it's already active. This will trigger any flows that have the mode activated trigger.">
         <FlowCard type="action">Reactivate <strong>Dinner</strong></FlowCard>
     </FlowCardExplainer>
+    <FlowCardExplainer content="Reactivate the currently active mode. This will trigger any flows that have the mode activated trigger for the current mode.">
+        <FlowCard type="action">Reactivate current mode</FlowCard>
+    </FlowCardExplainer>
     <FlowCardExplainer content="Toggle a mode, regardless of its current state.">
         <FlowCard type="action">Toggle <strong>Evening</strong></FlowCard>
     </FlowCardExplainer>
