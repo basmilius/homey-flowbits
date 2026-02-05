@@ -25,6 +25,7 @@
 
 .slider-icon {
     --icon: var(--slider-icon);
+    --icon-secondary: var(--slider-icon-secondary);
     --size: 24px;
 
     position: absolute;

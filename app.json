@@ -11159,6 +11159,28 @@
             "ko": "아이콘",
             "ar": "رمز"
           }
+        },
+        {
+          "id": "step",
+          "type": "number",
+          "title": {
+            "en": "Step size",
+            "nl": "Stapgrootte",
+            "de": "Schrittgröße",
+            "fr": "Taille du pas",
+            "it": "Dimensione del passo",
+            "sv": "Stegstorlek",
+            "no": "Trinnstørrelse",
+            "es": "Tamaño del paso",
+            "da": "Trinstørrelse",
+            "ru": "Размер шага",
+            "pl": "Rozmiar kroku",
+            "ko": "단계 크기",
+            "ar": "حجم الخطوة"
+          },
+          "value": 1,
+          "min": 1,
+          "max": 100
         }
       ],
       "api": {
