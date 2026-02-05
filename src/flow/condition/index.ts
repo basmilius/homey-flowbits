@@ -8,8 +8,12 @@ export { default as EventHappenedTimesWithin } from './eventHappenedTimesWithin'
 export { default as EventHappenedToday } from './eventHappenedToday';
 export { default as EventHappenedWithin } from './eventHappenedWithin';
 export { default as FlagIs } from './flagIs';
+export { default as FlagIsActiveFor } from './flagIsActiveFor';
+export { default as FlagIsInactiveFor } from './flagIsInactiveFor';
 export { default as LabelHasValue } from './labelHasValue';
 export { default as ModeIs } from './modeIs';
+export { default as ModeIsActiveFor } from './modeIsActiveFor';
+export { default as ModeIsInactiveFor } from './modeIsInactiveFor';
 export { default as MoonPhaseIs } from './moonPhaseIs';
 export { default as NoRepeatWindow } from './noRepeatWindow';
 export { default as SchoolHolidayIs } from './schoolHolidayIs';

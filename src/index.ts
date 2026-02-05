@@ -103,11 +103,13 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.EventClearAll);
         this.registry.action(Actions.EventTrigger);
         this.registry.action(Actions.FlagActivate);
+        this.registry.action(Actions.FlagActivateFor);
         this.registry.action(Actions.FlagDeactivate);
         this.registry.action(Actions.FlagToggle);
         this.registry.action(Actions.LabelClear);
         this.registry.action(Actions.LabelSet);
         this.registry.action(Actions.ModeActivate);
+        this.registry.action(Actions.ModeActivateFor);
         this.registry.action(Actions.ModeDeactivate);
         this.registry.action(Actions.ModeReactivate);
         this.registry.action(Actions.ModeReactivateCurrent);
@@ -172,8 +174,12 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.condition(Conditions.EventHappenedToday);
         this.registry.condition(Conditions.EventHappenedWithin);
         this.registry.condition(Conditions.FlagIs);
+        this.registry.condition(Conditions.FlagIsActiveFor);
+        this.registry.condition(Conditions.FlagIsInactiveFor);
         this.registry.condition(Conditions.LabelHasValue);
         this.registry.condition(Conditions.ModeIs);
+        this.registry.condition(Conditions.ModeIsActiveFor);
+        this.registry.condition(Conditions.ModeIsInactiveFor);
         this.registry.condition(Conditions.MoonPhaseIs);
         this.registry.condition(Conditions.NoRepeatWindow);
         this.registry.condition(Conditions.SchoolHolidayIs);
