@@ -125,10 +125,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         }
 
         // Clear any existing timeout
-        if (this.#deactivationTimeout) {
-            this.clearTimeout(this.#deactivationTimeout);
-            this.#deactivationTimeout = null;
-        }
+        this.#clearModeTimeout();
 
         if (current !== null) {
             await this.#triggerDeactivated(current);
@@ -163,10 +160,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         }
 
         // Clear any existing timeout
-        if (this.#deactivationTimeout) {
-            this.clearTimeout(this.#deactivationTimeout);
-            this.#deactivationTimeout = null;
-        }
+        this.#clearModeTimeout();
 
         this.currentMode = null;
         this.lastUpdates = {
@@ -185,10 +179,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
     async reactivate(name: string): Promise<void> {
         // Clear any existing timeout
-        if (this.#deactivationTimeout) {
-            this.clearTimeout(this.#deactivationTimeout);
-            this.#deactivationTimeout = null;
-        }
+        this.#clearModeTimeout();
 
         this.currentMode = name;
         this.lastUpdates = {
@@ -226,22 +217,13 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
     async activateFor(name: string, duration: number, unit: ClockUnit): Promise<void> {
         // Clear any existing timeout
-        if (this.#deactivationTimeout) {
-            this.clearTimeout(this.#deactivationTimeout);
-            this.#deactivationTimeout = null;
-        }
+        this.#clearModeTimeout();
 
         // Activate the mode
         await this.activate(name);
 
         // Schedule deactivation
-        const seconds = convertDurationToSeconds(duration, unit);
-        const ms = Math.min(seconds * 1000, MAX_TIMEOUT_MS);
-
-        this.#deactivationTimeout = this.setTimeout(async () => {
-            this.#deactivationTimeout = null;
-            await this.deactivate(name);
-        }, ms);
+        this.#scheduleDeactivation(name, duration, unit);
 
         this.log(`Activated mode ${name} for ${duration} ${unit}.`);
     }
@@ -298,6 +280,23 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
     async update(): Promise<void> {
         await this.#triggerRealtime();
+    }
+
+    #clearModeTimeout(): void {
+        if (this.#deactivationTimeout) {
+            this.clearTimeout(this.#deactivationTimeout);
+            this.#deactivationTimeout = null;
+        }
+    }
+
+    #scheduleDeactivation(name: string, duration: number, unit: ClockUnit): void {
+        const seconds = convertDurationToSeconds(duration, unit);
+        const ms = Math.min(seconds * 1000, MAX_TIMEOUT_MS);
+
+        this.#deactivationTimeout = this.setTimeout(async () => {
+            this.#deactivationTimeout = null;
+            await this.deactivate(name);
+        }, ms);
     }
 
     async #triggerActivated(name: string): Promise<void> {

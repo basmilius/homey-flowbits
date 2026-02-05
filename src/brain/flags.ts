@@ -123,11 +123,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         }
 
         // Clear any existing timeout for this flag
-        const existingTimeout = this.#deactivationTimeouts.get(name);
-        if (existingTimeout) {
-            this.clearTimeout(existingTimeout);
-            this.#deactivationTimeouts.delete(name);
-        }
+        this.#clearFlagTimeout(name);
 
         this.currentFlags = [...current, name];
         this.lastUpdates = {
@@ -152,11 +148,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         }
 
         // Clear any existing timeout for this flag
-        const existingTimeout = this.#deactivationTimeouts.get(name);
-        if (existingTimeout) {
-            this.clearTimeout(existingTimeout);
-            this.#deactivationTimeouts.delete(name);
-        }
+        this.#clearFlagTimeout(name);
 
         this.currentFlags = current.filter(f => f !== name);
         this.lastUpdates = {
@@ -183,25 +175,13 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
     async activateFor(name: string, duration: number, unit: ClockUnit): Promise<void> {
         // Clear any existing timeout for this flag
-        const existingTimeout = this.#deactivationTimeouts.get(name);
-        if (existingTimeout) {
-            this.clearTimeout(existingTimeout);
-            this.#deactivationTimeouts.delete(name);
-        }
+        this.#clearFlagTimeout(name);
 
         // Activate the flag
         await this.activate(name);
 
         // Schedule deactivation
-        const seconds = convertDurationToSeconds(duration, unit);
-        const ms = Math.min(seconds * 1000, MAX_TIMEOUT_MS);
-
-        const timeout = this.setTimeout(async () => {
-            this.#deactivationTimeouts.delete(name);
-            await this.deactivate(name);
-        }, ms);
-
-        this.#deactivationTimeouts.set(name, timeout);
+        this.#scheduleDeactivation(name, duration, unit);
 
         this.log(`Activated flag ${name} for ${duration} ${unit}.`);
     }
@@ -258,6 +238,26 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
     async update(): Promise<void> {
         await this.#triggerRealtime();
+    }
+
+    #clearFlagTimeout(name: string): void {
+        const existingTimeout = this.#deactivationTimeouts.get(name);
+        if (existingTimeout) {
+            this.clearTimeout(existingTimeout);
+            this.#deactivationTimeouts.delete(name);
+        }
+    }
+
+    #scheduleDeactivation(name: string, duration: number, unit: ClockUnit): void {
+        const seconds = convertDurationToSeconds(duration, unit);
+        const ms = Math.min(seconds * 1000, MAX_TIMEOUT_MS);
+
+        const timeout = this.setTimeout(async () => {
+            this.#deactivationTimeouts.delete(name);
+            await this.deactivate(name);
+        }, ms);
+
+        this.#deactivationTimeouts.set(name, timeout);
     }
 
     async #triggerActivated(name: string): Promise<void> {
