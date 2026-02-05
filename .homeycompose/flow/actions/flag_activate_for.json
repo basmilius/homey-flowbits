@@ -1,0 +1,198 @@
+{
+    "id": "flag_activate_for",
+    "title": {
+        "en": "Activate flag for",
+        "nl": "Activeer flag voor",
+        "de": "Flag aktivieren für",
+        "fr": "Activer le flag pendant",
+        "it": "Attiva flag per",
+        "sv": "Aktivera flagga i",
+        "no": "Aktiver flagg i",
+        "es": "Activar flag durante",
+        "da": "Aktivér flag i",
+        "ru": "Активировать флаг на",
+        "pl": "Aktywuj flagę na",
+        "ko": "플래그를 다음 시간 동안 활성화",
+        "ar": "تفعيل العلم لمدة"
+    },
+    "titleFormatted": {
+        "en": "Activate flag [[flag]] for [[duration]] [[unit]]",
+        "nl": "Activeer flag [[flag]] voor [[duration]] [[unit]]",
+        "de": "Aktiviere Flag [[flag]] für [[duration]] [[unit]]",
+        "fr": "Activer le flag [[flag]] pendant [[duration]] [[unit]]",
+        "it": "Attiva flag [[flag]] per [[duration]] [[unit]]",
+        "sv": "Aktivera flagga [[flag]] i [[duration]] [[unit]]",
+        "no": "Aktiver flagg [[flag]] i [[duration]] [[unit]]",
+        "es": "Activar flag [[flag]] durante [[duration]] [[unit]]",
+        "da": "Aktivér flag [[flag]] i [[duration]] [[unit]]",
+        "ru": "Активировать флаг [[flag]] на [[duration]] [[unit]]",
+        "pl": "Aktywuj flagę [[flag]] na [[duration]] [[unit]]",
+        "ko": "플래그 [[flag]]를 [[duration]] [[unit]] 동안 활성화",
+        "ar": "تفعيل العلم [[flag]] لمدة [[duration]] [[unit]]"
+    },
+    "hint": {
+        "en": "Activates a defined flag for a specified duration.",
+        "nl": "Activeert een gedefinieerde flag voor een opgegeven duur.",
+        "de": "Aktiviert einen definierten Flag für eine angegebene Dauer.",
+        "fr": "Active un flag défini pendant une durée spécifiée.",
+        "it": "Attiva un flag definito per una durata specificata.",
+        "sv": "Aktiverar en definierad flagga under en angiven tid.",
+        "no": "Aktiverer et definert flagg i en angitt varighet.",
+        "es": "Activa un flag definido durante una duración especificada.",
+        "da": "Aktiverer et defineret flag i en angivet varighed.",
+        "ru": "Активирует определенный флаг на указанную продолжительность.",
+        "pl": "Aktywuje zdefiniowaną flagę na określony czas.",
+        "ko": "정의된 플래그를 지정된 기간 동안 활성화합니다.",
+        "ar": "يفعل علماً محدداً لمدة محددة."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "flag",
+            "title": {
+                "en": "Flag",
+                "nl": "Flag",
+                "de": "Flag",
+                "fr": "Flag",
+                "it": "Flag",
+                "sv": "Flagga",
+                "no": "Flagg",
+                "es": "Flag",
+                "da": "Flag",
+                "ru": "Флаг",
+                "pl": "Flaga",
+                "ko": "플래그",
+                "ar": "علم"
+            }
+        },
+        {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+                "en": "Duration",
+                "nl": "Looptijd",
+                "de": "Dauer",
+                "fr": "Durée",
+                "it": "Durata",
+                "sv": "Varaktighet",
+                "no": "Varighet",
+                "es": "Duración",
+                "da": "Varighed",
+                "ru": "Длительность",
+                "pl": "Czas trwania",
+                "ko": "지속 시간",
+                "ar": "المدة"
+            },
+            "placeholder": {
+                "en": "E.g. 10",
+                "nl": "Bijv. 10",
+                "de": "Z. B. 10",
+                "fr": "P. ex. 10",
+                "it": "Es. 10",
+                "sv": "T.ex. 10",
+                "no": "F.eks. 10",
+                "es": "P. ej. 10",
+                "da": "F.eks. 10",
+                "ru": "Напр. 10",
+                "pl": "Np. 10",
+                "ko": "예: 10",
+                "ar": "مثال: 10"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+                "en": "Unit",
+                "nl": "Eenheid",
+                "de": "Einheit",
+                "fr": "Unité",
+                "it": "Unità",
+                "sv": "Enhet",
+                "no": "Enhet",
+                "es": "Unidad",
+                "da": "Enhed",
+                "ru": "Единица",
+                "pl": "Jednostka",
+                "ko": "단위",
+                "ar": "الوحدة"
+            },
+            "values": [
+                {
+                    "id": "seconds",
+                    "title": {
+                        "en": "seconds",
+                        "nl": "seconden",
+                        "de": "Sekunden",
+                        "fr": "secondes",
+                        "it": "secondi",
+                        "sv": "sekunder",
+                        "no": "sekunder",
+                        "es": "segundos",
+                        "da": "sekunder",
+                        "ru": "секунды",
+                        "pl": "sekundy",
+                        "ko": "초",
+                        "ar": "ثواني"
+                    }
+                },
+                {
+                    "id": "minutes",
+                    "title": {
+                        "en": "minutes",
+                        "nl": "minuten",
+                        "de": "Minuten",
+                        "fr": "minutes",
+                        "it": "minuti",
+                        "sv": "minuter",
+                        "no": "minutter",
+                        "es": "minutos",
+                        "da": "minutter",
+                        "ru": "минуты",
+                        "pl": "minuty",
+                        "ko": "분",
+                        "ar": "دقائق"
+                    }
+                },
+                {
+                    "id": "hours",
+                    "title": {
+                        "en": "hours",
+                        "nl": "uren",
+                        "de": "Stunden",
+                        "fr": "heures",
+                        "it": "ore",
+                        "sv": "timmar",
+                        "no": "timer",
+                        "es": "horas",
+                        "da": "timer",
+                        "ru": "часы",
+                        "pl": "godziny",
+                        "ko": "시간",
+                        "ar": "ساعات"
+                    }
+                },
+                {
+                    "id": "days",
+                    "title": {
+                        "en": "days",
+                        "nl": "dagen",
+                        "de": "Tage",
+                        "fr": "jours",
+                        "it": "giorni",
+                        "sv": "dagar",
+                        "no": "dager",
+                        "es": "días",
+                        "da": "dage",
+                        "ru": "дни",
+                        "pl": "dni",
+                        "ko": "일",
+                        "ar": "أيام"
+                    }
+                }
+            ]
+        }
+    ]
+}

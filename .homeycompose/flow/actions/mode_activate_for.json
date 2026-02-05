@@ -1,0 +1,198 @@
+{
+    "id": "mode_activate_for",
+    "title": {
+        "en": "Activate mode for",
+        "nl": "Activeer stand voor",
+        "de": "Modus aktivieren für",
+        "fr": "Activer le mode pendant",
+        "it": "Attiva modalità per",
+        "sv": "Aktivera läge i",
+        "no": "Aktiver modus i",
+        "es": "Activar modo durante",
+        "da": "Aktivér tilstand i",
+        "ru": "Активировать режим на",
+        "pl": "Aktywuj tryb na",
+        "ko": "모드를 다음 시간 동안 활성화",
+        "ar": "تفعيل الوضع لمدة"
+    },
+    "titleFormatted": {
+        "en": "Activate mode [[name]] for [[duration]] [[unit]]",
+        "nl": "Activeer stand [[name]] voor [[duration]] [[unit]]",
+        "de": "Aktiviere Modus [[name]] für [[duration]] [[unit]]",
+        "fr": "Activer le mode [[name]] pendant [[duration]] [[unit]]",
+        "it": "Attiva modalità [[name]] per [[duration]] [[unit]]",
+        "sv": "Aktivera läge [[name]] i [[duration]] [[unit]]",
+        "no": "Aktiver modus [[name]] i [[duration]] [[unit]]",
+        "es": "Activar modo [[name]] durante [[duration]] [[unit]]",
+        "da": "Aktivér tilstand [[name]] i [[duration]] [[unit]]",
+        "ru": "Активировать режим [[name]] на [[duration]] [[unit]]",
+        "pl": "Aktywuj tryb [[name]] na [[duration]] [[unit]]",
+        "ko": "모드 [[name]]를 [[duration]] [[unit]] 동안 활성화",
+        "ar": "تفعيل الوضع [[name]] لمدة [[duration]] [[unit]]"
+    },
+    "hint": {
+        "en": "Activates a defined mode for a specified duration and deactivates all other modes.",
+        "nl": "Activeert een gedefinieerde stand voor een opgegeven duur en deactiveert alle andere standen.",
+        "de": "Aktiviert einen definierten Modus für eine angegebene Dauer und deaktiviert alle anderen Modi.",
+        "fr": "Active un mode défini pendant une durée spécifiée et désactive tous les autres modes.",
+        "it": "Attiva una modalità definita per una durata specificata e disattiva tutte le altre modalità.",
+        "sv": "Aktiverar ett definierat läge under en angiven tid och inaktiverar alla andra lägen.",
+        "no": "Aktiverer en definert modus i en angitt varighet og deaktiverer alle andre modi.",
+        "es": "Activa un modo definido durante una duración especificada y desactiva todos los demás modos.",
+        "da": "Aktiverer en defineret tilstand i en angivet varighed og deaktiverer alle andre tilstande.",
+        "ru": "Активирует определенный режим на указанную продолжительность и деактивирует все остальные режимы.",
+        "pl": "Aktywuje zdefiniowany tryb na określony czas i dezaktywuje wszystkie inne tryby.",
+        "ko": "정의된 모드를 지정된 기간 동안 활성화하고 다른 모든 모드를 비활성화합니다.",
+        "ar": "يقوم بتفعيل وضع مُحدد لمدة محددة وإلغاء تفعيل كل الأوضاع الأخرى."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "name",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        },
+        {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+                "en": "Duration",
+                "nl": "Looptijd",
+                "de": "Dauer",
+                "fr": "Durée",
+                "it": "Durata",
+                "sv": "Varaktighet",
+                "no": "Varighet",
+                "es": "Duración",
+                "da": "Varighed",
+                "ru": "Длительность",
+                "pl": "Czas trwania",
+                "ko": "지속 시간",
+                "ar": "المدة"
+            },
+            "placeholder": {
+                "en": "E.g. 10",
+                "nl": "Bijv. 10",
+                "de": "Z. B. 10",
+                "fr": "P. ex. 10",
+                "it": "Es. 10",
+                "sv": "T.ex. 10",
+                "no": "F.eks. 10",
+                "es": "P. ej. 10",
+                "da": "F.eks. 10",
+                "ru": "Напр. 10",
+                "pl": "Np. 10",
+                "ko": "예: 10",
+                "ar": "مثال: 10"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+                "en": "Unit",
+                "nl": "Eenheid",
+                "de": "Einheit",
+                "fr": "Unité",
+                "it": "Unità",
+                "sv": "Enhet",
+                "no": "Enhet",
+                "es": "Unidad",
+                "da": "Enhed",
+                "ru": "Единица",
+                "pl": "Jednostka",
+                "ko": "단위",
+                "ar": "الوحدة"
+            },
+            "values": [
+                {
+                    "id": "seconds",
+                    "title": {
+                        "en": "seconds",
+                        "nl": "seconden",
+                        "de": "Sekunden",
+                        "fr": "secondes",
+                        "it": "secondi",
+                        "sv": "sekunder",
+                        "no": "sekunder",
+                        "es": "segundos",
+                        "da": "sekunder",
+                        "ru": "секунды",
+                        "pl": "sekundy",
+                        "ko": "초",
+                        "ar": "ثواني"
+                    }
+                },
+                {
+                    "id": "minutes",
+                    "title": {
+                        "en": "minutes",
+                        "nl": "minuten",
+                        "de": "Minuten",
+                        "fr": "minutes",
+                        "it": "minuti",
+                        "sv": "minuter",
+                        "no": "minutter",
+                        "es": "minutos",
+                        "da": "minutter",
+                        "ru": "минуты",
+                        "pl": "minuty",
+                        "ko": "분",
+                        "ar": "دقائق"
+                    }
+                },
+                {
+                    "id": "hours",
+                    "title": {
+                        "en": "hours",
+                        "nl": "uren",
+                        "de": "Stunden",
+                        "fr": "heures",
+                        "it": "ore",
+                        "sv": "timmar",
+                        "no": "timer",
+                        "es": "horas",
+                        "da": "timer",
+                        "ru": "часы",
+                        "pl": "godziny",
+                        "ko": "시간",
+                        "ar": "ساعات"
+                    }
+                },
+                {
+                    "id": "days",
+                    "title": {
+                        "en": "days",
+                        "nl": "dagen",
+                        "de": "Tage",
+                        "fr": "jours",
+                        "it": "giorni",
+                        "sv": "dagar",
+                        "no": "dager",
+                        "es": "días",
+                        "da": "dage",
+                        "ru": "дни",
+                        "pl": "dni",
+                        "ko": "일",
+                        "ar": "أيام"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,9 +1,12 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS } from '../const';
+import { MAX_TIMEOUT_MS, REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
-import type { Feature, FlowBitsApp, Look, Mode, Styleable } from '../types';
+import type { ClockUnit, Feature, FlowBitsApp, Look, Mode, Styleable } from '../types';
+import { convertDurationToSeconds } from '../util';
 
 export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mode>, Styleable {
+    #deactivationTimeout: NodeJS.Timeout | null = null;
+
     get currentMode(): string | null {
         return this.settings.get(SETTING_MODE);
     }
@@ -121,6 +124,12 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             return;
         }
 
+        // Clear any existing timeout
+        if (this.#deactivationTimeout) {
+            this.clearTimeout(this.#deactivationTimeout);
+            this.#deactivationTimeout = null;
+        }
+
         if (current !== null) {
             await this.#triggerDeactivated(current);
         }
@@ -153,6 +162,12 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             return;
         }
 
+        // Clear any existing timeout
+        if (this.#deactivationTimeout) {
+            this.clearTimeout(this.#deactivationTimeout);
+            this.#deactivationTimeout = null;
+        }
+
         this.currentMode = null;
         this.lastUpdates = {
             ...this.lastUpdates,
@@ -169,6 +184,12 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     async reactivate(name: string): Promise<void> {
+        // Clear any existing timeout
+        if (this.#deactivationTimeout) {
+            this.clearTimeout(this.#deactivationTimeout);
+            this.#deactivationTimeout = null;
+        }
+
         this.currentMode = name;
         this.lastUpdates = {
             ...this.lastUpdates,
@@ -201,6 +222,65 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         } else {
             await this.activate(name);
         }
+    }
+
+    async activateFor(name: string, duration: number, unit: ClockUnit): Promise<void> {
+        // Clear any existing timeout
+        if (this.#deactivationTimeout) {
+            this.clearTimeout(this.#deactivationTimeout);
+            this.#deactivationTimeout = null;
+        }
+
+        // Activate the mode
+        await this.activate(name);
+
+        // Schedule deactivation
+        const seconds = convertDurationToSeconds(duration, unit);
+        const ms = Math.min(seconds * 1000, MAX_TIMEOUT_MS);
+
+        this.#deactivationTimeout = this.setTimeout(async () => {
+            this.#deactivationTimeout = null;
+            await this.deactivate(name);
+        }, ms);
+
+        this.log(`Activated mode ${name} for ${duration} ${unit}.`);
+    }
+
+    async isActiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
+        const lastUpdate = this.lastUpdates[name];
+        
+        if (!lastUpdate) {
+            return false;
+        }
+
+        const isActive = this.currentMode === name;
+        if (!isActive) {
+            return false;
+        }
+
+        const seconds = convertDurationToSeconds(duration, unit);
+        const cutoff = DateTime.now().minus({seconds});
+
+        return lastUpdate <= cutoff;
+    }
+
+    async isInactiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
+        const lastUpdate = this.lastUpdates[name];
+        
+        if (!lastUpdate) {
+            // If there's no lastUpdate, the mode has never been touched, so consider it inactive forever
+            return true;
+        }
+
+        const isActive = this.currentMode === name;
+        if (isActive) {
+            return false;
+        }
+
+        const seconds = convertDurationToSeconds(duration, unit);
+        const cutoff = DateTime.now().minus({seconds});
+
+        return lastUpdate <= cutoff;
     }
 
     async getLook(name: string): Promise<Look> {

@@ -1,9 +1,12 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { REALTIME_FLAGS_UPDATE, SETTING_FLAG_LAST_UPDATES, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
+import { MAX_TIMEOUT_MS, REALTIME_FLAGS_UPDATE, SETTING_FLAG_LAST_UPDATES, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
-import type { Feature, Flag, FlowBitsApp, Look, Styleable } from '../types';
+import type { ClockUnit, Feature, Flag, FlowBitsApp, Look, Styleable } from '../types';
+import { convertDurationToSeconds } from '../util';
 
 export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Flag>, Styleable {
+    #deactivationTimeouts: Map<string, NodeJS.Timeout> = new Map();
+
     get currentFlags(): string[] {
         return this.settings.get(SETTING_FLAGS) ?? [];
     }
@@ -119,6 +122,13 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
             return;
         }
 
+        // Clear any existing timeout for this flag
+        const existingTimeout = this.#deactivationTimeouts.get(name);
+        if (existingTimeout) {
+            this.clearTimeout(existingTimeout);
+            this.#deactivationTimeouts.delete(name);
+        }
+
         this.currentFlags = [...current, name];
         this.lastUpdates = {
             ...this.lastUpdates,
@@ -139,6 +149,13 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
         if (!current.includes(name)) {
             return;
+        }
+
+        // Clear any existing timeout for this flag
+        const existingTimeout = this.#deactivationTimeouts.get(name);
+        if (existingTimeout) {
+            this.clearTimeout(existingTimeout);
+            this.#deactivationTimeouts.delete(name);
         }
 
         this.currentFlags = current.filter(f => f !== name);
@@ -162,6 +179,68 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         } else {
             await this.activate(name);
         }
+    }
+
+    async activateFor(name: string, duration: number, unit: ClockUnit): Promise<void> {
+        // Clear any existing timeout for this flag
+        const existingTimeout = this.#deactivationTimeouts.get(name);
+        if (existingTimeout) {
+            this.clearTimeout(existingTimeout);
+            this.#deactivationTimeouts.delete(name);
+        }
+
+        // Activate the flag
+        await this.activate(name);
+
+        // Schedule deactivation
+        const seconds = convertDurationToSeconds(duration, unit);
+        const ms = Math.min(seconds * 1000, MAX_TIMEOUT_MS);
+
+        const timeout = this.setTimeout(async () => {
+            this.#deactivationTimeouts.delete(name);
+            await this.deactivate(name);
+        }, ms);
+
+        this.#deactivationTimeouts.set(name, timeout);
+
+        this.log(`Activated flag ${name} for ${duration} ${unit}.`);
+    }
+
+    async isActiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
+        const lastUpdate = this.lastUpdates[name];
+        
+        if (!lastUpdate) {
+            return false;
+        }
+
+        const isActive = this.currentFlags.includes(name);
+        if (!isActive) {
+            return false;
+        }
+
+        const seconds = convertDurationToSeconds(duration, unit);
+        const cutoff = DateTime.now().minus({seconds});
+
+        return lastUpdate <= cutoff;
+    }
+
+    async isInactiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
+        const lastUpdate = this.lastUpdates[name];
+        
+        if (!lastUpdate) {
+            // If there's no lastUpdate, the flag has never been touched, so consider it inactive forever
+            return true;
+        }
+
+        const isActive = this.currentFlags.includes(name);
+        if (isActive) {
+            return false;
+        }
+
+        const seconds = convertDurationToSeconds(duration, unit);
+        const cutoff = DateTime.now().minus({seconds});
+
+        return lastUpdate <= cutoff;
     }
 
     async getLook(name: string): Promise<Look> {

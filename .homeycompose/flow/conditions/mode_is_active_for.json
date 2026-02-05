@@ -1,0 +1,198 @@
+{
+    "id": "mode_is_active_for",
+    "title": {
+        "en": "Mode is !{{active|inactive}} for at least",
+        "nl": "Stand is !{{actief|inactief}} voor tenminste",
+        "de": "Modus ist !{{aktiv|inaktiv}} seit mindestens",
+        "fr": "Le mode est !{{actif|inactif}} depuis au moins",
+        "it": "La modalità è !{{attiva|inattiva}} da almeno",
+        "sv": "Läget är !{{aktivt|inaktivt}} i minst",
+        "no": "Modusen er !{{aktiv|inaktiv}} i minst",
+        "es": "El modo está !{{activo|inactivo}} durante al menos",
+        "da": "Tilstanden er !{{aktiv|inaktiv}} i mindst",
+        "ru": "Режим !{{активен|неактивен}} как минимум",
+        "pl": "Tryb jest !{{aktywny|nieaktywny}} przez co najmniej",
+        "ko": "모드가 최소 !{{활성|비활성}} 상태입니다",
+        "ar": "الوضع !{{نشط|غير نشط}} لمدة على الأقل"
+    },
+    "titleFormatted": {
+        "en": "Mode [[name]] is !{{active|inactive}} for at least [[duration]] [[unit]]",
+        "nl": "Stand [[name]] is !{{actief|inactief}} voor tenminste [[duration]] [[unit]]",
+        "de": "Modus [[name]] ist !{{aktiv|inaktiv}} seit mindestens [[duration]] [[unit]]",
+        "fr": "Le mode [[name]] est !{{actif|inactif}} depuis au moins [[duration]] [[unit]]",
+        "it": "La modalità [[name]] è !{{attiva|inattiva}} da almeno [[duration]] [[unit]]",
+        "sv": "Läget [[name]] är !{{aktivt|inaktivt}} i minst [[duration]] [[unit]]",
+        "no": "Modusen [[name]] er !{{aktiv|inaktiv}} i minst [[duration]] [[unit]]",
+        "es": "El modo [[name]] está !{{activo|inactivo}} durante al menos [[duration]] [[unit]]",
+        "da": "Tilstanden [[name]] er !{{aktiv|inaktiv}} i mindst [[duration]] [[unit]]",
+        "ru": "Режим [[name]] !{{активен|неактивен}} как минимум [[duration]] [[unit]]",
+        "pl": "Tryb [[name]] jest !{{aktywny|nieaktywny}} przez co najmniej [[duration]] [[unit]]",
+        "ko": "모드 [[name]]가 최소 [[duration]] [[unit]] 동안 !{{활성|비활성}} 상태입니다",
+        "ar": "الوضع [[name]] !{{نشط|غير نشط}} لمدة [[duration]] [[unit]] على الأقل"
+    },
+    "hint": {
+        "en": "Checks if a mode has been active or inactive for at least the specified duration.",
+        "nl": "Controleert of een stand minstens de opgegeven duur actief of inactief is geweest.",
+        "de": "Prüft, ob ein Modus mindestens die angegebene Dauer aktiv oder inaktiv war.",
+        "fr": "Vérifie si un mode a été actif ou inactif pendant au moins la durée spécifiée.",
+        "it": "Verifica se una modalità è stata attiva o inattiva per almeno la durata specificata.",
+        "sv": "Kontrollerar om ett läge har varit aktivt eller inaktivt i minst den angivna varaktigheten.",
+        "no": "Sjekker om en modus har vært aktiv eller inaktiv i minst den angitte varigheten.",
+        "es": "Comprueba si un modo ha estado activo o inactivo durante al menos la duración especificada.",
+        "da": "Kontrollerer om en tilstand har været aktiv eller inaktiv i mindst den angivne varighed.",
+        "ru": "Проверяет, был ли режим активен или неактивен как минимум в течение указанной продолжительности.",
+        "pl": "Sprawdza, czy tryb był aktywny lub nieaktywny przez co najmniej określony czas.",
+        "ko": "모드가 지정된 기간 이상 활성 또는 비활성 상태였는지 확인합니다.",
+        "ar": "يتحقق مما إذا كان الوضع نشطاً أو غير نشط لمدة على الأقل المدة المحددة."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "name",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        },
+        {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+                "en": "Duration",
+                "nl": "Looptijd",
+                "de": "Dauer",
+                "fr": "Durée",
+                "it": "Durata",
+                "sv": "Varaktighet",
+                "no": "Varighet",
+                "es": "Duración",
+                "da": "Varighed",
+                "ru": "Длительность",
+                "pl": "Czas trwania",
+                "ko": "지속 시간",
+                "ar": "المدة"
+            },
+            "placeholder": {
+                "en": "E.g. 10",
+                "nl": "Bijv. 10",
+                "de": "Z. B. 10",
+                "fr": "P. ex. 10",
+                "it": "Es. 10",
+                "sv": "T.ex. 10",
+                "no": "F.eks. 10",
+                "es": "P. ej. 10",
+                "da": "F.eks. 10",
+                "ru": "Напр. 10",
+                "pl": "Np. 10",
+                "ko": "예: 10",
+                "ar": "مثال: 10"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+                "en": "Unit",
+                "nl": "Eenheid",
+                "de": "Einheit",
+                "fr": "Unité",
+                "it": "Unità",
+                "sv": "Enhet",
+                "no": "Enhet",
+                "es": "Unidad",
+                "da": "Enhed",
+                "ru": "Единица",
+                "pl": "Jednostka",
+                "ko": "단위",
+                "ar": "الوحدة"
+            },
+            "values": [
+                {
+                    "id": "seconds",
+                    "title": {
+                        "en": "seconds",
+                        "nl": "seconden",
+                        "de": "Sekunden",
+                        "fr": "secondes",
+                        "it": "secondi",
+                        "sv": "sekunder",
+                        "no": "sekunder",
+                        "es": "segundos",
+                        "da": "sekunder",
+                        "ru": "секунды",
+                        "pl": "sekundy",
+                        "ko": "초",
+                        "ar": "ثوانٍ"
+                    }
+                },
+                {
+                    "id": "minutes",
+                    "title": {
+                        "en": "minutes",
+                        "nl": "minuten",
+                        "de": "Minuten",
+                        "fr": "minutes",
+                        "it": "minuti",
+                        "sv": "minuter",
+                        "no": "minutter",
+                        "es": "minutos",
+                        "da": "minutter",
+                        "ru": "минуты",
+                        "pl": "minuty",
+                        "ko": "분",
+                        "ar": "دقائق"
+                    }
+                },
+                {
+                    "id": "hours",
+                    "title": {
+                        "en": "hours",
+                        "nl": "uren",
+                        "de": "Stunden",
+                        "fr": "heures",
+                        "it": "ore",
+                        "sv": "timmar",
+                        "no": "timer",
+                        "es": "horas",
+                        "da": "timer",
+                        "ru": "часы",
+                        "pl": "godziny",
+                        "ko": "시간",
+                        "ar": "ساعات"
+                    }
+                },
+                {
+                    "id": "days",
+                    "title": {
+                        "en": "days",
+                        "nl": "dagen",
+                        "de": "Tage",
+                        "fr": "jours",
+                        "it": "giorni",
+                        "sv": "dagar",
+                        "no": "dager",
+                        "es": "días",
+                        "da": "dage",
+                        "ru": "дни",
+                        "pl": "dni",
+                        "ko": "일",
+                        "ar": "أيام"
+                    }
+                }
+            ]
+        }
+    ]
+}
