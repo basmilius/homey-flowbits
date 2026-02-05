@@ -11,6 +11,9 @@ These flow cards provide various utility functions that you can apply directly w
 ### Actions
 
 <FlowCards>
+    <FlowCardExplainer content="Calculate the percentage of time elapsed between two timestamps. Useful for time-based interpolation and automation.">
+        <FlowCard type="action">Calculate percentage between <strong>07:00</strong> and <strong>22:00</strong></FlowCard>
+    </FlowCardExplainer>
     <FlowCardExplainer content="Increment a number by the given step.">
         <FlowCard type="action">Increment <strong>Number</strong> by <strong>Step</strong></FlowCard>
     </FlowCardExplainer>
@@ -65,3 +68,24 @@ These flow cards provide various utility functions that you can apply directly w
         <FlowCard type="condition">The zodiac sign is <strong>Pisces</strong></FlowCard>
     </FlowCardExplainer>
 </FlowCards>
+
+## Examples
+
+### **Calculate percentage between timestamps**
+
+The percentage utility card calculates how far through a time period you currently are.  
+It takes two timestamps (in HH:mm format) and returns both a percentage (0-100) and a fraction (0-1).
+
+**Use cases:**
+- Gradually adjust lighting brightness from sunrise to sunset
+- Create smooth transitions between day and night modes
+- Calculate dynamic thermostat offsets based on time of day
+- Interpolate between two values over a time period
+
+**Example:** Between 07:00 and 22:00 (7 AM to 10 PM):
+- At 07:00, the percentage is 0%
+- At 14:30 (halfway through), the percentage is 50%
+- At 22:00, the percentage is 100%
+
+If the "from" time is later than the "to" time, the card handles overnight periods automatically.  
+For example, from 22:00 to 07:00 spans midnight correctly.

@@ -83,6 +83,7 @@ export default defineConfig({
                                 {text: 'Labels', link: '/guide/labels'},
                                 {text: 'Modes', link: '/guide/modes'},
                                 {text: 'No-repeat windows', link: '/guide/no-repeat-windows'},
+                                {text: 'Sets', link: '/guide/sets'},
                                 {text: 'Signals', link: '/guide/signals'},
                                 {text: 'Sliders', link: '/guide/sliders'},
                                 {text: 'Step sequences', link: '/guide/step-sequences'},

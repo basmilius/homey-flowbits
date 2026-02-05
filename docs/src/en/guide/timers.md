@@ -50,8 +50,14 @@ These flow cards allow you to start, stop, reset, or check timers, enabling prec
     <FlowCardExplainer content="Sets the timer to a new duration.">
         <FlowCard type="action">Set timer <strong>Hall lights</strong> to <strong>5</strong> <strong>minutes</strong></FlowCard>
     </FlowCardExplainer>
+    <FlowCardExplainer content="Sets the timer to a random duration between the specified minimum and maximum.">
+        <FlowCard type="action">Set timer <strong>Hall lights</strong> between <strong>3</strong> <strong>minutes</strong> and <strong>10</strong> <strong>minutes</strong></FlowCard>
+    </FlowCardExplainer>
     <FlowCardExplainer content="Starts the timer with the provided duration. Replaces any existing timer with the same name.">
         <FlowCard type="action">Start timer <strong>Hall lights</strong> with <strong>5</strong> <strong>minutes</strong></FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Starts the timer with a random duration between the specified minimum and maximum.">
+        <FlowCard type="action">Start timer <strong>Delay</strong> between <strong>30</strong> <strong>seconds</strong> and <strong>2</strong> <strong>minutes</strong></FlowCard>
     </FlowCardExplainer>
     <FlowCardExplainer content="Stops the timer, if it is running.">
         <FlowCard type="action">Stop timer <strong>Hall lights</strong></FlowCard>

@@ -38,6 +38,9 @@ These flow cards allow you to set, clear, toggle, or evaluate flags from within 
     <FlowCardExplainer content="Activate a flag, but only if it is not already active.">
         <FlowCard type="action">Activate flag <strong>Partytime</strong></FlowCard>
     </FlowCardExplainer>
+    <FlowCardExplainer content="Activate a flag for a specified duration, then automatically deactivate it.">
+        <FlowCard type="action">Activate flag <strong>Guest mode</strong> for <strong>3</strong> <strong>hours</strong></FlowCard>
+    </FlowCardExplainer>
     <FlowCardExplainer content="Deactivate a flag, but only if it is active.">
         <FlowCard type="action">Deactivate flag <strong>Cleaning</strong></FlowCard>
     </FlowCardExplainer>
@@ -51,6 +54,12 @@ These flow cards allow you to set, clear, toggle, or evaluate flags from within 
 <FlowCards>
     <FlowCardExplainer content="Check if a flag is active.">
         <FlowCard type="condition">Flag <strong>Cleaning</strong> is active</FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Check if a flag has been active for at least the specified duration.">
+        <FlowCard type="condition">Flag <strong>Vacation</strong> is active for !{{at least|less than}} <strong>2</strong> <strong>days</strong></FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Check if a flag has been inactive for at least the specified duration.">
+        <FlowCard type="condition">Flag <strong>Partytime</strong> is inactive for !{{at least|less than}} <strong>30</strong> <strong>minutes</strong></FlowCard>
     </FlowCardExplainer>
 </FlowCards>
 
