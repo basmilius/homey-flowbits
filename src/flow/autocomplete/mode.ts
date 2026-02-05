@@ -25,10 +25,13 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp> {
     getCards(): FlowCard[] {
         return [
             this.flow.getActionCard('mode_activate'),
+            this.flow.getActionCard('mode_activate_for'),
             this.flow.getActionCard('mode_deactivate'),
             this.flow.getActionCard('mode_reactivate'),
             this.flow.getActionCard('mode_toggle'),
             this.flow.getConditionCard('mode_is'),
+            this.flow.getConditionCard('mode_is_active_for'),
+            this.flow.getConditionCard('mode_is_inactive_for'),
             this.flow.getTriggerCard('mode_activated'),
             this.flow.getTriggerCard('mode_changed'),
             this.flow.getTriggerCard('mode_deactivated')
