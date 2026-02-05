@@ -54,10 +54,10 @@ These flow cards let you manage modes directly from your flows, enabling you to 
         <FlowCard type="condition"><strong>Night</strong> is active</FlowCard>
     </FlowCardExplainer>
     <FlowCardExplainer content="Checks if a mode has been active for at least the specified duration.">
-        <FlowCard type="condition"><strong>Away</strong> is active for !{{at least|less than}} <strong>4</strong> <strong>hours</strong></FlowCard>
+        <FlowCard type="condition"><strong>Away</strong> is active for at least <strong>4</strong> <strong>hours</strong></FlowCard>
     </FlowCardExplainer>
     <FlowCardExplainer content="Checks if a mode has been inactive for at least the specified duration.">
-        <FlowCard type="condition"><strong>Morning</strong> is inactive for !{{at least|less than}} <strong>1</strong> <strong>hour</strong></FlowCard>
+        <FlowCard type="condition"><strong>Morning</strong> is inactive for at least <strong>1</strong> <strong>hour</strong></FlowCard>
     </FlowCardExplainer>
 </FlowCards>
 
@@ -95,3 +95,4 @@ Activate *Party* mode for special lighting scenes or extended music playback.
 - Modes are mutually exclusive: only one can be active at any time.
 - Flows can both change modes and react to them.
 - Use clear names to keep your automation logic readable.
+- The duration-based conditions can be inverted (using the condition's invert option) to check for "less than" instead of "at least".

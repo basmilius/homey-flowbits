@@ -56,10 +56,10 @@ These flow cards allow you to set, clear, toggle, or evaluate flags from within 
         <FlowCard type="condition">Flag <strong>Cleaning</strong> is active</FlowCard>
     </FlowCardExplainer>
     <FlowCardExplainer content="Check if a flag has been active for at least the specified duration.">
-        <FlowCard type="condition">Flag <strong>Vacation</strong> is active for !{{at least|less than}} <strong>2</strong> <strong>days</strong></FlowCard>
+        <FlowCard type="condition">Flag <strong>Vacation</strong> is active for at least <strong>2</strong> <strong>days</strong></FlowCard>
     </FlowCardExplainer>
     <FlowCardExplainer content="Check if a flag has been inactive for at least the specified duration.">
-        <FlowCard type="condition">Flag <strong>Partytime</strong> is inactive for !{{at least|less than}} <strong>30</strong> <strong>minutes</strong></FlowCard>
+        <FlowCard type="condition">Flag <strong>Partytime</strong> is inactive for at least <strong>30</strong> <strong>minutes</strong></FlowCard>
     </FlowCardExplainer>
 </FlowCards>
 
@@ -97,3 +97,4 @@ Enable a “quiet_hours” flag at night to reduce notifications or dim lights.
 - Flags are global and can be used in any flow.
 - Flags persist across reboots.
 - Use descriptive names to keep your system organized.
+- The duration-based conditions can be inverted (using the condition's invert option) to check for "less than" instead of "at least".
