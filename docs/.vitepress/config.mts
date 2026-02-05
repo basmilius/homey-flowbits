@@ -114,7 +114,12 @@ export default defineConfig({
                             items: [
                                 {text: 'Automatic hall lighting', link: '/examples/automatic-hall-lighting'},
                                 {text: 'Daypart-based modes', link: '/examples/daypart-based-modes'},
-                                {text: 'Multi-scene light switch', link: '/examples/multi-scene-light-switch'}
+                                {text: 'Guest mode automation', link: '/examples/guest-mode-automation'},
+                                {text: 'Multi-scene light switch', link: '/examples/multi-scene-light-switch'},
+                                {text: 'Room presence tracking', link: '/examples/room-presence-tracking'},
+                                {text: 'Room-based notifications', link: '/examples/room-based-notifications'},
+                                {text: 'Smart doorbell with notifications', link: '/examples/smart-doorbell-notifications'},
+                                {text: 'Smart thermostat override', link: '/examples/smart-thermostat-override'}
                             ]
                         }
                     ]

@@ -17,6 +17,26 @@ Automatically switch between Morning, Day, Evening, and Night modes based on tim
 
 Turn a single wall switch into a multi-scene controller. Quick presses cycle through scenes, while a press after a pause turns lights off. Uses **Step Sequences** and **Timers** for intuitive control.
 
+### [Smart Doorbell with Notifications](/examples/smart-doorbell-notifications)
+
+Build an intelligent doorbell system that sends notifications but prevents spam when pressed multiple times. Track doorbell activity and detect suspicious patterns. Uses **Events** and **No-repeat windows**.
+
+### [Room Presence Tracking](/examples/room-presence-tracking)
+
+Track which rooms in your home are occupied using motion sensors. Automatically detect when someone arrives home or when everyone leaves. Uses **Sets** and **Timers** for comprehensive presence detection.
+
+### [Guest Mode Automation](/examples/guest-mode-automation)
+
+Create a guest mode that adjusts your home's behavior when you have visitors. Disable privacy-sensitive automations, adjust lighting, and ensure guests have a comfortable stay. Uses **Flags** for simple on/off control.
+
+### [Room-Based Notifications](/examples/room-based-notifications)
+
+Build a smart notification system that announces messages in the room you're currently in, with automatic fallback to phone notifications when away. Uses **Labels** and **Signals** for flexible communication.
+
+### [Smart Thermostat Override](/examples/smart-thermostat-override)
+
+Create a flexible temperature override system using a slider widget. Adjust your home's temperature without changing your thermostat's schedule. Uses **Sliders**, **Labels**, and **Signals**.
+
 ---
 
 ::: tip Have an idea?
