@@ -88,11 +88,11 @@ When the update signal is received, calculate the final temperature and apply it
 
 <FlowCards>
     <FlowCard type="trigger" id="f1">Receive signal <strong>Update Thermostat</strong></FlowCard>
-    <FlowCard type="action" id="f2" connect-to-id="f1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Set variable <strong>slider_value</strong> to <strong>{{Temperature Offset}}</strong></FlowCard>
-    <FlowCard type="action" id="f3" connect-to-id="f1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Set variable <strong>base_temp</strong> to <strong>{{Base Temperature}}</strong></FlowCard>
-    <FlowCard type="action" id="f4" connect-to-id="f1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Set variable <strong>offset</strong> to <strong>({{slider_value}} - 50) / 10</strong></FlowCard>
-    <FlowCard type="action" id="f5" connect-to-id="f1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Set variable <strong>target_temp</strong> to <strong>{{base_temp}} + {{offset}}</strong></FlowCard>
-    <FlowCard type="action" id="f6" connect-to-id="f1" app="Thermostat" color="#FF5733" logo="/assets/logos/thermostat.svg">Set temperature to <strong>{{target_temp}}</strong></FlowCard>
+    <FlowCard type="action" id="f2" connect-to-id="f1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Set variable <strong>slider_value</strong> from slider <strong>Temperature Offset</strong></FlowCard>
+    <FlowCard type="action" id="f3" connect-to-id="f1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Set variable <strong>base_temp</strong> from label <strong>Base Temperature</strong></FlowCard>
+    <FlowCard type="action" id="f4" connect-to-id="f1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Calculate <strong>offset</strong> as <strong>(slider_value - 50) / 10</strong></FlowCard>
+    <FlowCard type="action" id="f5" connect-to-id="f1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Calculate <strong>target_temp</strong> as <strong>base_temp + offset</strong></FlowCard>
+    <FlowCard type="action" id="f6" connect-to-id="f1" app="Thermostat" color="#FF5733" logo="/assets/logos/thermostat.svg">Set temperature from variable <strong>target_temp</strong></FlowCard>
 </FlowCards>
 
 ::: tip
@@ -130,8 +130,8 @@ Instead of an offset, make the slider represent the actual temperature:
 
 <FlowCards>
     <FlowCard type="trigger" id="h1">Slider <strong>Target Temperature</strong> changed</FlowCard>
-    <FlowCard type="action" id="h2" connect-to-id="h1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Set variable <strong>temp</strong> to <strong>15 + ({{Target Temperature}} * 0.1)</strong></FlowCard>
-    <FlowCard type="action" id="h3" connect-to-id="h1" app="Thermostat" color="#FF5733" logo="/assets/logos/thermostat.svg">Set temperature to <strong>{{temp}}</strong></FlowCard>
+    <FlowCard type="action" id="h2" connect-to-id="h1" app="Better Logic" color="#8B4513" logo="/assets/logos/better-logic.svg">Calculate <strong>temp</strong> as <strong>15 + (slider_value * 0.1)</strong></FlowCard>
+    <FlowCard type="action" id="h3" connect-to-id="h1" app="Thermostat" color="#FF5733" logo="/assets/logos/thermostat.svg">Set temperature from variable <strong>temp</strong></FlowCard>
 </FlowCards>
 
 This maps slider 0-100 to temperature range 15-25°C.

@@ -72,7 +72,7 @@ When the announcement signal is received, check the current room and play the me
 <FlowCards>
     <FlowCard type="trigger" id="e1">Receive signal <strong>Make announcement</strong></FlowCard>
     <FlowCard type="condition" id="e2" connect-to-id="e1">Label <strong>Current Room</strong> has value <strong>Living room</strong></FlowCard>
-    <FlowCard type="action" id="e3" connect-to-id="e2" app="Sonos - Living room" color="#000000" logo="/assets/logos/sonos.svg">Say (text) <strong>{{Announcement Text}}</strong></FlowCard>
+    <FlowCard type="action" id="e3" connect-to-id="e2" app="Sonos - Living room" color="#000000" logo="/assets/logos/sonos.svg">Say (text) from label <strong>Announcement Text</strong></FlowCard>
 </FlowCards>
 
 **Announce in kitchen:**
@@ -80,7 +80,7 @@ When the announcement signal is received, check the current room and play the me
 <FlowCards>
     <FlowCard type="trigger" id="f1">Receive signal <strong>Make announcement</strong></FlowCard>
     <FlowCard type="condition" id="f2" connect-to-id="f1">Label <strong>Current Room</strong> has value <strong>Kitchen</strong></FlowCard>
-    <FlowCard type="action" id="f3" connect-to-id="f2" app="Google Home - Kitchen" color="#4285F4" logo="/assets/logos/google-home.svg">Say (text) <strong>{{Announcement Text}}</strong></FlowCard>
+    <FlowCard type="action" id="f3" connect-to-id="f2" app="Google Home - Kitchen" color="#4285F4" logo="/assets/logos/google-home.svg">Say (text) from label <strong>Announcement Text</strong></FlowCard>
 </FlowCards>
 
 **Announce in bedroom:**
@@ -88,11 +88,11 @@ When the announcement signal is received, check the current room and play the me
 <FlowCards>
     <FlowCard type="trigger" id="g1">Receive signal <strong>Make announcement</strong></FlowCard>
     <FlowCard type="condition" id="g2" connect-to-id="g1">Label <strong>Current Room</strong> has value <strong>Bedroom</strong></FlowCard>
-    <FlowCard type="action" id="g3" connect-to-id="g2" app="Alexa - Bedroom" color="#FF9900" logo="/assets/logos/alexa.svg">Say (text) <strong>{{Announcement Text}}</strong></FlowCard>
+    <FlowCard type="action" id="g3" connect-to-id="g2" app="Alexa - Bedroom" color="#FF9900" logo="/assets/logos/alexa.svg">Say (text) from label <strong>Announcement Text</strong></FlowCard>
 </FlowCards>
 
 ::: tip
-Use logic tokens like `{{Announcement Text}}` to insert the message stored in the label. This creates a flexible system where any flow can trigger an announcement by setting the label and sending the signal.
+Use logic tokens to insert the message stored in the label. This creates a flexible system where any flow can trigger an announcement by setting the label and sending the signal.
 :::
 
 ### Step 4: Fallback to phone notification when away
@@ -102,7 +102,7 @@ If no current room is set (meaning you're not home), send a phone notification i
 <FlowCards>
     <FlowCard type="trigger" id="h1">Receive signal <strong>Make announcement</strong></FlowCard>
     <FlowCard type="condition" id="h2" connect-to-id="h1">Set <strong>Presence</strong> is inactive</FlowCard>
-    <FlowCard type="action" id="h3" connect-to-id="h2" app="Notifications" color="#26A65B" logo="/assets/logos/notifications.svg">Send notification <strong>{{Announcement Text}}</strong></FlowCard>
+    <FlowCard type="action" id="h3" connect-to-id="h2" app="Notifications" color="#26A65B" logo="/assets/logos/notifications.svg">Send notification from label <strong>Announcement Text</strong></FlowCard>
 </FlowCards>
 
 ## More examples
