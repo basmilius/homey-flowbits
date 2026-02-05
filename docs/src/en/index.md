@@ -34,6 +34,13 @@ features:
         link: /guide/flags
         linkText: Learn more
 
+    -   title: Sets
+        details: Group multiple boolean states together and evaluate them as a collection.
+        icon:
+            src: /assets/features/sets.svg
+        link: /guide/sets
+        linkText: Learn more
+
     -   title: Step sequences
         details: Cycle through predefined steps to build structured, predictable flow logic.
         icon:
