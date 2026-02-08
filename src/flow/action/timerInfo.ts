@@ -1,7 +1,7 @@
 import { action, FlowActionEntity } from '@basmilius/homey-common';
 import type { FlowBitsApp } from '../../types';
-import { AutocompleteProviders } from '..';
 import { formatSecondsToTime } from '../../util';
+import { AutocompleteProviders } from '..';
 
 @action('timer_info')
 export default class extends FlowActionEntity<FlowBitsApp, Args, never, Tokens> {

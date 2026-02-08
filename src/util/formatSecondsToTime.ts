@@ -1,14 +1,3 @@
-/**
- * Formats seconds into a human-readable time string in HH:MM:SS format.
- * All components (hours, minutes, seconds) are zero-padded to 2 digits.
- * Examples: 
- * - 5445 seconds becomes "01:30:45"
- * - 90 seconds becomes "00:01:30"
- * - 0 or negative seconds returns "-"
- * 
- * @param seconds - The number of seconds to format
- * @returns Formatted time string as HH:MM:SS, or "-" if seconds is 0 or negative
- */
 export default function (seconds: number): string {
     if (seconds <= 0) {
         return '-';
