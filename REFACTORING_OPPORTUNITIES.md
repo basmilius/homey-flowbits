@@ -40,23 +40,25 @@ export default class extends FlowActionEntity<FlowBitsApp, Args> {
 
 ### Refactoring Approach
 
-Consider creating a factory function or generic class:
+Consider creating a factory function or generic class. Note: This example shows the concept, but production implementation should use TypeScript mapped types or a type-safe builder pattern to avoid `any` types and maintain compile-time type checking:
 
 ```typescript
+// Conceptual example - would need proper TypeScript generics for production
 function createSimpleAction<T>(
     actionId: string,
-    entityType: string,
-    method: string,
+    entityType: keyof FlowBitsApp, // Type-safe entity names
+    method: string, // In practice, use conditional types based on entityType
     autocompleteProvider: AutocompleteProvider
 ) {
     @action(actionId)
     return class extends FlowActionEntity<FlowBitsApp, T> {
         async onInit(): Promise<void> {
-            this.registerAutocomplete(entityType, autocompleteProvider);
+            this.registerAutocomplete(entityType as string, autocompleteProvider);
             await super.onInit();
         }
 
         async onRun(args: T): Promise<void> {
+            // Type-safe implementation would use conditional types here
             await this.app[entityType][method](args[entityType].name);
         }
 
@@ -66,6 +68,12 @@ function createSimpleAction<T>(
         }
     };
 }
+```
+
+**Important:** Production implementation must maintain full TypeScript type safety. Consider using:
+- Mapped types for method access
+- Conditional types for entity-specific methods
+- Generic constraints to ensure valid entity/method combinations
 ```
 
 **Estimated reduction:** ~600-800 lines of code
@@ -110,17 +118,19 @@ The following widget pairs are nearly identical (only entity names differ):
 
 ### Refactoring Approach
 
-Create a generic widget template or factory:
+Create a generic widget template or factory. Note: This is a conceptual example - production code should use TypeScript's mapped types and method overloads to maintain type safety:
 
 ```typescript
+// Conceptual example - requires proper TypeScript generics for production
 export function createToggleWidget<T>(config: {
     entityType: string;
-    getMethod: string;
-    toggleMethod: string;
+    getMethod: keyof WidgetAPI; // Use mapped types for type-safe method access
+    toggleMethod: keyof WidgetAPI;
     eventName: string;
 }) {
     return {
         async list({homey: {app}}: WidgetApiRequest<FlowBitsApp>): Promise<T[]> {
+            // Type-safe implementation would use method overloads or conditional types
             return await app.api[config.getMethod]();
         },
         async toggle({homey: {app}, body}: WidgetApiRequest<FlowBitsApp, any>): Promise<boolean> {
@@ -128,6 +138,9 @@ export function createToggleWidget<T>(config: {
         }
     };
 }
+```
+
+**Important:** Any refactoring must preserve TypeScript's compile-time type checking. Avoid using `any` types or dynamic property access that bypasses type safety.
 ```
 
 **Estimated reduction:** ~150-200 lines across widget files
