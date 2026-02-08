@@ -1,4 +1,4 @@
-import { action, DateTime, FlowActionEntity } from '@basmilius/homey-common';
+import { action, FlowActionEntity } from '@basmilius/homey-common';
 import type { FlowBitsApp } from '../../types';
 import { AutocompleteProviders } from '..';
 import { formatSecondsToTime } from '../../util';
@@ -12,28 +12,12 @@ export default class extends FlowActionEntity<FlowBitsApp, Args, never, Tokens> 
     }
 
     async onRun(args: Args): Promise<Tokens> {
-        const timer = await this.app.timers.find(args.timer.name);
-
-        if (!timer) {
-            throw new Error(`Timer "${args.timer.name}" not found.`);
-        }
-
-        // Calculate remaining seconds based on timer state
-        let remainingSeconds = 0;
-        if (timer.status === 'running') {
-            const now = DateTime.now().toSeconds();
-            remainingSeconds = Math.max(0, Math.floor(timer.target - now));
-        } else if (timer.status === 'paused') {
-            remainingSeconds = Math.max(0, Math.floor(timer.remaining));
-        }
-
-        // Format remaining time as HH:MM:SS or dash
-        const remainingTime = formatSecondsToTime(remainingSeconds);
+        const info = await this.app.timers.getInfo(args.timer.name);
 
         return {
-            status: timer.status,
-            remaining_time: remainingTime,
-            remaining_seconds: remainingSeconds
+            status: info.status,
+            remaining_time: formatSecondsToTime(info.remainingSeconds),
+            remaining_seconds: info.remainingSeconds
         };
     }
 }

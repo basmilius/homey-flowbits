@@ -259,6 +259,28 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         return timer?.status === 'running';
     }
 
+    async getInfo(name: string): Promise<TimerInfo> {
+        const timer = await this.find(name);
+
+        if (!timer) {
+            throw new Error(`Timer "${name}" not found.`);
+        }
+
+        // Calculate remaining seconds based on timer state
+        let remainingSeconds = 0;
+        if (timer.status === 'running') {
+            const now = DateTime.now().toSeconds();
+            remainingSeconds = Math.max(0, Math.floor(timer.target - now));
+        } else if (timer.status === 'paused') {
+            remainingSeconds = Math.max(0, Math.floor(timer.remaining));
+        }
+
+        return {
+            status: timer.status,
+            remainingSeconds
+        };
+    }
+
     async getLook(name: string): Promise<Look> {
         return this.looks[name] ?? ['#06b6d4', ''];
     }
@@ -492,4 +514,9 @@ type StoredTimer = {
     readonly remaining: number;
     readonly target: number;
     readonly status: ClockState;
+};
+
+export type TimerInfo = {
+    readonly status: ClockState;
+    readonly remainingSeconds: number;
 };
