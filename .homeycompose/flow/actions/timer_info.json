@@ -1,0 +1,128 @@
+{
+    "id": "timer_info",
+    "title": {
+        "en": "Retrieve timer info",
+        "nl": "Haal timer info op",
+        "de": "Timer-Info abrufen",
+        "fr": "Récupérer les infos du minuteur",
+        "it": "Recupera info timer",
+        "sv": "Hämta timer-info",
+        "no": "Hent timer-info",
+        "es": "Obtener info del temporizador",
+        "da": "Hent timer-info",
+        "ru": "Получить информацию о таймере",
+        "pl": "Pobierz informacje o timerze",
+        "ko": "타이머 정보 가져오기",
+        "ar": "استرجاع معلومات المؤقت"
+    },
+    "titleFormatted": {
+        "en": "Retrieve info of timer [[timer]]",
+        "nl": "Haal info op van timer [[timer]]",
+        "de": "Rufe Info von Timer [[timer]] ab",
+        "fr": "Récupérer les infos du minuteur [[timer]]",
+        "it": "Recupera info del timer [[timer]]",
+        "sv": "Hämta info om timern [[timer]]",
+        "no": "Hent info om timeren [[timer]]",
+        "es": "Obtener info del temporizador [[timer]]",
+        "da": "Hent info om timeren [[timer]]",
+        "ru": "Получить информацию о таймере [[timer]]",
+        "pl": "Pobierz informacje o timerze [[timer]]",
+        "ko": "[[timer]] 타이머 정보 가져오기",
+        "ar": "استرجاع معلومات المؤقت [[timer]]"
+    },
+    "hint": {
+        "en": "Retrieves the current status and remaining time of the timer.",
+        "nl": "Haalt de huidige status en resterende tijd van de timer op.",
+        "de": "Ruft den aktuellen Status und die verbleibende Zeit des Timers ab.",
+        "fr": "Récupère l'état actuel et le temps restant du minuteur.",
+        "it": "Recupera lo stato attuale e il tempo rimanente del timer.",
+        "sv": "Hämtar aktuell status och återstående tid för timern.",
+        "no": "Henter nåværende status og gjenværende tid for timeren.",
+        "es": "Obtiene el estado actual y el tiempo restante del temporizador.",
+        "da": "Henter den aktuelle status og resterende tid for timeren.",
+        "ru": "Получает текущий статус и оставшееся время таймера.",
+        "pl": "Pobiera aktualny status i pozostały czas timera.",
+        "ko": "타이머의 현재 상태와 남은 시간을 가져옵니다.",
+        "ar": "يسترجع الحالة الحالية والوقت المتبقي للمؤقت."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "timer",
+            "title": {
+                "en": "Name",
+                "nl": "Naam",
+                "de": "Name",
+                "fr": "Nom",
+                "it": "Nome",
+                "sv": "Namn",
+                "no": "Navn",
+                "es": "Nombre",
+                "da": "Navn",
+                "ru": "Имя",
+                "pl": "Nazwa",
+                "ko": "이름",
+                "ar": "الاسم"
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "type": "string",
+            "name": "status",
+            "title": {
+                "en": "Timer status",
+                "nl": "Timer status",
+                "de": "Timer-Status",
+                "fr": "État du minuteur",
+                "it": "Stato del timer",
+                "sv": "Timer-status",
+                "no": "Timer-status",
+                "es": "Estado del temporizador",
+                "da": "Timer-status",
+                "ru": "Статус таймера",
+                "pl": "Status timera",
+                "ko": "타이머 상태",
+                "ar": "حالة المؤقت"
+            }
+        },
+        {
+            "type": "string",
+            "name": "remaining_time",
+            "title": {
+                "en": "Remaining time",
+                "nl": "Resterende tijd",
+                "de": "Verbleibende Zeit",
+                "fr": "Temps restant",
+                "it": "Tempo rimanente",
+                "sv": "Återstående tid",
+                "no": "Gjenværende tid",
+                "es": "Tiempo restante",
+                "da": "Resterende tid",
+                "ru": "Оставшееся время",
+                "pl": "Pozostały czas",
+                "ko": "남은 시간",
+                "ar": "الوقت المتبقي"
+            }
+        },
+        {
+            "type": "number",
+            "name": "remaining_seconds",
+            "title": {
+                "en": "Remaining seconds",
+                "nl": "Resterende seconden",
+                "de": "Verbleibende Sekunden",
+                "fr": "Secondes restantes",
+                "it": "Secondi rimanenti",
+                "sv": "Återstående sekunder",
+                "no": "Gjenværende sekunder",
+                "es": "Segundos restantes",
+                "da": "Resterende sekunder",
+                "ru": "Оставшиеся секунды",
+                "pl": "Pozostałe sekundy",
+                "ko": "남은 초",
+                "ar": "الثواني المتبقية"
+            }
+        }
+    ]
+}

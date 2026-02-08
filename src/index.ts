@@ -127,6 +127,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.SetToggleStateFor);
         this.registry.action(Actions.SignalSend);
         this.registry.action(Actions.SliderSet);
+        this.registry.action(Actions.TimerInfo);
         this.registry.action(Actions.TimerPause);
         this.registry.action(Actions.TimerResume);
         this.registry.action(Actions.TimerSet);

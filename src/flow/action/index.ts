@@ -31,6 +31,7 @@ export { default as SetToggleState } from './setToggleState';
 export { default as SetToggleStateFor } from './setToggleStateFor';
 export { default as SignalSend } from './signalSend';
 export { default as SliderSet } from './sliderSet';
+export { default as TimerInfo } from './timerInfo';
 export { default as TimerPause } from './timerPause';
 export { default as TimerResume } from './timerResume';
 export { default as TimerSet } from './timerSet';

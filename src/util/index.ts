@@ -1,5 +1,6 @@
 export { default as convertDurationToSeconds } from './convertDurationToSeconds';
 export { default as createFilterAutocomplete } from './createFilterAutocomplete';
+export { default as formatSecondsToTime } from './formatSecondsToTime';
 export { default as getDayPeriod, type DayPeriod } from './getDayPeriod';
 export { default as getDayPeriodRange } from './getDayPeriodRange';
 export { default as getMoonPhase, type MoonPhase } from './getMoonPhase';
