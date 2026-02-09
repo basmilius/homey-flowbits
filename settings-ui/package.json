@@ -1,0 +1,21 @@
+{
+    "name": "com.basmilius.flowbits.settings-ui",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite build --watch"
+    },
+    "dependencies": {
+        "@basmilius/homey-common": "^1.17.1",
+        "vue": "^3.5.28"
+    },
+    "devDependencies": {
+        "@basmilius/vite-preset": "^2.19.0",
+        "@vitejs/plugin-vue": "^6.0.4",
+        "@vue/tsconfig": "^0.8.1",
+        "lightningcss": "^1.31.1",
+        "sass": "^1.97.3",
+        "vite": "^8.0.0-beta.13"
+    }
+}

@@ -7,5 +7,7 @@
 /docs/.vitepress/dist
 /docs/.vitepress/cache
 
+/settings-ui/node_modules
+
 !/.idea/.name
 !/.idea/icon.svg
