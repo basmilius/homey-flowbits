@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "scripts": {
         "build": "tsc",
-        "build:settings": "cd settings-ui && npm install && npm run build",
+        "build:settings": "cd settings-ui && bun install && bun run build",
         "docs:dev": "vitepress dev docs",
         "docs:build": "rm -r docs/.vitepress/dist && vitepress build docs",
         "docs:preview": "vitepress preview docs"
