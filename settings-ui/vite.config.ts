@@ -36,6 +36,7 @@ export default defineConfig({
         emptyOutDir: true,
         minify: 'oxc',
         outDir: '../settings',
+        sourcemap: false,
         target: 'chrome110',
         rolldownOptions: {
             experimental: {
