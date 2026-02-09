@@ -1,0 +1,11 @@
+@font-face {
+    font-display: swap;
+    font-family: 'font-awesome';
+    font-style: normal;
+    font-weight: 300;
+    src: url(icons.woff2);
+}
+
+.font-awesome-icon {
+    font-family: 'font-awesome', sans-serif;
+}

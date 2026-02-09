@@ -9,3 +9,5 @@
 
 !/.idea/.name
 !/.idea/icon.svg
+/settings-ui/node_modules
+/settings-ui/dist
