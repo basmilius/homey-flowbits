@@ -20,5 +20,5 @@ type Query = {
 
 type Result = {
     readonly name: string;
-    readonly step: number;
+    readonly step: number | null;
 };

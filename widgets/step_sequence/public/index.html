@@ -39,7 +39,7 @@
 
         async function init() {
             Homey.on('flowbits-cycle-update', (cycle) => {
-                if (cycle?.name === settings.cycle.name) {
+                if (cycle && cycle.name === settings.cycle.name) {
                     update();
                 }
             });
@@ -48,10 +48,16 @@
         }
 
         async function update() {
-            const cycle = await Homey.api('GET', `/?cycle=${encodeURIComponent(settings.cycle.name)}`);
+            try {
+                const cycle = await Homey.api('GET', `/?cycle=${encodeURIComponent(settings.cycle.name)}`);
 
-            stepSequenceName.innerText = cycle?.name ?? '—';
-            stepSequenceStep.innerText = cycle?.step !== undefined && cycle?.step !== null ? cycle.step : '—';
+                stepSequenceName.innerText = cycle?.name ?? '—';
+                stepSequenceStep.innerText = cycle?.step !== undefined && cycle?.step !== null ? cycle.step : '—';
+            } catch (error) {
+                console.error('Failed to fetch cycle data:', error);
+                stepSequenceName.innerText = '—';
+                stepSequenceStep.innerText = '—';
+            }
 
             const height = document.body.getBoundingClientRect().height;
 
