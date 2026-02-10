@@ -37,14 +37,23 @@
         async function init() {
             name.innerText = settings.slider.name;
 
-            let icon = settings.icon.unicode;
-            if (icon.startsWith('"')) {
-                icon = JSON.parse(icon);
+            // Fetch slider data to get color and icon from app settings
+            const sliderData = await Homey.api('GET', `/?slider=${encodeURIComponent(settings.slider.name)}`);
+            
+            if (!sliderData) {
+                console.error('Failed to load slider data');
+                return;
             }
 
-            slider.style.setProperty('--slider-color', `var(--${settings.color})`);
-            slider.style.setProperty('--slider-icon', JSON.stringify(icon));
-            slider.style.setProperty('--slider-icon-secondary', JSON.stringify(icon + icon));
+            const color = sliderData.color || '#204ef6';
+            const icon = sliderData.icon || '';
+
+            slider.style.setProperty('--slider-color', color);
+            
+            if (icon) {
+                slider.style.setProperty('--slider-icon', JSON.stringify(icon));
+                slider.style.setProperty('--slider-icon-secondary', JSON.stringify(icon + icon));
+            }
 
             let active = false;
 
@@ -116,8 +125,11 @@
         }
 
         async function update() {
-            const value = await Homey.api('GET', `/?slider=${encodeURIComponent(settings.slider.name)}`);
-            await setValueRaw(value);
+            const sliderData = await Homey.api('GET', `/?slider=${encodeURIComponent(settings.slider.name)}`);
+            
+            if (sliderData) {
+                await setValueRaw(sliderData.value);
+            }
         }
 
         async function onUpdate(event) {
