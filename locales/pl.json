@@ -72,9 +72,6 @@
       "inactive": "Brak aktywnych stanów",
       "partially": "__active__ z __total__ stanów aktywnych"
     },
-    "step_sequence": {
-      "label": "Krok"
-    },
     "timer": {
       "finished": "Zakończony",
       "paused": "Wstrzymany",

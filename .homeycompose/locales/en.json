@@ -72,6 +72,9 @@
             "inactive": "No states active",
             "partially": "__active__ out of __total__ states active"
         },
+        "step_sequence": {
+            "label": "Step"
+        },
         "timer": {
             "finished": "Finished",
             "paused": "Paused",

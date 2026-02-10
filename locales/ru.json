@@ -72,9 +72,6 @@
       "inactive": "Нет активных состояний",
       "partially": "__active__ из __total__ состояний активны"
     },
-    "step_sequence": {
-      "label": "Шаг"
-    },
     "timer": {
       "finished": "Завершено",
       "paused": "Приостановлено",

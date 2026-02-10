@@ -72,6 +72,9 @@
             "inactive": "활성화된 상태가 없습니다",
             "partially": "__total__ 중 __active__개 상태 활성화됨"
         },
+        "step_sequence": {
+            "label": "단계"
+        },
         "timer": {
             "finished": "완료됨",
             "paused": "일시 정지됨",

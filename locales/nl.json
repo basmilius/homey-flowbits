@@ -72,9 +72,6 @@
       "inactive": "Geen enkele status actief",
       "partially": "__active__ van __total__ statussen actief"
     },
-    "step_sequence": {
-      "label": "Stap"
-    },
     "timer": {
       "finished": "Afgelopen",
       "paused": "Gepauzeerd",
