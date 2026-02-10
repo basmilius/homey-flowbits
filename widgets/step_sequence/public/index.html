@@ -38,7 +38,11 @@
         const settings = Homey.getSettings();
 
         async function init() {
-            Homey.on('flowbits-cycle-update', update);
+            Homey.on('flowbits-cycle-update', (cycle) => {
+                if (cycle?.name === settings.cycle.name) {
+                    update();
+                }
+            });
 
             await update();
         }
@@ -47,7 +51,7 @@
             const cycle = await Homey.api('GET', `/?cycle=${encodeURIComponent(settings.cycle.name)}`);
 
             stepSequenceName.innerText = cycle?.name ?? '—';
-            stepSequenceStep.innerText = cycle?.step ?? '—';
+            stepSequenceStep.innerText = cycle?.step !== undefined && cycle?.step !== null ? cycle.step : '—';
 
             const height = document.body.getBoundingClientRect().height;
 
