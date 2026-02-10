@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <title>No-repeat window</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+</head>
+
+<body class="homey-widget">
+
+<div class="no-repeat-window">
+    <div class="no-repeat-window-status">
+        <div class="no-repeat-window-icon" id="status-icon"></div>
+    </div>
+
+    <div class="no-repeat-window-content">
+        <strong class="homey-text-bold no-repeat-window-name" id="window-name">&mdash;</strong>
+        <div class="no-repeat-window-timestamp" id="window-timestamp">&mdash;</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onHomeyReady(Homey) {
+        const SECOND = 1;
+        const MINUTE = 60 * SECOND;
+        const HOUR = 60 * MINUTE;
+        const DAY = 24 * HOUR;
+
+        const statusIcon = document.getElementById('status-icon');
+        const windowName = document.getElementById('window-name');
+        const windowTimestamp = document.getElementById('window-timestamp');
+        let ready = false;
+        let interval;
+
+        const formatter = new Intl.RelativeTimeFormat(navigator.language, {numeric: 'auto', style: 'long'});
+        const formatterDate = new Intl.DateTimeFormat(navigator.language, {day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'});
+
+        if (Date.prototype.getUTCTime === undefined) {
+            Date.prototype.getUTCTime = function () {
+                return this.getTime() - (this.getTimezoneOffset() * 60000);
+            };
+        }
+
+        const settings = Homey.getSettings();
+
+        async function init() {
+            Homey.on('flowbits-no-repeat-update', update);
+
+            await update();
+        }
+
+        function tick(lastUpdate) {
+            const now = new Date();
+            const diff = (now.getUTCTime() - lastUpdate.getUTCTime()) / 1000;
+            let value = Homey.__('widget.no_repeat_window.now') || 'Just now';
+
+            if (diff > DAY) {
+                value = formatterDate.format(lastUpdate);
+            } else if (diff > HOUR) {
+                value = formatter.format(-Math.round(diff / HOUR), 'hour');
+            } else if (diff > MINUTE) {
+                value = formatter.format(-Math.round(diff / MINUTE), 'minute');
+            } else if (diff > SECOND) {
+                value = formatter.format(-Math.round(diff / SECOND), 'second');
+            }
+
+            windowTimestamp.innerText = value;
+        }
+
+        async function update() {
+            clearInterval(interval);
+
+            const state = await Homey.api('GET', `/?window=${encodeURIComponent(settings.window.name)}`);
+
+            windowName.innerText = state?.name ?? '—';
+            
+            if (state?.isOpen && state?.lastUpdate) {
+                // Window is open (has been triggered) - show green checkmark
+                statusIcon.className = 'no-repeat-window-icon open';
+                statusIcon.innerHTML = '&#10003;'; // Checkmark
+                
+                const lastUpdate = new Date(state.lastUpdate);
+                interval = setInterval(() => tick(lastUpdate), 1000);
+                tick(lastUpdate);
+            } else {
+                // Window is closed (never triggered) - show red exclamation triangle
+                statusIcon.className = 'no-repeat-window-icon closed';
+                statusIcon.innerHTML = '&#9888;'; // Warning sign
+                windowTimestamp.innerText = Homey.__('widget.no_repeat_window.never') || 'Never triggered';
+            }
+
+            const height = document.body.getBoundingClientRect().height;
+
+            if (ready) {
+                await Homey.setHeight(height);
+            } else {
+                Homey.ready({height});
+                ready = true;
+            }
+        }
+
+        init();
+    }
+</script>
+
+</body>
+</html>

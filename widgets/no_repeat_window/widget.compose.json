@@ -1,0 +1,45 @@
+{
+    "name": {
+        "en": "No-repeat window",
+        "nl": "Geen-herhalings venster",
+        "de": "Nicht-wiederholen Fenster",
+        "fr": "Fenêtre sans répétition",
+        "it": "Finestra senza ripetizione",
+        "sv": "Ingen-upprepning fönster",
+        "no": "Ingen-gjentakelse vindu",
+        "es": "Ventana sin repetición",
+        "da": "Ingen-gentagelse vindue",
+        "ru": "Окно без повтора",
+        "pl": "Okno bez powtórzeń",
+        "ko": "반복 없음 창",
+        "ar": "نافذة بدون تكرار"
+    },
+    "height": 120,
+    "settings": [
+        {
+            "id": "window",
+            "type": "autocomplete",
+            "title": {
+                "en": "No-repeat window",
+                "nl": "Geen-herhalings venster",
+                "de": "Nicht-wiederholen Fenster",
+                "fr": "Fenêtre sans répétition",
+                "it": "Finestra senza ripetizione",
+                "sv": "Ingen-upprepning fönster",
+                "no": "Ingen-gjentakelse vindu",
+                "es": "Ventana sin repetición",
+                "da": "Ingen-gentagelse vindue",
+                "ru": "Окно без повтора",
+                "pl": "Okno bez powtórzeń",
+                "ko": "반복 없음 창",
+                "ar": "نافذة بدون تكرار"
+            }
+        }
+    ],
+    "api": {
+        "state": {
+            "method": "GET",
+            "path": "/"
+        }
+    }
+}

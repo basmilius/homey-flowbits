@@ -9,6 +9,7 @@ export default class Widgets extends Shortcuts<FlowBitsApp> {
         await this.#initializeFlags();
         await this.#initializeLabel();
         await this.#initializeModes();
+        await this.#initializeNoRepeatWindow();
         await this.#initializeSetStates();
         await this.#initializeSetStatus();
         await this.#initializeSlider();
@@ -78,6 +79,18 @@ export default class Widgets extends Shortcuts<FlowBitsApp> {
             return createFilterAutocomplete(allNames, query, {
                 itemsField: 'modes'
             });
+        });
+    }
+
+    async #initializeNoRepeatWindow(): Promise<void> {
+        const widget = this.dashboards.getWidget('no_repeat_window');
+
+        widget.registerSettingAutocompleteListener('window', async () => {
+            const windows = await this.app.api.getNoRepeatWindows();
+
+            return windows.map(window => ({
+                name: window.name
+            }));
         });
     }
 

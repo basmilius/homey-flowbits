@@ -1,0 +1,64 @@
+@import '../../assets/app/base.css';
+@import '../../assets/app/icons.css';
+
+.no-repeat-window {
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    gap: var(--homey-su-3);
+}
+
+.no-repeat-window-status {
+    flex-shrink: 0;
+}
+
+.no-repeat-window-icon {
+    display: flex;
+    height: 48px;
+    width: 48px;
+    align-items: center;
+    justify-content: center;
+    background: var(--homey-color-mono-050);
+    border-radius: 24px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.homey-dark-mode .no-repeat-window-icon {
+    background: var(--homey-color-mono-200);
+}
+
+.no-repeat-window-icon.open {
+    background: var(--homey-icon-color-green);
+    color: white;
+}
+
+.no-repeat-window-icon.closed {
+    background: var(--homey-color-red-200);
+    color: var(--homey-color-red-700);
+}
+
+.homey-dark-mode .no-repeat-window-icon.closed {
+    background: var(--homey-color-red-700);
+    color: var(--homey-color-red-200);
+}
+
+.no-repeat-window-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--homey-su-1);
+}
+
+.no-repeat-window-name {
+    font-size: 16px;
+}
+
+.no-repeat-window-timestamp {
+    font-size: 14px;
+    color: var(--homey-color-mono-400);
+}
+
+.homey-dark-mode .no-repeat-window-timestamp {
+    color: var(--homey-color-mono-500);
+}

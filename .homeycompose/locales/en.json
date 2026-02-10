@@ -62,6 +62,10 @@
         "event": {
             "now": "Now"
         },
+        "no_repeat_window": {
+            "now": "Just now",
+            "never": "Never triggered"
+        },
         "setStates": {
             "active": "Active",
             "inactive": "Inactive"
