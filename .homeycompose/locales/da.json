@@ -84,6 +84,11 @@
         "close": "Luk",
         "save": "Gem",
         "search": "Søg",
+        "documentation": {
+            "title": "Dokumentation",
+            "description": "Lær mere om FlowBits, og hvordan du bruger alle funktioner effektivt.",
+            "button": "Besøg Dokumentation"
+        },
         "edit": {
             "color": "Farve",
             "icon": "Ikon"

@@ -4,6 +4,8 @@
         :subtitle="t('settings.subtitle')"/>
 
     <Form>
+        <Documentation/>
+
         <Category
             :title="t('settings.modes.title')"
             :description="t('settings.modes.description')"
@@ -47,8 +49,6 @@
             @edit="onEditEvent"/>
 
         <Statistics/>
-
-        <Documentation/>
     </Form>
 
     <Transition name="edit">

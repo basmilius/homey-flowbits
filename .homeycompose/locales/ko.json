@@ -84,6 +84,11 @@
         "close": "닫기",
         "save": "저장",
         "search": "검색",
+        "documentation": {
+            "title": "문서",
+            "description": "FlowBits에 대해 자세히 알아보고 모든 기능을 효과적으로 사용하는 방법을 배워보세요.",
+            "button": "문서 방문"
+        },
         "edit": {
             "color": "색상",
             "icon": "아이콘"

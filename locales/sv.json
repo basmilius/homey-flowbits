@@ -84,11 +84,6 @@
     "close": "Stäng",
     "save": "Spara",
     "search": "Sök",
-    "documentation": {
-      "title": "Dokumentation",
-      "description": "Lär dig mer om FlowBits och hur du använder alla funktioner effektivt.",
-      "button": "Besök Dokumentation"
-    },
     "edit": {
       "color": "Färg",
       "icon": "Ikon"
