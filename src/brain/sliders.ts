@@ -115,7 +115,7 @@ export default class Sliders extends Shortcuts<FlowBitsApp> implements Feature<S
     }
 
     async getLook(name: string): Promise<Look> {
-        return this.looks[name] ?? ['#204ef6', ''];
+        return this.looks[name] ?? ['#204ef6', '\uf1de'];
     }
 
     async setLook(name: string, look: Look): Promise<void> {

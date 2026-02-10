@@ -40,13 +40,27 @@
             // Fetch slider data to get color and icon from app settings
             const sliderData = await Homey.api('GET', `/?slider=${encodeURIComponent(settings.slider.name)}`);
             
-            if (!sliderData) {
+            let color = '#204ef6';
+            let icon = '';
+            
+            if (sliderData) {
+                // Use app settings if available
+                color = sliderData.color || '#204ef6';
+                icon = sliderData.icon || '';
+            } else {
                 console.error('Failed to load slider data for:', settings.slider.name);
-                return;
+                
+                // Fallback to widget settings if they exist
+                if (settings.color) {
+                    color = `var(--${settings.color})`;
+                }
+                if (settings.icon && settings.icon.unicode) {
+                    icon = settings.icon.unicode;
+                    if (icon.startsWith('"')) {
+                        icon = JSON.parse(icon);
+                    }
+                }
             }
-
-            const color = sliderData.color || '#204ef6';
-            const icon = sliderData.icon || '';
 
             slider.style.setProperty('--slider-color', color);
             
