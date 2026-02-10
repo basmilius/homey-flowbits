@@ -41,7 +41,7 @@
             const sliderData = await Homey.api('GET', `/?slider=${encodeURIComponent(settings.slider.name)}`);
             
             if (!sliderData) {
-                console.error('Failed to load slider data');
+                console.error('Failed to load slider data for:', settings.slider.name);
                 return;
             }
 
