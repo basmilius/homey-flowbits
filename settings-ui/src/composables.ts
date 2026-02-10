@@ -83,6 +83,10 @@ export function useSets() {
     return composeList<BitSet>('/sets');
 }
 
+export function useSliders() {
+    return composeList<Slider>('/sliders');
+}
+
 export function useTimers() {
     return composeList<Timer>('/timers');
 }

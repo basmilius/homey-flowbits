@@ -113,6 +113,11 @@
       "description": "Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
       "empty": "Aucun set n’a encore été créé."
     },
+    "sliders": {
+      "title": "Curseurs",
+      "description": "Les curseurs stockent des valeurs numériques qui peuvent être ajustées dynamiquement. Utilisez les actions, conditions et déclencheurs de curseur dans vos flux pour définir, obtenir et vérifier les valeurs des curseurs.",
+      "empty": "Aucun curseur n'a encore été créé."
+    },
     "timers": {
       "title": "Minuteries",
       "description": "Les minuteries effectuent un compte à rebours à partir d'une durée spécifiée et peuvent être démarrées, mises en pause, arrêtées et réinitialisées. Utilisez les actions, conditions et déclencheurs de minuterie dans vos flux pour gérer les comptes à rebours et réagir lorsque les minuteries se terminent.",

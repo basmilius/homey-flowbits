@@ -46,6 +46,13 @@
             :items="events"
             @edit="onEditEvent"/>
 
+        <Category
+            :title="t('settings.sliders.title')"
+            :description="t('settings.sliders.description')"
+            :empty="t('settings.sliders.empty')"
+            :items="sliders"
+            @edit="onEditSlider"/>
+
         <Statistics/>
     </Form>
 
@@ -64,7 +71,7 @@
     setup>
     import { onMounted, ref, unref } from 'vue';
     import { Category, Edit, Form, Statistics, Top } from './components';
-    import { composeEdit, composeSave, useColors, useEvents, useFlags, useIcons, useLabels, useModes, useSets, useTimers, useTranslate } from './composables';
+    import { composeEdit, composeSave, useColors, useEvents, useFlags, useIcons, useLabels, useModes, useSets, useSliders, useTimers, useTranslate } from './composables';
     import type { FeatureType, FormLook, Item } from './types';
 
     const t = useTranslate();
@@ -75,6 +82,7 @@
     const {items: labels, load: loadLabels} = useLabels();
     const {items: modes, load: loadModes} = useModes();
     const {items: sets, load: loadSets} = useSets();
+    const {items: sliders, load: loadSliders} = useSliders();
     const {items: timers, load: loadTimers} = useTimers();
 
     const editingItem = ref<Item | null>(null);
@@ -86,6 +94,7 @@
     const onEditLabel = composeEdit('label', editingItem, editingType);
     const onEditMode = composeEdit('mode', editingItem, editingType);
     const onEditSet = composeEdit('set', editingItem, editingType);
+    const onEditSlider = composeEdit('slider', editingItem, editingType);
     const onEditTimer = composeEdit('timer', editingItem, editingType);
 
     const onSaveEvent = composeSave('/events/look', editingItem, editingType, isSaving, loadEvents);
@@ -93,6 +102,7 @@
     const onSaveLabel = composeSave('/labels/look', editingItem, editingType, isSaving, loadLabels);
     const onSaveMode = composeSave('/modes/look', editingItem, editingType, isSaving, loadModes);
     const onSaveSet = composeSave('/sets/look', editingItem, editingType, isSaving, loadSets);
+    const onSaveSlider = composeSave('/sliders/look', editingItem, editingType, isSaving, loadSliders);
     const onSaveTimer = composeSave('/timers/look', editingItem, editingType, isSaving, loadTimers);
 
     onMounted(async () => {
@@ -107,6 +117,7 @@
             loadLabels(),
             loadModes(),
             loadSets(),
+            loadSliders(),
             loadTimers()
         ]);
 
@@ -134,6 +145,9 @@
 
             case 'set':
                 return onSaveSet(name, look);
+
+            case 'slider':
+                return onSaveSlider(name, look);
 
             case 'timer':
                 return onSaveTimer(name, look);

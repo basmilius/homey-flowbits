@@ -21,6 +21,7 @@ export type FeatureType =
     | 'label'
     | 'mode'
     | 'set'
+    | 'slider'
     | 'timer';
 
 export type FormLook = {

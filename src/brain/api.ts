@@ -178,6 +178,18 @@ export default class extends Shortcuts<FlowBitsApp> {
         return await this.app.sliders.findAll();
     }
 
+    async setSliderLook(sliderName: string, color: string, icon: string): Promise<boolean> {
+        const slider = await this.app.sliders.find(sliderName);
+
+        if (!slider) {
+            return false;
+        }
+
+        await this.app.sliders.setLook(slider.name, [color, icon]);
+
+        return true;
+    }
+
     async getTimers(): Promise<Timer[]> {
         return await this.app.timers.findAll();
     }

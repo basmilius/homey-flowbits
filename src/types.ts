@@ -86,10 +86,10 @@ export type NoRepeatWindow = {
     readonly lastUpdate: string | undefined;
 };
 
-export type Slider = {
+export type Slider = WithLook<{
     readonly name: string;
     readonly value: number;
-};
+}>;
 
 export type Timer = WithLook<{
     readonly name: string;

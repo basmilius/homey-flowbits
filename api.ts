@@ -90,6 +90,10 @@ export async function setSetLook({homey: {app}, body}: ApiRequest<FlowBitsApp, B
     return await app.api.setSetLook(body.name, body.color, body.icon);
 }
 
+export async function setSliderLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {
+    return await app.api.setSliderLook(body.name, body.color, body.icon);
+}
+
 export async function setTimerLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {
     return await app.api.setTimerLook(body.name, body.color, body.icon);
 }

@@ -22,6 +22,7 @@ export const SETTING_NO_REPEAT_WINDOWS = 'flowbits-no-repeat-windows';
 export const SETTING_SETS = 'flowbits-sets';
 export const SETTING_SET_LOOKS = 'flowbits-set-looks';
 export const SETTING_SLIDERS = 'flowbits-sliders';
+export const SETTING_SLIDER_LOOKS = 'flowbits-slider-looks';
 export const SETTING_TIMER_LOOKS = 'flowbits-timer-looks';
 export const SETTING_TIMER_PREFIX = 'flowbits-timer:';
 
