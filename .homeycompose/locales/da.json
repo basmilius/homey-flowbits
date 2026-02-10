@@ -113,6 +113,11 @@
             "description": "Sæt er samlinger af boolske tilstande, der kan evalueres som en gruppe. Et sæt er aktivt, når en af dets tilstande er aktiv. Brug sæt-handlinger, betingelser og triggere i dine flows til at administrere grupperede tilstande.",
             "empty": "Der er endnu ikke oprettet nogen sæt."
         },
+        "sliders": {
+            "title": "Skyderegulatore",
+            "description": "Skyderegulatore lagrer numeriske værdier, der kan justeres dynamisk. Brug skyderegulator-handlinger, betingelser og triggere i dine flows til at indstille, hente og kontrollere skyderegulator-værdier.",
+            "empty": "Der er endnu ikke oprettet nogen skyderegulatore."
+        },
         "timers": {
             "title": "Timere",
             "description": "Timere tæller ned fra en specificeret varighed og kan startes, sættes på pause, stoppes og nulstilles. Brug timerhandlinger, betingelser og triggere i dine flows til at administrere nedtællinger og reagere når timere er færdige.",

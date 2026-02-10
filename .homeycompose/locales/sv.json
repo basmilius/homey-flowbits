@@ -113,6 +113,11 @@
             "description": "Sets är samlingar av booleska tillstånd som kan utvärderas som en grupp. En set är aktiv när något av dess tillstånd är aktivt. Använd set-åtgärder, villkor och triggers i dina flöden för att hantera grupperade tillstånd.",
             "empty": "Inga sets har skapats ännu."
         },
+        "sliders": {
+            "title": "Reglage",
+            "description": "Reglage lagrar numeriska värden som kan justeras dynamiskt. Använd reglagåtgärder, villkor och triggers i dina flöden för att ange, hämta och kontrollera reglagevärden.",
+            "empty": "Inga reglage har skapats ännu."
+        },
         "timers": {
             "title": "Timers",
             "description": "Timers räknar ner från en angiven varaktighet och kan startas, pausas, stoppas och återställas. Använd timeråtgärder, villkor och triggers i dina flöden för att hantera nedräkningar och reagera när timers är klara.",

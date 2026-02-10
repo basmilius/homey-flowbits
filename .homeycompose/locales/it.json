@@ -113,6 +113,11 @@
             "description": "I sets sono collezioni di stati booleani che possono essere valutati come gruppo. Un set è attivo quando uno dei suoi stati è attivo. Usa azioni, condizioni e trigger dei set nei tuoi flow per gestire gli stati raggruppati.",
             "empty": "Nessun set è stato ancora creato."
         },
+        "sliders": {
+            "title": "Slider",
+            "description": "Gli slider memorizzano valori numerici che possono essere regolati dinamicamente. Usa azioni, condizioni e trigger degli slider nei tuoi flow per impostare, ottenere e verificare i valori degli slider.",
+            "empty": "Nessuno slider è stato ancora creato."
+        },
         "timers": {
             "title": "Timer",
             "description": "I timer fanno un conto alla rovescia da una durata specificata e possono essere avviati, messi in pausa, fermati e ripristinati. Usa azioni, condizioni e trigger dei timer nei tuoi flow per gestire i conti alla rovescia e rispondere quando i timer terminano.",

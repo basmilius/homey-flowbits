@@ -113,6 +113,11 @@
             "description": "Sets zijn verzamelingen van booleaanse statussen die als groep kunnen worden geëvalueerd. Een set is actief wanneer een van zijn statussen actief is. Gebruik set-acties, -voorwaarden en -triggers in je flows om groepen statussen te beheren.",
             "empty": "Er zijn nog geen sets aangemaakt."
         },
+        "sliders": {
+            "title": "Sliders",
+            "description": "Sliders slaan numerieke waarden op die dynamisch kunnen worden aangepast. Gebruik slider-acties, -voorwaarden en -triggers in je flows om slider-waarden in te stellen, op te halen en te controleren.",
+            "empty": "Er zijn nog geen sliders aangemaakt."
+        },
         "timers": {
             "title": "Timers",
             "description": "Timers tellen af vanaf een opgegeven duur en kunnen worden gestart, gepauzeerd, gestopt en gereset. Gebruik timer-acties, -voorwaarden en -triggers in je flows om afteltijden te beheren en te reageren wanneer timers aflopen.",

@@ -113,6 +113,11 @@
             "description": "Sets are collections of boolean states that can be evaluated as a group. A set is active when any of its states is active. Use set actions, conditions, and triggers in your flows to manage grouped states.",
             "empty": "No sets have been created yet."
         },
+        "sliders": {
+            "title": "Sliders",
+            "description": "Sliders store numeric values that can be adjusted dynamically. Use slider actions, conditions, and triggers in your flows to set, get, and check slider values.",
+            "empty": "No sliders have been created yet."
+        },
         "timers": {
             "title": "Timers",
             "description": "Timers count down from a specified duration and can be started, paused, stopped, and reset. Use timer actions, conditions, and triggers in your flows to manage countdowns and respond when timers finish.",

@@ -113,11 +113,6 @@
       "description": "Sets sind Sammlungen von booleschen Zuständen, die als Gruppe ausgewertet werden können. Ein Set ist aktiv, wenn einer seiner Zustände aktiv ist. Verwenden Sie Set-Aktionen, Bedingungen und Trigger in Ihren Flows, um gruppierte Zustände zu verwalten.",
       "empty": "Es wurden noch keine Sets erstellt."
     },
-    "sliders": {
-      "title": "Schieberegler",
-      "description": "Schieberegler speichern numerische Werte, die dynamisch angepasst werden können. Verwenden Sie Schieberegler-Aktionen, Bedingungen und Trigger in Ihren Flows, um Schiebereglerwerte festzulegen, abzurufen und zu überprüfen.",
-      "empty": "Es wurden noch keine Schieberegler erstellt."
-    },
     "timers": {
       "title": "Timer",
       "description": "Timer zählen von einer bestimmten Dauer herunter und können gestartet, pausiert, gestoppt und zurückgesetzt werden. Verwenden Sie Timer-Aktionen, Bedingungen und Trigger in Ihren Flows, um Countdowns zu verwalten und zu reagieren, wenn Timer ablaufen.",
