@@ -8,6 +8,7 @@
 /docs/.vitepress/cache
 
 /settings-ui/node_modules
+/settings-ui/package-lock.json
 
 !/.idea/.name
 !/.idea/icon.svg
