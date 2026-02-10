@@ -2,6 +2,7 @@ export { default as ButtonPrimary } from './ButtonPrimary.vue';
 export { default as ButtonTransparent } from './ButtonTransparent.vue';
 export { default as Category } from './Category.vue';
 export { default as ColorPicker } from './ColorPicker.vue';
+export { default as Documentation } from './Documentation.vue';
 export { default as Edit } from './Edit.vue';
 export { default as Form } from './Form.vue';
 export { default as FormFieldset } from './FormFieldset.vue';

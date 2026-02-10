@@ -47,6 +47,8 @@
             @edit="onEditEvent"/>
 
         <Statistics/>
+
+        <Documentation/>
     </Form>
 
     <Transition name="edit">
@@ -63,7 +65,7 @@
     lang="ts"
     setup>
     import { onMounted, ref, unref } from 'vue';
-    import { Category, Edit, Form, Statistics, Top } from './components';
+    import { Category, Documentation, Edit, Form, Statistics, Top } from './components';
     import { composeEdit, composeSave, useColors, useEvents, useFlags, useIcons, useLabels, useModes, useSets, useTimers, useTranslate } from './composables';
     import type { FeatureType, FormLook, Item } from './types';
 
