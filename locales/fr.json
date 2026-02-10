@@ -96,7 +96,7 @@
     "flags": {
       "title": "Drapeaux",
       "description": "Plusieurs drapeaux peuvent être actifs simultanément. Créez et gérez-les via les actions, conditions et déclencheurs dans vos flows.",
-      "empty": "Aucun drapeau n'a encore été créé."
+      "empty": "Aucun drapeau n’a encore été créé."
     },
     "labels": {
       "title": "Étiquettes",
@@ -106,12 +106,12 @@
     "modes": {
       "title": "Modes",
       "description": "Un seul mode peut être actif à la fois. Créez et gérez les modes via les actions, conditions et déclencheurs dans vos flows.",
-      "empty": "Aucun mode n'a encore été créé."
+      "empty": "Aucun mode n’a encore été créé."
     },
     "sets": {
       "title": "Sets",
       "description": "Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
-      "empty": "Aucun set n'a encore été créé."
+      "empty": "Aucun set n’a encore été créé."
     },
     "timers": {
       "title": "Minuteries",
