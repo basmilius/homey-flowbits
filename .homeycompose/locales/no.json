@@ -86,8 +86,7 @@
         "search": "Søk",
         "documentation": {
             "title": "Dokumentasjon",
-            "description": "Lær mer om FlowBits og hvordan du bruker alle funksjonene effektivt.",
-            "button": "Besøk Dokumentasjon"
+            "description": "Lær mer om FlowBits og hvordan du bruker alle funksjonene effektivt. Besøk FlowBits.nl for dokumentasjon."
         },
         "edit": {
             "color": "Farge",
