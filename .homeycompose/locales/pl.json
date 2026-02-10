@@ -1,158 +1,162 @@
 {
-    "autocomplete": {
-        "cycle_new": "Nowy licznik w tym przepływie",
-        "event_new": "Nowe zdarzenie w tym przepływie",
-        "flag_new": "Nowa flaga w tym przepływie",
-        "label_new": "Nowa etykieta w tym przepływie",
-        "mode_new": "Nowy tryb w tym przepływie",
-        "no_repeat_new": "Nowe okno bez powtórzeń w tym przepływie",
-        "set_new": "Nowe set w tym przepływie",
-        "set_state_new": "Nowy stan set w tym przepływie, zostanie zidentyfikowany po zapisaniu przepływu",
-        "signal_new": "Nowy sygnał w tym przepływie",
-        "slider_new": "Nowy suwak w tym przepływie",
-        "timer_new": "Nowy timer w tym przepływie"
+  "autocomplete": {
+    "cycle_new": "Nowy licznik w tym przepływie",
+    "event_new": "Nowe zdarzenie w tym przepływie",
+    "flag_new": "Nowa flaga w tym przepływie",
+    "label_new": "Nowa etykieta w tym przepływie",
+    "mode_new": "Nowy tryb w tym przepływie",
+    "no_repeat_new": "Nowe okno bez powtórzeń w tym przepływie",
+    "set_new": "Nowe set w tym przepływie",
+    "set_state_new": "Nowy stan set w tym przepływie, zostanie zidentyfikowany po zapisaniu przepływu",
+    "signal_new": "Nowy sygnał w tym przepływie",
+    "slider_new": "Nowy suwak w tym przepływie",
+    "timer_new": "Nowy timer w tym przepływie"
+  },
+  "notification": {
+    "mode_activated": "**__name__** jest aktywowany.",
+    "mode_deactivated": "**__name__** jest dezaktywowany.",
+    "welcome": "Witamy w **FlowBits**! Przejdź do flowbits.nl, aby dowiedzieć się więcej o tym, co możesz zrobić z FlowBits."
+  },
+  "token": {
+    "day_period": "Część dnia (surowa)",
+    "day_period_translated": "Część dnia",
+    "moon_phase": "Faza księżyca (surowa)",
+    "moon_phase_translated": "Faza księżyca",
+    "zodiac_sign": "Znak zodiaku (surowy)",
+    "zodiac_sign_translated": "Znak zodiaku"
+  },
+  "day_period": {
+    "morning": "Rano",
+    "afternoon": "Popołudnie",
+    "evening": "Wieczór",
+    "night": "Noc"
+  },
+  "moon_phase": {
+    "new_moon": "Nów",
+    "waxing_crescent": "Przybywający sierp",
+    "first_quarter": "Pierwsza kwadra",
+    "waxing_gibbous": "Przybywający garbaty",
+    "full_moon": "Pełnia",
+    "waning_gibbous": "Ubywający garbaty",
+    "last_quarter": "Ostatnia kwadra",
+    "waning_crescent": "Ubywający sierp"
+  },
+  "zodiac_sign": {
+    "aquarius": "Wodnik",
+    "aries": "Baran",
+    "cancer": "Rak",
+    "capricorn": "Koziorożec",
+    "gemini": "Bliźnięta",
+    "leo": "Lew",
+    "libra": "Waga",
+    "pisces": "Ryby",
+    "sagittarius": "Strzelec",
+    "scorpio": "Skorpion",
+    "taurus": "Byk",
+    "virgo": "Panna"
+  },
+  "widget": {
+    "current_mode": {
+      "label": "Aktualny tryb"
     },
-    "notification": {
-        "mode_activated": "**__name__** jest aktywowany.",
-        "mode_deactivated": "**__name__** jest dezaktywowany.",
-        "welcome": "Witamy w **FlowBits**! Przejdź do flowbits.nl, aby dowiedzieć się więcej o tym, co możesz zrobić z FlowBits."
+    "event": {
+      "now": "Teraz"
     },
-    "token": {
-        "day_period": "Część dnia (surowa)",
-        "day_period_translated": "Część dnia",
-        "moon_phase": "Faza księżyca (surowa)",
-        "moon_phase_translated": "Faza księżyca",
-        "zodiac_sign": "Znak zodiaku (surowy)",
-        "zodiac_sign_translated": "Znak zodiaku"
+    "setStates": {
+      "active": "Aktywny",
+      "inactive": "Nieaktywny"
     },
-    "day_period": {
-        "morning": "Rano",
-        "afternoon": "Popołudnie",
-        "evening": "Wieczór",
-        "night": "Noc"
+    "setStatus": {
+      "active": "Aktywny",
+      "full": "Pełna aktywność",
+      "inactive": "Brak aktywnych stanów",
+      "partially": "__active__ z __total__ stanów aktywnych"
     },
-    "moon_phase": {
-        "new_moon": "Nów",
-        "waxing_crescent": "Przybywający sierp",
-        "first_quarter": "Pierwsza kwadra",
-        "waxing_gibbous": "Przybywający garbaty",
-        "full_moon": "Pełnia",
-        "waning_gibbous": "Ubywający garbaty",
-        "last_quarter": "Ostatnia kwadra",
-        "waning_crescent": "Ubywający sierp"
+    "timer": {
+      "finished": "Zakończony",
+      "paused": "Wstrzymany",
+      "stopped": "Zatrzymany"
     },
-    "zodiac_sign": {
-        "aquarius": "Wodnik",
-        "aries": "Baran",
-        "cancer": "Rak",
-        "capricorn": "Koziorożec",
-        "gemini": "Bliźnięta",
-        "leo": "Lew",
-        "libra": "Waga",
-        "pisces": "Ryby",
-        "sagittarius": "Strzelec",
-        "scorpio": "Skorpion",
-        "taurus": "Byk",
-        "virgo": "Panna"
-    },
-    "widget": {
-        "current_mode": {
-            "label": "Aktualny tryb"
-        },
-        "event": {
-            "now": "Teraz"
-        },
-        "setStates": {
-            "active": "Aktywny",
-            "inactive": "Nieaktywny"
-        },
-        "setStatus": {
-            "active": "Aktywny",
-            "full": "Pełna aktywność",
-            "inactive": "Brak aktywnych stanów",
-            "partially": "__active__ z __total__ stanów aktywnych"
-        },
-        "timer": {
-            "finished": "Zakończony",
-            "paused": "Wstrzymany",
-            "stopped": "Zatrzymany"
-        }
-    },
-    "settings": {
-        "title": "Ustawienia",
-        "subtitle": "Skonfiguruj FlowBits według własnych preferencji.",
-        "close": "Zamknij",
-        "save": "Zapisz",
-        "search": "Szukaj",
-        "edit": {
-            "color": "Kolor",
-            "icon": "Ikona"
-        },
-        "events": {
-            "title": "Zdarzenia",
-            "description": "Zdarzenia śledzą, kiedy coś się dzieje i przechowują historię znaczników czasu. Używaj akcji, warunków i wyzwalaczy zdarzeń w swoich przepływach, aby śledzić wystąpienia i sprawdzać, jak często lub kiedy zdarzenia miały miejsce.",
-            "empty": "Nie utworzono jeszcze żadnych zdarzeń."
-        },
-        "flags": {
-            "title": "Flagi",
-            "description": "Kilka flag może być aktywnych jednocześnie. Twórz i zarządzaj flagami za pomocą akcji, warunków i wyzwalaczy w swoich flow.",
-            "empty": "Nie utworzono jeszcze żadnych flag."
-        },
-        "labels": {
-            "title": "Etykiety",
-            "description": "Etykiety przechowują pary klucz-wartość do użycia w przepływach. Używaj akcji, warunków i wyzwalaczy etykiet, aby dynamicznie ustawiać, pobierać i sprawdzać wartości.",
-            "empty": "Nie utworzono jeszcze żadnych etykiet."
-        },
-        "modes": {
-            "title": "Tryby",
-            "description": "Tylko jeden tryb może być aktywny w danym momencie. Twórz i zarządzaj trybami za pomocą akcji, warunków i wyzwalaczy.",
-            "empty": "Nie utworzono jeszcze żadnych trybów."
-        },
-        "sets": {
-            "title": "Zestawy",
-            "description": "Zestawy to kolekcje stanów logicznych, które mogą być oceniane jako grupa. Zestaw jest aktywny, gdy którykolwiek z jego stanów jest aktywny. Używaj akcji, warunków i wyzwalaczy zestawów w swoich przepływach, aby zarządzać grupowanymi stanami.",
-            "empty": "Nie utworzono jeszcze żadnych zestawów."
-        },
-        "timers": {
-            "title": "Timery",
-            "description": "Timery odliczają czas od określonego czasu trwania i mogą być uruchamiane, wstrzymywane, zatrzymywane i resetowane. Używaj akcji, warunków i wyzwalaczy timerów w swoich przepływach, aby zarządzać odliczaniem i reagować, gdy timery się kończą.",
-            "empty": "Nie utworzono jeszcze żadnych timerów."
-        },
-        "statistics": {
-            "title": "Statystyki",
-            "description": "To są statystyki funkcji FlowBits, oparte na twoich przepływach.",
-            "cycles": "Cykle",
-            "events": "Zdarzenia",
-            "flags": "Flagi",
-            "labels": "Etykiety",
-            "modes": "Tryby",
-            "no_repeats": "Okna bez powtórzeń",
-            "sets": "Zestawy",
-            "sliders": "Suwaki",
-            "timers": "Timery"
-        },
-        "card_statistics": {
-            "title": "Statystyki kart przepływów",
-            "description": "To są statystyki użycia dla poszczególnych kart przepływów."
-        }
-    },
-    "color": {
-        "red": "Czerwony",
-        "orange": "Pomarańczowy",
-        "amber": "Bursztynowy",
-        "yellow": "Żółty",
-        "lime": "Limonkowy",
-        "green": "Zielony",
-        "emerald": "Szmaragdowy",
-        "teal": "Morski",
-        "cyan": "Cyjan",
-        "sky": "Niebieski jasny",
-        "blue": "Niebieski",
-        "indigo": "Indygo",
-        "violet": "Fioletowy",
-        "purple": "Purpurowy",
-        "fuchsia": "Fuksja",
-        "pink": "Różowy",
-        "rose": "Róż jasny"
+    "no_repeat_window": {
+      "now": "Przed chwilą",
+      "never": "Nigdy nie wywołano"
     }
+  },
+  "settings": {
+    "title": "Ustawienia",
+    "subtitle": "Skonfiguruj FlowBits według własnych preferencji.",
+    "close": "Zamknij",
+    "save": "Zapisz",
+    "search": "Szukaj",
+    "edit": {
+      "color": "Kolor",
+      "icon": "Ikona"
+    },
+    "events": {
+      "title": "Zdarzenia",
+      "description": "Zdarzenia śledzą, kiedy coś się dzieje i przechowują historię znaczników czasu. Używaj akcji, warunków i wyzwalaczy zdarzeń w swoich przepływach, aby śledzić wystąpienia i sprawdzać, jak często lub kiedy zdarzenia miały miejsce.",
+      "empty": "Nie utworzono jeszcze żadnych zdarzeń."
+    },
+    "flags": {
+      "title": "Flagi",
+      "description": "Kilka flag może być aktywnych jednocześnie. Twórz i zarządzaj flagami za pomocą akcji, warunków i wyzwalaczy w swoich flow.",
+      "empty": "Nie utworzono jeszcze żadnych flag."
+    },
+    "labels": {
+      "title": "Etykiety",
+      "description": "Etykiety przechowują pary klucz-wartość do użycia w przepływach. Używaj akcji, warunków i wyzwalaczy etykiet, aby dynamicznie ustawiać, pobierać i sprawdzać wartości.",
+      "empty": "Nie utworzono jeszcze żadnych etykiet."
+    },
+    "modes": {
+      "title": "Tryby",
+      "description": "Tylko jeden tryb może być aktywny w danym momencie. Twórz i zarządzaj trybami za pomocą akcji, warunków i wyzwalaczy.",
+      "empty": "Nie utworzono jeszcze żadnych trybów."
+    },
+    "sets": {
+      "title": "Zestawy",
+      "description": "Zestawy to kolekcje stanów logicznych, które mogą być oceniane jako grupa. Zestaw jest aktywny, gdy którykolwiek z jego stanów jest aktywny. Używaj akcji, warunków i wyzwalaczy zestawów w swoich przepływach, aby zarządzać grupowanymi stanami.",
+      "empty": "Nie utworzono jeszcze żadnych zestawów."
+    },
+    "timers": {
+      "title": "Timery",
+      "description": "Timery odliczają czas od określonego czasu trwania i mogą być uruchamiane, wstrzymywane, zatrzymywane i resetowane. Używaj akcji, warunków i wyzwalaczy timerów w swoich przepływach, aby zarządzać odliczaniem i reagować, gdy timery się kończą.",
+      "empty": "Nie utworzono jeszcze żadnych timerów."
+    },
+    "statistics": {
+      "title": "Statystyki",
+      "description": "To są statystyki funkcji FlowBits, oparte na twoich przepływach.",
+      "cycles": "Cykle",
+      "events": "Zdarzenia",
+      "flags": "Flagi",
+      "labels": "Etykiety",
+      "modes": "Tryby",
+      "no_repeats": "Okna bez powtórzeń",
+      "sets": "Zestawy",
+      "sliders": "Suwaki",
+      "timers": "Timery"
+    },
+    "card_statistics": {
+      "title": "Statystyki kart przepływów",
+      "description": "To są statystyki użycia dla poszczególnych kart przepływów."
+    }
+  },
+  "color": {
+    "red": "Czerwony",
+    "orange": "Pomarańczowy",
+    "amber": "Bursztynowy",
+    "yellow": "Żółty",
+    "lime": "Limonkowy",
+    "green": "Zielony",
+    "emerald": "Szmaragdowy",
+    "teal": "Morski",
+    "cyan": "Cyjan",
+    "sky": "Niebieski jasny",
+    "blue": "Niebieski",
+    "indigo": "Indygo",
+    "violet": "Fioletowy",
+    "purple": "Purpurowy",
+    "fuchsia": "Fuksja",
+    "pink": "Różowy",
+    "rose": "Róż jasny"
+  }
 }

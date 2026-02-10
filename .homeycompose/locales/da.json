@@ -1,158 +1,162 @@
 {
-    "autocomplete": {
-        "cycle_new": "Ny tæller i dette flow",
-        "event_new": "Ny begivenhed i dette flow",
-        "flag_new": "Nyt flag i dette flow",
-        "label_new": "Ny etiket i dette flow",
-        "mode_new": "Ny tilstand i dette flow",
-        "no_repeat_new": "Nyt ingen-gentagelsesvindue i dette flow",
-        "set_new": "Nyt sæt i dette flow",
-        "set_state_new": "Ny sæt-tilstand i dette flow, vil blive kendt efter lagring af flowet",
-        "signal_new": "Ny signal i dette flow",
-        "slider_new": "Ny skyder i dette flow",
-        "timer_new": "Ny timer i dette flow"
+  "autocomplete": {
+    "cycle_new": "Ny tæller i dette flow",
+    "event_new": "Ny begivenhed i dette flow",
+    "flag_new": "Nyt flag i dette flow",
+    "label_new": "Ny etiket i dette flow",
+    "mode_new": "Ny tilstand i dette flow",
+    "no_repeat_new": "Nyt ingen-gentagelsesvindue i dette flow",
+    "set_new": "Nyt sæt i dette flow",
+    "set_state_new": "Ny sæt-tilstand i dette flow, vil blive kendt efter lagring af flowet",
+    "signal_new": "Ny signal i dette flow",
+    "slider_new": "Ny skyder i dette flow",
+    "timer_new": "Ny timer i dette flow"
+  },
+  "notification": {
+    "mode_activated": "**__name__** er aktiveret.",
+    "mode_deactivated": "**__name__** er deaktiveret.",
+    "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for at lære mere om, hvad du kan gøre med FlowBits."
+  },
+  "token": {
+    "day_period": "Dagsperiode (rå)",
+    "day_period_translated": "Dagsperiode",
+    "moon_phase": "Månens fase (rå)",
+    "moon_phase_translated": "Månens fase",
+    "zodiac_sign": "Stjernetegn (rå)",
+    "zodiac_sign_translated": "Stjernetegn"
+  },
+  "day_period": {
+    "morning": "Morgen",
+    "afternoon": "Eftermiddag",
+    "evening": "Aften",
+    "night": "Nat"
+  },
+  "moon_phase": {
+    "new_moon": "Nymåne",
+    "waxing_crescent": "Tiltagende segl",
+    "first_quarter": "Første kvarter",
+    "waxing_gibbous": "Tiltagende måne",
+    "full_moon": "Fuldmåne",
+    "waning_gibbous": "Aftagende måne",
+    "last_quarter": "Sidste kvarter",
+    "waning_crescent": "Aftagende segl"
+  },
+  "zodiac_sign": {
+    "aquarius": "Vandmanden",
+    "aries": "Vædderen",
+    "cancer": "Krebsen",
+    "capricorn": "Stenbukken",
+    "gemini": "Tvillingerne",
+    "leo": "Løven",
+    "libra": "Vægten",
+    "pisces": "Fiskene",
+    "sagittarius": "Skytten",
+    "scorpio": "Skorpionen",
+    "taurus": "Tyren",
+    "virgo": "Jomfruen"
+  },
+  "widget": {
+    "current_mode": {
+      "label": "Aktuel tilstand"
     },
-    "notification": {
-        "mode_activated": "**__name__** er aktiveret.",
-        "mode_deactivated": "**__name__** er deaktiveret.",
-        "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for at lære mere om, hvad du kan gøre med FlowBits."
+    "event": {
+      "now": "Nu"
     },
-    "token": {
-        "day_period": "Dagsperiode (rå)",
-        "day_period_translated": "Dagsperiode",
-        "moon_phase": "Månens fase (rå)",
-        "moon_phase_translated": "Månens fase",
-        "zodiac_sign": "Stjernetegn (rå)",
-        "zodiac_sign_translated": "Stjernetegn"
+    "setStates": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
     },
-    "day_period": {
-        "morning": "Morgen",
-        "afternoon": "Eftermiddag",
-        "evening": "Aften",
-        "night": "Nat"
+    "setStatus": {
+      "active": "Aktiv",
+      "full": "Fuldt aktiv",
+      "inactive": "Ingen tilstande aktive",
+      "partially": "__active__ ud af __total__ tilstande aktive"
     },
-    "moon_phase": {
-        "new_moon": "Nymåne",
-        "waxing_crescent": "Tiltagende segl",
-        "first_quarter": "Første kvarter",
-        "waxing_gibbous": "Tiltagende måne",
-        "full_moon": "Fuldmåne",
-        "waning_gibbous": "Aftagende måne",
-        "last_quarter": "Sidste kvarter",
-        "waning_crescent": "Aftagende segl"
+    "timer": {
+      "finished": "Afsluttet",
+      "paused": "Sat på pause",
+      "stopped": "Stoppet"
     },
-    "zodiac_sign": {
-        "aquarius": "Vandmanden",
-        "aries": "Vædderen",
-        "cancer": "Krebsen",
-        "capricorn": "Stenbukken",
-        "gemini": "Tvillingerne",
-        "leo": "Løven",
-        "libra": "Vægten",
-        "pisces": "Fiskene",
-        "sagittarius": "Skytten",
-        "scorpio": "Skorpionen",
-        "taurus": "Tyren",
-        "virgo": "Jomfruen"
-    },
-    "widget": {
-        "current_mode": {
-            "label": "Aktuel tilstand"
-        },
-        "event": {
-            "now": "Nu"
-        },
-        "setStates": {
-            "active": "Aktiv",
-            "inactive": "Inaktiv"
-        },
-        "setStatus": {
-            "active": "Aktiv",
-            "full": "Fuldt aktiv",
-            "inactive": "Ingen tilstande aktive",
-            "partially": "__active__ ud af __total__ tilstande aktive"
-        },
-        "timer": {
-            "finished": "Afsluttet",
-            "paused": "Sat på pause",
-            "stopped": "Stoppet"
-        }
-    },
-    "settings": {
-        "title": "Indstillinger",
-        "subtitle": "Konfigurer FlowBits, som du ønsker.",
-        "close": "Luk",
-        "save": "Gem",
-        "search": "Søg",
-        "edit": {
-            "color": "Farve",
-            "icon": "Ikon"
-        },
-        "events": {
-            "title": "Begivenheder",
-            "description": "Begivenheder sporer hvornår noget sker og gemmer en historik af tidsstempler. Brug begivenhedshandlinger, betingelser og triggere i dine flows til at spore hændelser og kontrollere hvor ofte eller hvornår begivenheder skete.",
-            "empty": "Der er endnu ikke oprettet nogen begivenheder."
-        },
-        "flags": {
-            "title": "Flag",
-            "description": "Flere flag kan være aktive samtidig. Opret og administrér flag via handlinger, betingelser og triggere i dine flows.",
-            "empty": "Der er endnu ikke oprettet nogen flag."
-        },
-        "labels": {
-            "title": "Etiketter",
-            "description": "Etiketter gemmer nøgle-værdi par til brug i dine flows. Brug etiket-handlinger, betingelser og triggere til at indstille, hente og kontrollere værdier dynamisk.",
-            "empty": "Der er endnu ikke oprettet nogen etiketter."
-        },
-        "modes": {
-            "title": "Tilstande",
-            "description": "Kun én tilstand kan være aktiv ad gangen. Opret og administrér tilstande via handlinger, betingelser og triggere i dine flows.",
-            "empty": "Der er endnu ikke oprettet nogen tilstande."
-        },
-        "sets": {
-            "title": "Sæt",
-            "description": "Sæt er samlinger af boolske tilstande, der kan evalueres som en gruppe. Et sæt er aktivt, når en af dets tilstande er aktiv. Brug sæt-handlinger, betingelser og triggere i dine flows til at administrere grupperede tilstande.",
-            "empty": "Der er endnu ikke oprettet nogen sæt."
-        },
-        "timers": {
-            "title": "Timere",
-            "description": "Timere tæller ned fra en specificeret varighed og kan startes, sættes på pause, stoppes og nulstilles. Brug timerhandlinger, betingelser og triggere i dine flows til at administrere nedtællinger og reagere når timere er færdige.",
-            "empty": "Der er endnu ikke oprettet nogen timere."
-        },
-        "statistics": {
-            "title": "Statistik",
-            "description": "Dette er funktionsstatistik for FlowBits. De er baseret på dine flows.",
-            "cycles": "Cyklusser",
-            "events": "Begivenheder",
-            "flags": "Flag",
-            "labels": "Etiketter",
-            "modes": "Tilstande",
-            "no_repeats": "Ingen-gentagelsesvinduer",
-            "sets": "Sæt",
-            "sliders": "Skydeknapper",
-            "timers": "Timere"
-        },
-        "card_statistics": {
-            "title": "Flowkortstatistik",
-            "description": "Dette er brugsstatistik for individuelle flowkort."
-        }
-    },
-    "color": {
-        "red": "Rød",
-        "orange": "Orange",
-        "amber": "Rav",
-        "yellow": "Gul",
-        "lime": "Lime",
-        "green": "Grøn",
-        "emerald": "Smaragd",
-        "teal": "Teal",
-        "cyan": "Cyan",
-        "sky": "Himmelblå",
-        "blue": "Blå",
-        "indigo": "Indigo",
-        "violet": "Violet",
-        "purple": "Lilla",
-        "fuchsia": "Fuchsia",
-        "pink": "Pink",
-        "rose": "Rosa"
+    "no_repeat_window": {
+      "now": "Lige nu",
+      "never": "Aldrig udløst"
     }
+  },
+  "settings": {
+    "title": "Indstillinger",
+    "subtitle": "Konfigurer FlowBits, som du ønsker.",
+    "close": "Luk",
+    "save": "Gem",
+    "search": "Søg",
+    "edit": {
+      "color": "Farve",
+      "icon": "Ikon"
+    },
+    "events": {
+      "title": "Begivenheder",
+      "description": "Begivenheder sporer hvornår noget sker og gemmer en historik af tidsstempler. Brug begivenhedshandlinger, betingelser og triggere i dine flows til at spore hændelser og kontrollere hvor ofte eller hvornår begivenheder skete.",
+      "empty": "Der er endnu ikke oprettet nogen begivenheder."
+    },
+    "flags": {
+      "title": "Flag",
+      "description": "Flere flag kan være aktive samtidig. Opret og administrér flag via handlinger, betingelser og triggere i dine flows.",
+      "empty": "Der er endnu ikke oprettet nogen flag."
+    },
+    "labels": {
+      "title": "Etiketter",
+      "description": "Etiketter gemmer nøgle-værdi par til brug i dine flows. Brug etiket-handlinger, betingelser og triggere til at indstille, hente og kontrollere værdier dynamisk.",
+      "empty": "Der er endnu ikke oprettet nogen etiketter."
+    },
+    "modes": {
+      "title": "Tilstande",
+      "description": "Kun én tilstand kan være aktiv ad gangen. Opret og administrér tilstande via handlinger, betingelser og triggere i dine flows.",
+      "empty": "Der er endnu ikke oprettet nogen tilstande."
+    },
+    "sets": {
+      "title": "Sæt",
+      "description": "Sæt er samlinger af boolske tilstande, der kan evalueres som en gruppe. Et sæt er aktivt, når en af dets tilstande er aktiv. Brug sæt-handlinger, betingelser og triggere i dine flows til at administrere grupperede tilstande.",
+      "empty": "Der er endnu ikke oprettet nogen sæt."
+    },
+    "timers": {
+      "title": "Timere",
+      "description": "Timere tæller ned fra en specificeret varighed og kan startes, sættes på pause, stoppes og nulstilles. Brug timerhandlinger, betingelser og triggere i dine flows til at administrere nedtællinger og reagere når timere er færdige.",
+      "empty": "Der er endnu ikke oprettet nogen timere."
+    },
+    "statistics": {
+      "title": "Statistik",
+      "description": "Dette er funktionsstatistik for FlowBits. De er baseret på dine flows.",
+      "cycles": "Cyklusser",
+      "events": "Begivenheder",
+      "flags": "Flag",
+      "labels": "Etiketter",
+      "modes": "Tilstande",
+      "no_repeats": "Ingen-gentagelsesvinduer",
+      "sets": "Sæt",
+      "sliders": "Skydeknapper",
+      "timers": "Timere"
+    },
+    "card_statistics": {
+      "title": "Flowkortstatistik",
+      "description": "Dette er brugsstatistik for individuelle flowkort."
+    }
+  },
+  "color": {
+    "red": "Rød",
+    "orange": "Orange",
+    "amber": "Rav",
+    "yellow": "Gul",
+    "lime": "Lime",
+    "green": "Grøn",
+    "emerald": "Smaragd",
+    "teal": "Teal",
+    "cyan": "Cyan",
+    "sky": "Himmelblå",
+    "blue": "Blå",
+    "indigo": "Indigo",
+    "violet": "Violet",
+    "purple": "Lilla",
+    "fuchsia": "Fuchsia",
+    "pink": "Pink",
+    "rose": "Rosa"
+  }
 }

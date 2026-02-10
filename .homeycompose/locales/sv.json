@@ -1,158 +1,162 @@
 {
-    "autocomplete": {
-        "cycle_new": "Ny räknare i detta flöde",
-        "event_new": "Ny händelse i detta flöde",
-        "flag_new": "Ny flagga i detta flöde",
-        "label_new": "Ny etikett i detta flöde",
-        "mode_new": "Nytt läge i detta flöde",
-        "no_repeat_new": "Nytt icke-repetitionsfönster i detta flöde",
-        "set_new": "Nytt set i detta flöde",
-        "set_state_new": "Nytt set-tillstånd i detta flöde, kommer att bli känt efter att flödet sparas",
-        "signal_new": "Ny signal i detta flöde",
-        "slider_new": "Ny slider i detta flöde",
-        "timer_new": "Ny timer i detta flöde"
+  "autocomplete": {
+    "cycle_new": "Ny räknare i detta flöde",
+    "event_new": "Ny händelse i detta flöde",
+    "flag_new": "Ny flagga i detta flöde",
+    "label_new": "Ny etikett i detta flöde",
+    "mode_new": "Nytt läge i detta flöde",
+    "no_repeat_new": "Nytt icke-repetitionsfönster i detta flöde",
+    "set_new": "Nytt set i detta flöde",
+    "set_state_new": "Nytt set-tillstånd i detta flöde, kommer att bli känt efter att flödet sparas",
+    "signal_new": "Ny signal i detta flöde",
+    "slider_new": "Ny slider i detta flöde",
+    "timer_new": "Ny timer i detta flöde"
+  },
+  "notification": {
+    "mode_activated": "**__name__** är aktiverad.",
+    "mode_deactivated": "**__name__** är inaktiverad.",
+    "welcome": "Välkommen till **FlowBits**! Gå till flowbits.nl för att lära dig mer om vad du kan göra med FlowBits."
+  },
+  "token": {
+    "day_period": "Dagsperiod (rå)",
+    "day_period_translated": "Dagsperiod",
+    "moon_phase": "Månfas (rå)",
+    "moon_phase_translated": "Månfas",
+    "zodiac_sign": "Stjärntecken (rå)",
+    "zodiac_sign_translated": "Stjärntecken"
+  },
+  "day_period": {
+    "morning": "Morgon",
+    "afternoon": "Eftermiddag",
+    "evening": "Kväll",
+    "night": "Natt"
+  },
+  "moon_phase": {
+    "new_moon": "Nymåne",
+    "waxing_crescent": "Tilltagande skära",
+    "first_quarter": "Första kvartalet",
+    "waxing_gibbous": "Tilltagande måne",
+    "full_moon": "Fullmåne",
+    "waning_gibbous": "Avtagande måne",
+    "last_quarter": "Sista kvartalet",
+    "waning_crescent": "Avtagande skära"
+  },
+  "zodiac_sign": {
+    "aquarius": "Vattumannen",
+    "aries": "Väduren",
+    "cancer": "Kräftan",
+    "capricorn": "Stenbocken",
+    "gemini": "Tvillingarna",
+    "leo": "Lejonet",
+    "libra": "Vågen",
+    "pisces": "Fiskarna",
+    "sagittarius": "Skytten",
+    "scorpio": "Skorpionen",
+    "taurus": "Oxen",
+    "virgo": "Jungfrun"
+  },
+  "widget": {
+    "current_mode": {
+      "label": "Aktuellt läge"
     },
-    "notification": {
-        "mode_activated": "**__name__** är aktiverad.",
-        "mode_deactivated": "**__name__** är inaktiverad.",
-        "welcome": "Välkommen till **FlowBits**! Gå till flowbits.nl för att lära dig mer om vad du kan göra med FlowBits."
+    "event": {
+      "now": "Nu"
     },
-    "token": {
-        "day_period": "Dagsperiod (rå)",
-        "day_period_translated": "Dagsperiod",
-        "moon_phase": "Månfas (rå)",
-        "moon_phase_translated": "Månfas",
-        "zodiac_sign": "Stjärntecken (rå)",
-        "zodiac_sign_translated": "Stjärntecken"
+    "setStates": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
     },
-    "day_period": {
-        "morning": "Morgon",
-        "afternoon": "Eftermiddag",
-        "evening": "Kväll",
-        "night": "Natt"
+    "setStatus": {
+      "active": "Aktiv",
+      "full": "Fullständigt aktiv",
+      "inactive": "Ingen status aktiv",
+      "partially": "__active__ av __total__ tillstånd aktiv"
     },
-    "moon_phase": {
-        "new_moon": "Nymåne",
-        "waxing_crescent": "Tilltagande skära",
-        "first_quarter": "Första kvartalet",
-        "waxing_gibbous": "Tilltagande måne",
-        "full_moon": "Fullmåne",
-        "waning_gibbous": "Avtagande måne",
-        "last_quarter": "Sista kvartalet",
-        "waning_crescent": "Avtagande skära"
+    "timer": {
+      "finished": "Avslutad",
+      "paused": "Pausad",
+      "stopped": "Stoppad"
     },
-    "zodiac_sign": {
-        "aquarius": "Vattumannen",
-        "aries": "Väduren",
-        "cancer": "Kräftan",
-        "capricorn": "Stenbocken",
-        "gemini": "Tvillingarna",
-        "leo": "Lejonet",
-        "libra": "Vågen",
-        "pisces": "Fiskarna",
-        "sagittarius": "Skytten",
-        "scorpio": "Skorpionen",
-        "taurus": "Oxen",
-        "virgo": "Jungfrun"
-    },
-    "widget": {
-        "current_mode": {
-            "label": "Aktuellt läge"
-        },
-        "event": {
-            "now": "Nu"
-        },
-        "setStates": {
-            "active": "Aktiv",
-            "inactive": "Inaktiv"
-        },
-        "setStatus": {
-            "active": "Aktiv",
-            "full": "Fullständigt aktiv",
-            "inactive": "Ingen status aktiv",
-            "partially": "__active__ av __total__ tillstånd aktiv"
-        },
-        "timer": {
-            "finished": "Avslutad",
-            "paused": "Pausad",
-            "stopped": "Stoppad"
-        }
-    },
-    "settings": {
-        "title": "Inställningar",
-        "subtitle": "Konfigurera FlowBits som du vill.",
-        "close": "Stäng",
-        "save": "Spara",
-        "search": "Sök",
-        "edit": {
-            "color": "Färg",
-            "icon": "Ikon"
-        },
-        "events": {
-            "title": "Händelser",
-            "description": "Händelser spårar när något händer och bevarar en historik av tidsstämplar. Använd händelseåtgärder, villkor och triggers i dina flöden för att spåra händelser och kontrollera hur ofta eller när händelser inträffade.",
-            "empty": "Inga händelser har skapats ännu."
-        },
-        "flags": {
-            "title": "Flaggor",
-            "description": "Flera flaggor kan vara aktiva samtidigt. Skapa och hantera flaggor med hjälp av åtgärder, villkor och triggers i dina flöden.",
-            "empty": "Inga flaggor har skapats ännu."
-        },
-        "labels": {
-            "title": "Etiketter",
-            "description": "Etiketter lagrar nyckel-värdepar för användning i dina flöden. Använd etikettåtgärder, villkor och triggers för att dynamiskt ställa in, hämta och kontrollera värden.",
-            "empty": "Inga etiketter har skapats ännu."
-        },
-        "modes": {
-            "title": "Lägen",
-            "description": "Endast ett läge kan vara aktivt åt gången. Skapa och hantera lägen i dina flöden.",
-            "empty": "Inga lägen har skapats ännu."
-        },
-        "sets": {
-            "title": "Sets",
-            "description": "Sets är samlingar av booleska tillstånd som kan utvärderas som en grupp. En set är aktiv när något av dess tillstånd är aktivt. Använd set-åtgärder, villkor och triggers i dina flöden för att hantera grupperade tillstånd.",
-            "empty": "Inga sets har skapats ännu."
-        },
-        "timers": {
-            "title": "Timers",
-            "description": "Timers räknar ner från en angiven varaktighet och kan startas, pausas, stoppas och återställas. Använd timeråtgärder, villkor och triggers i dina flöden för att hantera nedräkningar och reagera när timers är klara.",
-            "empty": "Inga timers har skapats ännu."
-        },
-        "statistics": {
-            "title": "Statistik",
-            "description": "Detta är funktionsstatistik för FlowBits. De baseras på dina flöden.",
-            "cycles": "Cykler",
-            "events": "Händelser",
-            "flags": "Flaggor",
-            "labels": "Etiketter",
-            "modes": "Lägen",
-            "no_repeats": "Inga-upprepningsfönster",
-            "sets": "Sets",
-            "sliders": "Reglage",
-            "timers": "Timers"
-        },
-        "card_statistics": {
-            "title": "Flödeskortsstatistik",
-            "description": "Detta är användningsstatistik för individuella flödeskort."
-        }
-    },
-    "color": {
-        "red": "Röd",
-        "orange": "Orange",
-        "amber": "Bärnsten",
-        "yellow": "Gul",
-        "lime": "Lime",
-        "green": "Grön",
-        "emerald": "Smaragd",
-        "teal": "Teal",
-        "cyan": "Cyan",
-        "sky": "Himmelsblå",
-        "blue": "Blå",
-        "indigo": "Indigo",
-        "violet": "Violett",
-        "purple": "Lila",
-        "fuchsia": "Fuchsia",
-        "pink": "Rosa",
-        "rose": "Rosé"
+    "no_repeat_window": {
+      "now": "Just nu",
+      "never": "Aldrig utlöst"
     }
+  },
+  "settings": {
+    "title": "Inställningar",
+    "subtitle": "Konfigurera FlowBits som du vill.",
+    "close": "Stäng",
+    "save": "Spara",
+    "search": "Sök",
+    "edit": {
+      "color": "Färg",
+      "icon": "Ikon"
+    },
+    "events": {
+      "title": "Händelser",
+      "description": "Händelser spårar när något händer och bevarar en historik av tidsstämplar. Använd händelseåtgärder, villkor och triggers i dina flöden för att spåra händelser och kontrollera hur ofta eller när händelser inträffade.",
+      "empty": "Inga händelser har skapats ännu."
+    },
+    "flags": {
+      "title": "Flaggor",
+      "description": "Flera flaggor kan vara aktiva samtidigt. Skapa och hantera flaggor med hjälp av åtgärder, villkor och triggers i dina flöden.",
+      "empty": "Inga flaggor har skapats ännu."
+    },
+    "labels": {
+      "title": "Etiketter",
+      "description": "Etiketter lagrar nyckel-värdepar för användning i dina flöden. Använd etikettåtgärder, villkor och triggers för att dynamiskt ställa in, hämta och kontrollera värden.",
+      "empty": "Inga etiketter har skapats ännu."
+    },
+    "modes": {
+      "title": "Lägen",
+      "description": "Endast ett läge kan vara aktivt åt gången. Skapa och hantera lägen i dina flöden.",
+      "empty": "Inga lägen har skapats ännu."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Sets är samlingar av booleska tillstånd som kan utvärderas som en grupp. En set är aktiv när något av dess tillstånd är aktivt. Använd set-åtgärder, villkor och triggers i dina flöden för att hantera grupperade tillstånd.",
+      "empty": "Inga sets har skapats ännu."
+    },
+    "timers": {
+      "title": "Timers",
+      "description": "Timers räknar ner från en angiven varaktighet och kan startas, pausas, stoppas och återställas. Använd timeråtgärder, villkor och triggers i dina flöden för att hantera nedräkningar och reagera när timers är klara.",
+      "empty": "Inga timers har skapats ännu."
+    },
+    "statistics": {
+      "title": "Statistik",
+      "description": "Detta är funktionsstatistik för FlowBits. De baseras på dina flöden.",
+      "cycles": "Cykler",
+      "events": "Händelser",
+      "flags": "Flaggor",
+      "labels": "Etiketter",
+      "modes": "Lägen",
+      "no_repeats": "Inga-upprepningsfönster",
+      "sets": "Sets",
+      "sliders": "Reglage",
+      "timers": "Timers"
+    },
+    "card_statistics": {
+      "title": "Flödeskortsstatistik",
+      "description": "Detta är användningsstatistik för individuella flödeskort."
+    }
+  },
+  "color": {
+    "red": "Röd",
+    "orange": "Orange",
+    "amber": "Bärnsten",
+    "yellow": "Gul",
+    "lime": "Lime",
+    "green": "Grön",
+    "emerald": "Smaragd",
+    "teal": "Teal",
+    "cyan": "Cyan",
+    "sky": "Himmelsblå",
+    "blue": "Blå",
+    "indigo": "Indigo",
+    "violet": "Violett",
+    "purple": "Lila",
+    "fuchsia": "Fuchsia",
+    "pink": "Rosa",
+    "rose": "Rosé"
+  }
 }

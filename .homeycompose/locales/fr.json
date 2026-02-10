@@ -1,158 +1,162 @@
 {
-    "autocomplete": {
-        "cycle_new": "Nouveau compteur dans ce flux",
-        "event_new": "Nouvel événement dans ce flux",
-        "flag_new": "Nouveau drapeau dans ce flux",
-        "label_new": "Nouvelle étiquette dans ce flux",
-        "mode_new": "Nouveau mode dans ce flux",
-        "no_repeat_new": "Nouvelle fenêtre sans répétition dans ce flux",
-        "set_new": "Nouvel ensemble dans ce flux",
-        "set_state_new": "Nouvel état d'ensemble dans ce flux, sera connu après enregistrement du flux",
-        "signal_new": "Nouveau signal dans ce flux",
-        "slider_new": "Nouveau curseur dans ce flux",
-        "timer_new": "Nouveau minuteur dans ce flux"
+  "autocomplete": {
+    "cycle_new": "Nouveau compteur dans ce flux",
+    "event_new": "Nouvel événement dans ce flux",
+    "flag_new": "Nouveau drapeau dans ce flux",
+    "label_new": "Nouvelle étiquette dans ce flux",
+    "mode_new": "Nouveau mode dans ce flux",
+    "no_repeat_new": "Nouvelle fenêtre sans répétition dans ce flux",
+    "set_new": "Nouvel ensemble dans ce flux",
+    "set_state_new": "Nouvel état d'ensemble dans ce flux, sera connu après enregistrement du flux",
+    "signal_new": "Nouveau signal dans ce flux",
+    "slider_new": "Nouveau curseur dans ce flux",
+    "timer_new": "Nouveau minuteur dans ce flux"
+  },
+  "notification": {
+    "mode_activated": "**__name__** est activé.",
+    "mode_deactivated": "**__name__** est désactivé.",
+    "welcome": "Bienvenue sur **FlowBits** ! Rendez-vous sur flowbits.nl pour en savoir plus sur ce que vous pouvez faire avec FlowBits."
+  },
+  "token": {
+    "day_period": "Période de la journée (brut)",
+    "day_period_translated": "Période de la journée",
+    "moon_phase": "Phase de la lune (brute)",
+    "moon_phase_translated": "Phase de la lune",
+    "zodiac_sign": "Signe du zodiaque (brut)",
+    "zodiac_sign_translated": "Signe du zodiaque"
+  },
+  "day_period": {
+    "morning": "Matin",
+    "afternoon": "Après-midi",
+    "evening": "Soir",
+    "night": "Nuit"
+  },
+  "moon_phase": {
+    "new_moon": "Nouvelle lune",
+    "waxing_crescent": "Premier croissant",
+    "first_quarter": "Premier quartier",
+    "waxing_gibbous": "Lune gibbeuse croissante",
+    "full_moon": "Pleine lune",
+    "waning_gibbous": "Lune gibbeuse décroissante",
+    "last_quarter": "Dernier quartier",
+    "waning_crescent": "Dernier croissant"
+  },
+  "zodiac_sign": {
+    "aquarius": "Verseau",
+    "aries": "Bélier",
+    "cancer": "Cancer",
+    "capricorn": "Capricorne",
+    "gemini": "Gémeaux",
+    "leo": "Lion",
+    "libra": "Balance",
+    "pisces": "Poissons",
+    "sagittarius": "Sagittaire",
+    "scorpio": "Scorpion",
+    "taurus": "Taureau",
+    "virgo": "Vierge"
+  },
+  "widget": {
+    "current_mode": {
+      "label": "Mode actuel"
     },
-    "notification": {
-        "mode_activated": "**__name__** est activé.",
-        "mode_deactivated": "**__name__** est désactivé.",
-        "welcome": "Bienvenue sur **FlowBits** ! Rendez-vous sur flowbits.nl pour en savoir plus sur ce que vous pouvez faire avec FlowBits."
+    "event": {
+      "now": "Maintenant"
     },
-    "token": {
-        "day_period": "Période de la journée (brut)",
-        "day_period_translated": "Période de la journée",
-        "moon_phase": "Phase de la lune (brute)",
-        "moon_phase_translated": "Phase de la lune",
-        "zodiac_sign": "Signe du zodiaque (brut)",
-        "zodiac_sign_translated": "Signe du zodiaque"
+    "setStates": {
+      "active": "Actif",
+      "inactive": "Inactif"
     },
-    "day_period": {
-        "morning": "Matin",
-        "afternoon": "Après-midi",
-        "evening": "Soir",
-        "night": "Nuit"
+    "setStatus": {
+      "active": "Actif",
+      "full": "Complètement actif",
+      "inactive": "Aucun état actif",
+      "partially": "__active__ de __total__ états actifs"
     },
-    "moon_phase": {
-        "new_moon": "Nouvelle lune",
-        "waxing_crescent": "Premier croissant",
-        "first_quarter": "Premier quartier",
-        "waxing_gibbous": "Lune gibbeuse croissante",
-        "full_moon": "Pleine lune",
-        "waning_gibbous": "Lune gibbeuse décroissante",
-        "last_quarter": "Dernier quartier",
-        "waning_crescent": "Dernier croissant"
+    "timer": {
+      "finished": "Terminé",
+      "paused": "En pause",
+      "stopped": "Arrêté"
     },
-    "zodiac_sign": {
-        "aquarius": "Verseau",
-        "aries": "Bélier",
-        "cancer": "Cancer",
-        "capricorn": "Capricorne",
-        "gemini": "Gémeaux",
-        "leo": "Lion",
-        "libra": "Balance",
-        "pisces": "Poissons",
-        "sagittarius": "Sagittaire",
-        "scorpio": "Scorpion",
-        "taurus": "Taureau",
-        "virgo": "Vierge"
-    },
-    "widget": {
-        "current_mode": {
-            "label": "Mode actuel"
-        },
-        "event": {
-            "now": "Maintenant"
-        },
-        "setStates": {
-            "active": "Actif",
-            "inactive": "Inactif"
-        },
-        "setStatus": {
-            "active": "Actif",
-            "full": "Complètement actif",
-            "inactive": "Aucun état actif",
-            "partially": "__active__ de __total__ états actifs"
-        },
-        "timer": {
-            "finished": "Terminé",
-            "paused": "En pause",
-            "stopped": "Arrêté"
-        }
-    },
-    "settings": {
-        "title": "Paramètres",
-        "subtitle": "Configurez FlowBits selon vos préférences.",
-        "close": "Fermer",
-        "save": "Enregistrer",
-        "search": "Rechercher",
-        "edit": {
-            "color": "Couleur",
-            "icon": "Icône"
-        },
-        "events": {
-            "title": "Événements",
-            "description": "Les événements enregistrent quand quelque chose se produit et conservent un historique d'horodatages. Utilisez les actions, conditions et déclencheurs d'événements dans vos flux pour suivre les occurrences et vérifier à quelle fréquence ou quand les événements se sont produits.",
-            "empty": "Aucun événement n'a encore été créé."
-        },
-        "flags": {
-            "title": "Drapeaux",
-            "description": "Plusieurs drapeaux peuvent être actifs simultanément. Créez et gérez-les via les actions, conditions et déclencheurs dans vos flows.",
-            "empty": "Aucun drapeau n’a encore été créé."
-        },
-        "labels": {
-            "title": "Étiquettes",
-            "description": "Les étiquettes stockent des paires clé-valeur à utiliser dans vos flux. Utilisez les actions, conditions et déclencheurs d'étiquettes pour définir, obtenir et vérifier des valeurs dynamiquement.",
-            "empty": "Aucune étiquette n'a encore été créée."
-        },
-        "modes": {
-            "title": "Modes",
-            "description": "Un seul mode peut être actif à la fois. Créez et gérez les modes via les actions, conditions et déclencheurs dans vos flows.",
-            "empty": "Aucun mode n’a encore été créé."
-        },
-        "sets": {
-            "title": "Sets",
-            "description": "Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
-            "empty": "Aucun set n’a encore été créé."
-        },
-        "timers": {
-            "title": "Minuteries",
-            "description": "Les minuteries effectuent un compte à rebours à partir d'une durée spécifiée et peuvent être démarrées, mises en pause, arrêtées et réinitialisées. Utilisez les actions, conditions et déclencheurs de minuterie dans vos flux pour gérer les comptes à rebours et réagir lorsque les minuteries se terminent.",
-            "empty": "Aucune minuterie n'a encore été créée."
-        },
-        "statistics": {
-            "title": "Statistiques",
-            "description": "Voici les statistiques des fonctionnalités de FlowBits. Elles sont basées sur vos flux.",
-            "cycles": "Cycles",
-            "events": "Événements",
-            "flags": "Drapeaux",
-            "labels": "Étiquettes",
-            "modes": "Modes",
-            "no_repeats": "Fenêtres sans répétition",
-            "sets": "Sets",
-            "sliders": "Curseurs",
-            "timers": "Minuteries"
-        },
-        "card_statistics": {
-            "title": "Statistiques des cartes de flux",
-            "description": "Voici les statistiques d'utilisation des cartes de flux individuelles."
-        }
-    },
-    "color": {
-        "red": "Rouge",
-        "orange": "Orange",
-        "amber": "Ambre",
-        "yellow": "Jaune",
-        "lime": "Citron vert",
-        "green": "Vert",
-        "emerald": "Émeraude",
-        "teal": "Sarcelle",
-        "cyan": "Cyan",
-        "sky": "Bleu ciel",
-        "blue": "Bleu",
-        "indigo": "Indigo",
-        "violet": "Violet",
-        "purple": "Pourpre",
-        "fuchsia": "Fuchsia",
-        "pink": "Rose",
-        "rose": "Rose pâle"
+    "no_repeat_window": {
+      "now": "À l'instant",
+      "never": "Jamais déclenché"
     }
+  },
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Configurez FlowBits selon vos préférences.",
+    "close": "Fermer",
+    "save": "Enregistrer",
+    "search": "Rechercher",
+    "edit": {
+      "color": "Couleur",
+      "icon": "Icône"
+    },
+    "events": {
+      "title": "Événements",
+      "description": "Les événements enregistrent quand quelque chose se produit et conservent un historique d'horodatages. Utilisez les actions, conditions et déclencheurs d'événements dans vos flux pour suivre les occurrences et vérifier à quelle fréquence ou quand les événements se sont produits.",
+      "empty": "Aucun événement n'a encore été créé."
+    },
+    "flags": {
+      "title": "Drapeaux",
+      "description": "Plusieurs drapeaux peuvent être actifs simultanément. Créez et gérez-les via les actions, conditions et déclencheurs dans vos flows.",
+      "empty": "Aucun drapeau n’a encore été créé."
+    },
+    "labels": {
+      "title": "Étiquettes",
+      "description": "Les étiquettes stockent des paires clé-valeur à utiliser dans vos flux. Utilisez les actions, conditions et déclencheurs d'étiquettes pour définir, obtenir et vérifier des valeurs dynamiquement.",
+      "empty": "Aucune étiquette n'a encore été créée."
+    },
+    "modes": {
+      "title": "Modes",
+      "description": "Un seul mode peut être actif à la fois. Créez et gérez les modes via les actions, conditions et déclencheurs dans vos flows.",
+      "empty": "Aucun mode n’a encore été créé."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
+      "empty": "Aucun set n’a encore été créé."
+    },
+    "timers": {
+      "title": "Minuteries",
+      "description": "Les minuteries effectuent un compte à rebours à partir d'une durée spécifiée et peuvent être démarrées, mises en pause, arrêtées et réinitialisées. Utilisez les actions, conditions et déclencheurs de minuterie dans vos flux pour gérer les comptes à rebours et réagir lorsque les minuteries se terminent.",
+      "empty": "Aucune minuterie n'a encore été créée."
+    },
+    "statistics": {
+      "title": "Statistiques",
+      "description": "Voici les statistiques des fonctionnalités de FlowBits. Elles sont basées sur vos flux.",
+      "cycles": "Cycles",
+      "events": "Événements",
+      "flags": "Drapeaux",
+      "labels": "Étiquettes",
+      "modes": "Modes",
+      "no_repeats": "Fenêtres sans répétition",
+      "sets": "Sets",
+      "sliders": "Curseurs",
+      "timers": "Minuteries"
+    },
+    "card_statistics": {
+      "title": "Statistiques des cartes de flux",
+      "description": "Voici les statistiques d'utilisation des cartes de flux individuelles."
+    }
+  },
+  "color": {
+    "red": "Rouge",
+    "orange": "Orange",
+    "amber": "Ambre",
+    "yellow": "Jaune",
+    "lime": "Citron vert",
+    "green": "Vert",
+    "emerald": "Émeraude",
+    "teal": "Sarcelle",
+    "cyan": "Cyan",
+    "sky": "Bleu ciel",
+    "blue": "Bleu",
+    "indigo": "Indigo",
+    "violet": "Violet",
+    "purple": "Pourpre",
+    "fuchsia": "Fuchsia",
+    "pink": "Rose",
+    "rose": "Rose pâle"
+  }
 }

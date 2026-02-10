@@ -1,158 +1,162 @@
 {
-    "autocomplete": {
-        "cycle_new": "Nieuwe teller in deze flow",
-        "event_new": "Nieuwe gebeurtenis in deze flow",
-        "flag_new": "Nieuwe flag in deze flow",
-        "label_new": "Nieuwe label in deze flow",
-        "mode_new": "Nieuwe stand in deze flow",
-        "no_repeat_new": "Nieuwe geen-herhalingvenster in deze flow",
-        "set_new": "Nieuwe set in deze flow",
-        "set_state_new": "Nieuwe set-stand in deze flow, wordt na opslaan van de flow bekend",
-        "signal_new": "Nieuw signaal in deze flow",
-        "slider_new": "Nieuwe slider in deze flow",
-        "timer_new": "Nieuwe timer in deze flow"
+  "autocomplete": {
+    "cycle_new": "Nieuwe teller in deze flow",
+    "event_new": "Nieuwe gebeurtenis in deze flow",
+    "flag_new": "Nieuwe flag in deze flow",
+    "label_new": "Nieuwe label in deze flow",
+    "mode_new": "Nieuwe stand in deze flow",
+    "no_repeat_new": "Nieuwe geen-herhalingvenster in deze flow",
+    "set_new": "Nieuwe set in deze flow",
+    "set_state_new": "Nieuwe set-stand in deze flow, wordt na opslaan van de flow bekend",
+    "signal_new": "Nieuw signaal in deze flow",
+    "slider_new": "Nieuwe slider in deze flow",
+    "timer_new": "Nieuwe timer in deze flow"
+  },
+  "notification": {
+    "mode_activated": "**__name__** is geactiveerd.",
+    "mode_deactivated": "**__name__** is gedeactiveerd.",
+    "welcome": "Welkom bij **FlowBits**! Ga naar flowbits.nl om meer te weten te komen over wat je kan doen met FlowBits."
+  },
+  "token": {
+    "day_period": "Dagperiode (ruw)",
+    "day_period_translated": "Dagperiode",
+    "moon_phase": "Maanfase (ruw)",
+    "moon_phase_translated": "Maanfase",
+    "zodiac_sign": "Sterrenbeeld (ruw)",
+    "zodiac_sign_translated": "Sterrenbeeld"
+  },
+  "day_period": {
+    "afternoon": "Middag",
+    "evening": "Avond",
+    "morning": "Ochtend",
+    "night": "Nacht"
+  },
+  "moon_phase": {
+    "new_moon": "Nieuwe maan",
+    "waxing_crescent": "Wassende maan (sikkel)",
+    "first_quarter": "Eerste kwartier",
+    "waxing_gibbous": "Wassende maan",
+    "full_moon": "Volle maan",
+    "waning_gibbous": "Afnemende maan",
+    "last_quarter": "Laatste kwartier",
+    "waning_crescent": "Afnemende maan (sikkel)"
+  },
+  "zodiac_sign": {
+    "aquarius": "Waterman",
+    "aries": "Ram",
+    "cancer": "Kreeft",
+    "capricorn": "Steenbok",
+    "gemini": "Tweelingen",
+    "leo": "Leeuw",
+    "libra": "Weegschaal",
+    "pisces": "Vissen",
+    "sagittarius": "Boogschutter",
+    "scorpio": "Schorpioen",
+    "taurus": "Stier",
+    "virgo": "Maagd"
+  },
+  "widget": {
+    "current_mode": {
+      "label": "Huidige stand"
     },
-    "notification": {
-        "mode_activated": "**__name__** is geactiveerd.",
-        "mode_deactivated": "**__name__** is gedeactiveerd.",
-        "welcome": "Welkom bij **FlowBits**! Ga naar flowbits.nl om meer te weten te komen over wat je kan doen met FlowBits."
+    "event": {
+      "now": "Nu"
     },
-    "token": {
-        "day_period": "Dagperiode (ruw)",
-        "day_period_translated": "Dagperiode",
-        "moon_phase": "Maanfase (ruw)",
-        "moon_phase_translated": "Maanfase",
-        "zodiac_sign": "Sterrenbeeld (ruw)",
-        "zodiac_sign_translated": "Sterrenbeeld"
+    "setStates": {
+      "active": "Actief",
+      "inactive": "Inactief"
     },
-    "day_period": {
-        "afternoon": "Middag",
-        "evening": "Avond",
-        "morning": "Ochtend",
-        "night": "Nacht"
+    "setStatus": {
+      "active": "Actief",
+      "full": "Volledig actief",
+      "inactive": "Geen enkele status actief",
+      "partially": "__active__ van __total__ statussen actief"
     },
-    "moon_phase": {
-        "new_moon": "Nieuwe maan",
-        "waxing_crescent": "Wassende maan (sikkel)",
-        "first_quarter": "Eerste kwartier",
-        "waxing_gibbous": "Wassende maan",
-        "full_moon": "Volle maan",
-        "waning_gibbous": "Afnemende maan",
-        "last_quarter": "Laatste kwartier",
-        "waning_crescent": "Afnemende maan (sikkel)"
+    "timer": {
+      "finished": "Afgelopen",
+      "paused": "Gepauzeerd",
+      "stopped": "Gestopt"
     },
-    "zodiac_sign": {
-        "aquarius": "Waterman",
-        "aries": "Ram",
-        "cancer": "Kreeft",
-        "capricorn": "Steenbok",
-        "gemini": "Tweelingen",
-        "leo": "Leeuw",
-        "libra": "Weegschaal",
-        "pisces": "Vissen",
-        "sagittarius": "Boogschutter",
-        "scorpio": "Schorpioen",
-        "taurus": "Stier",
-        "virgo": "Maagd"
-    },
-    "widget": {
-        "current_mode": {
-            "label": "Huidige stand"
-        },
-        "event": {
-            "now": "Nu"
-        },
-        "setStates": {
-            "active": "Actief",
-            "inactive": "Inactief"
-        },
-        "setStatus": {
-            "active": "Actief",
-            "full": "Volledig actief",
-            "inactive": "Geen enkele status actief",
-            "partially": "__active__ van __total__ statussen actief"
-        },
-        "timer": {
-            "finished": "Afgelopen",
-            "paused": "Gepauzeerd",
-            "stopped": "Gestopt"
-        }
-    },
-    "settings": {
-        "title": "Instellingen",
-        "subtitle": "Stel FlowBits in zoals jij dat wilt.",
-        "close": "Sluiten",
-        "save": "Opslaan",
-        "search": "Zoeken",
-        "edit": {
-            "color": "Kleur",
-            "icon": "Icoon"
-        },
-        "events": {
-            "title": "Gebeurtenissen",
-            "description": "Gebeurtenissen houden bij wanneer iets gebeurt en bewaren een geschiedenis van tijdstempels. Gebruik gebeurtenis-acties, -voorwaarden en -triggers in je flows om voorvallen bij te houden en te controleren hoe vaak of wanneer gebeurtenissen plaatsvonden.",
-            "empty": "Er zijn nog geen gebeurtenissen aangemaakt."
-        },
-        "flags": {
-            "title": "Flags",
-            "description": "Meerdere flags kunnen tegelijk actief zijn. Maak en beheer flags via flag-acties, -voorwaarden en -triggers in je flows.",
-            "empty": "Er zijn nog geen flags aangemaakt."
-        },
-        "labels": {
-            "title": "Labels",
-            "description": "Labels slaan sleutel-waardeparen op voor gebruik in je flows. Gebruik label-acties, -voorwaarden en -triggers om waarden dynamisch in te stellen, op te halen en te controleren.",
-            "empty": "Er zijn nog geen labels aangemaakt."
-        },
-        "modes": {
-            "title": "Standen",
-            "description": "Er kan maar één stand tegelijk actief zijn. Maak en beheer standen via stand-acties, -voorwaarden en -triggers in je flows.",
-            "empty": "Er zijn nog geen standen aangemaakt."
-        },
-        "sets": {
-            "title": "Sets",
-            "description": "Sets zijn verzamelingen van booleaanse statussen die als groep kunnen worden geëvalueerd. Een set is actief wanneer een van zijn statussen actief is. Gebruik set-acties, -voorwaarden en -triggers in je flows om groepen statussen te beheren.",
-            "empty": "Er zijn nog geen sets aangemaakt."
-        },
-        "timers": {
-            "title": "Timers",
-            "description": "Timers tellen af vanaf een opgegeven duur en kunnen worden gestart, gepauzeerd, gestopt en gereset. Gebruik timer-acties, -voorwaarden en -triggers in je flows om afteltijden te beheren en te reageren wanneer timers aflopen.",
-            "empty": "Er zijn nog geen timers aangemaakt."
-        },
-        "statistics": {
-            "title": "Statistieken",
-            "description": "Dit zijn functiestatistieken voor FlowBits. Ze zijn gebaseerd op je flows.",
-            "cycles": "Stappenreeksen",
-            "events": "Gebeurtenissen",
-            "flags": "Flags",
-            "labels": "Labels",
-            "modes": "Standen",
-            "no_repeats": "Geen-herhalingsvensters",
-            "sets": "Sets",
-            "sliders": "Sliders",
-            "timers": "Timers"
-        },
-        "card_statistics": {
-            "title": "Flowkaartstatistieken",
-            "description": "Dit zijn gebruiksstatistieken voor afzonderlijke flowkaarten."
-        }
-    },
-    "color": {
-        "red": "Rood",
-        "orange": "Oranje",
-        "amber": "Amber",
-        "yellow": "Geel",
-        "lime": "Limoen",
-        "green": "Groen",
-        "emerald": "Smaragd",
-        "teal": "Teal",
-        "cyan": "Cyaan",
-        "sky": "Hemelsblauw",
-        "blue": "Blauw",
-        "indigo": "Indigo",
-        "violet": "Violet",
-        "purple": "Paars",
-        "fuchsia": "Fuchsia",
-        "pink": "Roze",
-        "rose": "Roze (licht)"
+    "no_repeat_window": {
+      "now": "Zojuist",
+      "never": "Nooit getriggerd"
     }
+  },
+  "settings": {
+    "title": "Instellingen",
+    "subtitle": "Stel FlowBits in zoals jij dat wilt.",
+    "close": "Sluiten",
+    "save": "Opslaan",
+    "search": "Zoeken",
+    "edit": {
+      "color": "Kleur",
+      "icon": "Icoon"
+    },
+    "events": {
+      "title": "Gebeurtenissen",
+      "description": "Gebeurtenissen houden bij wanneer iets gebeurt en bewaren een geschiedenis van tijdstempels. Gebruik gebeurtenis-acties, -voorwaarden en -triggers in je flows om voorvallen bij te houden en te controleren hoe vaak of wanneer gebeurtenissen plaatsvonden.",
+      "empty": "Er zijn nog geen gebeurtenissen aangemaakt."
+    },
+    "flags": {
+      "title": "Flags",
+      "description": "Meerdere flags kunnen tegelijk actief zijn. Maak en beheer flags via flag-acties, -voorwaarden en -triggers in je flows.",
+      "empty": "Er zijn nog geen flags aangemaakt."
+    },
+    "labels": {
+      "title": "Labels",
+      "description": "Labels slaan sleutel-waardeparen op voor gebruik in je flows. Gebruik label-acties, -voorwaarden en -triggers om waarden dynamisch in te stellen, op te halen en te controleren.",
+      "empty": "Er zijn nog geen labels aangemaakt."
+    },
+    "modes": {
+      "title": "Standen",
+      "description": "Er kan maar één stand tegelijk actief zijn. Maak en beheer standen via stand-acties, -voorwaarden en -triggers in je flows.",
+      "empty": "Er zijn nog geen standen aangemaakt."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Sets zijn verzamelingen van booleaanse statussen die als groep kunnen worden geëvalueerd. Een set is actief wanneer een van zijn statussen actief is. Gebruik set-acties, -voorwaarden en -triggers in je flows om groepen statussen te beheren.",
+      "empty": "Er zijn nog geen sets aangemaakt."
+    },
+    "timers": {
+      "title": "Timers",
+      "description": "Timers tellen af vanaf een opgegeven duur en kunnen worden gestart, gepauzeerd, gestopt en gereset. Gebruik timer-acties, -voorwaarden en -triggers in je flows om afteltijden te beheren en te reageren wanneer timers aflopen.",
+      "empty": "Er zijn nog geen timers aangemaakt."
+    },
+    "statistics": {
+      "title": "Statistieken",
+      "description": "Dit zijn functiestatistieken voor FlowBits. Ze zijn gebaseerd op je flows.",
+      "cycles": "Stappenreeksen",
+      "events": "Gebeurtenissen",
+      "flags": "Flags",
+      "labels": "Labels",
+      "modes": "Standen",
+      "no_repeats": "Geen-herhalingsvensters",
+      "sets": "Sets",
+      "sliders": "Sliders",
+      "timers": "Timers"
+    },
+    "card_statistics": {
+      "title": "Flowkaartstatistieken",
+      "description": "Dit zijn gebruiksstatistieken voor afzonderlijke flowkaarten."
+    }
+  },
+  "color": {
+    "red": "Rood",
+    "orange": "Oranje",
+    "amber": "Amber",
+    "yellow": "Geel",
+    "lime": "Limoen",
+    "green": "Groen",
+    "emerald": "Smaragd",
+    "teal": "Teal",
+    "cyan": "Cyaan",
+    "sky": "Hemelsblauw",
+    "blue": "Blauw",
+    "indigo": "Indigo",
+    "violet": "Violet",
+    "purple": "Paars",
+    "fuchsia": "Fuchsia",
+    "pink": "Roze",
+    "rose": "Roze (licht)"
+  }
 }

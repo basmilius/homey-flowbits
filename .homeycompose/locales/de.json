@@ -1,158 +1,162 @@
 {
-    "autocomplete": {
-        "cycle_new": "Neuer Zähler in diesem Flow",
-        "event_new": "Neues Ereignis in diesem Flow",
-        "flag_new": "Neue Flagge in diesem Flow",
-        "label_new": "Neues Etikett in diesem Flow",
-        "mode_new": "Neuer Modus in diesem Flow",
-        "no_repeat_new": "Neues No-Repeat-Fenster in diesem Flow",
-        "set_new": "Neues Set in diesem Flow",
-        "set_state_new": "Neue Set-Status in diesem Flow, wird nach dem Speichern des Flows bekannt",
-        "signal_new": "Neues Signal in diesem Flow",
-        "slider_new": "Neuer Slider in diesem Flow",
-        "timer_new": "Neuer Timer in diesem Flow"
+  "autocomplete": {
+    "cycle_new": "Neuer Zähler in diesem Flow",
+    "event_new": "Neues Ereignis in diesem Flow",
+    "flag_new": "Neue Flagge in diesem Flow",
+    "label_new": "Neues Etikett in diesem Flow",
+    "mode_new": "Neuer Modus in diesem Flow",
+    "no_repeat_new": "Neues No-Repeat-Fenster in diesem Flow",
+    "set_new": "Neues Set in diesem Flow",
+    "set_state_new": "Neue Set-Status in diesem Flow, wird nach dem Speichern des Flows bekannt",
+    "signal_new": "Neues Signal in diesem Flow",
+    "slider_new": "Neuer Slider in diesem Flow",
+    "timer_new": "Neuer Timer in diesem Flow"
+  },
+  "notification": {
+    "mode_activated": "**__name__** ist aktiviert.",
+    "mode_deactivated": "**__name__** ist deaktiviert.",
+    "welcome": "Willkommen bei **FlowBits**! Besuchen Sie flowbits.nl, um mehr darüber zu erfahren, was Sie mit FlowBits tun können."
+  },
+  "token": {
+    "day_period": "Tageszeit (roh)",
+    "day_period_translated": "Tageszeit",
+    "moon_phase": "Mondphase (roh)",
+    "moon_phase_translated": "Mondphase",
+    "zodiac_sign": "Sternzeichen (roh)",
+    "zodiac_sign_translated": "Sternzeichen"
+  },
+  "day_period": {
+    "morning": "Morgen",
+    "afternoon": "Nachmittag",
+    "evening": "Abend",
+    "night": "Nacht"
+  },
+  "moon_phase": {
+    "new_moon": "Neumond",
+    "waxing_crescent": "Zunehmende Mondsichel",
+    "first_quarter": "Erstes Viertel",
+    "waxing_gibbous": "Zunehmender Mond",
+    "full_moon": "Vollmond",
+    "waning_gibbous": "Abnehmender Mond",
+    "last_quarter": "Letztes Viertel",
+    "waning_crescent": "Abnehmende Mondsichel"
+  },
+  "zodiac_sign": {
+    "aquarius": "Wassermann",
+    "aries": "Widder",
+    "cancer": "Krebs",
+    "capricorn": "Steinbock",
+    "gemini": "Zwillinge",
+    "leo": "Löwe",
+    "libra": "Waage",
+    "pisces": "Fische",
+    "sagittarius": "Schütze",
+    "scorpio": "Skorpion",
+    "taurus": "Stier",
+    "virgo": "Jungfrau"
+  },
+  "widget": {
+    "current_mode": {
+      "label": "Aktueller Modus"
     },
-    "notification": {
-        "mode_activated": "**__name__** ist aktiviert.",
-        "mode_deactivated": "**__name__** ist deaktiviert.",
-        "welcome": "Willkommen bei **FlowBits**! Besuchen Sie flowbits.nl, um mehr darüber zu erfahren, was Sie mit FlowBits tun können."
+    "event": {
+      "now": "Jetzt"
     },
-    "token": {
-        "day_period": "Tageszeit (roh)",
-        "day_period_translated": "Tageszeit",
-        "moon_phase": "Mondphase (roh)",
-        "moon_phase_translated": "Mondphase",
-        "zodiac_sign": "Sternzeichen (roh)",
-        "zodiac_sign_translated": "Sternzeichen"
+    "setStates": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
     },
-    "day_period": {
-        "morning": "Morgen",
-        "afternoon": "Nachmittag",
-        "evening": "Abend",
-        "night": "Nacht"
+    "setStatus": {
+      "active": "Aktiv",
+      "full": "Vollständig aktiv",
+      "inactive": "Keine Zustände aktiv",
+      "partially": "__active__ von __total__ Zuständen aktiv"
     },
-    "moon_phase": {
-        "new_moon": "Neumond",
-        "waxing_crescent": "Zunehmende Mondsichel",
-        "first_quarter": "Erstes Viertel",
-        "waxing_gibbous": "Zunehmender Mond",
-        "full_moon": "Vollmond",
-        "waning_gibbous": "Abnehmender Mond",
-        "last_quarter": "Letztes Viertel",
-        "waning_crescent": "Abnehmende Mondsichel"
+    "timer": {
+      "finished": "Beendet",
+      "paused": "Pausiert",
+      "stopped": "Gestoppt"
     },
-    "zodiac_sign": {
-        "aquarius": "Wassermann",
-        "aries": "Widder",
-        "cancer": "Krebs",
-        "capricorn": "Steinbock",
-        "gemini": "Zwillinge",
-        "leo": "Löwe",
-        "libra": "Waage",
-        "pisces": "Fische",
-        "sagittarius": "Schütze",
-        "scorpio": "Skorpion",
-        "taurus": "Stier",
-        "virgo": "Jungfrau"
-    },
-    "widget": {
-        "current_mode": {
-            "label": "Aktueller Modus"
-        },
-        "event": {
-            "now": "Jetzt"
-        },
-        "setStates": {
-            "active": "Aktiv",
-            "inactive": "Inaktiv"
-        },
-        "setStatus": {
-            "active": "Aktiv",
-            "full": "Vollständig aktiv",
-            "inactive": "Keine Zustände aktiv",
-            "partially": "__active__ von __total__ Zuständen aktiv"
-        },
-        "timer": {
-            "finished": "Beendet",
-            "paused": "Pausiert",
-            "stopped": "Gestoppt"
-        }
-    },
-    "settings": {
-        "title": "Einstellungen",
-        "subtitle": "Konfigurieren Sie FlowBits nach Ihren Wünschen.",
-        "close": "Schließen",
-        "save": "Speichern",
-        "search": "Suchen",
-        "edit": {
-            "color": "Farbe",
-            "icon": "Symbol"
-        },
-        "events": {
-            "title": "Ereignisse",
-            "description": "Ereignisse verfolgen, wann etwas passiert, und speichern einen Verlauf von Zeitstempeln. Verwenden Sie Ereignis-Aktionen, Bedingungen und Trigger in Ihren Flows, um Vorkommen zu verfolgen und zu überprüfen, wie oft oder wann Ereignisse stattgefunden haben.",
-            "empty": "Es wurden noch keine Ereignisse erstellt."
-        },
-        "flags": {
-            "title": "Flags",
-            "description": "Mehrere Flags können gleichzeitig aktiv sein. Erstellen und verwalten Sie Flags mithilfe von Aktionen, Bedingungen und Triggern in Ihren Flows.",
-            "empty": "Es wurden noch keine Flags erstellt."
-        },
-        "labels": {
-            "title": "Etiketten",
-            "description": "Etiketten speichern Schlüssel-Wert-Paare zur Verwendung in Ihren Flows. Verwenden Sie Label-Aktionen, Bedingungen und Trigger, um Werte dynamisch zu setzen, abzurufen und zu überprüfen.",
-            "empty": "Es wurden noch keine Etiketten erstellt."
-        },
-        "modes": {
-            "title": "Modi",
-            "description": "Es kann immer nur ein Modus aktiv sein. Erstellen und verwalten Sie Modi mithilfe von Aktionen, Bedingungen und Triggern in Ihren Flows.",
-            "empty": "Es wurden noch keine Modi erstellt."
-        },
-        "sets": {
-            "title": "Sets",
-            "description": "Sets sind Sammlungen von booleschen Zuständen, die als Gruppe ausgewertet werden können. Ein Set ist aktiv, wenn einer seiner Zustände aktiv ist. Verwenden Sie Set-Aktionen, Bedingungen und Trigger in Ihren Flows, um gruppierte Zustände zu verwalten.",
-            "empty": "Es wurden noch keine Sets erstellt."
-        },
-        "timers": {
-            "title": "Timer",
-            "description": "Timer zählen von einer bestimmten Dauer herunter und können gestartet, pausiert, gestoppt und zurückgesetzt werden. Verwenden Sie Timer-Aktionen, Bedingungen und Trigger in Ihren Flows, um Countdowns zu verwalten und zu reagieren, wenn Timer ablaufen.",
-            "empty": "Es wurden noch keine Timer erstellt."
-        },
-        "statistics": {
-            "title": "Statistiken",
-            "description": "Dies sind Funktionsstatistiken für FlowBits. Sie basieren auf deinen Flows.",
-            "cycles": "Zyklen",
-            "events": "Ereignisse",
-            "flags": "Flags",
-            "labels": "Etiketten",
-            "modes": "Modi",
-            "no_repeats": "Nicht-wiederholen-Fenster",
-            "sets": "Sets",
-            "sliders": "Schieberegler",
-            "timers": "Timer"
-        },
-        "card_statistics": {
-            "title": "Flowkarten-Statistiken",
-            "description": "Dies sind Nutzungsstatistiken für einzelne Flowkarten."
-        }
-    },
-    "color": {
-        "red": "Rot",
-        "orange": "Orange",
-        "amber": "Bernstein",
-        "yellow": "Gelb",
-        "lime": "Limette",
-        "green": "Grün",
-        "emerald": "Smaragd",
-        "teal": "Blaugrün",
-        "cyan": "Cyan",
-        "sky": "Himmelblau",
-        "blue": "Blau",
-        "indigo": "Indigo",
-        "violet": "Violett",
-        "purple": "Lila",
-        "fuchsia": "Fuchsie",
-        "pink": "Rosa",
-        "rose": "Rosé"
+    "no_repeat_window": {
+      "now": "Gerade jetzt",
+      "never": "Nie ausgelöst"
     }
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "subtitle": "Konfigurieren Sie FlowBits nach Ihren Wünschen.",
+    "close": "Schließen",
+    "save": "Speichern",
+    "search": "Suchen",
+    "edit": {
+      "color": "Farbe",
+      "icon": "Symbol"
+    },
+    "events": {
+      "title": "Ereignisse",
+      "description": "Ereignisse verfolgen, wann etwas passiert, und speichern einen Verlauf von Zeitstempeln. Verwenden Sie Ereignis-Aktionen, Bedingungen und Trigger in Ihren Flows, um Vorkommen zu verfolgen und zu überprüfen, wie oft oder wann Ereignisse stattgefunden haben.",
+      "empty": "Es wurden noch keine Ereignisse erstellt."
+    },
+    "flags": {
+      "title": "Flags",
+      "description": "Mehrere Flags können gleichzeitig aktiv sein. Erstellen und verwalten Sie Flags mithilfe von Aktionen, Bedingungen und Triggern in Ihren Flows.",
+      "empty": "Es wurden noch keine Flags erstellt."
+    },
+    "labels": {
+      "title": "Etiketten",
+      "description": "Etiketten speichern Schlüssel-Wert-Paare zur Verwendung in Ihren Flows. Verwenden Sie Label-Aktionen, Bedingungen und Trigger, um Werte dynamisch zu setzen, abzurufen und zu überprüfen.",
+      "empty": "Es wurden noch keine Etiketten erstellt."
+    },
+    "modes": {
+      "title": "Modi",
+      "description": "Es kann immer nur ein Modus aktiv sein. Erstellen und verwalten Sie Modi mithilfe von Aktionen, Bedingungen und Triggern in Ihren Flows.",
+      "empty": "Es wurden noch keine Modi erstellt."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Sets sind Sammlungen von booleschen Zuständen, die als Gruppe ausgewertet werden können. Ein Set ist aktiv, wenn einer seiner Zustände aktiv ist. Verwenden Sie Set-Aktionen, Bedingungen und Trigger in Ihren Flows, um gruppierte Zustände zu verwalten.",
+      "empty": "Es wurden noch keine Sets erstellt."
+    },
+    "timers": {
+      "title": "Timer",
+      "description": "Timer zählen von einer bestimmten Dauer herunter und können gestartet, pausiert, gestoppt und zurückgesetzt werden. Verwenden Sie Timer-Aktionen, Bedingungen und Trigger in Ihren Flows, um Countdowns zu verwalten und zu reagieren, wenn Timer ablaufen.",
+      "empty": "Es wurden noch keine Timer erstellt."
+    },
+    "statistics": {
+      "title": "Statistiken",
+      "description": "Dies sind Funktionsstatistiken für FlowBits. Sie basieren auf deinen Flows.",
+      "cycles": "Zyklen",
+      "events": "Ereignisse",
+      "flags": "Flags",
+      "labels": "Etiketten",
+      "modes": "Modi",
+      "no_repeats": "Nicht-wiederholen-Fenster",
+      "sets": "Sets",
+      "sliders": "Schieberegler",
+      "timers": "Timer"
+    },
+    "card_statistics": {
+      "title": "Flowkarten-Statistiken",
+      "description": "Dies sind Nutzungsstatistiken für einzelne Flowkarten."
+    }
+  },
+  "color": {
+    "red": "Rot",
+    "orange": "Orange",
+    "amber": "Bernstein",
+    "yellow": "Gelb",
+    "lime": "Limette",
+    "green": "Grün",
+    "emerald": "Smaragd",
+    "teal": "Blaugrün",
+    "cyan": "Cyan",
+    "sky": "Himmelblau",
+    "blue": "Blau",
+    "indigo": "Indigo",
+    "violet": "Violett",
+    "purple": "Lila",
+    "fuchsia": "Fuchsie",
+    "pink": "Rosa",
+    "rose": "Rosé"
+  }
 }

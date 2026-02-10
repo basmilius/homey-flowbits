@@ -1,158 +1,162 @@
 {
-    "autocomplete": {
-        "cycle_new": "Ny teller i denne flyten",
-        "event_new": "Ny hendelse i denne flyten",
-        "flag_new": "Nytt flagg i denne flyten",
-        "label_new": "Ny etikett i denne flyten",
-        "mode_new": "Ny modus i denne flyten",
-        "no_repeat_new": "Nytt ikke-repeterende vindu i denne flyten",
-        "set_new": "Ny set i denne flyten",
-        "set_state_new": "Ny set-tilstand i denne flyten...",
-        "signal_new": "Nytt signal i denne flyten",
-        "slider_new": "Ny skyver i denne flyten",
-        "timer_new": "Ny timer i denne flyten"
+  "autocomplete": {
+    "cycle_new": "Ny teller i denne flyten",
+    "event_new": "Ny hendelse i denne flyten",
+    "flag_new": "Nytt flagg i denne flyten",
+    "label_new": "Ny etikett i denne flyten",
+    "mode_new": "Ny modus i denne flyten",
+    "no_repeat_new": "Nytt ikke-repeterende vindu i denne flyten",
+    "set_new": "Ny set i denne flyten",
+    "set_state_new": "Ny set-tilstand i denne flyten...",
+    "signal_new": "Nytt signal i denne flyten",
+    "slider_new": "Ny skyver i denne flyten",
+    "timer_new": "Ny timer i denne flyten"
+  },
+  "notification": {
+    "mode_activated": "**__name__** er aktivert.",
+    "mode_deactivated": "**__name__** er deaktivert.",
+    "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for å lære mer om hva du kan gjøre med FlowBits."
+  },
+  "token": {
+    "day_period": "Dagsperiode (rå)",
+    "day_period_translated": "Dagsperiode",
+    "moon_phase": "Månefase (rå)",
+    "moon_phase_translated": "Månefase",
+    "zodiac_sign": "Stjernetegn (rå)",
+    "zodiac_sign_translated": "Stjernetegn"
+  },
+  "day_period": {
+    "morning": "Morgen",
+    "afternoon": "Ettermiddag",
+    "evening": "Kveld",
+    "night": "Natt"
+  },
+  "moon_phase": {
+    "new_moon": "Nymåne",
+    "waxing_crescent": "Tiltagende halvmåne",
+    "first_quarter": "Første kvarter",
+    "waxing_gibbous": "Tiltagende måne",
+    "full_moon": "Fullmåne",
+    "waning_gibbous": "Avtagende måne",
+    "last_quarter": "Siste kvarter",
+    "waning_crescent": "Avtagende halvmåne"
+  },
+  "zodiac_sign": {
+    "aquarius": "Vannmannen",
+    "aries": "Væren",
+    "cancer": "Krepsen",
+    "capricorn": "Steinbukken",
+    "gemini": "Tvillingene",
+    "leo": "Løven",
+    "libra": "Vekten",
+    "pisces": "Fiskene",
+    "sagittarius": "Skytten",
+    "scorpio": "Skorpionen",
+    "taurus": "Tyren",
+    "virgo": "Jomfruen"
+  },
+  "widget": {
+    "current_mode": {
+      "label": "Nåværende modus"
     },
-    "notification": {
-        "mode_activated": "**__name__** er aktivert.",
-        "mode_deactivated": "**__name__** er deaktivert.",
-        "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for å lære mer om hva du kan gjøre med FlowBits."
+    "event": {
+      "now": "Nå"
     },
-    "token": {
-        "day_period": "Dagsperiode (rå)",
-        "day_period_translated": "Dagsperiode",
-        "moon_phase": "Månefase (rå)",
-        "moon_phase_translated": "Månefase",
-        "zodiac_sign": "Stjernetegn (rå)",
-        "zodiac_sign_translated": "Stjernetegn"
+    "setStates": {
+      "active": "Aktiv",
+      "inactive": "Inaktiv"
     },
-    "day_period": {
-        "morning": "Morgen",
-        "afternoon": "Ettermiddag",
-        "evening": "Kveld",
-        "night": "Natt"
+    "setStatus": {
+      "active": "Aktiv",
+      "full": "Fullstendig aktiv",
+      "inactive": "Ingen status aktiv",
+      "partially": "__active__ av __total__ status aktiv"
     },
-    "moon_phase": {
-        "new_moon": "Nymåne",
-        "waxing_crescent": "Tiltagende halvmåne",
-        "first_quarter": "Første kvarter",
-        "waxing_gibbous": "Tiltagende måne",
-        "full_moon": "Fullmåne",
-        "waning_gibbous": "Avtagende måne",
-        "last_quarter": "Siste kvarter",
-        "waning_crescent": "Avtagende halvmåne"
+    "timer": {
+      "finished": "Fullført",
+      "paused": "Pauset",
+      "stopped": "Stoppet"
     },
-    "zodiac_sign": {
-        "aquarius": "Vannmannen",
-        "aries": "Væren",
-        "cancer": "Krepsen",
-        "capricorn": "Steinbukken",
-        "gemini": "Tvillingene",
-        "leo": "Løven",
-        "libra": "Vekten",
-        "pisces": "Fiskene",
-        "sagittarius": "Skytten",
-        "scorpio": "Skorpionen",
-        "taurus": "Tyren",
-        "virgo": "Jomfruen"
-    },
-    "widget": {
-        "current_mode": {
-            "label": "Nåværende modus"
-        },
-        "event": {
-            "now": "Nå"
-        },
-        "setStates": {
-            "active": "Aktiv",
-            "inactive": "Inaktiv"
-        },
-        "setStatus": {
-            "active": "Aktiv",
-            "full": "Fullstendig aktiv",
-            "inactive": "Ingen status aktiv",
-            "partially": "__active__ av __total__ status aktiv"
-        },
-        "timer": {
-            "finished": "Fullført",
-            "paused": "Pauset",
-            "stopped": "Stoppet"
-        }
-    },
-    "settings": {
-        "title": "Innstillinger",
-        "subtitle": "Konfigurer FlowBits slik du ønsker.",
-        "close": "Lukk",
-        "save": "Lagre",
-        "search": "Søk",
-        "edit": {
-            "color": "Farge",
-            "icon": "Ikon"
-        },
-        "events": {
-            "title": "Hendelser",
-            "description": "Hendelser sporer når noe skjer og holder en historikk over tidsstempler. Bruk hendelseshandlinger, betingelser og triggere i flytene dine for å spore forekomster og sjekke hvor ofte eller når hendelser skjedde.",
-            "empty": "Ingen hendelser har blitt opprettet enda."
-        },
-        "flags": {
-            "title": "Flagg",
-            "description": "Flere flagg kan være aktive samtidig. Opprett og administrer flagg via handlinger, betingelser og triggere i flytene dine.",
-            "empty": "Ingen flagg har blitt opprettet enda."
-        },
-        "labels": {
-            "title": "Etiketter",
-            "description": "Etiketter lagrer nøkkel-verdi-par for bruk i dine flyter. Bruk etiketthandlinger, betingelser og triggere for å sette, hente og sjekke verdier dynamisk.",
-            "empty": "Ingen etiketter har blitt opprettet enda."
-        },
-        "modes": {
-            "title": "Moduser",
-            "description": "Bare én modus kan være aktiv om gangen. Opprett og administrer moduser via handlinger, betingelser og triggere i dine flyter.",
-            "empty": "Ingen moduser har blitt opprettet enda."
-        },
-        "sets": {
-            "title": "Sets",
-            "description": "Sets er samlinger av booleske tilstander som kan bli vurdert som en gruppe. En set er aktiv når en av sine tilstander er aktiv. Bruk set-handlinger, betingelser og triggere i dine flyter for å administrere grupperte tilstander.",
-            "empty": "Ingen sets har blitt opprettet enda."
-        },
-        "timers": {
-            "title": "Tidtakere",
-            "description": "Tidtakere teller ned fra en spesifisert varighet og kan startes, settes på pause, stoppes og tilbakestilles. Bruk tidtakerhandlinger, betingelser og triggere i flytene dine for å administrere nedtellinger og reagere når tidtakere er ferdige.",
-            "empty": "Ingen tidtakere har blitt opprettet enda."
-        },
-        "statistics": {
-            "title": "Statistikk",
-            "description": "Dette er funksjonsstatistikk for FlowBits. De er basert på dine flyter.",
-            "cycles": "Sykluser",
-            "events": "Hendelser",
-            "flags": "Flagg",
-            "labels": "Etiketter",
-            "modes": "Moduser",
-            "no_repeats": "Ingen-gjentakelsesvinduer",
-            "sets": "Sets",
-            "sliders": "Glidere",
-            "timers": "Tidtakere"
-        },
-        "card_statistics": {
-            "title": "Flytkortstatistikk",
-            "description": "Dette er bruksstatistikk for individuelle flytkort."
-        }
-    },
-    "color": {
-        "red": "Rød",
-        "orange": "Oransje",
-        "amber": "Rav",
-        "yellow": "Gul",
-        "lime": "Lime",
-        "green": "Grønn",
-        "emerald": "Smaragd",
-        "teal": "Turkisgrønn",
-        "cyan": "Cyan",
-        "sky": "Himmelblå",
-        "blue": "Blå",
-        "indigo": "Indigo",
-        "violet": "Fiolett",
-        "purple": "Lilla",
-        "fuchsia": "Fuksia",
-        "pink": "Rosa",
-        "rose": "Roserosa"
+    "no_repeat_window": {
+      "now": "Akkurat nå",
+      "never": "Aldri utløst"
     }
+  },
+  "settings": {
+    "title": "Innstillinger",
+    "subtitle": "Konfigurer FlowBits slik du ønsker.",
+    "close": "Lukk",
+    "save": "Lagre",
+    "search": "Søk",
+    "edit": {
+      "color": "Farge",
+      "icon": "Ikon"
+    },
+    "events": {
+      "title": "Hendelser",
+      "description": "Hendelser sporer når noe skjer og holder en historikk over tidsstempler. Bruk hendelseshandlinger, betingelser og triggere i flytene dine for å spore forekomster og sjekke hvor ofte eller når hendelser skjedde.",
+      "empty": "Ingen hendelser har blitt opprettet enda."
+    },
+    "flags": {
+      "title": "Flagg",
+      "description": "Flere flagg kan være aktive samtidig. Opprett og administrer flagg via handlinger, betingelser og triggere i flytene dine.",
+      "empty": "Ingen flagg har blitt opprettet enda."
+    },
+    "labels": {
+      "title": "Etiketter",
+      "description": "Etiketter lagrer nøkkel-verdi-par for bruk i dine flyter. Bruk etiketthandlinger, betingelser og triggere for å sette, hente og sjekke verdier dynamisk.",
+      "empty": "Ingen etiketter har blitt opprettet enda."
+    },
+    "modes": {
+      "title": "Moduser",
+      "description": "Bare én modus kan være aktiv om gangen. Opprett og administrer moduser via handlinger, betingelser og triggere i dine flyter.",
+      "empty": "Ingen moduser har blitt opprettet enda."
+    },
+    "sets": {
+      "title": "Sets",
+      "description": "Sets er samlinger av booleske tilstander som kan bli vurdert som en gruppe. En set er aktiv når en av sine tilstander er aktiv. Bruk set-handlinger, betingelser og triggere i dine flyter for å administrere grupperte tilstander.",
+      "empty": "Ingen sets har blitt opprettet enda."
+    },
+    "timers": {
+      "title": "Tidtakere",
+      "description": "Tidtakere teller ned fra en spesifisert varighet og kan startes, settes på pause, stoppes og tilbakestilles. Bruk tidtakerhandlinger, betingelser og triggere i flytene dine for å administrere nedtellinger og reagere når tidtakere er ferdige.",
+      "empty": "Ingen tidtakere har blitt opprettet enda."
+    },
+    "statistics": {
+      "title": "Statistikk",
+      "description": "Dette er funksjonsstatistikk for FlowBits. De er basert på dine flyter.",
+      "cycles": "Sykluser",
+      "events": "Hendelser",
+      "flags": "Flagg",
+      "labels": "Etiketter",
+      "modes": "Moduser",
+      "no_repeats": "Ingen-gjentakelsesvinduer",
+      "sets": "Sets",
+      "sliders": "Glidere",
+      "timers": "Tidtakere"
+    },
+    "card_statistics": {
+      "title": "Flytkortstatistikk",
+      "description": "Dette er bruksstatistikk for individuelle flytkort."
+    }
+  },
+  "color": {
+    "red": "Rød",
+    "orange": "Oransje",
+    "amber": "Rav",
+    "yellow": "Gul",
+    "lime": "Lime",
+    "green": "Grønn",
+    "emerald": "Smaragd",
+    "teal": "Turkisgrønn",
+    "cyan": "Cyan",
+    "sky": "Himmelblå",
+    "blue": "Blå",
+    "indigo": "Indigo",
+    "violet": "Fiolett",
+    "purple": "Lilla",
+    "fuchsia": "Fuksia",
+    "pink": "Rosa",
+    "rose": "Roserosa"
+  }
 }
