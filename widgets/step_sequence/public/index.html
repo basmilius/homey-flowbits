@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <title>Step sequence</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+</head>
+
+<body class="homey-widget">
+
+<div class="step-sequence">
+    <div class="step-sequence-caption">
+        <div
+            class="step-sequence-label homey-text-small-light"
+            data-i18n="widget.step_sequence.label"></div>
+        <div
+            class="step-sequence-name homey-text-medium"
+            id="step-sequence-name">
+            &mdash;
+        </div>
+    </div>
+
+    <div
+        class="step-sequence-step homey-text-xlarge"
+        id="step-sequence-step">
+        &mdash;
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onHomeyReady(Homey) {
+        const stepSequenceName = document.getElementById('step-sequence-name');
+        const stepSequenceStep = document.getElementById('step-sequence-step');
+        let ready = false;
+
+        const settings = Homey.getSettings();
+
+        async function init() {
+            Homey.on('flowbits-cycle-update', update);
+
+            await update();
+        }
+
+        async function update() {
+            const cycle = await Homey.api('GET', `/?cycle=${encodeURIComponent(settings.cycle.name)}`);
+
+            stepSequenceName.innerText = cycle?.name ?? '—';
+            stepSequenceStep.innerText = cycle?.step ?? '—';
+
+            const height = document.body.getBoundingClientRect().height;
+
+            if (ready) {
+                await Homey.setHeight(height);
+            } else {
+                Homey.ready({height});
+                ready = true;
+            }
+        }
+
+        init();
+    }
+</script>
+
+</body>
+</html>

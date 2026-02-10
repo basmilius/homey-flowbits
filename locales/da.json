@@ -72,6 +72,9 @@
       "inactive": "Ingen tilstande aktive",
       "partially": "__active__ ud af __total__ tilstande aktive"
     },
+    "step_sequence": {
+      "label": "Trin"
+    },
     "timer": {
       "finished": "Afsluttet",
       "paused": "Sat på pause",

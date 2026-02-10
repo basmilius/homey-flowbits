@@ -72,6 +72,9 @@
       "inactive": "لا توجد حالات نشطة",
       "partially": "__active__ من __total__ حالات نشطة"
     },
+    "step_sequence": {
+      "label": "خطوة"
+    },
     "timer": {
       "finished": "منتهي",
       "paused": "متوقف مؤقتاً",

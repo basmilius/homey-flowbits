@@ -1,0 +1,45 @@
+{
+    "name": {
+        "en": "Step sequence",
+        "nl": "Stappen reeks",
+        "de": "Schrittfolge",
+        "fr": "Séquence d'étapes",
+        "it": "Sequenza di passi",
+        "sv": "Stegsekvens",
+        "no": "Trinnsekvens",
+        "es": "Secuencia de pasos",
+        "da": "Trinsekvens",
+        "ru": "Последовательность шагов",
+        "pl": "Sekwencja kroków",
+        "ko": "단계 순서",
+        "ar": "تسلسل الخطوات"
+    },
+    "height": 120,
+    "settings": [
+        {
+            "id": "cycle",
+            "type": "autocomplete",
+            "title": {
+                "en": "Step sequence",
+                "nl": "Stappen reeks",
+                "de": "Schrittfolge",
+                "fr": "Séquence d'étapes",
+                "it": "Sequenza di passi",
+                "sv": "Stegsekvens",
+                "no": "Trinnsekvens",
+                "es": "Secuencia de pasos",
+                "da": "Trinsekvens",
+                "ru": "Последовательность шагов",
+                "pl": "Sekwencja kroków",
+                "ko": "단계 순서",
+                "ar": "تسلسل الخطوات"
+            }
+        }
+    ],
+    "api": {
+        "get": {
+            "method": "GET",
+            "path": "/"
+        }
+    }
+}
