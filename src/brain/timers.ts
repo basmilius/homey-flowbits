@@ -107,14 +107,20 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     async finish(timer: StoredTimer): Promise<void> {
         // If the timer is repeating, restart it instead of finishing
         if (timer.repeating) {
-            this.log(`Repeating timer ${timer.name}, restarting for ${timer.duration} seconds.`);
-            this.#save(timer.name, timer.duration, 'seconds', 'running', true);
+            this.log(`Repeating timer ${timer.name}, restarting...`);
             
-            await Promise.allSettled([
-                this.#triggerRealtime(timer.name),
-                this.#triggerFinished(timer.name)
-            ]);
+            // For random repeating timers, generate a new random duration
+            let newDuration = timer.duration;
+            if (timer.randomBounds) {
+                newDuration = this.#getRandomDuration(timer.randomBounds.min, timer.randomBounds.max);
+                this.log(`New random duration: ${newDuration} seconds.`);
+            } else {
+                this.log(`Using fixed duration: ${newDuration} seconds.`);
+            }
             
+            this.#save(timer.name, newDuration, 'seconds', 'running', true, timer.randomBounds);
+            
+            await this.#triggerRealtime(timer.name);
             await this.#schedule();
             return;
         }
@@ -138,7 +144,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const now = DateTime.now();
         const target = DateTime.fromSeconds(timer.target);
 
-        this.#update(timer.name, timer.duration, target.diff(now).as('seconds'), timer.target, 'paused', timer.repeating);
+        this.#update(timer.name, timer.duration, target.diff(now).as('seconds'), timer.target, 'paused', timer.repeating, timer.randomBounds);
         this.log(`Pause timer ${timer.name}.`);
 
         await this.#schedule();
@@ -158,7 +164,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const now = DateTime.now();
         const target = now.plus({seconds: timer.remaining});
 
-        this.#update(timer.name, timer.duration, timer.remaining, target.toSeconds(), 'running', timer.repeating);
+        this.#update(timer.name, timer.duration, timer.remaining, target.toSeconds(), 'running', timer.repeating, timer.randomBounds);
         this.log(`Resume timer ${timer.name}.`);
 
         await this.#schedule();
@@ -175,7 +181,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             return;
         }
 
-        this.#save(name, duration, unit, timer.status, timer.repeating);
+        this.#save(name, duration, unit, timer.status, timer.repeating, timer.randomBounds);
         await this.#schedule();
 
         this.log(`Set timer ${timer.name} to ${duration} ${unit}.`);
@@ -192,7 +198,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const maxSeconds = convertDurationToSeconds(duration2, unit2);
         const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
 
-        this.#save(name, randomSeconds, 'seconds', timer.status, timer.repeating);
+        this.#save(name, randomSeconds, 'seconds', timer.status, timer.repeating, timer.randomBounds);
         await this.#schedule();
 
         this.log(`Set timer ${timer.name} to random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomSeconds} seconds).`);
@@ -243,7 +249,9 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const maxSeconds = convertDurationToSeconds(duration2, unit2);
         const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
 
-        this.#save(name, randomSeconds, 'seconds', 'running', true);
+        // Store the min/max bounds so we can generate new random values on each restart
+        const randomBounds = { min: minSeconds, max: maxSeconds };
+        this.#save(name, randomSeconds, 'seconds', 'running', true, randomBounds);
         await this.#schedule();
 
         this.log(`Start repeating timer ${name} for random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomSeconds} seconds).`);
@@ -385,7 +393,8 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
                 remaining: timer.remaining,
                 target: timer.target,
                 status: timer.status,
-                repeating: timer.repeating ?? false
+                repeating: timer.repeating ?? false,
+                randomBounds: timer.randomBounds
             });
         }
 
@@ -397,12 +406,12 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         delete this.#timers[id];
     }
 
-    #save(name: string, duration: number, unit: ClockUnit, status: ClockState, repeating?: boolean): void {
+    #save(name: string, duration: number, unit: ClockUnit, status: ClockState, repeating?: boolean, randomBounds?: { min: number, max: number }): void {
         const now = DateTime.now().toSeconds();
         const remaining = convertDurationToSeconds(duration, unit);
         const target = now + remaining + 1;
 
-        this.#update(name, remaining, remaining, target, status, repeating);
+        this.#update(name, remaining, remaining, target, status, repeating, randomBounds);
     }
 
     async #schedule(): Promise<void> {
@@ -461,7 +470,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         }
     }
 
-    #update(name: string, duration: number, remaining: number, target: number, status: ClockState, repeating?: boolean): void {
+    #update(name: string, duration: number, remaining: number, target: number, status: ClockState, repeating?: boolean, randomBounds?: { min: number, max: number }): void {
         const id = this.#id(name);
 
         this.settings.set(id, {
@@ -471,7 +480,8 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             remaining,
             target,
             status,
-            repeating: repeating ?? false
+            repeating: repeating ?? false,
+            randomBounds
         } satisfies StoredTimer);
     }
 
@@ -561,6 +571,10 @@ type StoredTimer = {
     readonly target: number;
     readonly status: ClockState;
     readonly repeating?: boolean;
+    readonly randomBounds?: {
+        readonly min: number;
+        readonly max: number;
+    };
 };
 
 export type TimerInfo = {
