@@ -96,6 +96,7 @@ export type Timer = WithLook<{
     readonly remaining: number;
     readonly status: ClockState;
     readonly target: number;
+    readonly repeating?: boolean;
 }>;
 
 export type Look = [color: string, icon: string];
