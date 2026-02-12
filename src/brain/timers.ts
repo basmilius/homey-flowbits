@@ -181,7 +181,8 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             return;
         }
 
-        this.#save(name, duration, unit, timer.status, timer.repeating ?? false, timer.randomBounds);
+        // Clear randomBounds when manually setting a fixed duration
+        this.#save(name, duration, unit, timer.status, timer.repeating ?? false, undefined);
         await this.#schedule();
 
         this.log(`Set timer ${timer.name} to ${duration} ${unit}.`);
@@ -198,7 +199,9 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const maxSeconds = convertDurationToSeconds(duration2, unit2);
         const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
 
-        this.#save(name, randomSeconds, 'seconds', timer.status, timer.repeating ?? false, timer.randomBounds);
+        // Update randomBounds to the new range for repeating timers
+        const randomBounds = timer.repeating ? { min: minSeconds, max: maxSeconds } : undefined;
+        this.#save(name, randomSeconds, 'seconds', timer.status, timer.repeating ?? false, randomBounds);
         await this.#schedule();
 
         this.log(`Set timer ${timer.name} to random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomSeconds} seconds).`);
