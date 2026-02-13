@@ -31,19 +31,19 @@
         "ar": "ابدأ المؤقت المتكرر [[timer]] بمدة [[duration]] [[unit]]"
     },
     "hint": {
-        "en": "Starts a repeating timer that automatically restarts with the specified duration after finishing.",
-        "nl": "Start een herhalende timer die automatisch opnieuw start met de opgegeven looptijd na voltooiing.",
-        "de": "Startet einen wiederholenden Timer, der nach Abschluss automatisch mit der angegebenen Dauer neu startet.",
-        "fr": "Démarre un minuteur répétitif qui redémarre automatiquement avec la durée spécifiée après avoir terminé.",
-        "it": "Avvia un timer ripetitivo che si riavvia automaticamente con la durata specificata dopo il completamento.",
-        "sv": "Startar en upprepande timer som automatiskt startar om med angiven varaktighet efter avslutning.",
-        "no": "Starter en gjentakende timer som automatisk starter på nytt med angitt varighet etter fullføring.",
-        "es": "Inicia un temporizador repetitivo que se reinicia automáticamente con la duración indicada después de finalizar.",
-        "da": "Starter en gentagen timer, der automatisk genstarter med den angivne varighed efter afslutning.",
-        "ru": "Запускает повторяющийся таймер, который автоматически перезапускается с указанной длительностью после завершения.",
-        "pl": "Uruchamia powtarzający się timer, który automatycznie restartuje się z podanym czasem trwania po zakończeniu.",
-        "ko": "완료 후 지정된 시간으로 자동으로 다시 시작하는 반복 타이머를 시작합니다.",
-        "ar": "يبدأ مؤقتًا متكررًا يعيد التشغيل تلقائيًا بالمدة المحددة بعد الانتهاء."
+        "en": "Starts a repeating timer that automatically restarts with the specified duration after finishing. The 'Timer finished' trigger fires each time the timer completes a cycle.",
+        "nl": "Start een herhalende timer die automatisch opnieuw start met de opgegeven looptijd na voltooiing. De 'Timer voltooid' trigger wordt elke keer geactiveerd wanneer de timer een cyclus voltooit.",
+        "de": "Startet einen wiederholenden Timer, der nach Abschluss automatisch mit der angegebenen Dauer neu startet. Der 'Timer abgeschlossen' Auslöser wird bei jedem Abschluss eines Zyklus ausgelöst.",
+        "fr": "Démarre un minuteur répétitif qui redémarre automatiquement avec la durée spécifiée après avoir terminé. Le déclencheur 'Minuteur terminé' se déclenche à chaque fin de cycle.",
+        "it": "Avvia un timer ripetitivo che si riavvia automaticamente con la durata specificata dopo il completamento. Il trigger 'Timer completato' si attiva ogni volta che il timer completa un ciclo.",
+        "sv": "Startar en upprepande timer som automatiskt startar om med angiven varaktighet efter avslutning. Utlösaren 'Timer klar' utlöses varje gång timern slutför en cykel.",
+        "no": "Starter en gjentakende timer som automatisk starter på nytt med angitt varighet etter fullføring. Utløseren 'Timer ferdig' utløses hver gang timeren fullfører en syklus.",
+        "es": "Inicia un temporizador repetitivo que se reinicia automáticamente con la duración indicada después de finalizar. El disparador 'Temporizador finalizado' se activa cada vez que el temporizador completa un ciclo.",
+        "da": "Starter en gentagen timer, der automatisk genstarter med den angivne varighed efter afslutning. Udløseren 'Timer færdig' udløses hver gang timeren fuldfører en cyklus.",
+        "ru": "Запускает повторяющийся таймер, который автоматически перезапускается с указанной длительностью после завершения. Триггер 'Таймер завершён' срабатывает каждый раз, когда таймер завершает цикл.",
+        "pl": "Uruchamia powtarzający się timer, który automatycznie restartuje się z podanym czasem trwania po zakończeniu. Wyzwalacz 'Timer zakończony' uruchamia się za każdym razem, gdy timer kończy cykl.",
+        "ko": "완료 후 지정된 시간으로 자동으로 다시 시작하는 반복 타이머를 시작합니다. '타이머 완료' 트리거는 타이머가 주기를 완료할 때마다 실행됩니다.",
+        "ar": "يبدأ مؤقتًا متكررًا يعيد التشغيل تلقائيًا بالمدة المحددة بعد الانتهاء. يتم تشغيل مشغل 'اكتمال المؤقت' في كل مرة يكمل فيها المؤقت دورة."
     },
     "args": [
         {

@@ -31,19 +31,19 @@
         "ar": "ابدأ المؤقت المتكرر [[timer]] بين [[duration1]] [[unit1]] و [[duration2]] [[unit2]]"
     },
     "hint": {
-        "en": "Starts a repeating timer with a random duration between the specified minimum and maximum that automatically restarts after finishing.",
-        "nl": "Start een herhalende timer met een willekeurige looptijd tussen het opgegeven minimum en maximum die automatisch opnieuw start na voltooiing.",
-        "de": "Startet einen wiederholenden Timer mit einer zufälligen Dauer zwischen dem angegebenen Minimum und Maximum, der nach Abschluss automatisch neu startet.",
-        "fr": "Démarre un minuteur répétitif avec une durée aléatoire entre le minimum et le maximum spécifiés qui redémarre automatiquement après avoir terminé.",
-        "it": "Avvia un timer ripetitivo con una durata casuale tra il minimo e il massimo specificati che si riavvia automaticamente dopo il completamento.",
-        "sv": "Startar en upprepande timer med en slumpmässig varaktighet mellan angiven minimum och maximum som automatiskt startar om efter avslutning.",
-        "no": "Starter en gjentakende timer med en tilfeldig varighet mellom angitt minimum og maksimum som automatisk starter på nytt etter fullføring.",
-        "es": "Inicia un temporizador repetitivo con una duración aleatoria entre el mínimo y el máximo indicados que se reinicia automáticamente después de finalizar.",
-        "da": "Starter en gentagen timer med en tilfældig varighed mellem det angivne minimum og maksimum, der automatisk genstarter efter afslutning.",
-        "ru": "Запускает повторяющийся таймер со случайной длительностью между указанными минимумом и максимумом, который автоматически перезапускается после завершения.",
-        "pl": "Uruchamia powtarzający się timer z losowym czasem trwania między podanym minimum a maksimum, który automatycznie restartuje się po zakończeniu.",
-        "ko": "완료 후 자동으로 다시 시작하는 지정된 최소값과 최대값 사이의 무작위 시간으로 반복 타이머를 시작합니다.",
-        "ar": "يبدأ مؤقتًا متكررًا بمدة عشوائية بين الحد الأدنى والحد الأقصى المحدد يعيد التشغيل تلقائيًا بعد الانتهاء."
+        "en": "Starts a repeating timer with a random duration between the specified minimum and maximum that automatically restarts after finishing. The 'Timer finished' trigger fires each time the timer completes a cycle.",
+        "nl": "Start een herhalende timer met een willekeurige looptijd tussen het opgegeven minimum en maximum die automatisch opnieuw start na voltooiing. De 'Timer voltooid' trigger wordt elke keer geactiveerd wanneer de timer een cyclus voltooit.",
+        "de": "Startet einen wiederholenden Timer mit einer zufälligen Dauer zwischen dem angegebenen Minimum und Maximum, der nach Abschluss automatisch neu startet. Der 'Timer abgeschlossen' Auslöser wird bei jedem Abschluss eines Zyklus ausgelöst.",
+        "fr": "Démarre un minuteur répétitif avec une durée aléatoire entre le minimum et le maximum spécifiés qui redémarre automatiquement après avoir terminé. Le déclencheur 'Minuteur terminé' se déclenche à chaque fin de cycle.",
+        "it": "Avvia un timer ripetitivo con una durata casuale tra il minimo e il massimo specificati che si riavvia automaticamente dopo il completamento. Il trigger 'Timer completato' si attiva ogni volta che il timer completa un ciclo.",
+        "sv": "Startar en upprepande timer med en slumpmässig varaktighet mellan angiven minimum och maximum som automatiskt startar om efter avslutning. Utlösaren 'Timer klar' utlöses varje gång timern slutför en cykel.",
+        "no": "Starter en gjentakende timer med en tilfeldig varighet mellom angitt minimum og maksimum som automatisk starter på nytt etter fullføring. Utløseren 'Timer ferdig' utløses hver gang timeren fullfører en syklus.",
+        "es": "Inicia un temporizador repetitivo con una duración aleatoria entre el mínimo y el máximo indicados que se reinicia automáticamente después de finalizar. El disparador 'Temporizador finalizado' se activa cada vez que el temporizador completa un ciclo.",
+        "da": "Starter en gentagen timer med en tilfældig varighed mellem det angivne minimum og maksimum, der automatisk genstarter efter afslutning. Udløseren 'Timer færdig' udløses hver gang timeren fuldfører en cyklus.",
+        "ru": "Запускает повторяющийся таймер со случайной длительностью между указанными минимумом и максимумом, который автоматически перезапускается после завершения. Триггер 'Таймер завершён' срабатывает каждый раз, когда таймер завершает цикл.",
+        "pl": "Uruchamia powtarzający się timer z losowym czasem trwania między podanym minimum a maksimum, który automatycznie restartuje się po zakończeniu. Wyzwalacz 'Timer zakończony' uruchamia się za każdym razem, gdy timer kończy cykl.",
+        "ko": "완료 후 자동으로 다시 시작하는 지정된 최소값과 최대값 사이의 무작위 시간으로 반복 타이머를 시작합니다. '타이머 완료' 트리거는 타이머가 주기를 완료할 때마다 실행됩니다.",
+        "ar": "يبدأ مؤقتًا متكررًا بمدة عشوائية بين الحد الأدنى والحد الأقصى المحدد يعيد التشغيل تلقائيًا بعد الانتهاء. يتم تشغيل مشغل 'اكتمال المؤقت' في كل مرة يكمل فيها المؤقت دورة."
     },
     "args": [
         {

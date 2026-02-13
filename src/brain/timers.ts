@@ -120,9 +120,12 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             
             this.#save(timer.name, newDuration, 'seconds', 'running', true, timer.randomBounds);
             
-            // Note: We only trigger realtime update, not the started trigger,
-            // since this is a continuation of the repeating timer, not a new start
-            await this.#triggerRealtime(timer.name);
+            // Fire the finished trigger for each iteration so users can react to each cycle
+            await Promise.allSettled([
+                this.#triggerRealtime(timer.name),
+                this.#triggerFinished(timer.name)
+            ]);
+            
             await this.#schedule();
             return;
         }
