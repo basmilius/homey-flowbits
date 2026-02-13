@@ -10809,6 +10809,531 @@
         ]
       },
       {
+        "id": "timer_start_repeating",
+        "title": {
+          "en": "Start repeating timer",
+          "nl": "Start herhalende timer",
+          "de": "Wiederholenden Timer starten",
+          "fr": "Démarrer le minuteur répétitif",
+          "it": "Avvia timer ripetitivo",
+          "sv": "Starta upprepande timer",
+          "no": "Start gjentakende timer",
+          "es": "Iniciar temporizador repetitivo",
+          "da": "Start gentagen timer",
+          "ru": "Запустить повторяющийся таймер",
+          "pl": "Uruchom powtarzający się timer",
+          "ko": "반복 타이머 시작",
+          "ar": "ابدأ المؤقت المتكرر"
+        },
+        "titleFormatted": {
+          "en": "Start repeating timer [[timer]] with [[duration]] [[unit]]",
+          "nl": "Start herhalende timer [[timer]] met [[duration]] [[unit]]",
+          "de": "Starte wiederholenden Timer [[timer]] mit [[duration]] [[unit]]",
+          "fr": "Démarrer le minuteur répétitif [[timer]] avec [[duration]] [[unit]]",
+          "it": "Avvia il timer ripetitivo [[timer]] per [[duration]] [[unit]]",
+          "sv": "Starta upprepande timern [[timer]] med [[duration]] [[unit]]",
+          "no": "Start gjentakende timeren [[timer]] med [[duration]] [[unit]]",
+          "es": "Iniciar el temporizador repetitivo [[timer]] con [[duration]] [[unit]]",
+          "da": "Start gentagen timeren [[timer]] med [[duration]] [[unit]]",
+          "ru": "Запустить повторяющийся таймер [[timer]] на [[duration]] [[unit]]",
+          "pl": "Uruchom powtarzający się timer [[timer]] na [[duration]] [[unit]]",
+          "ko": "반복 타이머 [[timer]]을 [[duration]] [[unit]]로 시작",
+          "ar": "ابدأ المؤقت المتكرر [[timer]] بمدة [[duration]] [[unit]]"
+        },
+        "hint": {
+          "en": "Starts a repeating timer that automatically restarts with the specified duration after finishing. The 'Timer finished' trigger fires each time the timer completes a cycle.",
+          "nl": "Start een herhalende timer die automatisch opnieuw start met de opgegeven looptijd na voltooiing. De 'Timer voltooid' trigger wordt elke keer geactiveerd wanneer de timer een cyclus voltooit.",
+          "de": "Startet einen wiederholenden Timer, der nach Abschluss automatisch mit der angegebenen Dauer neu startet. Der 'Timer abgeschlossen' Auslöser wird bei jedem Abschluss eines Zyklus ausgelöst.",
+          "fr": "Démarre un minuteur répétitif qui redémarre automatiquement avec la durée spécifiée après avoir terminé. Le déclencheur 'Minuteur terminé' se déclenche à chaque fin de cycle.",
+          "it": "Avvia un timer ripetitivo che si riavvia automaticamente con la durata specificata dopo il completamento. Il trigger 'Timer completato' si attiva ogni volta che il timer completa un ciclo.",
+          "sv": "Startar en upprepande timer som automatiskt startar om med angiven varaktighet efter avslutning. Utlösaren 'Timer klar' utlöses varje gång timern slutför en cykel.",
+          "no": "Starter en gjentakende timer som automatisk starter på nytt med angitt varighet etter fullføring. Utløseren 'Timer ferdig' utløses hver gang timeren fullfører en syklus.",
+          "es": "Inicia un temporizador repetitivo que se reinicia automáticamente con la duración indicada después de finalizar. El disparador 'Temporizador finalizado' se activa cada vez que el temporizador completa un ciclo.",
+          "da": "Starter en gentagen timer, der automatisk genstarter med den angivne varighed efter afslutning. Udløseren 'Timer færdig' udløses hver gang timeren fuldfører en cyklus.",
+          "ru": "Запускает повторяющийся таймер, который автоматически перезапускается с указанной длительностью после завершения. Триггер 'Таймер завершён' срабатывает каждый раз, когда таймер завершает цикл.",
+          "pl": "Uruchamia powtarzający się timer, który automatycznie restartuje się z podanym czasem trwania po zakończeniu. Wyzwalacz 'Timer zakończony' uruchamia się za każdym razem, gdy timer kończy cykl.",
+          "ko": "완료 후 지정된 시간으로 자동으로 다시 시작하는 반복 타이머를 시작합니다. '타이머 완료' 트리거는 타이머가 주기를 완료할 때마다 실행됩니다.",
+          "ar": "يبدأ مؤقتًا متكررًا يعيد التشغيل تلقائيًا بالمدة المحددة بعد الانتهاء. يتم تشغيل مشغل 'اكتمال المؤقت' في كل مرة يكمل فيها المؤقت دورة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "timer",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name",
+              "fr": "Nom",
+              "it": "Nome",
+              "sv": "Namn",
+              "no": "Navn",
+              "es": "Nombre",
+              "da": "Navn",
+              "ru": "Имя",
+              "pl": "Nazwa",
+              "ko": "이름",
+              "ar": "الاسم"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer",
+              "fr": "Durée",
+              "it": "Durata",
+              "sv": "Varaktighet",
+              "no": "Varighet",
+              "es": "Duración",
+              "da": "Varighed",
+              "ru": "Длительность",
+              "pl": "Czas trwania",
+              "ko": "지속 시간",
+              "ar": "المدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "P. ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "F.eks. 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "fr": "Unité",
+              "it": "Unità",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Unidad",
+              "da": "Enhed",
+              "ru": "Единица",
+              "pl": "Jednostka",
+              "ko": "단위",
+              "ar": "الوحدة"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثواني"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "timer_start_repeating_between",
+        "title": {
+          "en": "Start repeating timer (random)",
+          "nl": "Start herhalende timer (willekeurig)",
+          "de": "Wiederholenden Timer starten (zufällig)",
+          "fr": "Démarrer le minuteur répétitif (aléatoire)",
+          "it": "Avvia timer ripetitivo (casuale)",
+          "sv": "Starta upprepande timer (slumpmässig)",
+          "no": "Start gjentakende timer (tilfeldig)",
+          "es": "Iniciar temporizador repetitivo (aleatorio)",
+          "da": "Start gentagen timer (tilfældig)",
+          "ru": "Запустить повторяющийся таймер (случайный)",
+          "pl": "Uruchom powtarzający się timer (losowy)",
+          "ko": "반복 타이머 시작 (무작위)",
+          "ar": "ابدأ المؤقت المتكرر (عشوائي)"
+        },
+        "titleFormatted": {
+          "en": "Start repeating timer [[timer]] between [[duration1]] [[unit1]] and [[duration2]] [[unit2]]",
+          "nl": "Start herhalende timer [[timer]] tussen [[duration1]] [[unit1]] en [[duration2]] [[unit2]]",
+          "de": "Starte wiederholenden Timer [[timer]] zwischen [[duration1]] [[unit1]] und [[duration2]] [[unit2]]",
+          "fr": "Démarrer le minuteur répétitif [[timer]] entre [[duration1]] [[unit1]] et [[duration2]] [[unit2]]",
+          "it": "Avvia il timer ripetitivo [[timer]] tra [[duration1]] [[unit1]] e [[duration2]] [[unit2]]",
+          "sv": "Starta upprepande timern [[timer]] mellan [[duration1]] [[unit1]] och [[duration2]] [[unit2]]",
+          "no": "Start gjentakende timeren [[timer]] mellom [[duration1]] [[unit1]] og [[duration2]] [[unit2]]",
+          "es": "Iniciar el temporizador repetitivo [[timer]] entre [[duration1]] [[unit1]] y [[duration2]] [[unit2]]",
+          "da": "Start gentagen timeren [[timer]] mellem [[duration1]] [[unit1]] og [[duration2]] [[unit2]]",
+          "ru": "Запустить повторяющийся таймер [[timer]] между [[duration1]] [[unit1]] и [[duration2]] [[unit2]]",
+          "pl": "Uruchom powtarzający się timer [[timer]] między [[duration1]] [[unit1]] a [[duration2]] [[unit2]]",
+          "ko": "반복 타이머 [[timer]]을 [[duration1]] [[unit1]]와 [[duration2]] [[unit2]] 사이로 시작",
+          "ar": "ابدأ المؤقت المتكرر [[timer]] بين [[duration1]] [[unit1]] و [[duration2]] [[unit2]]"
+        },
+        "hint": {
+          "en": "Starts a repeating timer with a random duration between the specified minimum and maximum that automatically restarts after finishing. The 'Timer finished' trigger fires each time the timer completes a cycle.",
+          "nl": "Start een herhalende timer met een willekeurige looptijd tussen het opgegeven minimum en maximum die automatisch opnieuw start na voltooiing. De 'Timer voltooid' trigger wordt elke keer geactiveerd wanneer de timer een cyclus voltooit.",
+          "de": "Startet einen wiederholenden Timer mit einer zufälligen Dauer zwischen dem angegebenen Minimum und Maximum, der nach Abschluss automatisch neu startet. Der 'Timer abgeschlossen' Auslöser wird bei jedem Abschluss eines Zyklus ausgelöst.",
+          "fr": "Démarre un minuteur répétitif avec une durée aléatoire entre le minimum et le maximum spécifiés qui redémarre automatiquement après avoir terminé. Le déclencheur 'Minuteur terminé' se déclenche à chaque fin de cycle.",
+          "it": "Avvia un timer ripetitivo con una durata casuale tra il minimo e il massimo specificati che si riavvia automaticamente dopo il completamento. Il trigger 'Timer completato' si attiva ogni volta che il timer completa un ciclo.",
+          "sv": "Startar en upprepande timer med en slumpmässig varaktighet mellan angiven minimum och maximum som automatiskt startar om efter avslutning. Utlösaren 'Timer klar' utlöses varje gång timern slutför en cykel.",
+          "no": "Starter en gjentakende timer med en tilfeldig varighet mellom angitt minimum og maksimum som automatisk starter på nytt etter fullføring. Utløseren 'Timer ferdig' utløses hver gang timeren fullfører en syklus.",
+          "es": "Inicia un temporizador repetitivo con una duración aleatoria entre el mínimo y el máximo indicados que se reinicia automáticamente después de finalizar. El disparador 'Temporizador finalizado' se activa cada vez que el temporizador completa un ciclo.",
+          "da": "Starter en gentagen timer med en tilfældig varighed mellem det angivne minimum og maksimum, der automatisk genstarter efter afslutning. Udløseren 'Timer færdig' udløses hver gang timeren fuldfører en cyklus.",
+          "ru": "Запускает повторяющийся таймер со случайной длительностью между указанными минимумом и максимумом, который автоматически перезапускается после завершения. Триггер 'Таймер завершён' срабатывает каждый раз, когда таймер завершает цикл.",
+          "pl": "Uruchamia powtarzający się timer z losowym czasem trwania między podanym minimum a maksimum, który automatycznie restartuje się po zakończeniu. Wyzwalacz 'Timer zakończony' uruchamia się za każdym razem, gdy timer kończy cykl.",
+          "ko": "완료 후 자동으로 다시 시작하는 지정된 최소값과 최대값 사이의 무작위 시간으로 반복 타이머를 시작합니다. '타이머 완료' 트리거는 타이머가 주기를 완료할 때마다 실행됩니다.",
+          "ar": "يبدأ مؤقتًا متكررًا بمدة عشوائية بين الحد الأدنى والحد الأقصى المحدد يعيد التشغيل تلقائيًا بعد الانتهاء. يتم تشغيل مشغل 'اكتمال المؤقت' في كل مرة يكمل فيها المؤقت دورة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "timer",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name",
+              "fr": "Nom",
+              "it": "Nome",
+              "sv": "Namn",
+              "no": "Navn",
+              "es": "Nombre",
+              "da": "Navn",
+              "ru": "Имя",
+              "pl": "Nazwa",
+              "ko": "이름",
+              "ar": "الاسم"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration1",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Minimum duration",
+              "nl": "Minimale looptijd",
+              "de": "Minimale Dauer",
+              "fr": "Durée minimale",
+              "it": "Durata minima",
+              "sv": "Minsta varaktighet",
+              "no": "Minimumsvarighet",
+              "es": "Duración mínima",
+              "da": "Mindste varighed",
+              "ru": "Минимальная длительность",
+              "pl": "Minimalny czas trwania",
+              "ko": "최소 지속 시간",
+              "ar": "الحد الأدنى للمدة"
+            },
+            "placeholder": {
+              "en": "E.g. 1",
+              "nl": "Bijv. 1",
+              "de": "Z. B. 1",
+              "fr": "P. ex. 1",
+              "it": "Es. 1",
+              "sv": "T.ex. 1",
+              "no": "F.eks. 1",
+              "es": "P. ej. 1",
+              "da": "F.eks. 1",
+              "ru": "Напр. 1",
+              "pl": "Np. 1",
+              "ko": "예: 1",
+              "ar": "مثال: 1"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit1",
+            "title": {
+              "en": "Minimum unit",
+              "nl": "Minimale eenheid",
+              "de": "Minimale Einheit",
+              "fr": "Unité minimale",
+              "it": "Unità minima",
+              "sv": "Minsta enhet",
+              "no": "Minimumsenhet",
+              "es": "Unidad mínima",
+              "da": "Mindste enhed",
+              "ru": "Минимальная единица",
+              "pl": "Minimalna jednostka",
+              "ko": "최소 단위",
+              "ar": "الوحدة الدنيا"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثواني"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "duration2",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Maximum duration",
+              "nl": "Maximale looptijd",
+              "de": "Maximale Dauer",
+              "fr": "Durée maximale",
+              "it": "Durata massima",
+              "sv": "Maximal varaktighet",
+              "no": "Maksimal varighet",
+              "es": "Duración máxima",
+              "da": "Maksimal varighed",
+              "ru": "Максимальная длительность",
+              "pl": "Maksymalny czas trwania",
+              "ko": "최대 지속 시간",
+              "ar": "الحد الأقصى للمدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "P. ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "F.eks. 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit2",
+            "title": {
+              "en": "Maximum unit",
+              "nl": "Maximale eenheid",
+              "de": "Maximale Einheit",
+              "fr": "Unité maximale",
+              "it": "Unità massima",
+              "sv": "Maximal enhet",
+              "no": "Maksimal enhet",
+              "es": "Unidad máxima",
+              "da": "Maksimal enhed",
+              "ru": "Максимальная единица",
+              "pl": "Maksymalna jednostka",
+              "ko": "최대 단위",
+              "ar": "الوحدة القصوى"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثواني"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "timer_stop",
         "title": {
           "en": "Stop timer",

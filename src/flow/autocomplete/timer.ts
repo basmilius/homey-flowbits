@@ -30,6 +30,8 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp> {
             this.flow.getActionCard('timer_set_between'),
             this.flow.getActionCard('timer_start'),
             this.flow.getActionCard('timer_start_between'),
+            this.flow.getActionCard('timer_start_repeating'),
+            this.flow.getActionCard('timer_start_repeating_between'),
             this.flow.getActionCard('timer_stop'),
             this.flow.getConditionCard('timer_duration'),
             this.flow.getConditionCard('timer_finished'),

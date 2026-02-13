@@ -105,10 +105,9 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async finish(timer: StoredTimer): Promise<void> {
-        // If the timer is repeating, restart it instead of finishing
         if (timer.repeating) {
             this.log(`Repeating timer ${timer.name}, restarting...`);
-            
+
             // For random repeating timers, generate a new random duration
             let newDuration = timer.duration;
             if (timer.randomBounds) {
@@ -117,19 +116,19 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             } else {
                 this.log(`Using fixed duration: ${newDuration} seconds.`);
             }
-            
+
             this.#save(timer.name, newDuration, 'seconds', 'running', true, timer.randomBounds);
-            
-            // Fire the finished trigger for each iteration so users can react to each cycle
+
+            // Fire the finished trigger for each iteration.
             await Promise.allSettled([
                 this.#triggerRealtime(timer.name),
                 this.#triggerFinished(timer.name)
             ]);
-            
+
             await this.#schedule();
             return;
         }
-        
+
         this.#update(timer.name, timer.duration, 0, timer.target, 'finished', false);
         this.log(`Finish timer ${timer.name}.`);
 
@@ -186,7 +185,6 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             return;
         }
 
-        // Clear randomBounds when manually setting a fixed duration (applies to both repeating and non-repeating timers)
         this.#save(name, duration, unit, timer.status, timer.repeating ?? false, undefined);
         await this.#schedule();
 
@@ -204,8 +202,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const maxSeconds = convertDurationToSeconds(duration2, unit2);
         const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
 
-        // For repeating timers, store the new random bounds; for non-repeating timers, clear them
-        const randomBounds = timer.repeating ? { min: minSeconds, max: maxSeconds } : undefined;
+        const randomBounds = timer.repeating ? {min: minSeconds, max: maxSeconds} : undefined;
         this.#save(name, randomSeconds, 'seconds', timer.status, timer.repeating ?? false, randomBounds);
         await this.#schedule();
 
@@ -257,8 +254,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const maxSeconds = convertDurationToSeconds(duration2, unit2);
         const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
 
-        // Store the min/max bounds so we can generate new random values on each restart
-        const randomBounds = { min: minSeconds, max: maxSeconds };
+        const randomBounds = {min: minSeconds, max: maxSeconds};
         this.#save(name, randomSeconds, 'seconds', 'running', true, randomBounds);
         await this.#schedule();
 
@@ -562,7 +558,6 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     #getRandomDuration(minSeconds: number, maxSeconds: number): number {
-        // Ensure min is not greater than max
         const min = Math.min(minSeconds, maxSeconds);
         const max = Math.max(minSeconds, maxSeconds);
 

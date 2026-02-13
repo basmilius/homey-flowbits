@@ -38,5 +38,7 @@ export { default as TimerSet } from './timerSet';
 export { default as TimerSetBetween } from './timerSetBetween';
 export { default as TimerStart } from './timerStart';
 export { default as TimerStartBetween } from './timerStartBetween';
+export { default as TimerStartRepeating } from './timerStartRepeating';
+export { default as TimerStartRepeatingBetween } from './timerStartRepeatingBetween';
 export { default as TimerStop } from './timerStop';
 export { default as UtilityPercentageBetweenTimestamps } from './utilityPercentageBetweenTimestamps';

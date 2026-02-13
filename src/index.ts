@@ -134,6 +134,8 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.TimerSetBetween);
         this.registry.action(Actions.TimerStart);
         this.registry.action(Actions.TimerStartBetween);
+        this.registry.action(Actions.TimerStartRepeating);
+        this.registry.action(Actions.TimerStartRepeatingBetween);
         this.registry.action(Actions.TimerStop);
         this.registry.action(Actions.UtilityPercentageBetweenTimestamps);
     }

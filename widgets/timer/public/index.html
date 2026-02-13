@@ -22,14 +22,8 @@
                 id="timer-name">&mdash;</span>
 
             <span
-                class="basic-widget-header-icon flowbits-icon"
-                style="--icon: ''; --icon-secondary: ''"></span>
-
-            <span
-                class="basic-widget-header-icon"
-                id="repeating-indicator"
-                style="display: none;"
-                title="Repeating timer">🔁</span>
+                class="basic-widget-header-icon flowbits-icon timer-widget-icon"
+                id="timer-widget-icon"></span>
         </div>
 
         <div
@@ -50,7 +44,7 @@
         const timerIcon = document.getElementById('timer-icon');
         const timerName = document.getElementById('timer-name');
         const timerValue = document.getElementById('timer-value');
-        const repeatingIndicator = document.getElementById('repeating-indicator');
+        const timerWidgetIcon = document.getElementById('timer-widget-icon');
         let ready = false;
         let interval;
 
@@ -127,9 +121,9 @@
 
             // Show or hide repeating indicator
             if (timer?.repeating) {
-                repeatingIndicator.style.display = 'inline';
+                timerWidgetIcon.classList.add('repeating');
             } else {
-                repeatingIndicator.style.display = 'none';
+                timerWidgetIcon.classList.remove('repeating');
             }
 
             if (timer) {
