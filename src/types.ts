@@ -9,6 +9,7 @@ export type ClockState =
     | 'stopped';
 
 export type ClockUnit =
+    | 'milliseconds'
     | 'seconds'
     | 'minutes'
     | 'hours'

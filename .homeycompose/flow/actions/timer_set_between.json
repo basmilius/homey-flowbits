@@ -121,6 +121,24 @@
             },
             "values": [
                 {
+                    "id": "milliseconds",
+                    "title": {
+                        "en": "milliseconds",
+                        "nl": "milliseconden",
+                        "de": "Millisekunden",
+                        "fr": "millisecondes",
+                        "it": "millisecondi",
+                        "sv": "millisekunder",
+                        "no": "millisekunder",
+                        "es": "milisegundos",
+                        "da": "millisekunder",
+                        "ru": "миллисекунды",
+                        "pl": "milisekundy",
+                        "ko": "밀리초",
+                        "ar": "ميلي ثانية"
+                    }
+                },
+                {
                     "id": "seconds",
                     "title": {
                         "en": "seconds",
@@ -249,6 +267,24 @@
                 "ar": "الوحدة"
             },
             "values": [
+                {
+                    "id": "milliseconds",
+                    "title": {
+                        "en": "milliseconds",
+                        "nl": "milliseconden",
+                        "de": "Millisekunden",
+                        "fr": "millisecondes",
+                        "it": "millisecondi",
+                        "sv": "millisekunder",
+                        "no": "millisekunder",
+                        "es": "milisegundos",
+                        "da": "millisekunder",
+                        "ru": "миллисекунды",
+                        "pl": "milisekundy",
+                        "ko": "밀리초",
+                        "ar": "ميلي ثانية"
+                    }
+                },
                 {
                     "id": "seconds",
                     "title": {
