@@ -1,7 +1,7 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { SETTING_NO_REPEAT_WINDOWS } from '../const';
 import type { ClockUnit, Feature, FlowBitsApp, NoRepeatWindow } from '../types';
-import { convertDurationToSeconds } from '../util';
+import { convertDurationToMs } from '../util';
 
 // todo(Bas): Implement cleanup().
 // todo(Bas): Use auto complete provider to find defined no-repeat windows.
@@ -71,8 +71,8 @@ export default class NoRepeat extends Shortcuts<FlowBitsApp> implements Feature<
             return true;
         }
 
-        const seconds = convertDurationToSeconds(duration, unit);
+        const ms = convertDurationToMs(duration, unit);
 
-        return last.plus({seconds}) <= now;
+        return last.plus({milliseconds: ms}) <= now;
     }
 }

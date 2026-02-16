@@ -2,7 +2,7 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { MAX_TIMEOUT_MS, REALTIME_FLAGS_UPDATE, SETTING_FLAG_LAST_UPDATES, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, Flag, FlowBitsApp, Look, Styleable } from '../types';
-import { convertDurationToSeconds } from '../util';
+import { convertDurationToMs } from '../util';
 
 export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Flag>, Styleable {
     #deactivationTimeouts: Map<string, NodeJS.Timeout> = new Map();
@@ -198,15 +198,15 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
             return false;
         }
 
-        const seconds = convertDurationToSeconds(duration, unit);
-        const cutoff = DateTime.now().minus({seconds});
+        const ms = convertDurationToMs(duration, unit);
+        const cutoff = DateTime.now().minus({milliseconds: ms});
 
         return lastUpdate <= cutoff;
     }
 
     async isInactiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
         const lastUpdate = this.lastUpdates[name];
-        
+
         if (!lastUpdate) {
             // If there's no lastUpdate, the flag has never been touched, so consider it inactive forever
             return true;
@@ -217,8 +217,8 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
             return false;
         }
 
-        const seconds = convertDurationToSeconds(duration, unit);
-        const cutoff = DateTime.now().minus({seconds});
+        const ms = convertDurationToMs(duration, unit);
+        const cutoff = DateTime.now().minus({milliseconds: ms});
 
         return lastUpdate <= cutoff;
     }
@@ -249,8 +249,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     #scheduleDeactivation(name: string, duration: number, unit: ClockUnit): void {
-        const seconds = convertDurationToSeconds(duration, unit);
-        const ms = Math.min(seconds * 1000, MAX_TIMEOUT_MS);
+        const ms = Math.min(convertDurationToMs(duration, unit), MAX_TIMEOUT_MS);
 
         const timeout = this.setTimeout(async () => {
             this.#deactivationTimeouts.delete(name);

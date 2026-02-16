@@ -2,7 +2,7 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { MAX_TIMEOUT_MS, REALTIME_SETS_UPDATE, SETTING_SET_LOOKS, SETTING_SETS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { BitSet, BitSetState, ClockUnit, Feature, FlowBitsApp, Look, Styleable } from '../types';
-import { convertDurationToSeconds } from '../util';
+import { convertDurationToMs } from '../util';
 
 type SetCounts = {
     readonly activeCount: number;
@@ -218,7 +218,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     async activateStateExclusiveFor(setName: string, stateName: string, duration: number, unit: ClockUnit): Promise<void> {
         const snapshot = this.#snapshot(setName);
         const now = DateTime.now();
-        const expiresAt = now.plus({seconds: convertDurationToSeconds(duration, unit)});
+        const expiresAt = now.plus({milliseconds: convertDurationToMs(duration, unit)});
         const nowISO = now.toISO();
         const states = this.states;
         const previousStates = states[setName] ?? {};
@@ -286,7 +286,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         const wasTargetActive = await this.isStateActive(setName, stateName);
 
         const now = DateTime.now();
-        const expiresAt = now.plus({seconds: convertDurationToSeconds(duration, unit)});
+        const expiresAt = now.plus({milliseconds: convertDurationToMs(duration, unit)});
 
         const states = this.#ensureSet(setName);
         states[setName][stateName] = [true, now.toISO(), expiresAt.toISO()];

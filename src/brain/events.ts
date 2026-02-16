@@ -2,7 +2,7 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { EVENTS_HISTORY_LENGTH, REALTIME_EVENTS_UPDATE, SETTING_EVENT_LOOKS, SETTING_EVENTS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Event, Feature, FlowBitsApp, Look, Styleable } from '../types';
-import { convertDurationToSeconds } from '../util';
+import { convertDurationToMs } from '../util';
 
 export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Event>, Styleable {
     get events(): Record<string, DateTime[]> {
@@ -134,8 +134,8 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
 
     async happenedTimesWithin(name: string, times: number, duration: number, unit: ClockUnit): Promise<boolean> {
         const events = this.events[name] ?? [];
-        const seconds = convertDurationToSeconds(duration, unit);
-        const cutoff = DateTime.now().minus({seconds});
+        const ms = convertDurationToMs(duration, unit);
+        const cutoff = DateTime.now().minus({milliseconds: ms});
 
         return events.filter(event => event >= cutoff).length >= times;
     }
@@ -149,9 +149,9 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
 
     async happenedWithin(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
         const events = this.events[name] ?? [];
-        const seconds = convertDurationToSeconds(duration, unit);
+        const ms = convertDurationToMs(duration, unit);
 
-        return events.some(event => Math.abs(event.diffNow().as('seconds')) <= seconds);
+        return events.some(event => Math.abs(event.diffNow().as('milliseconds')) <= ms);
     }
 
     async trigger(name: string): Promise<void> {

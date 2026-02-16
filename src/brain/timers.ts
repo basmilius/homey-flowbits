@@ -2,9 +2,9 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_TIMER_UPDATE, SETTING_TIMER_LOOKS, SETTING_TIMER_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockState, ClockUnit, Feature, FlowBitsApp, Look, Styleable, Timer } from '../types';
-import { convertDurationToSeconds, slugify } from '../util';
+import { convertDurationToMs, slugify } from '../util';
 
-const TIMER_FINISH_GRACE_PERIOD = 5;
+const TIMER_FINISH_GRACE_PERIOD = 5000;
 
 export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Timer>, Styleable {
     get looks(): Record<string, Look> {
@@ -77,7 +77,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async findAll(): Promise<Timer[]> {
-        const now = DateTime.now().toSeconds();
+        const now = DateTime.now().toMillis();
         const provider = this.#autocompleteProvider();
         const definedTimers = await provider.find('');
         const activeTimers = await this.#findAll();
@@ -112,12 +112,12 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             let newDuration = timer.duration;
             if (timer.randomBounds) {
                 newDuration = this.#getRandomDuration(timer.randomBounds.min, timer.randomBounds.max);
-                this.log(`New random duration: ${newDuration} seconds.`);
+                this.log(`New random duration: ${newDuration}ms.`);
             } else {
-                this.log(`Using fixed duration: ${newDuration} seconds.`);
+                this.log(`Using fixed duration: ${newDuration}ms.`);
             }
 
-            this.#save(timer.name, newDuration, 'seconds', 'running', true, timer.randomBounds);
+            this.#save(timer.name, newDuration, 'milliseconds', 'running', true, timer.randomBounds);
 
             // Fire the finished trigger for each iteration.
             await Promise.allSettled([
@@ -146,9 +146,9 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         }
 
         const now = DateTime.now();
-        const target = DateTime.fromSeconds(timer.target);
+        const target = DateTime.fromMillis(timer.target);
 
-        this.#update(timer.name, timer.duration, target.diff(now).as('seconds'), timer.target, 'paused', timer.repeating ?? false, timer.randomBounds);
+        this.#update(timer.name, timer.duration, target.diff(now).as('milliseconds'), timer.target, 'paused', timer.repeating ?? false, timer.randomBounds);
         this.log(`Pause timer ${timer.name}.`);
 
         await this.#schedule();
@@ -166,9 +166,9 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         }
 
         const now = DateTime.now();
-        const target = now.plus({seconds: timer.remaining});
+        const target = now.plus({milliseconds: timer.remaining});
 
-        this.#update(timer.name, timer.duration, timer.remaining, target.toSeconds(), 'running', timer.repeating ?? false, timer.randomBounds);
+        this.#update(timer.name, timer.duration, timer.remaining, target.toMillis(), 'running', timer.repeating ?? false, timer.randomBounds);
         this.log(`Resume timer ${timer.name}.`);
 
         await this.#schedule();
@@ -198,15 +198,15 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             return;
         }
 
-        const minSeconds = convertDurationToSeconds(duration1, unit1);
-        const maxSeconds = convertDurationToSeconds(duration2, unit2);
-        const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
+        const minMs = convertDurationToMs(duration1, unit1);
+        const maxMs = convertDurationToMs(duration2, unit2);
+        const randomMs = this.#getRandomDuration(minMs, maxMs);
 
-        const randomBounds = timer.repeating ? {min: minSeconds, max: maxSeconds} : undefined;
-        this.#save(name, randomSeconds, 'seconds', timer.status, timer.repeating ?? false, randomBounds);
+        const randomBounds = timer.repeating ? {min: minMs, max: maxMs} : undefined;
+        this.#save(name, randomMs, 'milliseconds', timer.status, timer.repeating ?? false, randomBounds);
         await this.#schedule();
 
-        this.log(`Set timer ${timer.name} to random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomSeconds} seconds).`);
+        this.log(`Set timer ${timer.name} to random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomMs}ms).`);
     }
 
     async start(name: string, duration: number, unit: ClockUnit): Promise<void> {
@@ -222,14 +222,14 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async startBetween(name: string, duration1: number, unit1: ClockUnit, duration2: number, unit2: ClockUnit): Promise<void> {
-        const minSeconds = convertDurationToSeconds(duration1, unit1);
-        const maxSeconds = convertDurationToSeconds(duration2, unit2);
-        const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
+        const minMs = convertDurationToMs(duration1, unit1);
+        const maxMs = convertDurationToMs(duration2, unit2);
+        const randomMs = this.#getRandomDuration(minMs, maxMs);
 
-        this.#save(name, randomSeconds, 'seconds', 'running', false);
+        this.#save(name, randomMs, 'milliseconds', 'running', false);
         await this.#schedule();
 
-        this.log(`Start timer ${name} for random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomSeconds} seconds).`);
+        this.log(`Start timer ${name} for random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomMs}ms).`);
 
         await Promise.allSettled([
             this.#triggerRealtime(name),
@@ -250,15 +250,15 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async startRepeatingBetween(name: string, duration1: number, unit1: ClockUnit, duration2: number, unit2: ClockUnit): Promise<void> {
-        const minSeconds = convertDurationToSeconds(duration1, unit1);
-        const maxSeconds = convertDurationToSeconds(duration2, unit2);
-        const randomSeconds = this.#getRandomDuration(minSeconds, maxSeconds);
+        const minMs = convertDurationToMs(duration1, unit1);
+        const maxMs = convertDurationToMs(duration2, unit2);
+        const randomMs = this.#getRandomDuration(minMs, maxMs);
 
-        const randomBounds = {min: minSeconds, max: maxSeconds};
-        this.#save(name, randomSeconds, 'seconds', 'running', true, randomBounds);
+        const randomBounds = {min: minMs, max: maxMs};
+        this.#save(name, randomMs, 'milliseconds', 'running', true, randomBounds);
         await this.#schedule();
 
-        this.log(`Start repeating timer ${name} for random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomSeconds} seconds).`);
+        this.log(`Start repeating timer ${name} for random duration between ${duration1} ${unit1} and ${duration2} ${unit2} (${randomMs}ms).`);
 
         await Promise.allSettled([
             this.#triggerRealtime(name),
@@ -291,10 +291,10 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             return false;
         }
 
-        const checkDuration = convertDurationToSeconds(duration, unit);
-        const now = DateTime.now().toSeconds();
+        const checkMs = convertDurationToMs(duration, unit);
+        const now = DateTime.now().toMillis();
 
-        return timer.target - now > checkDuration;
+        return timer.target - now > checkMs;
     }
 
     async isFinished(name: string): Promise<boolean> {
@@ -322,13 +322,13 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             throw new Error(`Timer "${name}" not found.`);
         }
 
-        // Calculate remaining seconds based on timer state
+        // Calculate remaining seconds based on timer state (convert ms to seconds for public API)
         let remainingSeconds = 0;
         if (timer.status === 'running') {
-            const now = DateTime.now().toSeconds();
-            remainingSeconds = Math.max(0, Math.floor(timer.target - now));
+            const now = DateTime.now().toMillis();
+            remainingSeconds = Math.max(0, Math.floor((timer.target - now) / 1000));
         } else if (timer.status === 'paused') {
-            remainingSeconds = Math.max(0, Math.floor(timer.remaining));
+            remainingSeconds = Math.max(0, Math.floor(timer.remaining / 1000));
         }
 
         return {
@@ -411,15 +411,15 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     #save(name: string, duration: number, unit: ClockUnit, status: ClockState, repeating: boolean, randomBounds?: { min: number, max: number }): void {
-        const now = DateTime.now().toSeconds();
-        const remaining = convertDurationToSeconds(duration, unit);
-        const target = now + remaining + 1;
+        const now = DateTime.now().toMillis();
+        const remaining = convertDurationToMs(duration, unit);
+        const target = now + remaining;
 
         this.#update(name, remaining, remaining, target, status, repeating, randomBounds);
     }
 
     async #schedule(): Promise<void> {
-        const now = DateTime.now().toSeconds();
+        const now = DateTime.now().toMillis();
         const timers = await this.#findAll();
         const remainingTriggers: { timer: { name: string }, duration: number, unit: ClockUnit }[] = await this.homey.flow
             .getTriggerCard('timer_remaining')
@@ -431,13 +431,13 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         for (const timer of timers) {
             this.#clear(timer);
 
-            const diff = Math.floor(timer.target - now);
+            const diff = timer.target - now;
             const triggers = remainingTriggers
                 .filter(t => t.timer.name === timer.name)
                 .filter((t, index, arr) => arr.findIndex(tt => tt.duration === t.duration && tt.unit === t.unit) === index);
 
             if (diff > 0 && timer.status === 'running') {
-                this.log(`Timer ${timer.name} is scheduled to finish in ${diff} seconds.`);
+                this.log(`Timer ${timer.name} is scheduled to finish in ${diff}ms.`);
 
                 const timeouts: NodeJS.Timeout[] = [];
 
@@ -445,12 +445,12 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
                     this.setTimeout(async () => {
                         await this.finish(timer);
                         await this.#schedule();
-                    }, diff * 1000)
+                    }, diff)
                 );
 
                 for (const trigger of triggers) {
-                    const triggerDuration = convertDurationToSeconds(trigger.duration, trigger.unit);
-                    const triggerDiff = diff - triggerDuration;
+                    const triggerMs = convertDurationToMs(trigger.duration, trigger.unit);
+                    const triggerDiff = diff - triggerMs;
 
                     if (triggerDiff <= 0) {
                         continue;
@@ -459,7 +459,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
                     timeouts.push(
                         this.setTimeout(async () => {
                             await this.#triggerRemaining(timer.name, trigger.duration, trigger.unit);
-                        }, triggerDiff * 1000)
+                        }, triggerDiff)
                     );
                 }
 
@@ -557,9 +557,9 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         return provider;
     }
 
-    #getRandomDuration(minSeconds: number, maxSeconds: number): number {
-        const min = Math.min(minSeconds, maxSeconds);
-        const max = Math.max(minSeconds, maxSeconds);
+    #getRandomDuration(minMs: number, maxMs: number): number {
+        const min = Math.min(minMs, maxMs);
+        const max = Math.max(minMs, maxMs);
 
         // Generate a random number between min and max (inclusive)
         return Math.floor(Math.random() * (max - min + 1)) + min;
