@@ -55,6 +55,7 @@
 
         const settings = Homey.getSettings();
         const viewMode = settings.view_mode ?? 'grid';
+        const allowToggle = settings.allow_toggle ?? false;
 
         statesContainer.classList.add(`states-${viewMode}`);
 
@@ -87,6 +88,19 @@
 
                 if (state.expiresAt) {
                     item.classList.add('expiring');
+                }
+
+                if (allowToggle) {
+                    item.classList.add('toggleable');
+                    item.addEventListener('click', async () => {
+                        try {
+                            Homey.hapticFeedback();
+                        } catch (_) {
+                            // care
+                        }
+
+                        await Homey.api('POST', '/', {set: settings.set.name, state: state.name});
+                    });
                 }
 
                 const label = document.createElement('div');

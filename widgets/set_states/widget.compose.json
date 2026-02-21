@@ -36,6 +36,26 @@
             }
         },
         {
+            "id": "allow_toggle",
+            "type": "checkbox",
+            "title": {
+                "en": "Allow toggling states",
+                "nl": "Toestaan om statussen te togglen",
+                "de": "Umschalten von Zuständen erlauben",
+                "fr": "Autoriser le basculement des états",
+                "it": "Consenti l'attivazione/disattivazione degli stati",
+                "sv": "Tillåt växling av tillstånd",
+                "no": "Tillat veksling av tilstander",
+                "es": "Permitir alternar estados",
+                "da": "Tillad skift af tilstande",
+                "ru": "Разрешить переключение состояний",
+                "pl": "Zezwól na przełączanie stanów",
+                "ko": "상태 전환 허용",
+                "ar": "السماح بتبديل الحالات"
+            },
+            "value": false
+        },
+        {
             "id": "view_mode",
             "type": "dropdown",
             "title": {
@@ -97,6 +117,10 @@
     "api": {
         "get": {
             "method": "GET",
+            "path": "/"
+        },
+        "toggle": {
+            "method": "POST",
             "path": "/"
         }
     }

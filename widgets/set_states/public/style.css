@@ -26,6 +26,19 @@
     background: var(--homey-color-mono-100);
 }
 
+.states-item.toggleable {
+    cursor: pointer;
+    transition: filter 0.1s ease;
+}
+
+.states-item.toggleable:hover {
+    filter: brightness(1.15);
+}
+
+.states-item.toggleable:active {
+    filter: brightness(0.9);
+}
+
 .states-item-label {
     font-size: var(--homey-font-size-default);
     font-weight: var(--homey-font-weight-medium);
