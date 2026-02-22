@@ -19,6 +19,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     #timers: Record<string, StoredTimer> = {};
 
     async initialize(): Promise<void> {
+        this.#migrateTimers();
         await this.#schedule();
     }
 
@@ -88,7 +89,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             const look = await this.getLook(timer.name);
             const remaining = activeTimer?.status === 'running'
                 ? Math.max(0, activeTimer.target - now)
-                : activeTimer?.remaining ?? 0;
+                : activeTimer?.remainingMs ?? 0;
 
             results.push({
                 color: look[0],
@@ -166,9 +167,9 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         }
 
         const now = DateTime.now();
-        const target = now.plus({milliseconds: timer.remaining});
+        const target = now.plus({milliseconds: timer.remainingMs});
 
-        this.#update(timer.name, timer.duration, timer.remaining, target.toMillis(), 'running', timer.repeating ?? false, timer.randomBounds);
+        this.#update(timer.name, timer.duration, timer.remainingMs, target.toMillis(), 'running', timer.repeating ?? false, timer.randomBounds);
         this.log(`Resume timer ${timer.name}.`);
 
         await this.#schedule();
@@ -350,6 +351,31 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         await this.#triggerRealtime(name);
     }
 
+    #migrateTimers(): void {
+        const allSettings = this.settings.getKeys();
+
+        for (const setting of allSettings) {
+            if (!setting.startsWith(SETTING_TIMER_PREFIX)) {
+                continue;
+            }
+
+            const timer: LegacyStoredTimer = this.settings.get(setting);
+
+            if (!timer || 'remainingMs' in timer) {
+                continue;
+            }
+
+            if ('remaining' in timer && timer.remaining !== undefined) {
+                this.log(`Migrating timer ${timer.name}: remaining ${timer.remaining}s → ${timer.remaining * 1000}ms.`);
+
+                this.settings.set(setting, {
+                    ...timer,
+                    remainingMs: timer.remaining * 1000
+                });
+            }
+        }
+    }
+
     #id(name: string): string {
         return `${SETTING_TIMER_PREFIX}${slugify(name)}`;
     }
@@ -375,26 +401,29 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const autocompleteProvider = this.#autocompleteProvider();
         const definedTimers = await autocompleteProvider.find('');
         const timers: StoredTimer[] = [];
-        const checkKeys: (keyof StoredTimer)[] = ['name', 'duration', 'remaining', 'target', 'status'];
+        const requiredKeys = ['name', 'duration', 'target', 'status'];
 
         for (const setting of allSettings) {
             if (!setting.startsWith(SETTING_TIMER_PREFIX)) {
                 continue;
             }
 
-            const timer: StoredTimer = this.settings.get(setting);
-            const isValid = timer && checkKeys.every(key => key in timer);
+            const timer: LegacyStoredTimer = this.settings.get(setting);
+            const isValid = timer && requiredKeys.every(key => key in timer) && ('remainingMs' in timer || 'remaining' in timer);
 
             if (!isValid || !definedTimers.find(t => t.name === timer.name)) {
                 timer && this.#remove(timer.id);
                 continue;
             }
 
+            // Migrate legacy timers: `remaining` was in seconds, `remainingMs` is in milliseconds.
+            const remainingMs = timer.remainingMs ?? (timer.remaining ?? 0) * 1000;
+
             timers.push({
                 id: setting,
                 name: timer.name,
                 duration: timer.duration,
-                remaining: timer.remaining,
+                remainingMs,
                 target: timer.target,
                 status: timer.status,
                 repeating: timer.repeating ?? false,
@@ -481,7 +510,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             id,
             name,
             duration,
-            remaining,
+            remainingMs: remaining,
             target,
             status,
             repeating,
@@ -570,7 +599,7 @@ type StoredTimer = {
     readonly id: string;
     readonly name: string;
     readonly duration: number;
-    readonly remaining: number;
+    readonly remainingMs: number;
     readonly target: number;
     readonly status: ClockState;
     readonly repeating?: boolean;
@@ -578,6 +607,11 @@ type StoredTimer = {
         readonly min: number;
         readonly max: number;
     };
+};
+
+type LegacyStoredTimer = Omit<StoredTimer, 'remainingMs'> & {
+    readonly remaining?: number;
+    readonly remainingMs?: number;
 };
 
 export type TimerInfo = {
