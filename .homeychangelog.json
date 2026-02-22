@@ -239,5 +239,24 @@
   },
   "1.17.0": {
     "en": "This update introduces repeating timers."
+  },
+  "1.17.1": {
+    "en": "Small clarification in repeating timers feature."
+  },
+  "1.17.2": {
+    "en": "This update improves startup performance.",
+    "nl": "Deze update verbetert de prestaties bij het opstarten."
+  },
+  "1.17.3": {
+    "en": "Update dependencies."
+  },
+  "1.17.4": {
+    "en": "Update dependencies."
+  },
+  "1.17.5": {
+    "en": "Update dependencies. (Build upload failed?)"
+  },
+  "1.17.6": {
+    "en": "Update dependencies."
   }
 }

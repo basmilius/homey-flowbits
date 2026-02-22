@@ -75,14 +75,16 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
             this.#registerTriggers();
             this.#registerActionFunctions();
 
-            for (const provider of this.registry.autocompleteProviders) {
-                await provider.onInit();
-            }
+            await Promise.allSettled(
+                this.registry.autocompleteProviders.map(provider => provider.onInit())
+            );
 
-            await this.sets.initialize();
-            await this.timers.initialize();
-            await this.tokens.initialize();
-            await this.widgets.initialize();
+            await Promise.allSettled([
+                this.sets.initialize(),
+                this.timers.initialize(),
+                this.tokens.initialize(),
+                this.widgets.initialize()
+            ]);
 
             await this.#brain.cleanup();
             await this.#brain.welcome();

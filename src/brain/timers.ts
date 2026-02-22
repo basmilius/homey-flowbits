@@ -106,21 +106,21 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async finish(timer: StoredTimer): Promise<void> {
+         // note(Bas): For repeating timers, we trigger timer finishes and immediately start the timer again, if the timer
+         //  has a random duration range, we calculate a new random duration for the next iteration.
         if (timer.repeating) {
-            this.log(`Repeating timer ${timer.name}, restarting...`);
-
-            // For random repeating timers, generate a new random duration
             let newDuration = timer.duration;
+
             if (timer.randomBounds) {
                 newDuration = this.#getRandomDuration(timer.randomBounds.min, timer.randomBounds.max);
-                this.log(`New random duration: ${newDuration}ms.`);
+                this.log(`Repeating timer ${timer.name}, restarting... New random duration: ${newDuration}ms.`);
             } else {
-                this.log(`Using fixed duration: ${newDuration}ms.`);
+                this.log(`Repeating timer ${timer.name}, restarting... Using same duration: ${newDuration}ms.`);
+
             }
 
             this.#save(timer.name, newDuration, 'milliseconds', 'running', true, timer.randomBounds);
 
-            // Fire the finished trigger for each iteration.
             await Promise.allSettled([
                 this.#triggerRealtime(timer.name),
                 this.#triggerFinished(timer.name)
