@@ -87,7 +87,7 @@
                 return;
             }
 
-            const now = Date.now() / 1000;
+            const now = Date.now();
             const remaining = Math.max(0, target - now);
 
             if (remaining <= 0) {
@@ -96,7 +96,7 @@
                 return;
             }
 
-            timerValue.innerText = formatDuration(remaining);
+            timerValue.innerText = formatDuration(Math.floor(remaining / 1000));
         }
 
         function render(timer) {
@@ -128,7 +128,7 @@
 
             if (timer) {
                 if (timer.status === 'paused') {
-                    timerValue.innerText = `${formatDuration(timer.remaining)} (${Homey.__('widget.timer.paused')})`;
+                    timerValue.innerText = `${formatDuration(Math.floor(timer.remaining / 1000))} (${Homey.__('widget.timer.paused')})`;
                 } else if (timer.status === 'finished') {
                     timerValue.innerText = Homey.__('widget.timer.finished');
                 } else if (timer.status === 'running') {
