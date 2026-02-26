@@ -93,9 +93,9 @@
             "icon": "Icona"
         },
         "cycles": {
-            "title": "Contatori",
-            "description": "I contatori scorrono una sequenza numerica. Usa azioni, condizioni e trigger dei contatori nei tuoi flow per passare tra i valori e rispondere quando un contatore raggiunge un passo specifico.",
-            "empty": "Nessun contatore è stato ancora creato."
+            "title": "Sequenze",
+            "description": "Le sequenze scorrono una serie numerica. Usa azioni, condizioni e trigger delle sequenze nei tuoi flow per passare tra i valori e rispondere quando una sequenza raggiunge un passo specifico.",
+            "empty": "Nessuna sequenza è stata ancora creata."
         },
         "events": {
             "title": "Eventi",

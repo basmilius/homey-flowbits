@@ -93,9 +93,9 @@
             "icon": "Symbol"
         },
         "cycles": {
-            "title": "Zähler",
-            "description": "Zähler durchlaufen eine numerische Abfolge. Verwenden Sie Zähler-Aktionen, Bedingungen und Trigger in Ihren Flows, um durch Werte zu schalten und zu reagieren, wenn ein Zähler einen bestimmten Schritt erreicht.",
-            "empty": "Es wurden noch keine Zähler erstellt."
+            "title": "Sequenzen",
+            "description": "Sequenzen durchlaufen eine numerische Abfolge. Verwenden Sie Sequenz-Aktionen, Bedingungen und Trigger in Ihren Flows, um durch Werte zu schalten und zu reagieren, wenn eine Sequenz einen bestimmten Schritt erreicht.",
+            "empty": "Es wurden noch keine Sequenzen erstellt."
         },
         "events": {
             "title": "Ereignisse",

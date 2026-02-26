@@ -93,9 +93,9 @@
             "icon": "Icono"
         },
         "cycles": {
-            "title": "Contadores",
-            "description": "Los contadores recorren una secuencia numérica. Utiliza acciones, condiciones y disparadores de contador en tus flujos para avanzar por los valores y responder cuando un contador alcanza un paso específico.",
-            "empty": "Aún no se han creado contadores."
+            "title": "Secuencias",
+            "description": "Las secuencias recorren una serie numérica. Utiliza acciones, condiciones y disparadores de secuencia en tus flujos para avanzar por los valores y responder cuando una secuencia alcanza un paso específico.",
+            "empty": "Aún no se han creado secuencias."
         },
         "events": {
             "title": "Eventos",

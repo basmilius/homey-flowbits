@@ -93,9 +93,9 @@
             "icon": "Ikon"
         },
         "cycles": {
-            "title": "Tællere",
-            "description": "Tællere gennemløber en numerisk sekvens. Brug tællerhandlinger, betingelser og triggere i dine flows til at gennemgå værdier og reagere, når en tæller når et bestemt trin.",
-            "empty": "Der er endnu ikke oprettet nogen tællere."
+            "title": "Sekvenser",
+            "description": "Sekvenser gennemløber en numerisk sekvens. Brug sekvenshandlinger, betingelser og triggere i dine flows til at gennemgå værdier og reagere, når en sekvens når et bestemt trin.",
+            "empty": "Der er endnu ikke oprettet nogen sekvenser."
         },
         "events": {
             "title": "Begivenheder",

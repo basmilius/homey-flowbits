@@ -93,9 +93,9 @@
             "icon": "Icoon"
         },
         "cycles": {
-            "title": "Tellers",
-            "description": "Tellers doorlopen een numerieke reeks. Gebruik teller-acties, -voorwaarden en -triggers in je flows om door waarden te stappen en te reageren wanneer een teller een specifieke stap bereikt.",
-            "empty": "Er zijn nog geen tellers aangemaakt."
+            "title": "Stappenreeksen",
+            "description": "Stappenreeksen doorlopen een numerieke reeks. Gebruik stappenreeks-acties, -voorwaarden en -triggers in je flows om door waarden te stappen en te reageren wanneer een stappenreeks een specifieke stap bereikt.",
+            "empty": "Er zijn nog geen stappenreeksen aangemaakt."
         },
         "events": {
             "title": "Gebeurtenissen",

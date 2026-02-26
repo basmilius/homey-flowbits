@@ -93,9 +93,9 @@
             "icon": "Ikon"
         },
         "cycles": {
-            "title": "Räknare",
-            "description": "Räknare genomlöper en numerisk sekvens. Använd räknaråtgärder, villkor och triggers i dina flöden för att stega igenom värden och reagera när en räknare når ett specifikt steg.",
-            "empty": "Inga räknare har skapats ännu."
+            "title": "Sekvenser",
+            "description": "Sekvenser genomlöper en numerisk sekvens. Använd sekvensåtgärder, villkor och triggers i dina flöden för att stega igenom värden och reagera när en sekvens når ett specifikt steg.",
+            "empty": "Inga sekvenser har skapats ännu."
         },
         "events": {
             "title": "Händelser",

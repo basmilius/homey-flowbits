@@ -93,9 +93,9 @@
             "icon": "Ikon"
         },
         "cycles": {
-            "title": "Tellere",
-            "description": "Tellere går gjennom en numerisk sekvens. Bruk tellerhandlinger, betingelser og triggere i flytene dine for å trinn gjennom verdier og reagere når en teller når et spesifikt trinn.",
-            "empty": "Ingen tellere har blitt opprettet enda."
+            "title": "Sekvenser",
+            "description": "Sekvenser går gjennom en numerisk sekvens. Bruk sekvenshandlinger, betingelser og triggere i flytene dine for å trinn gjennom verdier og reagere når en sekvens når et spesifikt trinn.",
+            "empty": "Ingen sekvenser har blitt opprettet enda."
         },
         "events": {
             "title": "Hendelser",
