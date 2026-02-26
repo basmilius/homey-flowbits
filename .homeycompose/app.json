@@ -312,6 +312,10 @@
       "method": "GET",
       "path": "/icons"
     },
+    "setCycleLook": {
+      "method": "POST",
+      "path": "/cycles/look"
+    },
     "setEventLook": {
       "method": "POST",
       "path": "/events/look"

@@ -70,6 +70,10 @@ export async function getIcons(): Promise<Icon[]> {
     return icons;
 }
 
+export async function setCycleLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {
+    return await app.api.setCycleLook(body.name, body.color, body.icon);
+}
+
 export async function setEventLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {
     return await app.api.setEventLook(body.name, body.color, body.icon);
 }

@@ -92,6 +92,11 @@
             "color": "Color",
             "icon": "Icono"
         },
+        "cycles": {
+            "title": "Contadores",
+            "description": "Los contadores recorren una secuencia numérica. Utiliza acciones, condiciones y disparadores de contador en tus flujos para avanzar por los valores y responder cuando un contador alcanza un paso específico.",
+            "empty": "Aún no se han creado contadores."
+        },
         "events": {
             "title": "Eventos",
             "description": "Los eventos rastrean cuándo sucede algo y mantienen un historial de marcas de tiempo. Utiliza acciones, condiciones y disparadores de eventos en tus flujos para rastrear ocurrencias y verificar con qué frecuencia o cuándo sucedieron los eventos.",

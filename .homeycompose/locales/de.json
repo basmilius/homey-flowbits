@@ -92,6 +92,11 @@
             "color": "Farbe",
             "icon": "Symbol"
         },
+        "cycles": {
+            "title": "Zähler",
+            "description": "Zähler durchlaufen eine numerische Abfolge. Verwenden Sie Zähler-Aktionen, Bedingungen und Trigger in Ihren Flows, um durch Werte zu schalten und zu reagieren, wenn ein Zähler einen bestimmten Schritt erreicht.",
+            "empty": "Es wurden noch keine Zähler erstellt."
+        },
         "events": {
             "title": "Ereignisse",
             "description": "Ereignisse verfolgen, wann etwas passiert, und speichern einen Verlauf von Zeitstempeln. Verwenden Sie Ereignis-Aktionen, Bedingungen und Trigger in Ihren Flows, um Vorkommen zu verfolgen und zu überprüfen, wie oft oder wann Ereignisse stattgefunden haben.",

@@ -92,6 +92,11 @@
             "color": "Farve",
             "icon": "Ikon"
         },
+        "cycles": {
+            "title": "Tællere",
+            "description": "Tællere gennemløber en numerisk sekvens. Brug tællerhandlinger, betingelser og triggere i dine flows til at gennemgå værdier og reagere, når en tæller når et bestemt trin.",
+            "empty": "Der er endnu ikke oprettet nogen tællere."
+        },
         "events": {
             "title": "Begivenheder",
             "description": "Begivenheder sporer hvornår noget sker og gemmer en historik af tidsstempler. Brug begivenhedshandlinger, betingelser og triggere i dine flows til at spore hændelser og kontrollere hvor ofte eller hvornår begivenheder skete.",

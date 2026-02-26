@@ -16,6 +16,7 @@ export type {
 } from '../../src/types';
 
 export type FeatureType =
+    | 'cycle'
     | 'event'
     | 'flag'
     | 'label'

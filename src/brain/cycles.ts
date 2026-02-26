@@ -1,14 +1,23 @@
 import { Shortcuts } from '@basmilius/homey-common';
-import { REALTIME_CYCLE_UPDATE, SETTING_CYCLE_PREFIX } from '../const';
+import { REALTIME_CYCLE_UPDATE, SETTING_CYCLE_LOOKS, SETTING_CYCLE_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
-import type { Cycle, Feature, FlowBitsApp } from '../types';
+import type { Cycle, Feature, FlowBitsApp, Look, Styleable } from '../types';
 import { slugify } from '../util';
 
-export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cycle> {
+export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cycle>, Styleable {
+    get looks(): Record<string, Look> {
+        return this.settings.get(SETTING_CYCLE_LOOKS) ?? {};
+    }
+
+    set looks(value: Record<string, Look>) {
+        this.settings.set(SETTING_CYCLE_LOOKS, value);
+    }
+
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused cycles...');
 
         const defined = await this.findAll();
+        const looks = this.looks;
 
         for (const key of this.settings.getKeys()) {
             if (!key.startsWith(SETTING_CYCLE_PREFIX) || defined.find(d => this.#id(d.name) === key)) {
@@ -18,6 +27,17 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
             this.log(`Deleting unused cycle ${key}....`);
             this.settings.unset(key);
         }
+
+        for (const key of Object.keys(looks)) {
+            if (defined.find(d => d.name === key)) {
+                continue;
+            }
+
+            this.log(`Deleting unused cycle look ${key}...`);
+            delete looks[key];
+        }
+
+        this.looks = looks;
     }
 
     async count(): Promise<number> {
@@ -44,7 +64,11 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
         const results: Cycle[] = [];
 
         for (const cycle of cycles) {
+            const look = await this.getLook(cycle.name);
+
             results.push({
+                color: look[0],
+                icon: look[1],
                 name: cycle.name,
                 step: this.#get(cycle.name) ?? -1
             });
@@ -109,6 +133,19 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
 
     async getValue(name: string): Promise<number | null> {
         return this.#get(name);
+    }
+
+    async getLook(name: string): Promise<Look> {
+        return this.looks[name] ?? ['#204ef6', ''];
+    }
+
+    async setLook(name: string, look: Look): Promise<void> {
+        this.looks = {
+            ...this.looks,
+            [name]: look
+        };
+
+        await this.#triggerRealtime(name);
     }
 
     #id(name: string): string {

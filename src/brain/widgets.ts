@@ -4,6 +4,7 @@ import { createFilterAutocomplete, searchIcons } from '../util';
 
 export default class Widgets extends Shortcuts<FlowBitsApp> {
     async initialize(): Promise<void> {
+        await this.#initializeCycle();
         await this.#initializeEvent();
         await this.#initializeFlagOnOff();
         await this.#initializeFlags();
@@ -13,6 +14,18 @@ export default class Widgets extends Shortcuts<FlowBitsApp> {
         await this.#initializeSetStatus();
         await this.#initializeSlider();
         await this.#initializeTimer();
+    }
+
+    async #initializeCycle(): Promise<void> {
+        const widget = this.dashboards.getWidget('cycle');
+
+        widget.registerSettingAutocompleteListener('cycle', async () => {
+            const cycles = await this.app.api.getCycles();
+
+            return cycles.map(cycle => ({
+                name: cycle.name
+            }));
+        });
     }
 
     async #initializeEvent(): Promise<void> {

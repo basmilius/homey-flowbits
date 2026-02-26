@@ -6,6 +6,18 @@ export default class extends Shortcuts<FlowBitsApp> {
         return await this.app.cycles.findAll();
     }
 
+    async setCycleLook(cycleName: string, color: string, icon: string): Promise<boolean> {
+        const cycle = await this.app.cycles.find(cycleName);
+
+        if (!cycle) {
+            return false;
+        }
+
+        await this.app.cycles.setLook(cycle.name, [color, icon]);
+
+        return true;
+    }
+
     async getEvents(): Promise<Event[]> {
         return await this.app.events.findAll();
     }

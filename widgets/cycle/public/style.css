@@ -1,0 +1,32 @@
+@import '../../assets/app/base.css';
+@import '../../assets/app/icons.css';
+
+.cycle-controls {
+    display: none;
+    flex-flow: column;
+    gap: 2px;
+    margin-left: auto;
+}
+
+.cycle-controls.visible {
+    display: flex;
+}
+
+.cycle-controls-btn {
+    all: unset;
+    align-items: center;
+    background: var(--homey-color-mono-050, rgba(128, 128, 128, 0.08));
+    border-radius: var(--homey-border-radius-small, 6px);
+    color: var(--homey-text-color-light);
+    cursor: pointer;
+    display: flex;
+    font-size: 16px;
+    height: 28px;
+    justify-content: center;
+    line-height: 1;
+    width: 32px;
+}
+
+.cycle-controls-btn:active {
+    background: var(--homey-color-mono-100, rgba(128, 128, 128, 0.15));
+}

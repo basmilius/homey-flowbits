@@ -92,6 +92,11 @@
             "color": "Kleur",
             "icon": "Icoon"
         },
+        "cycles": {
+            "title": "Tellers",
+            "description": "Tellers doorlopen een numerieke reeks. Gebruik teller-acties, -voorwaarden en -triggers in je flows om door waarden te stappen en te reageren wanneer een teller een specifieke stap bereikt.",
+            "empty": "Er zijn nog geen tellers aangemaakt."
+        },
         "events": {
             "title": "Gebeurtenissen",
             "description": "Gebeurtenissen houden bij wanneer iets gebeurt en bewaren een geschiedenis van tijdstempels. Gebruik gebeurtenis-acties, -voorwaarden en -triggers in je flows om voorvallen bij te houden en te controleren hoe vaak of wanneer gebeurtenissen plaatsvonden.",

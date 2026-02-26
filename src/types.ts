@@ -54,10 +54,10 @@ export type BitSetState = {
     readonly expiresAt: string | undefined;
 };
 
-export type Cycle = {
+export type Cycle = WithLook<{
     readonly name: string;
     readonly step: number;
-};
+}>;
 
 export type Event = WithLook<{
     readonly lastUpdate: string | undefined;

@@ -1,7 +1,7 @@
 import type { Color, Icon } from '@basmilius/homey-common';
 import { provide, type Ref, ref } from 'vue';
 import { COLORS, ICONS } from './symbols';
-import type { BitSet, Event, FeatureType, Flag, FormLook, Item, Label, Mode, Statistics, Timer } from './types';
+import type { BitSet, Cycle, Event, FeatureType, Flag, FormLook, Item, Label, Mode, Statistics, Timer } from './types';
 
 const EMPTY_STATISTICS: Statistics = {
     currentFlags: [],
@@ -61,6 +61,10 @@ export function useIcons() {
 
         load
     };
+}
+
+export function useCycles() {
+    return composeList<Cycle>('/cycles');
 }
 
 export function useEvents() {

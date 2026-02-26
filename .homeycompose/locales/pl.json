@@ -92,6 +92,11 @@
             "color": "Kolor",
             "icon": "Ikona"
         },
+        "cycles": {
+            "title": "Liczniki",
+            "description": "Liczniki przechodzą przez sekwencję numeryczną. Używaj akcji, warunków i wyzwalaczy licznika w swoich przepływach, aby przechodzić przez wartości i reagować, gdy licznik osiągnie określony krok.",
+            "empty": "Nie utworzono jeszcze żadnych liczników."
+        },
         "events": {
             "title": "Zdarzenia",
             "description": "Zdarzenia śledzą, kiedy coś się dzieje i przechowują historię znaczników czasu. Używaj akcji, warunków i wyzwalaczy zdarzeń w swoich przepływach, aby śledzić wystąpienia i sprawdzać, jak często lub kiedy zdarzenia miały miejsce.",

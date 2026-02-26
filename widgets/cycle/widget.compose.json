@@ -1,0 +1,69 @@
+{
+    "name": {
+        "en": "Counter",
+        "nl": "Teller",
+        "de": "Zähler",
+        "fr": "Compteur",
+        "it": "Contatore",
+        "sv": "Räknare",
+        "no": "Teller",
+        "es": "Contador",
+        "da": "Tæller",
+        "ru": "Счётчик",
+        "pl": "Licznik",
+        "ko": "카운터",
+        "ar": "عداد"
+    },
+    "height": 120,
+    "settings": [
+        {
+            "id": "cycle",
+            "type": "autocomplete",
+            "title": {
+                "en": "Counter",
+                "nl": "Teller",
+                "de": "Zähler",
+                "fr": "Compteur",
+                "it": "Contatore",
+                "sv": "Räknare",
+                "no": "Teller",
+                "es": "Contador",
+                "da": "Tæller",
+                "ru": "Счётчик",
+                "pl": "Licznik",
+                "ko": "카운터",
+                "ar": "عداد"
+            }
+        },
+        {
+            "id": "show_controls",
+            "type": "checkbox",
+            "label": {
+                "en": "Show controls",
+                "nl": "Besturing tonen",
+                "de": "Steuerung anzeigen",
+                "fr": "Afficher les commandes",
+                "it": "Mostra controlli",
+                "sv": "Visa kontroller",
+                "no": "Vis kontroller",
+                "es": "Mostrar controles",
+                "da": "Vis kontroller",
+                "ru": "Показать управление",
+                "pl": "Pokaż elementy sterowania",
+                "ko": "컨트롤 표시",
+                "ar": "إظهار عناصر التحكم"
+            },
+            "value": false
+        }
+    ],
+    "api": {
+        "get": {
+            "method": "GET",
+            "path": "/"
+        },
+        "set": {
+            "method": "POST",
+            "path": "/"
+        }
+    }
+}

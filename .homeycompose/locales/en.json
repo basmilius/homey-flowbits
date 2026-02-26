@@ -92,6 +92,11 @@
             "color": "Color",
             "icon": "Icon"
         },
+        "cycles": {
+            "title": "Counters",
+            "description": "Counters cycle through a numeric sequence. Use counter actions, conditions, and triggers in your flows to step through values and respond when a counter reaches a specific step.",
+            "empty": "No counters have been created yet."
+        },
         "events": {
             "title": "Events",
             "description": "Events track when something happens and keep a history of timestamps. Use event actions, conditions, and triggers in your flows to track occurrences and check how often or when events happened.",

@@ -92,6 +92,11 @@
             "color": "Colore",
             "icon": "Icona"
         },
+        "cycles": {
+            "title": "Contatori",
+            "description": "I contatori scorrono una sequenza numerica. Usa azioni, condizioni e trigger dei contatori nei tuoi flow per passare tra i valori e rispondere quando un contatore raggiunge un passo specifico.",
+            "empty": "Nessun contatore è stato ancora creato."
+        },
         "events": {
             "title": "Eventi",
             "description": "Gli eventi registrano quando qualcosa accade e conservano una cronologia di timestamp. Usa azioni, condizioni e trigger degli eventi nei tuoi flow per tracciare le occorrenze e verificare quanto spesso o quando gli eventi si sono verificati.",

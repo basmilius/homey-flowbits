@@ -92,6 +92,11 @@
             "color": "Farge",
             "icon": "Ikon"
         },
+        "cycles": {
+            "title": "Tellere",
+            "description": "Tellere går gjennom en numerisk sekvens. Bruk tellerhandlinger, betingelser og triggere i flytene dine for å trinn gjennom verdier og reagere når en teller når et spesifikt trinn.",
+            "empty": "Ingen tellere har blitt opprettet enda."
+        },
         "events": {
             "title": "Hendelser",
             "description": "Hendelser sporer når noe skjer og holder en historikk over tidsstempler. Bruk hendelseshandlinger, betingelser og triggere i flytene dine for å spore forekomster og sjekke hvor ofte eller når hendelser skjedde.",

@@ -92,6 +92,11 @@
             "color": "Couleur",
             "icon": "Icône"
         },
+        "cycles": {
+            "title": "Compteurs",
+            "description": "Les compteurs parcourent une séquence numérique. Utilisez les actions, conditions et déclencheurs de compteur dans vos flux pour passer en revue les valeurs et réagir quand un compteur atteint une étape spécifique.",
+            "empty": "Aucun compteur n'a encore été créé."
+        },
         "events": {
             "title": "Événements",
             "description": "Les événements enregistrent quand quelque chose se produit et conservent un historique d'horodatages. Utilisez les actions, conditions et déclencheurs d'événements dans vos flux pour suivre les occurrences et vérifier à quelle fréquence ou quand les événements se sont produits.",

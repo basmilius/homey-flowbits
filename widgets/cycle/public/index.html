@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <title>Counter</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+</head>
+
+<body class="homey-widget">
+
+<div class="basic-widget">
+    <div
+        class="basic-widget-icon flowbits-icon"
+        id="cycle-icon"></div>
+
+    <div class="basic-widget-caption">
+        <div class="basic-widget-header">
+            <span
+                class="basic-widget-header-name"
+                id="cycle-name">&mdash;</span>
+        </div>
+
+        <div
+            class="basic-widget-content"
+            id="cycle-value">
+            &mdash;
+        </div>
+    </div>
+
+    <div
+        class="cycle-controls"
+        id="cycle-controls">
+        <button
+            class="cycle-controls-btn font-awesome-icon"
+            id="cycle-btn-next"
+            aria-label="Next">&#xf106;</button>
+
+        <button
+            class="cycle-controls-btn font-awesome-icon"
+            id="cycle-btn-previous"
+            aria-label="Previous">&#xf107;</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onHomeyReady(Homey) {
+        const formatter = new Intl.NumberFormat(navigator.language);
+
+        const cycleIcon = document.getElementById('cycle-icon');
+        const cycleName = document.getElementById('cycle-name');
+        const cycleValue = document.getElementById('cycle-value');
+        const cycleControls = document.getElementById('cycle-controls');
+        const cycleBtnNext = document.getElementById('cycle-btn-next');
+        const cycleBtnPrevious = document.getElementById('cycle-btn-previous');
+        let ready = false;
+
+        const settings = Homey.getSettings();
+
+        async function init() {
+            Homey.on('flowbits-cycle-update', (cycle) => {
+                if (cycle?.name === settings.cycle.name) {
+                    render(cycle);
+                }
+            });
+
+            if (settings.show_controls) {
+                cycleControls.classList.add('visible');
+
+                cycleBtnNext.addEventListener('click', async () => {
+                    await Homey.api('POST', `/?cycle=${encodeURIComponent(settings.cycle.name)}`, {action: 'next'});
+                });
+
+                cycleBtnPrevious.addEventListener('click', async () => {
+                    await Homey.api('POST', `/?cycle=${encodeURIComponent(settings.cycle.name)}`, {action: 'previous'});
+                });
+            }
+
+            await update();
+        }
+
+        function render(cycle) {
+            cycleName.innerText = cycle?.name ?? '—';
+
+            if (cycle?.color) {
+                cycleIcon.style.setProperty('--color', cycle.color);
+            } else {
+                cycleIcon.style.removeProperty('--color');
+            }
+
+            if (cycle?.icon) {
+                cycleIcon.style.setProperty('--icon', JSON.stringify(cycle.icon));
+                cycleIcon.style.setProperty('--icon-secondary', JSON.stringify(cycle.icon + cycle.icon));
+            } else {
+                cycleIcon.style.removeProperty('--icon');
+                cycleIcon.style.removeProperty('--icon-secondary');
+            }
+
+            if (cycle && cycle.step >= 0) {
+                cycleValue.innerText = formatter.format(cycle.step);
+            } else {
+                cycleValue.innerText = '—';
+            }
+        }
+
+        async function update() {
+            const cycle = await Homey.api('GET', `/?cycle=${encodeURIComponent(settings.cycle.name)}`);
+
+            render(cycle);
+
+            const height = document.body.getBoundingClientRect().height;
+
+            if (ready) {
+                await Homey.setHeight(height);
+            } else {
+                Homey.ready({height});
+                ready = true;
+            }
+        }
+
+        init();
+    }
+</script>
+
+</body>
+</html>

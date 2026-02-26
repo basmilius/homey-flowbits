@@ -7,6 +7,13 @@
         <Documentation/>
 
         <Category
+            :title="t('settings.cycles.title')"
+            :description="t('settings.cycles.description')"
+            :empty="t('settings.cycles.empty')"
+            :items="cycles"
+            @edit="onEditCycle"/>
+
+        <Category
             :title="t('settings.modes.title')"
             :description="t('settings.modes.description')"
             :empty="t('settings.modes.empty')"
@@ -66,12 +73,13 @@
     setup>
     import { onMounted, ref, unref } from 'vue';
     import { Category, Documentation, Edit, Form, Statistics, Top } from './components';
-    import { composeEdit, composeSave, useColors, useEvents, useFlags, useIcons, useLabels, useModes, useSets, useTimers, useTranslate } from './composables';
+    import { composeEdit, composeSave, useColors, useCycles, useEvents, useFlags, useIcons, useLabels, useModes, useSets, useTimers, useTranslate } from './composables';
     import type { FeatureType, FormLook, Item } from './types';
 
     const t = useTranslate();
     const {load: loadColors} = useColors();
     const {load: loadIcons} = useIcons();
+    const {items: cycles, load: loadCycles} = useCycles();
     const {items: events, load: loadEvents} = useEvents();
     const {items: flags, load: loadFlags} = useFlags();
     const {items: labels, load: loadLabels} = useLabels();
@@ -83,6 +91,7 @@
     const editingType = ref<FeatureType | null>(null);
     const isSaving = ref(false);
 
+    const onEditCycle = composeEdit('cycle', editingItem, editingType);
     const onEditEvent = composeEdit('event', editingItem, editingType);
     const onEditFlag = composeEdit('flag', editingItem, editingType);
     const onEditLabel = composeEdit('label', editingItem, editingType);
@@ -90,6 +99,7 @@
     const onEditSet = composeEdit('set', editingItem, editingType);
     const onEditTimer = composeEdit('timer', editingItem, editingType);
 
+    const onSaveCycle = composeSave('/cycles/look', editingItem, editingType, isSaving, loadCycles);
     const onSaveEvent = composeSave('/events/look', editingItem, editingType, isSaving, loadEvents);
     const onSaveFlag = composeSave('/flags/look', editingItem, editingType, isSaving, loadFlags);
     const onSaveLabel = composeSave('/labels/look', editingItem, editingType, isSaving, loadLabels);
@@ -104,6 +114,7 @@
         ]);
 
         await Promise.allSettled([
+            loadCycles(),
             loadEvents(),
             loadFlags(),
             loadLabels(),
@@ -122,6 +133,9 @@
 
     function onSaveItem(name: string, look: FormLook) {
         switch (unref(editingType)) {
+            case 'cycle':
+                return onSaveCycle(name, look);
+
             case 'event':
                 return onSaveEvent(name, look);
 

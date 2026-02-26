@@ -7,6 +7,7 @@ export const REALTIME_SETS_UPDATE = 'flowbits-sets-update';
 export const REALTIME_SLIDER_UPDATE = 'flowbits-slider-update';
 export const REALTIME_TIMER_UPDATE = 'flowbits-timer-update';
 
+export const SETTING_CYCLE_LOOKS = 'flowbits-cycle-looks';
 export const SETTING_CYCLE_PREFIX = 'flowbits-cycle:';
 export const SETTING_EVENTS = 'flowbits-events';
 export const SETTING_EVENT_LOOKS = 'flowbits-event-looks';

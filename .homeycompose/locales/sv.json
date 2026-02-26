@@ -92,6 +92,11 @@
             "color": "Färg",
             "icon": "Ikon"
         },
+        "cycles": {
+            "title": "Räknare",
+            "description": "Räknare genomlöper en numerisk sekvens. Använd räknaråtgärder, villkor och triggers i dina flöden för att stega igenom värden och reagera när en räknare når ett specifikt steg.",
+            "empty": "Inga räknare har skapats ännu."
+        },
         "events": {
             "title": "Händelser",
             "description": "Händelser spårar när något händer och bevarar en historik av tidsstämplar. Använd händelseåtgärder, villkor och triggers i dina flöden för att spåra händelser och kontrollera hur ofta eller när händelser inträffade.",
