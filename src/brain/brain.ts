@@ -1,5 +1,6 @@
 import { Shortcuts } from '@basmilius/homey-common';
 import type { FlowBitsApp } from '../types';
+import { Scheduler } from '../util';
 import Api from './api';
 import Cycles from './cycles';
 import Events from './events';
@@ -84,17 +85,22 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
     constructor(app: FlowBitsApp) {
         super(app);
 
+        const scheduler = new Scheduler(
+            (cb, ms) => this.setTimeout(cb, ms),
+            t => this.clearTimeout(t)
+        );
+
         this.#api = new Api(app);
         this.#cycles = new Cycles(app);
         this.#events = new Events(app);
-        this.#flags = new Flags(app);
+        this.#flags = new Flags(app, scheduler);
         this.#labels = new Labels(app);
-        this.#modes = new Modes(app);
+        this.#modes = new Modes(app, scheduler);
         this.#noRepeat = new NoRepeat(app);
-        this.#sets = new Sets(app);
+        this.#sets = new Sets(app, scheduler);
         this.#signals = new Signals(app);
         this.#sliders = new Sliders(app);
-        this.#timers = new Timers(app);
+        this.#timers = new Timers(app, scheduler);
         this.#tokens = new Tokens(app);
         this.#widgets = new Widgets(app);
     }

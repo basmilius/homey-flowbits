@@ -2,10 +2,15 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { MAX_TIMEOUT_MS, REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, FlowBitsApp, Look, Mode, Styleable } from '../types';
-import { convertDurationToMs } from '../util';
+import { convertDurationToMs, Scheduler } from '../util';
 
 export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mode>, Styleable {
-    #deactivationTimeout: NodeJS.Timeout | null = null;
+    readonly #scheduler: Scheduler;
+
+    constructor(app: FlowBitsApp, scheduler: Scheduler) {
+        super(app);
+        this.#scheduler = scheduler;
+    }
 
     get currentMode(): string | null {
         return this.settings.get(SETTING_MODE);
@@ -283,17 +288,13 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     #clearModeTimeout(): void {
-        if (this.#deactivationTimeout) {
-            this.clearTimeout(this.#deactivationTimeout);
-            this.#deactivationTimeout = null;
-        }
+        this.#scheduler.cancel('mode-deactivation');
     }
 
     #scheduleDeactivation(name: string, duration: number, unit: ClockUnit): void {
         const ms = Math.min(convertDurationToMs(duration, unit), MAX_TIMEOUT_MS);
 
-        this.#deactivationTimeout = this.setTimeout(async () => {
-            this.#deactivationTimeout = null;
+        this.#scheduler.schedule('mode-deactivation', async () => {
             await this.deactivate(name);
         }, ms);
     }

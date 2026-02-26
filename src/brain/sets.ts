@@ -2,7 +2,7 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { MAX_TIMEOUT_MS, REALTIME_SETS_UPDATE, SETTING_SET_LOOKS, SETTING_SETS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { BitSet, BitSetState, ClockUnit, Feature, FlowBitsApp, Look, Styleable } from '../types';
-import { convertDurationToMs } from '../util';
+import { convertDurationToMs, Scheduler } from '../util';
 
 type SetCounts = {
     readonly activeCount: number;
@@ -18,7 +18,7 @@ type StoredSet = Record<string, [active: boolean, lastUpdate: string | null, exp
 type StoredSets = Record<string, StoredSet>;
 
 export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitSet>, Styleable {
-    #expirationTimeout: NodeJS.Timeout | null = null;
+    readonly #scheduler: Scheduler;
 
     get looks(): Record<string, Look> {
         return this.settings.get(SETTING_SET_LOOKS) ?? {};
@@ -34,6 +34,11 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
     set states(value: StoredSets) {
         this.settings.set(SETTING_SETS, value);
+    }
+
+    constructor(app: FlowBitsApp, scheduler: Scheduler) {
+        super(app);
+        this.#scheduler = scheduler;
     }
 
     async initialize(): Promise<void> {
@@ -614,10 +619,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async #scheduleNextExpiration(): Promise<void> {
-        if (this.#expirationTimeout) {
-            this.clearTimeout(this.#expirationTimeout);
-            this.#expirationTimeout = null;
-        }
+        this.#scheduler.cancel('sets-expiration');
 
         const now = DateTime.now();
         let earliestExpiration: { setName: string; stateName: string; expiresAt: DateTime } | null = null;
@@ -647,14 +649,11 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             return;
         }
 
-        const delay = Math.min(diff, MAX_TIMEOUT_MS);
-
-        this.#expirationTimeout = this.setTimeout(async () => {
-            this.#expirationTimeout = null;
+        this.#scheduler.schedule('sets-expiration', async () => {
             await this.#processExpirations();
-        }, delay);
+        }, diff);
 
-        this.log(`Scheduled next expiration check in ${Math.round(delay / 1000)}s`);
+        this.log(`Scheduled next expiration check in ${Math.round(Math.min(diff, MAX_TIMEOUT_MS) / 1000)}s`);
     }
 
     async #processExpirations(): Promise<void> {

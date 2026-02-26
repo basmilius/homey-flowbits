@@ -2,10 +2,15 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { MAX_TIMEOUT_MS, REALTIME_FLAGS_UPDATE, SETTING_FLAG_LAST_UPDATES, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, Flag, FlowBitsApp, Look, Styleable } from '../types';
-import { convertDurationToMs } from '../util';
+import { convertDurationToMs, Scheduler } from '../util';
 
 export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Flag>, Styleable {
-    #deactivationTimeouts: Map<string, NodeJS.Timeout> = new Map();
+    readonly #scheduler: Scheduler;
+
+    constructor(app: FlowBitsApp, scheduler: Scheduler) {
+        super(app);
+        this.#scheduler = scheduler;
+    }
 
     get currentFlags(): string[] {
         return this.settings.get(SETTING_FLAGS) ?? [];
@@ -241,22 +246,15 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     #clearFlagTimeout(name: string): void {
-        const existingTimeout = this.#deactivationTimeouts.get(name);
-        if (existingTimeout) {
-            this.clearTimeout(existingTimeout);
-            this.#deactivationTimeouts.delete(name);
-        }
+        this.#scheduler.cancel(`flag-deactivation:${name}`);
     }
 
     #scheduleDeactivation(name: string, duration: number, unit: ClockUnit): void {
         const ms = Math.min(convertDurationToMs(duration, unit), MAX_TIMEOUT_MS);
 
-        const timeout = this.setTimeout(async () => {
-            this.#deactivationTimeouts.delete(name);
+        this.#scheduler.schedule(`flag-deactivation:${name}`, async () => {
             await this.deactivate(name);
         }, ms);
-
-        this.#deactivationTimeouts.set(name, timeout);
     }
 
     async #triggerActivated(name: string): Promise<void> {

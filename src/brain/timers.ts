@@ -2,7 +2,7 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_TIMER_UPDATE, SETTING_TIMER_LOOKS, SETTING_TIMER_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockState, ClockUnit, Feature, FlowBitsApp, Look, Styleable, Timer } from '../types';
-import { convertDurationToMs, slugify } from '../util';
+import { convertDurationToMs, Scheduler, slugify } from '../util';
 
 const TIMER_FINISH_GRACE_PERIOD = 5000;
 
@@ -15,8 +15,13 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         this.settings.set(SETTING_TIMER_LOOKS, value);
     }
 
-    #timeouts: Record<string, NodeJS.Timeout[]> = {};
+    readonly #scheduler: Scheduler;
     #timers: Record<string, StoredTimer> = {};
+
+    constructor(app: FlowBitsApp, scheduler: Scheduler) {
+        super(app);
+        this.#scheduler = scheduler;
+    }
 
     async initialize(): Promise<void> {
         this.#migrateTimers();
@@ -381,15 +386,8 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     #clear(timer: StoredTimer): void {
-        const timeouts = this.#timeouts[timer.id];
-
-        if (!timeouts) {
-            return;
-        }
-
-        this.log(`Clear timer timeouts for ${timer.name}.`);
-        timeouts.forEach(timeout => this.clearTimeout(timeout));
-        delete this.#timeouts[timer.id];
+        this.log(`Clear scheduled entries for ${timer.name}.`);
+        this.#scheduler.cancelAll(`timer:${timer.id}:`);
     }
 
     #find(name: string): StoredTimer | null {
@@ -468,14 +466,10 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             if (diff > 0 && timer.status === 'running') {
                 this.log(`Timer ${timer.name} is scheduled to finish in ${diff}ms.`);
 
-                const timeouts: NodeJS.Timeout[] = [];
-
-                timeouts.push(
-                    this.setTimeout(async () => {
-                        await this.finish(timer);
-                        await this.#schedule();
-                    }, diff)
-                );
+                this.#scheduler.schedule(`timer:${timer.id}:finish`, async () => {
+                    await this.finish(timer);
+                    await this.#schedule();
+                }, diff);
 
                 for (const trigger of triggers) {
                     const triggerMs = convertDurationToMs(trigger.duration, trigger.unit);
@@ -485,14 +479,10 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
                         continue;
                     }
 
-                    timeouts.push(
-                        this.setTimeout(async () => {
-                            await this.#triggerRemaining(timer.name, trigger.duration, trigger.unit);
-                        }, triggerDiff)
-                    );
+                    this.#scheduler.schedule(`timer:${timer.id}:remaining:${trigger.duration}:${trigger.unit}`, async () => {
+                        await this.#triggerRemaining(timer.name, trigger.duration, trigger.unit);
+                    }, triggerDiff);
                 }
-
-                this.#timeouts[timer.id] = timeouts;
             } else if (diff >= -TIMER_FINISH_GRACE_PERIOD && timer.status === 'running') {
                 // todo(Bas): Decide if this 5 second grace period is wanted.
                 await this.finish(timer);
