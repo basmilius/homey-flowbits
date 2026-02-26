@@ -13,9 +13,12 @@ export interface Schedulable {
     executeScheduledEvent(id: string): Promise<void>;
 }
 
+const NOTIFY_DEBOUNCE_MS = 50;
+
 export class Scheduler {
     readonly #features: Map<string, Schedulable> = new Map();
     #timeout: NodeJS.Timeout | null = null;
+    #debounce: NodeJS.Timeout | null = null;
     readonly #setTimeoutFn: (callback: () => void, ms: number) => NodeJS.Timeout;
     readonly #clearTimeoutFn: (timeout: NodeJS.Timeout) => void;
 
@@ -31,8 +34,16 @@ export class Scheduler {
         this.#features.set(feature.schedulerFeature, feature);
     }
 
+    // Debounced: rapid-fire calls within NOTIFY_DEBOUNCE_MS coalesce into a single reschedule.
     notify(): void {
-        this.#reschedule();
+        if (this.#debounce !== null) {
+            this.#clearTimeoutFn(this.#debounce);
+        }
+
+        this.#debounce = this.#setTimeoutFn(() => {
+            this.#debounce = null;
+            this.#reschedule();
+        }, NOTIFY_DEBOUNCE_MS);
     }
 
     getUpcoming(): ScheduledEvent[] {
@@ -58,36 +69,47 @@ export class Scheduler {
             this.#timeout = null;
         }
 
-        let earliest: { event: { id: string; description: string; runAt: number }; feature: Schedulable } | null = null;
+        // Collect all pending events from all features, sorted earliest-first.
+        type PendingEvent = { event: { id: string; description: string; runAt: number }; feature: Schedulable };
+        const all: PendingEvent[] = [];
 
         for (const feature of this.#features.values()) {
             for (const event of feature.getScheduledEvents()) {
-                if (!earliest || event.runAt < earliest.event.runAt) {
-                    earliest = { event, feature };
-                }
+                all.push({ event, feature });
             }
         }
 
-        if (!earliest) {
+        if (all.length === 0) {
             return;
         }
 
-        const diff = Math.max(0, earliest.event.runAt - Date.now());
+        all.sort((a, b) => a.event.runAt - b.event.runAt);
+
+        const earliest = all[0].event.runAt;
+        const diff = Math.max(0, earliest - Date.now());
         const delay = Math.min(diff, MAX_TIMEOUT_MS);
-        const { event, feature } = earliest;
 
         this.#timeout = this.#setTimeoutFn(() => {
             void (async () => {
                 this.#timeout = null;
 
-                if (event.runAt <= Date.now()) {
-                    try {
-                        await feature.executeScheduledEvent(event.id);
-                    } catch {
-                        // Errors in scheduled event handlers are intentionally suppressed here.
-                        // Each feature is responsible for its own error handling.
+                const now = Date.now();
+
+                // Collect all events that are due (runAt <= now), not just the earliest one.
+                // This handles multiple events scheduled for the exact same time.
+                const due: PendingEvent[] = [];
+
+                for (const feature of this.#features.values()) {
+                    for (const event of feature.getScheduledEvents()) {
+                        if (event.runAt <= now) {
+                            due.push({ event, feature });
+                        }
                     }
                 }
+
+                await Promise.allSettled(
+                    due.map(({ event, feature }) => feature.executeScheduledEvent(event.id))
+                );
 
                 this.#reschedule();
             })();
