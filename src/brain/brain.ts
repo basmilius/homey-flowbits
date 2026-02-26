@@ -1,13 +1,13 @@
 import { Shortcuts } from '@basmilius/homey-common';
 import type { FlowBitsApp } from '../types';
 import Api from './api';
-import Counters from './counters';
 import Cycles from './cycles';
 import Events from './events';
 import Flags from './flags';
 import Labels from './labels';
 import Modes from './modes';
 import NoRepeat from './noRepeat';
+import Presences from './presences';
 import Sets from './sets';
 import Signals from './signals';
 import Sliders from './sliders';
@@ -18,10 +18,6 @@ import Widgets from './widgets';
 export default class Brain extends Shortcuts<FlowBitsApp> {
     get api(): Api {
         return this.#api;
-    }
-
-    get counters(): Counters {
-        return this.#counters;
     }
 
     get cycles(): Cycles {
@@ -46,6 +42,10 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
 
     get noRepeat(): NoRepeat {
         return this.#noRepeat;
+    }
+
+    get presences(): Presences {
+        return this.#presences;
     }
 
     get sets(): Sets {
@@ -73,13 +73,13 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
     }
 
     readonly #api: Api;
-    readonly #counters: Counters;
     readonly #cycles: Cycles;
     readonly #events: Events;
     readonly #flags: Flags;
     readonly #labels: Labels;
     readonly #modes: Modes;
     readonly #noRepeat: NoRepeat;
+    readonly #presences: Presences;
     readonly #sets: Sets;
     readonly #signals: Signals;
     readonly #sliders: Sliders;
@@ -91,13 +91,13 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         super(app);
 
         this.#api = new Api(app);
-        this.#counters = new Counters(app);
         this.#cycles = new Cycles(app);
         this.#events = new Events(app);
         this.#flags = new Flags(app);
         this.#labels = new Labels(app);
         this.#modes = new Modes(app);
         this.#noRepeat = new NoRepeat(app);
+        this.#presences = new Presences(app);
         this.#sets = new Sets(app);
         this.#signals = new Signals(app);
         this.#sliders = new Sliders(app);
@@ -110,13 +110,13 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         this.log('Cleaning up...');
 
         await Promise.allSettled([
-            this.counters.cleanup(),
             this.cycles.cleanup(),
             this.events.cleanup(),
             this.flags.cleanup(),
             this.labels.cleanup(),
             this.modes.cleanup(),
             this.noRepeat.cleanup(),
+            this.presences.cleanup(),
             this.sets.cleanup(),
             this.sliders.cleanup(),
             this.timers.cleanup()

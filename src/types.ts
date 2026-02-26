@@ -92,6 +92,13 @@ export type Counter = {
     readonly value: number;
 };
 
+export type Presence = {
+    readonly name: string;
+    readonly home: boolean;
+    readonly lastArrived: string | undefined;
+    readonly lastDeparted: string | undefined;
+};
+
 export type Slider = {
     readonly name: string;
     readonly value: number;
@@ -110,13 +117,13 @@ export type Look = [color: string, icon: string];
 export type Statistics = {
     readonly currentFlags: string[];
     readonly currentMode: string | null;
-    readonly numberOfCounters: number;
     readonly numberOfCycles: number;
     readonly numberOfEvents: number;
     readonly numberOfFlags: number;
     readonly numberOfLabels: number;
     readonly numberOfModes: number;
     readonly numberOfNoRepeats: number;
+    readonly numberOfPresences: number;
     readonly numberOfSets: number;
     readonly numberOfSliders: number;
     readonly numberOfTimers: number;
