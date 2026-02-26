@@ -87,17 +87,18 @@ export type NoRepeatWindow = {
     readonly lastUpdate: string | undefined;
 };
 
-export type Counter = {
+export type Schedule = {
     readonly name: string;
-    readonly value: number;
+    readonly active: boolean;
+    readonly days: ScheduleDays;
+    readonly startTime: string;
+    readonly endTime: string;
 };
 
-export type Presence = {
-    readonly name: string;
-    readonly home: boolean;
-    readonly lastArrived: string | undefined;
-    readonly lastDeparted: string | undefined;
-};
+export type ScheduleDays =
+    | 'every_day'
+    | 'weekdays'
+    | 'weekends';
 
 export type Slider = {
     readonly name: string;
@@ -123,7 +124,7 @@ export type Statistics = {
     readonly numberOfLabels: number;
     readonly numberOfModes: number;
     readonly numberOfNoRepeats: number;
-    readonly numberOfPresences: number;
+    readonly numberOfSchedules: number;
     readonly numberOfSets: number;
     readonly numberOfSliders: number;
     readonly numberOfTimers: number;

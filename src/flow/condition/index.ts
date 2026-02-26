@@ -1,8 +1,4 @@
 export { default as ContinueWithChance } from './continueWithChance';
-export { default as CounterBetween } from './counterBetween';
-export { default as CounterEquals } from './counterEquals';
-export { default as CounterGreaterThan } from './counterGreaterThan';
-export { default as CounterLessThan } from './counterLessThan';
 export { default as CycleHasValue } from './cycleHasValue';
 export { default as DayPeriodIs } from './dayPeriodIs';
 export { default as DiceRolls } from './diceRolls';
@@ -20,6 +16,7 @@ export { default as ModeIsActiveFor } from './modeIsActiveFor';
 export { default as ModeIsInactiveFor } from './modeIsInactiveFor';
 export { default as MoonPhaseIs } from './moonPhaseIs';
 export { default as NoRepeatWindow } from './noRepeatWindow';
+export { default as ScheduleIsActive } from './scheduleIsActive';
 export { default as SchoolHolidayIs } from './schoolHolidayIs';
 export { default as SetActiveAll } from './setActiveAll';
 export { default as SetActiveAny } from './setActiveAny';

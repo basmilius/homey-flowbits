@@ -1,5 +1,3 @@
-export { default as CounterChanged } from './counterChanged';
-export { default as CounterReaches } from './counterReaches';
 export { default as CycleBecomes } from './cycleBecomes';
 export { default as CycleUpdates } from './cycleUpdates';
 export { default as DayPeriodBecomes } from './dayPeriodBecomes';
@@ -24,6 +22,8 @@ export { default as SetStateActivated } from './setStateActivated';
 export { default as SetStateChanged } from './setStateChanged';
 export { default as SetStateDeactivated } from './setStateDeactivated';
 export { default as SignalReceive } from './signalReceive';
+export { default as ScheduleEnded } from './scheduleEnded';
+export { default as ScheduleStarted } from './scheduleStarted';
 export { default as SliderChanged } from './sliderChanged';
 export { default as TimerFinished } from './timerFinished';
 export { default as TimerPaused } from './timerPaused';

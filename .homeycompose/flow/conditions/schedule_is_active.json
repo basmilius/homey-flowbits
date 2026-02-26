@@ -1,0 +1,54 @@
+{
+    "id": "schedule_is_active",
+    "title": {
+        "en": "Schedule is active",
+        "nl": "Schema is actief",
+        "da": "Tidsplan er aktiv",
+        "de": "Zeitplan ist aktiv",
+        "es": "El horario está activo",
+        "fr": "Le planning est actif",
+        "it": "Il programma è attivo",
+        "no": "Tidsplan er aktiv",
+        "sv": "Schema är aktivt",
+        "pl": "Harmonogram jest aktywny",
+        "ru": "Расписание активно",
+        "ko": "스케줄이 활성화됨",
+        "ar": "الجدول الزمني نشط"
+    },
+    "titleFormatted": {
+        "en": "Schedule [[schedule]] !{{is active|is not active}}",
+        "nl": "Schema [[schedule]] !{{is actief|is niet actief}}",
+        "da": "Tidsplan [[schedule]] !{{er aktiv|er ikke aktiv}}",
+        "de": "Zeitplan [[schedule]] !{{ist aktiv|ist nicht aktiv}}",
+        "es": "Horario [[schedule]] !{{está activo|no está activo}}",
+        "fr": "Planning [[schedule]] !{{est actif|n'est pas actif}}",
+        "it": "Programma [[schedule]] !{{è attivo|non è attivo}}",
+        "no": "Tidsplan [[schedule]] !{{er aktiv|er ikke aktiv}}",
+        "sv": "Schema [[schedule]] !{{är aktivt|är inte aktivt}}",
+        "pl": "Harmonogram [[schedule]] !{{jest aktywny|nie jest aktywny}}",
+        "ru": "Расписание [[schedule]] !{{активно|не активно}}",
+        "ko": "스케줄 [[schedule]] !{{가 활성화됨|가 활성화되지 않음}}",
+        "ar": "الجدول الزمني [[schedule]] !{{نشط|غير نشط}}"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "schedule",
+            "title": {
+                "en": "Schedule",
+                "nl": "Schema",
+                "da": "Tidsplan",
+                "de": "Zeitplan",
+                "es": "Horario",
+                "fr": "Planning",
+                "it": "Programma",
+                "no": "Tidsplan",
+                "sv": "Schema",
+                "pl": "Harmonogram",
+                "ru": "Расписание",
+                "ko": "스케줄",
+                "ar": "الجدول الزمني"
+            }
+        }
+    ]
+}

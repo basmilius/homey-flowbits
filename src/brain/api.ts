@@ -1,11 +1,7 @@
 import { Shortcuts } from '@basmilius/homey-common';
-import type { BitSet, Counter, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from '../types';
+import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Schedule, Slider, Statistics, Timer } from '../types';
 
 export default class extends Shortcuts<FlowBitsApp> {
-    async getCounters(): Promise<Counter[]> {
-        return await this.app.counters.findAll();
-    }
-
     async getCycles(): Promise<Cycle[]> {
         return await this.app.cycles.findAll();
     }
@@ -162,6 +158,10 @@ export default class extends Shortcuts<FlowBitsApp> {
         return await this.app.noRepeat.findAll();
     }
 
+    async getSchedules(): Promise<Schedule[]> {
+        return await this.app.schedules.findAll();
+    }
+
     async getSets(): Promise<BitSet[]> {
         return await this.app.sets.findAll();
     }
@@ -206,13 +206,13 @@ export default class extends Shortcuts<FlowBitsApp> {
             currentFlags: flags.filter(flag => flag.active).map(flag => flag.name),
             currentMode: modes.find(mode => mode.active)?.name ?? null,
 
-            numberOfCounters: await this.app.counters.count(),
             numberOfCycles: await this.app.cycles.count(),
             numberOfEvents: await this.app.events.count(),
             numberOfFlags: await this.app.flags.count(),
             numberOfLabels: await this.app.labels.count(),
             numberOfModes: await this.app.modes.count(),
             numberOfNoRepeats: await this.app.noRepeat.count(),
+            numberOfSchedules: await this.app.schedules.count(),
             numberOfSets: await this.app.sets.count(),
             numberOfSliders: await this.app.sliders.count(),
             numberOfTimers: await this.app.timers.count(),

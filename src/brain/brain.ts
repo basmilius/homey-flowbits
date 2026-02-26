@@ -7,7 +7,7 @@ import Flags from './flags';
 import Labels from './labels';
 import Modes from './modes';
 import NoRepeat from './noRepeat';
-import Presences from './presences';
+import Schedules from './schedules';
 import Sets from './sets';
 import Signals from './signals';
 import Sliders from './sliders';
@@ -44,8 +44,8 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         return this.#noRepeat;
     }
 
-    get presences(): Presences {
-        return this.#presences;
+    get schedules(): Schedules {
+        return this.#schedules;
     }
 
     get sets(): Sets {
@@ -79,7 +79,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
     readonly #labels: Labels;
     readonly #modes: Modes;
     readonly #noRepeat: NoRepeat;
-    readonly #presences: Presences;
+    readonly #schedules: Schedules;
     readonly #sets: Sets;
     readonly #signals: Signals;
     readonly #sliders: Sliders;
@@ -97,7 +97,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         this.#labels = new Labels(app);
         this.#modes = new Modes(app);
         this.#noRepeat = new NoRepeat(app);
-        this.#presences = new Presences(app);
+        this.#schedules = new Schedules(app);
         this.#sets = new Sets(app);
         this.#signals = new Signals(app);
         this.#sliders = new Sliders(app);
@@ -116,7 +116,6 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
             this.labels.cleanup(),
             this.modes.cleanup(),
             this.noRepeat.cleanup(),
-            this.presences.cleanup(),
             this.sets.cleanup(),
             this.sliders.cleanup(),
             this.timers.cleanup()

@@ -1,0 +1,54 @@
+{
+    "id": "schedule_started",
+    "title": {
+        "en": "Schedule started",
+        "nl": "Schema gestart",
+        "da": "Tidsplan startet",
+        "de": "Zeitplan gestartet",
+        "es": "Horario iniciado",
+        "fr": "Planning démarré",
+        "it": "Programma avviato",
+        "no": "Tidsplan startet",
+        "sv": "Schema startades",
+        "pl": "Harmonogram uruchomiony",
+        "ru": "Расписание началось",
+        "ko": "스케줄 시작됨",
+        "ar": "بدأ الجدول الزمني"
+    },
+    "titleFormatted": {
+        "en": "Schedule [[schedule]] started",
+        "nl": "Schema [[schedule]] is gestart",
+        "da": "Tidsplan [[schedule]] startede",
+        "de": "Zeitplan [[schedule]] gestartet",
+        "es": "Horario [[schedule]] iniciado",
+        "fr": "Planning [[schedule]] démarré",
+        "it": "Programma [[schedule]] avviato",
+        "no": "Tidsplan [[schedule]] startet",
+        "sv": "Schema [[schedule]] startades",
+        "pl": "Harmonogram [[schedule]] uruchomiony",
+        "ru": "Расписание [[schedule]] началось",
+        "ko": "스케줄 [[schedule]] 시작됨",
+        "ar": "بدأ الجدول الزمني [[schedule]]"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "schedule",
+            "title": {
+                "en": "Schedule",
+                "nl": "Schema",
+                "da": "Tidsplan",
+                "de": "Zeitplan",
+                "es": "Horario",
+                "fr": "Planning",
+                "it": "Programma",
+                "no": "Tidsplan",
+                "sv": "Schema",
+                "pl": "Harmonogram",
+                "ru": "Расписание",
+                "ko": "스케줄",
+                "ar": "الجدول الزمني"
+            }
+        }
+    ]
+}

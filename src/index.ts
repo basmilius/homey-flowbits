@@ -1,5 +1,5 @@
 import { App, Luxon } from '@basmilius/homey-common';
-import type { Api, Counters, Cycles, Events, Flags, Labels, Modes, NoRepeat, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
+import type { Api, Cycles, Events, Flags, Labels, Modes, NoRepeat, Schedules, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
 import { Brain } from './brain';
 import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
 import { roundStep } from './util';
@@ -7,10 +7,6 @@ import { roundStep } from './util';
 export default class FlowBitsApp extends App<FlowBitsApp> {
     get api(): Api {
         return this.#brain.api;
-    }
-
-    get counters(): Counters {
-        return this.#brain.counters;
     }
 
     get cycles(): Cycles {
@@ -35,6 +31,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
 
     get noRepeat(): NoRepeat {
         return this.#brain.noRepeat;
+    }
+
+    get schedules(): Schedules {
+        return this.#brain.schedules;
     }
 
     get sets(): Sets {
@@ -84,6 +84,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
             );
 
             await Promise.allSettled([
+                this.schedules.initialize(),
                 this.sets.initialize(),
                 this.timers.initialize(),
                 this.tokens.initialize(),
@@ -100,10 +101,6 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
     }
 
     #registerActions(): void {
-        this.registry.action(Actions.CounterDecrement);
-        this.registry.action(Actions.CounterIncrement);
-        this.registry.action(Actions.CounterReset);
-        this.registry.action(Actions.CounterSet);
         this.registry.action(Actions.Cycle);
         this.registry.action(Actions.CycleBetween);
         this.registry.action(Actions.CycleBetweenPrevious);
@@ -126,6 +123,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.ModeToggle);
         this.registry.action(Actions.NoRepeatClear);
         this.registry.action(Actions.RandomFact);
+        this.registry.action(Actions.ScheduleConfigure);
         this.registry.action(Actions.SetActivateAll);
         this.registry.action(Actions.SetActivateState);
         this.registry.action(Actions.SetActivateStateExclusive);
@@ -164,13 +162,13 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
     }
 
     #registerAutocompleteProviders(): void {
-        this.registry.autocompleteProvider(AutocompleteProviders.Counter);
         this.registry.autocompleteProvider(AutocompleteProviders.Cycle);
         this.registry.autocompleteProvider(AutocompleteProviders.Event);
         this.registry.autocompleteProvider(AutocompleteProviders.Flag);
         this.registry.autocompleteProvider(AutocompleteProviders.Label);
         this.registry.autocompleteProvider(AutocompleteProviders.Mode);
         this.registry.autocompleteProvider(AutocompleteProviders.NoRepeat);
+        this.registry.autocompleteProvider(AutocompleteProviders.Schedule);
         this.registry.autocompleteProvider(AutocompleteProviders.SchoolVacation);
         this.registry.autocompleteProvider(AutocompleteProviders.Set);
         this.registry.autocompleteProvider(AutocompleteProviders.SetState);
@@ -181,10 +179,6 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
 
     #registerConditions(): void {
         this.registry.condition(Conditions.ContinueWithChance);
-        this.registry.condition(Conditions.CounterBetween);
-        this.registry.condition(Conditions.CounterEquals);
-        this.registry.condition(Conditions.CounterGreaterThan);
-        this.registry.condition(Conditions.CounterLessThan);
         this.registry.condition(Conditions.CycleHasValue);
         this.registry.condition(Conditions.DayPeriodIs);
         this.registry.condition(Conditions.DiceRolls);
@@ -203,6 +197,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.condition(Conditions.MoonPhaseIs);
         this.registry.condition(Conditions.NoRepeatWindow);
         this.registry.condition(Conditions.SchoolHolidayIs);
+        this.registry.condition(Conditions.ScheduleIsActive);
         this.registry.condition(Conditions.SetActiveAll);
         this.registry.condition(Conditions.SetActiveAny);
         this.registry.condition(Conditions.SetInactive);
@@ -215,8 +210,6 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
     }
 
     #registerTriggers(): void {
-        this.registry.trigger(Triggers.CounterChanged);
-        this.registry.trigger(Triggers.CounterReaches);
         this.registry.trigger(Triggers.CycleBecomes);
         this.registry.trigger(Triggers.CycleUpdates);
         this.registry.trigger(Triggers.DayPeriodBecomes);
@@ -232,6 +225,8 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.trigger(Triggers.ModeChanged);
         this.registry.trigger(Triggers.ModeCurrentChanged);
         this.registry.trigger(Triggers.ModeDeactivated);
+        this.registry.trigger(Triggers.ScheduleEnded);
+        this.registry.trigger(Triggers.ScheduleStarted);
         this.registry.trigger(Triggers.SetBecomesActiveAll);
         this.registry.trigger(Triggers.SetBecomesActiveAny);
         this.registry.trigger(Triggers.SetBecomesInactive);

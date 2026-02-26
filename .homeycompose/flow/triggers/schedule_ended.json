@@ -1,0 +1,54 @@
+{
+    "id": "schedule_ended",
+    "title": {
+        "en": "Schedule ended",
+        "nl": "Schema beëindigd",
+        "da": "Tidsplan afsluttet",
+        "de": "Zeitplan beendet",
+        "es": "Horario finalizado",
+        "fr": "Planning terminé",
+        "it": "Programma terminato",
+        "no": "Tidsplan avsluttet",
+        "sv": "Schema avslutades",
+        "pl": "Harmonogram zakończony",
+        "ru": "Расписание завершилось",
+        "ko": "스케줄 종료됨",
+        "ar": "انتهى الجدول الزمني"
+    },
+    "titleFormatted": {
+        "en": "Schedule [[schedule]] ended",
+        "nl": "Schema [[schedule]] is beëindigd",
+        "da": "Tidsplan [[schedule]] afsluttede",
+        "de": "Zeitplan [[schedule]] beendet",
+        "es": "Horario [[schedule]] finalizado",
+        "fr": "Planning [[schedule]] terminé",
+        "it": "Programma [[schedule]] terminato",
+        "no": "Tidsplan [[schedule]] avsluttet",
+        "sv": "Schema [[schedule]] avslutades",
+        "pl": "Harmonogram [[schedule]] zakończony",
+        "ru": "Расписание [[schedule]] завершилось",
+        "ko": "스케줄 [[schedule]] 종료됨",
+        "ar": "انتهى الجدول الزمني [[schedule]]"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "schedule",
+            "title": {
+                "en": "Schedule",
+                "nl": "Schema",
+                "da": "Tidsplan",
+                "de": "Zeitplan",
+                "es": "Horario",
+                "fr": "Planning",
+                "it": "Programma",
+                "no": "Tidsplan",
+                "sv": "Schema",
+                "pl": "Harmonogram",
+                "ru": "Расписание",
+                "ko": "스케줄",
+                "ar": "الجدول الزمني"
+            }
+        }
+    ]
+}

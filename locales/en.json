@@ -1,12 +1,12 @@
 {
   "autocomplete": {
-    "counter_new": "New counter in this flow",
     "cycle_new": "New cycle in this flow",
     "event_new": "New event in this flow",
     "flag_new": "New flag in this flow",
     "label_new": "New label in this flow",
     "mode_new": "New mode in this flow",
     "no_repeat_new": "New no-repeat window in this flow",
+    "schedule_new": "New schedule in this flow",
     "set_new": "New set in this flow",
     "set_state_new": "New set state in this flow, will be known after saving the flow",
     "signal_new": "New signal in this flow",
@@ -94,11 +94,6 @@
       "description": "Events track when something happens and keep a history of timestamps. Use event actions, conditions, and triggers in your flows to track occurrences and check how often or when events happened.",
       "empty": "No events have been created yet."
     },
-    "counters": {
-      "title": "Counters",
-      "description": "Counters store integer values that can be incremented, decremented, or reset. Use counter actions, conditions, and triggers in your flows to count occurrences, button presses, and more.",
-      "empty": "No counters have been created yet."
-    },
     "flags": {
       "title": "Flags",
       "description": "Multiple flags can be active simultaneously. Create and manage flags using flag actions, conditions, and triggers in your flows.",
@@ -114,6 +109,11 @@
       "description": "Only one mode can be active at a time. Create and manage modes using mode actions, conditions, and triggers in your flows.",
       "empty": "No modes have been created yet."
     },
+    "schedules": {
+      "title": "Schedules",
+      "description": "Schedules are named recurring time windows (e.g. \"Work Hours\": weekdays 08:00–17:00). Configure them once and reference them by name across all your flows. Use the schedule condition to check if a window is currently active, and triggers to react when a window starts or ends.",
+      "empty": "No schedules have been configured yet."
+    },
     "sets": {
       "title": "Sets",
       "description": "Sets are collections of boolean states that can be evaluated as a group. A set is active when any of its states is active. Use set actions, conditions, and triggers in your flows to manage grouped states.",
@@ -127,13 +127,13 @@
     "statistics": {
       "title": "Statistics",
       "description": "These are feature statistics for FlowBits. They are based on your flows.",
-      "counters": "Counters",
       "cycles": "Cycles",
       "events": "Events",
       "flags": "Flags",
       "labels": "Labels",
       "modes": "Modes",
       "no_repeats": "No-repeat windows",
+      "schedules": "Schedules",
       "sets": "Sets",
       "sliders": "Sliders",
       "timers": "Timers"

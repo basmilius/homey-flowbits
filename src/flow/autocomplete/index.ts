@@ -1,10 +1,10 @@
-export { default as Counter } from './counter';
 export { default as Cycle } from './cycle';
 export { default as Event } from './event';
 export { default as Flag } from './flag';
 export { default as Label } from './label';
 export { default as Mode } from './mode';
 export { default as NoRepeat } from './noRepeat';
+export { default as Schedule } from './schedule';
 export { default as SchoolVacation } from './schoolVacation';
 export { default as Set } from './set';
 export { default as SetState } from './setState';

@@ -1,0 +1,182 @@
+{
+    "id": "schedule_configure",
+    "title": {
+        "en": "Configure schedule",
+        "nl": "Schema instellen",
+        "da": "Konfigurer tidsplan",
+        "de": "Zeitplan konfigurieren",
+        "es": "Configurar horario",
+        "fr": "Configurer le planning",
+        "it": "Configura programma",
+        "no": "Konfigurer tidsplan",
+        "sv": "Konfigurera schema",
+        "pl": "Skonfiguruj harmonogram",
+        "ru": "Настроить расписание",
+        "ko": "스케줄 구성",
+        "ar": "تكوين الجدول الزمني"
+    },
+    "titleFormatted": {
+        "en": "Configure schedule [[schedule]] as [[days]] from [[start_time]] to [[end_time]]",
+        "nl": "Stel schema [[schedule]] in als [[days]] van [[start_time]] tot [[end_time]]",
+        "da": "Konfigurer tidsplan [[schedule]] som [[days]] fra [[start_time]] til [[end_time]]",
+        "de": "Zeitplan [[schedule]] als [[days]] von [[start_time]] bis [[end_time]] konfigurieren",
+        "es": "Configurar horario [[schedule]] como [[days]] de [[start_time]] a [[end_time]]",
+        "fr": "Configurer le planning [[schedule]] comme [[days]] de [[start_time]] à [[end_time]]",
+        "it": "Configura programma [[schedule]] come [[days]] dalle [[start_time]] alle [[end_time]]",
+        "no": "Konfigurer tidsplan [[schedule]] som [[days]] fra [[start_time]] til [[end_time]]",
+        "sv": "Konfigurera schema [[schedule]] som [[days]] från [[start_time]] till [[end_time]]",
+        "pl": "Skonfiguruj harmonogram [[schedule]] jako [[days]] od [[start_time]] do [[end_time]]",
+        "ru": "Настроить расписание [[schedule]] как [[days]] с [[start_time]] до [[end_time]]",
+        "ko": "스케줄 [[schedule]]를 [[days]] [[start_time]]부터 [[end_time]]까지로 구성",
+        "ar": "تكوين الجدول الزمني [[schedule]] كـ [[days]] من [[start_time]] إلى [[end_time]]"
+    },
+    "hint": {
+        "en": "Defines or updates a named schedule. Run this action once (e.g. when the app starts) to register the schedule so it can be used in conditions and triggers.",
+        "nl": "Definieert of werkt een benoemd schema bij. Voer deze actie eenmalig uit (bijv. bij het starten van de app) om het schema te registreren zodat het in condities en triggers gebruikt kan worden.",
+        "da": "Definerer eller opdaterer en navngivet tidsplan. Kør denne handling én gang (f.eks. når appen starter) for at registrere tidsplanen, så den kan bruges i betingelser og udløsere.",
+        "de": "Definiert oder aktualisiert einen benannten Zeitplan. Führe diese Aktion einmal aus (z. B. beim App-Start), um den Zeitplan zu registrieren, damit er in Bedingungen und Auslösern verwendet werden kann.",
+        "es": "Define o actualiza un horario con nombre. Ejecuta esta acción una vez (por ejemplo, al iniciar la app) para registrar el horario y poder usarlo en condiciones y disparadores.",
+        "fr": "Définit ou met à jour un planning nommé. Exécutez cette action une fois (par exemple au démarrage de l'application) pour enregistrer le planning afin qu'il puisse être utilisé dans les conditions et déclencheurs.",
+        "it": "Definisce o aggiorna un programma con nome. Esegui questa azione una volta (ad esempio all'avvio dell'app) per registrare il programma in modo che possa essere utilizzato in condizioni e trigger.",
+        "no": "Definerer eller oppdaterer en navngitt tidsplan. Kjør denne handlingen én gang (f.eks. når appen starter) for å registrere tidsplanen slik at den kan brukes i betingelser og utløsere.",
+        "sv": "Definierar eller uppdaterar ett namngivet schema. Kör den här åtgärden en gång (t.ex. när appen startar) för att registrera schemat så att det kan användas i villkor och utlösare.",
+        "pl": "Definiuje lub aktualizuje nazwany harmonogram. Uruchom tę akcję raz (np. przy starcie aplikacji), aby zarejestrować harmonogram i używać go w warunkach i wyzwalaczach.",
+        "ru": "Определяет или обновляет именованное расписание. Запустите это действие один раз (например, при запуске приложения), чтобы зарегистрировать расписание для использования в условиях и триггерах.",
+        "ko": "명명된 스케줄을 정의하거나 업데이트합니다. 이 액션을 한 번 실행하면(예: 앱 시작 시) 스케줄이 등록되어 조건과 트리거에서 사용할 수 있습니다.",
+        "ar": "يحدد أو يحدث جدولاً زمنياً مسمىً. قم بتشغيل هذا الإجراء مرة واحدة (مثلاً عند بدء التطبيق) لتسجيل الجدول الزمني حتى يمكن استخدامه في الشروط والمشغلات."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "schedule",
+            "title": {
+                "en": "Schedule",
+                "nl": "Schema",
+                "da": "Tidsplan",
+                "de": "Zeitplan",
+                "es": "Horario",
+                "fr": "Planning",
+                "it": "Programma",
+                "no": "Tidsplan",
+                "sv": "Schema",
+                "pl": "Harmonogram",
+                "ru": "Расписание",
+                "ko": "스케줄",
+                "ar": "الجدول الزمني"
+            }
+        },
+        {
+            "type": "dropdown",
+            "name": "days",
+            "title": {
+                "en": "Days",
+                "nl": "Dagen",
+                "da": "Dage",
+                "de": "Tage",
+                "es": "Días",
+                "fr": "Jours",
+                "it": "Giorni",
+                "no": "Dager",
+                "sv": "Dagar",
+                "pl": "Dni",
+                "ru": "Дни",
+                "ko": "요일",
+                "ar": "الأيام"
+            },
+            "values": [
+                {
+                    "id": "every_day",
+                    "label": {
+                        "en": "Every day",
+                        "nl": "Elke dag",
+                        "da": "Hver dag",
+                        "de": "Jeden Tag",
+                        "es": "Todos los días",
+                        "fr": "Tous les jours",
+                        "it": "Ogni giorno",
+                        "no": "Hver dag",
+                        "sv": "Varje dag",
+                        "pl": "Każdego dnia",
+                        "ru": "Каждый день",
+                        "ko": "매일",
+                        "ar": "كل يوم"
+                    }
+                },
+                {
+                    "id": "weekdays",
+                    "label": {
+                        "en": "Weekdays (Mon–Fri)",
+                        "nl": "Werkdagen (ma–vr)",
+                        "da": "Hverdage (man–fre)",
+                        "de": "Wochentage (Mo–Fr)",
+                        "es": "Días laborables (lun–vie)",
+                        "fr": "Jours ouvrables (lun–ven)",
+                        "it": "Giorni feriali (lun–ven)",
+                        "no": "Ukedager (man–fre)",
+                        "sv": "Vardagar (mån–fre)",
+                        "pl": "Dni powszednie (pon–pt)",
+                        "ru": "Будни (пн–пт)",
+                        "ko": "평일 (월–금)",
+                        "ar": "أيام الأسبوع (الإثنين–الجمعة)"
+                    }
+                },
+                {
+                    "id": "weekends",
+                    "label": {
+                        "en": "Weekends (Sat–Sun)",
+                        "nl": "Weekenden (za–zo)",
+                        "da": "Weekender (lør–søn)",
+                        "de": "Wochenende (Sa–So)",
+                        "es": "Fines de semana (sáb–dom)",
+                        "fr": "Week-ends (sam–dim)",
+                        "it": "Fine settimana (sab–dom)",
+                        "no": "Helger (lør–søn)",
+                        "sv": "Helger (lör–sön)",
+                        "pl": "Weekendy (sob–niedz)",
+                        "ru": "Выходные (сб–вс)",
+                        "ko": "주말 (토–일)",
+                        "ar": "عطلات نهاية الأسبوع (السبت–الأحد)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "time",
+            "name": "start_time",
+            "title": {
+                "en": "Start time",
+                "nl": "Begintijd",
+                "da": "Starttidspunkt",
+                "de": "Startzeit",
+                "es": "Hora de inicio",
+                "fr": "Heure de début",
+                "it": "Ora di inizio",
+                "no": "Starttidspunkt",
+                "sv": "Starttid",
+                "pl": "Godzina rozpoczęcia",
+                "ru": "Время начала",
+                "ko": "시작 시간",
+                "ar": "وقت البدء"
+            }
+        },
+        {
+            "type": "time",
+            "name": "end_time",
+            "title": {
+                "en": "End time",
+                "nl": "Eindtijd",
+                "da": "Sluttidspunkt",
+                "de": "Endzeit",
+                "es": "Hora de fin",
+                "fr": "Heure de fin",
+                "it": "Ora di fine",
+                "no": "Sluttidspunkt",
+                "sv": "Sluttid",
+                "pl": "Godzina zakończenia",
+                "ru": "Время окончания",
+                "ko": "종료 시간",
+                "ar": "وقت الانتهاء"
+            }
+        }
+    ]
+}
