@@ -11,7 +11,7 @@ export default class extends FlowActionEntity<FlowBitsApp, Args> {
     }
 
     async onRun(args: Args): Promise<void> {
-        this.app.signals.send(args.signal.name);
+        await this.app.signals.send(args.signal.name);
     }
 }
 

@@ -34,7 +34,9 @@ export default class Sliders extends Shortcuts<FlowBitsApp> implements Feature<S
     }
 
     async count(): Promise<number> {
-        return Object.keys(this.values).length;
+        const sliders = await this.findAll();
+
+        return sliders.length;
     }
 
     async find(name: string): Promise<Slider | null> {

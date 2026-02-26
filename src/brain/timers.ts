@@ -149,7 +149,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const now = DateTime.now();
         const target = DateTime.fromMillis(timer.target);
 
-        this.#update(timer.name, timer.duration, target.diff(now).as('milliseconds'), timer.target, 'paused', timer.repeating ?? false, timer.randomBounds);
+        this.#update(timer.name, timer.duration, Math.max(0, target.diff(now).as('milliseconds')), timer.target, 'paused', timer.repeating ?? false, timer.randomBounds);
         this.log(`Pause timer ${timer.name}.`);
 
         await this.#schedule();
