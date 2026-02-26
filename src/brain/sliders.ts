@@ -18,11 +18,12 @@ export default class Sliders extends Shortcuts<FlowBitsApp> implements Feature<S
         this.log('Cleaning up unused sliders...');
 
         const defined = await this.findAll();
+        const definedNames = new Set(defined.map(slider => slider.name));
         const keys = Object.keys(this.values);
         const values = this.values;
 
         for (const key of keys) {
-            if (defined.some(slider => slider.name === key)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 

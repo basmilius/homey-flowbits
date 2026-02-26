@@ -53,11 +53,7 @@ export default class extends Shortcuts<FlowBitsApp> {
             return false;
         }
 
-        if (flag.active) {
-            await this.app.flags.deactivate(flag.name);
-        } else {
-            await this.app.flags.activate(flag.name);
-        }
+        await this.app.flags.toggle(flag.name);
 
         return true;
     }
@@ -125,11 +121,7 @@ export default class extends Shortcuts<FlowBitsApp> {
             return false;
         }
 
-        if (mode.active) {
-            await this.app.modes.deactivate(mode.name);
-        } else {
-            await this.app.modes.activate(mode.name);
-        }
+        await this.app.modes.toggle(mode.name);
 
         return true;
     }
@@ -200,13 +192,13 @@ export default class extends Shortcuts<FlowBitsApp> {
 
         return {
             currentFlags: flags.filter(flag => flag.active).map(flag => flag.name),
-            currentMode: modes.find(mode => mode.active)?.name ?? null,
+            currentMode: this.app.modes.currentMode,
 
             numberOfCycles: await this.app.cycles.count(),
             numberOfEvents: await this.app.events.count(),
-            numberOfFlags: await this.app.flags.count(),
+            numberOfFlags: flags.length,
             numberOfLabels: await this.app.labels.count(),
-            numberOfModes: await this.app.modes.count(),
+            numberOfModes: modes.length,
             numberOfNoRepeats: await this.app.noRepeat.count(),
             numberOfSets: await this.app.sets.count(),
             numberOfSliders: await this.app.sliders.count(),

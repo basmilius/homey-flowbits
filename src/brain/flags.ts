@@ -47,13 +47,14 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         this.log('Cleaning up unused flags...');
 
         const defined = await this.findAll();
+        const definedNames = new Set(defined.map(d => d.name));
         const looks = this.looks;
         const lastUpdates = this.lastUpdates;
 
-        this.currentFlags = this.currentFlags.filter(flag => defined.find(d => d.name === flag));
+        this.currentFlags = this.currentFlags.filter(flag => definedNames.has(flag));
 
         for (const key of Object.keys(looks)) {
-            if (defined.find(d => d.name === key)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 
@@ -62,7 +63,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         }
 
         for (const key of Object.keys(lastUpdates)) {
-            if (defined.find(d => d.name === key)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 

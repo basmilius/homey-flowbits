@@ -37,6 +37,7 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
         this.log('Cleaning up unused events...');
 
         const defined = await this.findAll();
+        const definedNames = new Set(defined.map(d => d.name));
         const keys = new Set([
             ...Object.keys(this.events),
             ...Object.keys(this.looks)
@@ -46,7 +47,7 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
         const looks = this.looks;
 
         for (const key of keys) {
-            if (defined.find(d => d.name === key)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 

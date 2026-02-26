@@ -47,15 +47,16 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         this.log('Cleaning up unused modes...');
 
         const defined = await this.findAll();
+        const definedNames = new Set(defined.map(d => d.name));
         const looks = this.looks;
         const lastUpdates = this.lastUpdates;
 
-        if (this.currentMode && !defined.find(d => d.name === this.currentMode)) {
+        if (this.currentMode && !definedNames.has(this.currentMode)) {
             this.currentMode = null;
         }
 
         for (const key of Object.keys(looks)) {
-            if (defined.find(d => d.name === key)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 
@@ -64,7 +65,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         }
 
         for (const key of Object.keys(lastUpdates)) {
-            if (defined.find(d => d.name === key)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 

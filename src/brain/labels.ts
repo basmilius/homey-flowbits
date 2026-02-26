@@ -36,6 +36,7 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
         this.log('Cleaning up unused labels...');
 
         const defined = await this.findAll();
+        const definedNames = new Set(defined.map(d => d.name));
         const keys = new Set([
             ...Object.keys(this.labels),
             ...Object.keys(this.looks)
@@ -45,7 +46,7 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
         const looks = this.looks;
 
         for (const key of keys) {
-            if (defined.find(d => d.name === key)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 

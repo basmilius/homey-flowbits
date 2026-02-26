@@ -1,3 +1,4 @@
+import { randomInt } from 'node:crypto';
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_TIMER_UPDATE, SETTING_TIMER_LOOKS, SETTING_TIMER_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
@@ -27,11 +28,12 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         this.log('Cleaning up unused timers...');
 
         const defined = await this.findAll();
+        const definedNames = new Set(defined.map(d => d.name));
         const keys = Object.keys(this.looks);
         const looks = this.looks;
 
         for (const key of keys) {
-            if (defined.find(d => d.name === key)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 
@@ -590,8 +592,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const min = Math.min(minMs, maxMs);
         const max = Math.max(minMs, maxMs);
 
-        // Generate a random number between min and max (inclusive)
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        return randomInt(min, max + 1);
     }
 }
 

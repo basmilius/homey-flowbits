@@ -108,7 +108,7 @@ export default class Widgets extends Shortcuts<FlowBitsApp> {
     async #initializeSlider(): Promise<void> {
         const widget = this.dashboards.getWidget('slider');
 
-        widget.registerSettingAutocompleteListener('slider', async (query) => {
+        widget.registerSettingAutocompleteListener('slider', async () => {
             const sliders = await this.app.api.getSliders();
 
             return sliders.map(slider => ({

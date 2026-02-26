@@ -9,9 +9,10 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
         this.log('Cleaning up unused cycles...');
 
         const defined = await this.findAll();
+        const definedIds = new Set(defined.map(d => this.#id(d.name)));
 
         for (const key of this.settings.getKeys()) {
-            if (!key.startsWith(SETTING_CYCLE_PREFIX) || defined.find(d => this.#id(d.name) === key)) {
+            if (!key.startsWith(SETTING_CYCLE_PREFIX) || definedIds.has(key)) {
                 continue;
             }
 
