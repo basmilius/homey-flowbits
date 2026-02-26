@@ -1,5 +1,5 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { MAX_TIMEOUT_MS, REALTIME_SETS_UPDATE, SETTING_SET_LOOKS, SETTING_SETS } from '../const';
+import { REALTIME_SETS_UPDATE, SETTING_SET_LOOKS, SETTING_SETS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { BitSet, BitSetState, ClockUnit, Feature, FlowBitsApp, Look, Styleable } from '../types';
 import { convertDurationToMs, Scheduler } from '../util';
@@ -653,7 +653,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             await this.#processExpirations();
         }, diff);
 
-        this.log(`Scheduled next expiration check in ${Math.round(Math.min(diff, MAX_TIMEOUT_MS) / 1000)}s`);
+        this.log(`Scheduled next expiration check in ${Math.round(diff / 1000)}s`);
     }
 
     async #processExpirations(): Promise<void> {

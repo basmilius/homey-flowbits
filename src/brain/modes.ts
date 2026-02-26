@@ -1,5 +1,5 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { MAX_TIMEOUT_MS, REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS } from '../const';
+import { REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, FlowBitsApp, Look, Mode, Styleable } from '../types';
 import { convertDurationToMs, Scheduler } from '../util';
@@ -292,7 +292,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     #scheduleDeactivation(name: string, duration: number, unit: ClockUnit): void {
-        const ms = Math.min(convertDurationToMs(duration, unit), MAX_TIMEOUT_MS);
+        const ms = convertDurationToMs(duration, unit);
 
         this.#scheduler.schedule('mode-deactivation', async () => {
             await this.deactivate(name);

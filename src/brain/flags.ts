@@ -1,5 +1,5 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { MAX_TIMEOUT_MS, REALTIME_FLAGS_UPDATE, SETTING_FLAG_LAST_UPDATES, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
+import { REALTIME_FLAGS_UPDATE, SETTING_FLAG_LAST_UPDATES, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, Flag, FlowBitsApp, Look, Styleable } from '../types';
 import { convertDurationToMs, Scheduler } from '../util';
@@ -250,7 +250,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     #scheduleDeactivation(name: string, duration: number, unit: ClockUnit): void {
-        const ms = Math.min(convertDurationToMs(duration, unit), MAX_TIMEOUT_MS);
+        const ms = convertDurationToMs(duration, unit);
 
         this.#scheduler.schedule(`flag-deactivation:${name}`, async () => {
             await this.deactivate(name);
