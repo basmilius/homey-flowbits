@@ -1,4 +1,8 @@
 export { default as ContinueWithChance } from './continueWithChance';
+export { default as CounterBetween } from './counterBetween';
+export { default as CounterEquals } from './counterEquals';
+export { default as CounterGreaterThan } from './counterGreaterThan';
+export { default as CounterLessThan } from './counterLessThan';
 export { default as CycleHasValue } from './cycleHasValue';
 export { default as DayPeriodIs } from './dayPeriodIs';
 export { default as DiceRolls } from './diceRolls';

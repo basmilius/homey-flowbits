@@ -1,0 +1,73 @@
+{
+    "id": "counter_greater_than",
+    "title": {
+        "en": "Counter is greater than",
+        "nl": "Teller is groter dan",
+        "da": "Tæller er større end",
+        "de": "Zähler ist größer als",
+        "es": "El contador es mayor que",
+        "fr": "Le compteur est supérieur à",
+        "it": "Il contatore è maggiore di",
+        "no": "Teller er større enn",
+        "sv": "Räknaren är större än",
+        "pl": "Licznik jest większy niż",
+        "ru": "Счётчик больше чем",
+        "ko": "카운터가 더 큼",
+        "ar": "العداد أكبر من"
+    },
+    "titleFormatted": {
+        "en": "Counter [[counter]] !{{is greater than|is not greater than}} [[value]]",
+        "nl": "Teller [[counter]] !{{is groter dan|is niet groter dan}} [[value]]",
+        "da": "Tæller [[counter]] !{{er større end|er ikke større end}} [[value]]",
+        "de": "Zähler [[counter]] !{{ist größer als|ist nicht größer als}} [[value]]",
+        "es": "Contador [[counter]] !{{es mayor que|no es mayor que}} [[value]]",
+        "fr": "Compteur [[counter]] !{{est supérieur à|n'est pas supérieur à}} [[value]]",
+        "it": "Contatore [[counter]] !{{è maggiore di|non è maggiore di}} [[value]]",
+        "no": "Teller [[counter]] !{{er større enn|er ikke større enn}} [[value]]",
+        "sv": "Räknare [[counter]] !{{är större än|är inte större än}} [[value]]",
+        "pl": "Licznik [[counter]] !{{jest większy niż|nie jest większy niż}} [[value]]",
+        "ru": "Счётчик [[counter]] !{{больше чем|не больше чем}} [[value]]",
+        "ko": "카운터 [[counter]] !{{가 더 큼|가 더 크지 않음}} [[value]]",
+        "ar": "العداد [[counter]] !{{أكبر من|ليس أكبر من}} [[value]]"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "counter",
+            "title": {
+                "en": "Counter",
+                "nl": "Teller",
+                "da": "Tæller",
+                "de": "Zähler",
+                "es": "Contador",
+                "fr": "Compteur",
+                "it": "Contatore",
+                "no": "Teller",
+                "sv": "Räknare",
+                "pl": "Licznik",
+                "ru": "Счётчик",
+                "ko": "카운터",
+                "ar": "العداد"
+            }
+        },
+        {
+            "type": "number",
+            "name": "value",
+            "title": {
+                "en": "Value",
+                "nl": "Waarde",
+                "da": "Værdi",
+                "de": "Wert",
+                "es": "Valor",
+                "fr": "Valeur",
+                "it": "Valore",
+                "no": "Verdi",
+                "sv": "Värde",
+                "pl": "Wartość",
+                "ru": "Значение",
+                "ko": "값",
+                "ar": "قيمة"
+            }
+        }
+    ]
+}

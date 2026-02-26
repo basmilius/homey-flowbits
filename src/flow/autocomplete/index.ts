@@ -1,3 +1,4 @@
+export { default as Counter } from './counter';
 export { default as Cycle } from './cycle';
 export { default as Event } from './event';
 export { default as Flag } from './flag';

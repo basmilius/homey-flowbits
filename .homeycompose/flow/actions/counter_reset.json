@@ -1,0 +1,54 @@
+{
+    "id": "counter_reset",
+    "title": {
+        "en": "Reset counter",
+        "nl": "Teller resetten",
+        "da": "Nulstil tæller",
+        "de": "Zähler zurücksetzen",
+        "es": "Restablecer contador",
+        "fr": "Réinitialiser le compteur",
+        "it": "Reimposta contatore",
+        "no": "Nullstill teller",
+        "sv": "Återställ räknare",
+        "pl": "Resetuj licznik",
+        "ru": "Сбросить счётчик",
+        "ko": "카운터 초기화",
+        "ar": "إعادة تعيين العداد"
+    },
+    "titleFormatted": {
+        "en": "Reset counter [[counter]] to 0",
+        "nl": "Reset teller [[counter]] naar 0",
+        "da": "Nulstil tæller [[counter]] til 0",
+        "de": "Zähler [[counter]] auf 0 zurücksetzen",
+        "es": "Restablecer contador [[counter]] a 0",
+        "fr": "Réinitialiser le compteur [[counter]] à 0",
+        "it": "Reimposta contatore [[counter]] a 0",
+        "no": "Nullstill teller [[counter]] til 0",
+        "sv": "Återställ räknare [[counter]] till 0",
+        "pl": "Resetuj licznik [[counter]] do 0",
+        "ru": "Сбросить счётчик [[counter]] до 0",
+        "ko": "카운터 [[counter]]를 0으로 초기화",
+        "ar": "إعادة تعيين العداد [[counter]] إلى 0"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "counter",
+            "title": {
+                "en": "Counter",
+                "nl": "Teller",
+                "da": "Tæller",
+                "de": "Zähler",
+                "es": "Contador",
+                "fr": "Compteur",
+                "it": "Contatore",
+                "no": "Teller",
+                "sv": "Räknare",
+                "pl": "Licznik",
+                "ru": "Счётчик",
+                "ko": "카운터",
+                "ar": "العداد"
+            }
+        }
+    ]
+}

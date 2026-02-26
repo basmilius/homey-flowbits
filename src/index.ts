@@ -1,5 +1,5 @@
 import { App, Luxon } from '@basmilius/homey-common';
-import type { Api, Cycles, Events, Flags, Labels, Modes, NoRepeat, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
+import type { Api, Counters, Cycles, Events, Flags, Labels, Modes, NoRepeat, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
 import { Brain } from './brain';
 import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
 import { roundStep } from './util';
@@ -7,6 +7,10 @@ import { roundStep } from './util';
 export default class FlowBitsApp extends App<FlowBitsApp> {
     get api(): Api {
         return this.#brain.api;
+    }
+
+    get counters(): Counters {
+        return this.#brain.counters;
     }
 
     get cycles(): Cycles {
@@ -96,6 +100,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
     }
 
     #registerActions(): void {
+        this.registry.action(Actions.CounterDecrement);
+        this.registry.action(Actions.CounterIncrement);
+        this.registry.action(Actions.CounterReset);
+        this.registry.action(Actions.CounterSet);
         this.registry.action(Actions.Cycle);
         this.registry.action(Actions.CycleBetween);
         this.registry.action(Actions.CycleBetweenPrevious);
@@ -156,6 +164,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
     }
 
     #registerAutocompleteProviders(): void {
+        this.registry.autocompleteProvider(AutocompleteProviders.Counter);
         this.registry.autocompleteProvider(AutocompleteProviders.Cycle);
         this.registry.autocompleteProvider(AutocompleteProviders.Event);
         this.registry.autocompleteProvider(AutocompleteProviders.Flag);
@@ -172,6 +181,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
 
     #registerConditions(): void {
         this.registry.condition(Conditions.ContinueWithChance);
+        this.registry.condition(Conditions.CounterBetween);
+        this.registry.condition(Conditions.CounterEquals);
+        this.registry.condition(Conditions.CounterGreaterThan);
+        this.registry.condition(Conditions.CounterLessThan);
         this.registry.condition(Conditions.CycleHasValue);
         this.registry.condition(Conditions.DayPeriodIs);
         this.registry.condition(Conditions.DiceRolls);
@@ -202,6 +215,8 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
     }
 
     #registerTriggers(): void {
+        this.registry.trigger(Triggers.CounterChanged);
+        this.registry.trigger(Triggers.CounterReaches);
         this.registry.trigger(Triggers.CycleBecomes);
         this.registry.trigger(Triggers.CycleUpdates);
         this.registry.trigger(Triggers.DayPeriodBecomes);

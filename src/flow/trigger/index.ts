@@ -1,3 +1,5 @@
+export { default as CounterChanged } from './counterChanged';
+export { default as CounterReaches } from './counterReaches';
 export { default as CycleBecomes } from './cycleBecomes';
 export { default as CycleUpdates } from './cycleUpdates';
 export { default as DayPeriodBecomes } from './dayPeriodBecomes';

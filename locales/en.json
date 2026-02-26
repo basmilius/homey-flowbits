@@ -1,6 +1,7 @@
 {
   "autocomplete": {
-    "cycle_new": "New counter in this flow",
+    "counter_new": "New counter in this flow",
+    "cycle_new": "New cycle in this flow",
     "event_new": "New event in this flow",
     "flag_new": "New flag in this flow",
     "label_new": "New label in this flow",
@@ -93,6 +94,11 @@
       "description": "Events track when something happens and keep a history of timestamps. Use event actions, conditions, and triggers in your flows to track occurrences and check how often or when events happened.",
       "empty": "No events have been created yet."
     },
+    "counters": {
+      "title": "Counters",
+      "description": "Counters store integer values that can be incremented, decremented, or reset. Use counter actions, conditions, and triggers in your flows to count occurrences, button presses, and more.",
+      "empty": "No counters have been created yet."
+    },
     "flags": {
       "title": "Flags",
       "description": "Multiple flags can be active simultaneously. Create and manage flags using flag actions, conditions, and triggers in your flows.",
@@ -121,6 +127,7 @@
     "statistics": {
       "title": "Statistics",
       "description": "These are feature statistics for FlowBits. They are based on your flows.",
+      "counters": "Counters",
       "cycles": "Cycles",
       "events": "Events",
       "flags": "Flags",

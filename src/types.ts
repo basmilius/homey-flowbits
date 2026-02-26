@@ -87,6 +87,11 @@ export type NoRepeatWindow = {
     readonly lastUpdate: string | undefined;
 };
 
+export type Counter = {
+    readonly name: string;
+    readonly value: number;
+};
+
 export type Slider = {
     readonly name: string;
     readonly value: number;
@@ -105,6 +110,7 @@ export type Look = [color: string, icon: string];
 export type Statistics = {
     readonly currentFlags: string[];
     readonly currentMode: string | null;
+    readonly numberOfCounters: number;
     readonly numberOfCycles: number;
     readonly numberOfEvents: number;
     readonly numberOfFlags: number;

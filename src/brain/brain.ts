@@ -1,6 +1,7 @@
 import { Shortcuts } from '@basmilius/homey-common';
 import type { FlowBitsApp } from '../types';
 import Api from './api';
+import Counters from './counters';
 import Cycles from './cycles';
 import Events from './events';
 import Flags from './flags';
@@ -17,6 +18,10 @@ import Widgets from './widgets';
 export default class Brain extends Shortcuts<FlowBitsApp> {
     get api(): Api {
         return this.#api;
+    }
+
+    get counters(): Counters {
+        return this.#counters;
     }
 
     get cycles(): Cycles {
@@ -68,6 +73,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
     }
 
     readonly #api: Api;
+    readonly #counters: Counters;
     readonly #cycles: Cycles;
     readonly #events: Events;
     readonly #flags: Flags;
@@ -85,6 +91,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         super(app);
 
         this.#api = new Api(app);
+        this.#counters = new Counters(app);
         this.#cycles = new Cycles(app);
         this.#events = new Events(app);
         this.#flags = new Flags(app);
@@ -103,6 +110,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         this.log('Cleaning up...');
 
         await Promise.allSettled([
+            this.counters.cleanup(),
             this.cycles.cleanup(),
             this.events.cleanup(),
             this.flags.cleanup(),
