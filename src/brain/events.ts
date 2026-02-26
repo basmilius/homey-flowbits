@@ -150,15 +150,16 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     async happenedWithin(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
         const events = this.events[name] ?? [];
         const ms = convertDurationToMs(duration, unit);
+        const cutoff = DateTime.now().minus({milliseconds: ms});
 
-        return events.some(event => Math.abs(event.diffNow().as('milliseconds')) <= ms);
+        return events.some(event => event >= cutoff);
     }
 
     async trigger(name: string): Promise<void> {
         const events = this.events;
         const now = DateTime.now();
-        events[name] = events[name]?.slice(-EVENTS_HISTORY_LENGTH) ?? [];
-        events[name].push(now);
+        const history = events[name] ?? [];
+        events[name] = [...history.slice(-(EVENTS_HISTORY_LENGTH - 1)), now];
 
         this.events = events;
 

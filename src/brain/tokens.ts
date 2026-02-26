@@ -27,7 +27,7 @@ export default class Tokens extends Shortcuts<FlowBitsApp> {
     readonly #values: Record<string, string | boolean | number> = {};
 
     async initialize(): Promise<void> {
-        const state = await this.#state();
+        const state = this.#state();
 
         await this.#create('day_period', 'string', state, ({now}) => getDayPeriod(now), value => this.translate(`day_period.${value}`));
         await this.#create('moon_phase', 'string', state, ({now}) => getMoonPhase(now), value => this.translate(`moon_phase.${value}`));
@@ -59,14 +59,14 @@ export default class Tokens extends Shortcuts<FlowBitsApp> {
         }
     }
 
-    async #state(): Promise<State> {
+    #state(): State {
         return {
             now: DateTime.now()
         };
     }
 
     async #update(): Promise<void> {
-        const state = await this.#state();
+        const state = this.#state();
 
         for (const [id, [token, provider, translated, translator]] of Object.entries(this.#tokens)) {
             const value = provider(state);

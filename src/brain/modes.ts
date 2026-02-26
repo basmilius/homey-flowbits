@@ -54,7 +54,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             this.currentMode = null;
         }
 
-        for (const key of Object.keys(this.looks)) {
+        for (const key of Object.keys(looks)) {
             if (defined.find(d => d.name === key)) {
                 continue;
             }
@@ -63,7 +63,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             delete looks[key];
         }
 
-        for (const key of Object.keys(this.lastUpdates)) {
+        for (const key of Object.keys(lastUpdates)) {
             if (defined.find(d => d.name === key)) {
                 continue;
             }

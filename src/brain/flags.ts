@@ -52,7 +52,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
         this.currentFlags = this.currentFlags.filter(flag => defined.find(d => d.name === flag));
 
-        for (const key of Object.keys(this.looks)) {
+        for (const key of Object.keys(looks)) {
             if (defined.find(d => d.name === key)) {
                 continue;
             }
@@ -61,7 +61,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
             delete looks[key];
         }
 
-        for (const key of Object.keys(this.lastUpdates)) {
+        for (const key of Object.keys(lastUpdates)) {
             if (defined.find(d => d.name === key)) {
                 continue;
             }
