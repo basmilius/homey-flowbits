@@ -1,13 +1,20 @@
 import { MAX_TIMEOUT_MS } from '../const';
 
-type ScheduledEntry = {
+export type ScheduledEvent = {
     readonly id: string;
+    readonly feature: string;
+    readonly description: string;
     readonly runAt: number;
-    readonly callback: () => Promise<void>;
 };
 
+export interface Schedulable {
+    readonly schedulerFeature: string;
+    getScheduledEvents(): ReadonlyArray<{ readonly id: string; readonly description: string; readonly runAt: number }>;
+    executeScheduledEvent(id: string): Promise<void>;
+}
+
 export class Scheduler {
-    readonly #entries: Map<string, ScheduledEntry> = new Map();
+    readonly #features: Map<string, Schedulable> = new Map();
     #timeout: NodeJS.Timeout | null = null;
     readonly #setTimeoutFn: (callback: () => void, ms: number) => NodeJS.Timeout;
     readonly #clearTimeoutFn: (timeout: NodeJS.Timeout) => void;
@@ -20,31 +27,29 @@ export class Scheduler {
         this.#clearTimeoutFn = clearTimeoutFn;
     }
 
-    schedule(id: string, callback: () => Promise<void>, delayMs: number): void {
-        const runAt = Date.now() + Math.max(0, delayMs);
-        this.#entries.set(id, { id, runAt, callback });
+    register(feature: Schedulable): void {
+        this.#features.set(feature.schedulerFeature, feature);
+    }
+
+    notify(): void {
         this.#reschedule();
     }
 
-    cancel(id: string): void {
-        if (this.#entries.delete(id)) {
-            this.#reschedule();
-        }
-    }
+    getUpcoming(): ScheduledEvent[] {
+        const result: ScheduledEvent[] = [];
 
-    cancelAll(prefix: string): void {
-        let deleted = false;
-
-        for (const id of this.#entries.keys()) {
-            if (id.startsWith(prefix)) {
-                this.#entries.delete(id);
-                deleted = true;
+        for (const feature of this.#features.values()) {
+            for (const event of feature.getScheduledEvents()) {
+                result.push({
+                    id: event.id,
+                    feature: feature.schedulerFeature,
+                    description: event.description,
+                    runAt: event.runAt
+                });
             }
         }
 
-        if (deleted) {
-            this.#reschedule();
-        }
+        return result.sort((a, b) => a.runAt - b.runAt);
     }
 
     #reschedule(): void {
@@ -53,11 +58,13 @@ export class Scheduler {
             this.#timeout = null;
         }
 
-        let earliest: ScheduledEntry | null = null;
+        let earliest: { event: { id: string; description: string; runAt: number }; feature: Schedulable } | null = null;
 
-        for (const entry of this.#entries.values()) {
-            if (!earliest || entry.runAt < earliest.runAt) {
-                earliest = entry;
+        for (const feature of this.#features.values()) {
+            for (const event of feature.getScheduledEvents()) {
+                if (!earliest || event.runAt < earliest.event.runAt) {
+                    earliest = { event, feature };
+                }
             }
         }
 
@@ -65,23 +72,20 @@ export class Scheduler {
             return;
         }
 
-        const diff = Math.max(0, earliest.runAt - Date.now());
+        const diff = Math.max(0, earliest.event.runAt - Date.now());
         const delay = Math.min(diff, MAX_TIMEOUT_MS);
-        const entryId = earliest.id;
+        const { event, feature } = earliest;
 
         this.#timeout = this.#setTimeoutFn(() => {
             void (async () => {
                 this.#timeout = null;
-                const entry = this.#entries.get(entryId);
 
-                if (entry && entry.runAt <= Date.now()) {
-                    this.#entries.delete(entryId);
-
+                if (event.runAt <= Date.now()) {
                     try {
-                        await entry.callback();
+                        await feature.executeScheduledEvent(event.id);
                     } catch {
-                        // Errors in scheduled callbacks are intentionally suppressed here.
-                        // Each callback is responsible for its own error handling.
+                        // Errors in scheduled event handlers are intentionally suppressed here.
+                        // Each feature is responsible for its own error handling.
                     }
                 }
 

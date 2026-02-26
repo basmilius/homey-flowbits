@@ -2,14 +2,38 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, FlowBitsApp, Look, Mode, Styleable } from '../types';
-import { convertDurationToMs, Scheduler } from '../util';
+import { convertDurationToMs, type Schedulable, type Scheduler } from '../util';
 
-export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mode>, Styleable {
+export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mode>, Schedulable, Styleable {
+    readonly schedulerFeature = 'modes';
+
     readonly #scheduler: Scheduler;
+    // Non-null while a mode is scheduled to auto-deactivate.
+    #pendingDeactivation: { readonly name: string; readonly runAt: number } | null = null;
 
     constructor(app: FlowBitsApp, scheduler: Scheduler) {
         super(app);
         this.#scheduler = scheduler;
+    }
+
+    getScheduledEvents(): ReadonlyArray<{ readonly id: string; readonly description: string; readonly runAt: number }> {
+        if (!this.#pendingDeactivation) {
+            return [];
+        }
+
+        return [{
+            id: 'mode-deactivation',
+            description: `Deactivate mode "${this.#pendingDeactivation.name}"`,
+            runAt: this.#pendingDeactivation.runAt
+        }];
+    }
+
+    async executeScheduledEvent(id: string): Promise<void> {
+        if (id === 'mode-deactivation' && this.#pendingDeactivation) {
+            const { name } = this.#pendingDeactivation;
+            this.#pendingDeactivation = null;
+            await this.deactivate(name);
+        }
     }
 
     get currentMode(): string | null {
@@ -288,15 +312,16 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     #clearModeTimeout(): void {
-        this.#scheduler.cancel('mode-deactivation');
+        if (this.#pendingDeactivation !== null) {
+            this.#pendingDeactivation = null;
+            this.#scheduler.notify();
+        }
     }
 
     #scheduleDeactivation(name: string, duration: number, unit: ClockUnit): void {
         const ms = convertDurationToMs(duration, unit);
-
-        this.#scheduler.schedule('mode-deactivation', async () => {
-            await this.deactivate(name);
-        }, ms);
+        this.#pendingDeactivation = { name, runAt: Date.now() + ms };
+        this.#scheduler.notify();
     }
 
     async #triggerActivated(name: string): Promise<void> {

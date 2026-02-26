@@ -2,7 +2,7 @@ import { App, Luxon } from '@basmilius/homey-common';
 import type { Api, Cycles, Events, Flags, Labels, Modes, NoRepeat, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
 import { Brain } from './brain';
 import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
-import { roundStep } from './util';
+import { roundStep, type Scheduler } from './util';
 
 export default class FlowBitsApp extends App<FlowBitsApp> {
     get api(): Api {
@@ -31,6 +31,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
 
     get noRepeat(): NoRepeat {
         return this.#brain.noRepeat;
+    }
+
+    get scheduler(): Scheduler {
+        return this.#brain.scheduler;
     }
 
     get sets(): Sets {

@@ -44,6 +44,10 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         return this.#noRepeat;
     }
 
+    get scheduler(): Scheduler {
+        return this.#scheduler;
+    }
+
     get sets(): Sets {
         return this.#sets;
     }
@@ -75,6 +79,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
     readonly #labels: Labels;
     readonly #modes: Modes;
     readonly #noRepeat: NoRepeat;
+    readonly #scheduler: Scheduler;
     readonly #sets: Sets;
     readonly #signals: Signals;
     readonly #sliders: Sliders;
@@ -90,6 +95,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
             t => this.clearTimeout(t)
         );
 
+        this.#scheduler = scheduler;
         this.#api = new Api(app);
         this.#cycles = new Cycles(app);
         this.#events = new Events(app);
@@ -103,6 +109,11 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
         this.#timers = new Timers(app, scheduler);
         this.#tokens = new Tokens(app);
         this.#widgets = new Widgets(app);
+
+        scheduler.register(this.#flags);
+        scheduler.register(this.#modes);
+        scheduler.register(this.#sets);
+        scheduler.register(this.#timers);
     }
 
     async cleanup(): Promise<void> {

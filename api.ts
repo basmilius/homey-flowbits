@@ -1,6 +1,6 @@
 import type { ApiRequest, Color, Icon } from '@basmilius/homey-common';
 import { colors, icons } from '@basmilius/homey-common';
-import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from './src/types';
+import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, ScheduledEvent, Slider, Statistics, Timer } from './src/types';
 
 export async function activateFlag({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyFlag>): Promise<boolean> {
     return await app.api.activateFlag(body.flag);
@@ -92,6 +92,10 @@ export async function setSetLook({homey: {app}, body}: ApiRequest<FlowBitsApp, B
 
 export async function setTimerLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {
     return await app.api.setTimerLook(body.name, body.color, body.icon);
+}
+
+export async function getScheduledEvents({homey: {app}}: ApiRequest<FlowBitsApp>): Promise<ScheduledEvent[]> {
+    return await app.api.getScheduledEvents();
 }
 
 export async function getStatistics({homey: {app}}: ApiRequest<FlowBitsApp>): Promise<Statistics> {

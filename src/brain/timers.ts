@@ -2,11 +2,11 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_TIMER_UPDATE, SETTING_TIMER_LOOKS, SETTING_TIMER_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockState, ClockUnit, Feature, FlowBitsApp, Look, Styleable, Timer } from '../types';
-import { convertDurationToMs, Scheduler, slugify } from '../util';
+import { convertDurationToMs, type Schedulable, Scheduler, slugify } from '../util';
 
 const TIMER_FINISH_GRACE_PERIOD = 5000;
 
-export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Timer>, Styleable {
+export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Timer>, Schedulable, Styleable {
     get looks(): Record<string, Look> {
         return this.settings.get(SETTING_TIMER_LOOKS) ?? {};
     }
@@ -15,12 +15,30 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         this.settings.set(SETTING_TIMER_LOOKS, value);
     }
 
+    readonly schedulerFeature = 'timers';
+
     readonly #scheduler: Scheduler;
     #timers: Record<string, StoredTimer> = {};
+    // Cached pending events, rebuilt by #schedule(). Each entry stores the handler inline so that
+    // executeScheduledEvent() can fire it without the Scheduler needing to hold any callbacks.
+    readonly #scheduledEvents: Map<string, { readonly runAt: number; readonly description: string; readonly handler: () => Promise<void> }> = new Map();
 
     constructor(app: FlowBitsApp, scheduler: Scheduler) {
         super(app);
         this.#scheduler = scheduler;
+    }
+
+    getScheduledEvents(): ReadonlyArray<{ readonly id: string; readonly description: string; readonly runAt: number }> {
+        return [...this.#scheduledEvents.entries()].map(([id, { runAt, description }]) => ({ id, description, runAt }));
+    }
+
+    async executeScheduledEvent(id: string): Promise<void> {
+        const event = this.#scheduledEvents.get(id);
+
+        if (event) {
+            this.#scheduledEvents.delete(id);
+            await event.handler();
+        }
     }
 
     async initialize(): Promise<void> {
@@ -279,8 +297,15 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             return;
         }
 
-        this.#clear(timer);
+        // Remove all scheduled events for this timer and notify the scheduler.
+        for (const key of this.#scheduledEvents.keys()) {
+            if (key.startsWith(`timer:${timer.id}:`)) {
+                this.#scheduledEvents.delete(key);
+            }
+        }
+
         this.#remove(timer.id);
+        this.#scheduler.notify();
 
         this.log(`Stop timer ${timer.name}.`);
 
@@ -385,11 +410,6 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         return `${SETTING_TIMER_PREFIX}${slugify(name)}`;
     }
 
-    #clear(timer: StoredTimer): void {
-        this.log(`Clear scheduled entries for ${timer.name}.`);
-        this.#scheduler.cancelAll(`timer:${timer.id}:`);
-    }
-
     #find(name: string): StoredTimer | null {
         return Object.values(this.#timers).find(t => t.name === name) ?? null;
     }
@@ -454,10 +474,9 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             .catch(() => []);
 
         this.#timers = {};
+        this.#scheduledEvents.clear();
 
         for (const timer of timers) {
-            this.#clear(timer);
-
             const diff = timer.target - now;
             const triggers = remainingTriggers
                 .filter(t => t.timer.name === timer.name)
@@ -466,10 +485,15 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             if (diff > 0 && timer.status === 'running') {
                 this.log(`Timer ${timer.name} is scheduled to finish in ${diff}ms.`);
 
-                this.#scheduler.schedule(`timer:${timer.id}:finish`, async () => {
-                    await this.finish(timer);
-                    await this.#schedule();
-                }, diff);
+                const finishId = `timer:${timer.id}:finish`;
+                this.#scheduledEvents.set(finishId, {
+                    runAt: now + diff,
+                    description: `Timer "${timer.name}" finishes`,
+                    handler: async () => {
+                        await this.finish(timer);
+                        await this.#schedule();
+                    }
+                });
 
                 for (const trigger of triggers) {
                     const triggerMs = convertDurationToMs(trigger.duration, trigger.unit);
@@ -479,9 +503,14 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
                         continue;
                     }
 
-                    this.#scheduler.schedule(`timer:${timer.id}:remaining:${trigger.duration}:${trigger.unit}`, async () => {
-                        await this.#triggerRemaining(timer.name, trigger.duration, trigger.unit);
-                    }, triggerDiff);
+                    const remainingId = `timer:${timer.id}:remaining:${trigger.duration}:${trigger.unit}`;
+                    this.#scheduledEvents.set(remainingId, {
+                        runAt: now + triggerDiff,
+                        description: `Timer "${timer.name}" has ${trigger.duration} ${trigger.unit} remaining`,
+                        handler: async () => {
+                            await this.#triggerRemaining(timer.name, trigger.duration, trigger.unit);
+                        }
+                    });
                 }
             } else if (diff >= -TIMER_FINISH_GRACE_PERIOD && timer.status === 'running') {
                 // todo(Bas): Decide if this 5 second grace period is wanted.
@@ -491,6 +520,8 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             this.#timers[timer.id] = timer;
             await this.#triggerRealtime(timer.name);
         }
+
+        this.#scheduler.notify();
     }
 
     #update(name: string, duration: number, remaining: number, target: number, status: ClockState, repeating: boolean, randomBounds?: { min: number, max: number }): void {

@@ -1,4 +1,5 @@
 import type App from './index';
+export type { ScheduledEvent } from './util';
 
 export type FlowBitsApp = App;
 

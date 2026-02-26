@@ -2,14 +2,34 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_FLAGS_UPDATE, SETTING_FLAG_LAST_UPDATES, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, Flag, FlowBitsApp, Look, Styleable } from '../types';
-import { convertDurationToMs, Scheduler } from '../util';
+import { convertDurationToMs, type Schedulable, type Scheduler } from '../util';
 
-export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Flag>, Styleable {
+export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Flag>, Schedulable, Styleable {
+    readonly schedulerFeature = 'flags';
+
     readonly #scheduler: Scheduler;
+    // flagName → runAt (ms epoch). Only present for flags scheduled to auto-deactivate.
+    readonly #pendingDeactivations: Map<string, number> = new Map();
 
     constructor(app: FlowBitsApp, scheduler: Scheduler) {
         super(app);
         this.#scheduler = scheduler;
+    }
+
+    getScheduledEvents(): ReadonlyArray<{ readonly id: string; readonly description: string; readonly runAt: number }> {
+        return [...this.#pendingDeactivations.entries()].map(([name, runAt]) => ({
+            id: `flag-deactivation:${name}`,
+            description: `Deactivate flag "${name}"`,
+            runAt
+        }));
+    }
+
+    async executeScheduledEvent(id: string): Promise<void> {
+        if (id.startsWith('flag-deactivation:')) {
+            const name = id.slice('flag-deactivation:'.length);
+            this.#pendingDeactivations.delete(name);
+            await this.deactivate(name);
+        }
     }
 
     get currentFlags(): string[] {
@@ -246,15 +266,15 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     #clearFlagTimeout(name: string): void {
-        this.#scheduler.cancel(`flag-deactivation:${name}`);
+        if (this.#pendingDeactivations.delete(name)) {
+            this.#scheduler.notify();
+        }
     }
 
     #scheduleDeactivation(name: string, duration: number, unit: ClockUnit): void {
         const ms = convertDurationToMs(duration, unit);
-
-        this.#scheduler.schedule(`flag-deactivation:${name}`, async () => {
-            await this.deactivate(name);
-        }, ms);
+        this.#pendingDeactivations.set(name, Date.now() + ms);
+        this.#scheduler.notify();
     }
 
     async #triggerActivated(name: string): Promise<void> {

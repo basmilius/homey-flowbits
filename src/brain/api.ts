@@ -1,5 +1,5 @@
 import { Shortcuts } from '@basmilius/homey-common';
-import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from '../types';
+import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, ScheduledEvent, Slider, Statistics, Timer } from '../types';
 
 export default class extends Shortcuts<FlowBitsApp> {
     async getCycles(): Promise<Cycle[]> {
@@ -192,6 +192,10 @@ export default class extends Shortcuts<FlowBitsApp> {
         await this.app.timers.setLook(timer.name, [color, icon]);
 
         return true;
+    }
+
+    async getScheduledEvents(): Promise<ScheduledEvent[]> {
+        return this.app.scheduler.getUpcoming();
     }
 
     async getStatistics(): Promise<Statistics> {
