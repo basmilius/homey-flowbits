@@ -12,11 +12,17 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp, Value
     async find(query: string): Promise<Homey.FlowCard.ArgumentAutocompleteResults> {
         const hasQuery = query.trim().length > 0;
 
-        const results: Homey.FlowCard.ArgumentAutocompleteResults = this.values
+        const sorted = this.values
             .filter(name => !hasQuery || name.state.toLowerCase().includes(query.toLowerCase()))
             .map(({set, state}) => ({name: state, set}))
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .filter((value, index, arr) => arr.findIndex(v => v.name === value.name) === index);
+            .sort((a, b) => a.name.localeCompare(b.name));
+
+        const seen = new Set<string>();
+        const results: Homey.FlowCard.ArgumentAutocompleteResults = sorted.filter(value => {
+            if (seen.has(value.name)) return false;
+            seen.add(value.name);
+            return true;
+        });
 
         if (hasQuery && !this.values.some(({state}) => query === state)) {
             results.push({
