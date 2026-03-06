@@ -1,0 +1,48 @@
+{
+    "id": "mode_active",
+    "title": {
+        "en": "Any mode is active",
+        "nl": "Een stand is actief",
+        "de": "Ein Modus ist aktiv",
+        "fr": "Un mode est actif",
+        "it": "Una modalità è attiva",
+        "sv": "Ett läge är aktivt",
+        "no": "En modus er aktiv",
+        "es": "Algún modo está activo",
+        "da": "En tilstand er aktiv",
+        "ru": "Какой-либо режим активен",
+        "pl": "Jakiś tryb jest aktywny",
+        "ko": "활성화된 모드 있음",
+        "ar": "يوجد وضع نشط"
+    },
+    "titleFormatted": {
+        "en": "!{{Any mode is active|No mode is active}}",
+        "nl": "!{{Een stand is actief|Geen stand is actief}}",
+        "de": "!{{Ein Modus ist aktiv|Kein Modus ist aktiv}}",
+        "fr": "!{{Un mode est actif|Aucun mode n'est actif}}",
+        "it": "!{{Una modalità è attiva|Nessuna modalità è attiva}}",
+        "sv": "!{{Ett läge är aktivt|Inget läge är aktivt}}",
+        "no": "!{{En modus er aktiv|Ingen modus er aktiv}}",
+        "es": "!{{Algún modo está activo|Ningún modo está activo}}",
+        "da": "!{{En tilstand er aktiv|Ingen tilstand er aktiv}}",
+        "ru": "!{{Какой-либо режим активен|Ни один режим не активен}}",
+        "pl": "!{{Jakiś tryb jest aktywny|Żaden tryb nie jest aktywny}}",
+        "ko": "!{{활성화된 모드 있음|활성화된 모드 없음}}",
+        "ar": "!{{يوجد وضع نشط|لا يوجد وضع نشط}}"
+    },
+    "hint": {
+        "en": "Checks if any mode is currently active.",
+        "nl": "Controleert of er een stand actief is.",
+        "de": "Prüft, ob ein Modus aktiv ist.",
+        "fr": "Vérifie si un mode est actuellement actif.",
+        "it": "Verifica se una modalità è attualmente attiva.",
+        "sv": "Kontrollerar om ett läge är aktivt.",
+        "no": "Sjekker om en modus er aktiv.",
+        "es": "Comprueba si algún modo está activo.",
+        "da": "Kontrollerer om en tilstand er aktiv.",
+        "ru": "Проверяет, активен ли какой-либо режим.",
+        "pl": "Sprawdza, czy jakiś tryb jest aktywny.",
+        "ko": "현재 활성화된 모드가 있는지 확인합니다.",
+        "ar": "يتحقق مما إذا كان هناك وضع نشط حاليًا."
+    }
+}

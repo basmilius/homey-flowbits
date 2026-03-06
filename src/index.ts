@@ -187,6 +187,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.condition(Conditions.ModeIs);
         this.registry.condition(Conditions.ModeIsActiveFor);
         this.registry.condition(Conditions.ModeIsInactiveFor);
+        this.registry.condition(Conditions.ModeActive);
         this.registry.condition(Conditions.MoonPhaseIs);
         this.registry.condition(Conditions.NoRepeatWindow);
         this.registry.condition(Conditions.SchoolHolidayIs);

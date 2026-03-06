@@ -62,6 +62,9 @@ These flow cards let you manage modes directly from your flows, enabling you to 
     <FlowCardExplainer content="Checks if a mode has been inactive for at least the specified duration.">
         <FlowCard type="condition"><strong>Morning</strong> is inactive for at least <strong>1</strong> <strong>hour</strong></FlowCard>
     </FlowCardExplainer>
+    <FlowCardExplainer content="Checks if any mode is currently active.">
+        <FlowCard type="condition">Any mode is active</FlowCard>
+    </FlowCardExplainer>
 </FlowCards>
 
 ### Triggers

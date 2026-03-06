@@ -14,6 +14,7 @@ export { default as LabelHasValue } from './labelHasValue';
 export { default as ModeIs } from './modeIs';
 export { default as ModeIsActiveFor } from './modeIsActiveFor';
 export { default as ModeIsInactiveFor } from './modeIsInactiveFor';
+export { default as ModeActive } from './modeActive';
 export { default as MoonPhaseIs } from './moonPhaseIs';
 export { default as NoRepeatWindow } from './noRepeatWindow';
 export { default as SchoolHolidayIs } from './schoolHolidayIs';
