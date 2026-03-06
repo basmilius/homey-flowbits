@@ -180,6 +180,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.condition(Conditions.EventHappenedTimesWithin);
         this.registry.condition(Conditions.EventHappenedToday);
         this.registry.condition(Conditions.EventHappenedWithin);
+        this.registry.condition(Conditions.FlagActive);
         this.registry.condition(Conditions.FlagIs);
         this.registry.condition(Conditions.FlagIsActiveFor);
         this.registry.condition(Conditions.FlagIsInactiveFor);
