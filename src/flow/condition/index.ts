@@ -7,6 +7,7 @@ export { default as EventHappenedTimesToday } from './eventHappenedTimesToday';
 export { default as EventHappenedTimesWithin } from './eventHappenedTimesWithin';
 export { default as EventHappenedToday } from './eventHappenedToday';
 export { default as EventHappenedWithin } from './eventHappenedWithin';
+export { default as FlagActive } from './flagActive';
 export { default as FlagIs } from './flagIs';
 export { default as FlagIsActiveFor } from './flagIsActiveFor';
 export { default as FlagIsInactiveFor } from './flagIsInactiveFor';

@@ -1,0 +1,48 @@
+{
+    "id": "flag_active",
+    "title": {
+        "en": "Any flag is active",
+        "nl": "Een flag is actief",
+        "de": "Ein Flag ist aktiv",
+        "fr": "Un drapeau est actif",
+        "it": "Una flag è attiva",
+        "sv": "En flagga är aktiv",
+        "no": "Et flagg er aktivt",
+        "es": "Alguna bandera está activa",
+        "da": "Et flag er aktivt",
+        "ru": "Какой-либо флаг активен",
+        "pl": "Jakaś flaga jest aktywna",
+        "ko": "활성화된 플래그 있음",
+        "ar": "يوجد علم نشط"
+    },
+    "titleFormatted": {
+        "en": "!{{Any flag is active|No flag is active}}",
+        "nl": "!{{Een flag is actief|Geen flag is actief}}",
+        "de": "!{{Ein Flag ist aktiv|Kein Flag ist aktiv}}",
+        "fr": "!{{Un drapeau est actif|Aucun drapeau n'est actif}}",
+        "it": "!{{Una flag è attiva|Nessuna flag è attiva}}",
+        "sv": "!{{En flagga är aktiv|Ingen flagga är aktiv}}",
+        "no": "!{{Et flagg er aktivt|Ingen flagg er aktivt}}",
+        "es": "!{{Alguna bandera está activa|Ninguna bandera está activa}}",
+        "da": "!{{Et flag er aktivt|Intet flag er aktivt}}",
+        "ru": "!{{Какой-либо флаг активен|Ни один флаг не активен}}",
+        "pl": "!{{Jakaś flaga jest aktywna|Żadna flaga nie jest aktywna}}",
+        "ko": "!{{활성화된 플래그 있음|활성화된 플래그 없음}}",
+        "ar": "!{{يوجد علم نشط|لا يوجد علم نشط}}"
+    },
+    "hint": {
+        "en": "Checks if any flag is currently active.",
+        "nl": "Controleert of er een flag actief is.",
+        "de": "Prüft, ob ein Flag aktiv ist.",
+        "fr": "Vérifie si un drapeau est actuellement actif.",
+        "it": "Verifica se una flag è attualmente attiva.",
+        "sv": "Kontrollerar om en flagga är aktiv.",
+        "no": "Sjekker om et flagg er aktivt.",
+        "es": "Comprueba si alguna bandera está activa.",
+        "da": "Kontrollerer om et flag er aktivt.",
+        "ru": "Проверяет, активен ли какой-либо флаг.",
+        "pl": "Sprawdza, czy jakaś flaga jest aktywna.",
+        "ko": "현재 활성화된 플래그가 있는지 확인합니다.",
+        "ar": "يتحقق مما إذا كان هناك علم نشط حاليًا."
+    }
+}
