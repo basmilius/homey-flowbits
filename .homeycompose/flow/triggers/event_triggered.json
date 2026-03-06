@@ -50,5 +50,26 @@
                 "ar": "حدث"
             }
         }
+    ],
+    "tokens": [
+        {
+            "name": "value",
+            "type": "string",
+            "title": {
+                "en": "Event value",
+                "nl": "Gebeurteniswaarde",
+                "da": "Begivenhedsværdi",
+                "de": "Ereigniswert",
+                "es": "Valor del evento",
+                "fr": "Valeur de l'événement",
+                "it": "Valore dell'evento",
+                "no": "Hendelsesverdi",
+                "sv": "Händelsevärde",
+                "pl": "Wartość zdarzenia",
+                "ru": "Значение события",
+                "ko": "이벤트 값",
+                "ar": "قيمة الحدث"
+            }
+        }
     ]
 }

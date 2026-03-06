@@ -25,6 +25,7 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp> {
     getCards(): FlowCard[] {
         return [
             this.flow.getActionCard('signal_send'),
+            this.flow.getActionCard('signal_send_with_value'),
             this.flow.getTriggerCard('signal_receive')
         ];
     }

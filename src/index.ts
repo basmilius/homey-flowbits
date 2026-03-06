@@ -104,6 +104,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.EventClear);
         this.registry.action(Actions.EventClearAll);
         this.registry.action(Actions.EventTrigger);
+        this.registry.action(Actions.EventTriggerWithValue);
         this.registry.action(Actions.FlagActivate);
         this.registry.action(Actions.FlagActivateFor);
         this.registry.action(Actions.FlagDeactivate);
@@ -128,6 +129,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.SetToggleState);
         this.registry.action(Actions.SetToggleStateFor);
         this.registry.action(Actions.SignalSend);
+        this.registry.action(Actions.SignalSendWithValue);
         this.registry.action(Actions.SliderSet);
         this.registry.action(Actions.TimerInfo);
         this.registry.action(Actions.TimerPause);

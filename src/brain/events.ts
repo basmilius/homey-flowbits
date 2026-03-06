@@ -154,7 +154,7 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
         return events.some(event => Math.abs(event.diffNow().as('milliseconds')) <= ms);
     }
 
-    async trigger(name: string): Promise<void> {
+    async trigger(name: string, value?: string): Promise<void> {
         const events = this.events;
         const now = DateTime.now();
         events[name] = events[name]?.slice(-EVENTS_HISTORY_LENGTH) ?? [];
@@ -162,11 +162,11 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
 
         this.events = events;
 
-        this.log(`Trigger ${name} at ${now.toISO()}.`);
+        this.log(value ? `Trigger ${name} at ${now.toISO()} with value ${value}.` : `Trigger ${name} at ${now.toISO()}.`);
 
         await Promise.allSettled([
             this.#triggerRealtime(),
-            this.#triggerTriggered(name)
+            this.#triggerTriggered(name, value)
         ]);
     }
 
@@ -193,10 +193,10 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
             ?.trigger({name});
     }
 
-    async #triggerTriggered(name: string): Promise<void> {
+    async #triggerTriggered(name: string, value: string = ''): Promise<void> {
         this.registry
             .findTrigger(Triggers.EventTriggered)
-            ?.trigger({name});
+            ?.trigger({name}, {value});
     }
 
     async #triggerRealtime(): Promise<void> {

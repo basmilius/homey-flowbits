@@ -65,5 +65,26 @@
                 "ar": "إشارة"
             }
         }
+    ],
+    "tokens": [
+        {
+            "name": "value",
+            "type": "string",
+            "title": {
+                "en": "Signal value",
+                "nl": "Signaalwaarde",
+                "da": "Signalværdi",
+                "de": "Signalwert",
+                "es": "Valor de la señal",
+                "fr": "Valeur du signal",
+                "it": "Valore del segnale",
+                "no": "Signalverdi",
+                "sv": "Signalvärde",
+                "pl": "Wartość sygnału",
+                "ru": "Значение сигнала",
+                "ko": "신호 값",
+                "ar": "قيمة الإشارة"
+            }
+        }
     ]
 }

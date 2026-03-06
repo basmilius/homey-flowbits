@@ -33,6 +33,9 @@ These flow cards let you trigger, clear, and check events directly from your flo
     <FlowCardExplainer content="Trigger an event, adding a new timestamped entry to its history.">
         <FlowCard type="action">Trigger event <strong>Doorbell Pressed</strong></FlowCard>
     </FlowCardExplainer>
+    <FlowCardExplainer content="Trigger an event with a value, adding a new timestamped entry to its history. The value is available as a tag in the trigger.">
+        <FlowCard type="action">Trigger event <strong>Doorbell Pressed</strong> with value <strong>Front door</strong></FlowCard>
+    </FlowCardExplainer>
     <FlowCardExplainer content="Clear all stored history for a specific event.">
         <FlowCard type="action">Clear event <strong>Motion Detected</strong></FlowCard>
     </FlowCardExplainer>
@@ -64,7 +67,7 @@ These flow cards let you trigger, clear, and check events directly from your flo
 ### Triggers
 
 <FlowCards>
-    <FlowCardExplainer content="Triggers when an event is triggered.">
+    <FlowCardExplainer content="Triggers when an event is triggered. If the event was triggered with a value, it is available as the 'Event value' tag.">
         <FlowCard type="trigger">Event <strong>Doorbell Pressed</strong> is triggered</FlowCard>
     </FlowCardExplainer>
     <FlowCardExplainer content="Triggers when an event's history is cleared.">

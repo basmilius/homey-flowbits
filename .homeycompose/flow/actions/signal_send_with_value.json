@@ -1,0 +1,88 @@
+{
+    "id": "signal_send_with_value",
+    "title": {
+        "en": "Send signal with value",
+        "nl": "Stuur signaal met waarde",
+        "de": "Signal mit Wert senden",
+        "fr": "Envoyer un signal avec valeur",
+        "it": "Invia segnale con valore",
+        "sv": "Skicka signal med värde",
+        "no": "Send signal med verdi",
+        "es": "Enviar señal con valor",
+        "da": "Send signal med værdi",
+        "ru": "Отправить сигнал со значением",
+        "pl": "Wyślij sygnał z wartością",
+        "ko": "값과 함께 신호 보내기",
+        "ar": "إرسال إشارة بقيمة"
+    },
+    "titleFormatted": {
+        "en": "Send signal [[signal]] with value [[value]]",
+        "nl": "Stuur signaal [[signal]] met waarde [[value]]",
+        "de": "Sende Signal [[signal]] mit Wert [[value]]",
+        "fr": "Envoyer le signal [[signal]] avec valeur [[value]]",
+        "it": "Invia il segnale [[signal]] con valore [[value]]",
+        "sv": "Skicka signalen [[signal]] med värde [[value]]",
+        "no": "Send signalet [[signal]] med verdi [[value]]",
+        "es": "Enviar la señal [[signal]] con valor [[value]]",
+        "da": "Send signalet [[signal]] med værdi [[value]]",
+        "ru": "Отправить сигнал [[signal]] со значением [[value]]",
+        "pl": "Wyślij sygnał [[signal]] z wartością [[value]]",
+        "ko": "신호 [[signal]] 값 [[value]] 보내기",
+        "ar": "إرسال إشارة [[signal]] بقيمة [[value]]"
+    },
+    "hint": {
+        "en": "Sends a signal with a value that can be received by the 'Receive signal' card. The value is available as a tag in the trigger.",
+        "nl": "Stuur een signaal met een waarde dat vervolgens ontvangen kan worden door de 'Ontvang signaal' kaart. De waarde is beschikbaar als tag in de trigger.",
+        "de": "Sendet ein Signal mit einem Wert, das von der Karte „Signal empfangen“ empfangen werden kann. Der Wert ist als Tag im Trigger verfügbar.",
+        "fr": "Envoie un signal avec une valeur qui peut être reçu par la carte « Recevoir un signal ». La valeur est disponible en tant que tag dans le déclencheur.",
+        "it": "Invia un segnale con un valore che può essere ricevuto dalla scheda \"Ricevi segnale\". Il valore è disponibile come tag nel trigger.",
+        "sv": "Skickar en signal med ett värde som kan tas emot av kortet \"Ta emot signal\". Värdet är tillgängligt som en tagg i utlösaren.",
+        "no": "Sender et signal med en verdi som kan mottas av «Motta signal»-kortet. Verdien er tilgjengelig som en tag i triggeren.",
+        "es": "Envía una señal con un valor que puede ser recibida por la tarjeta «Recibir señal». El valor está disponible como etiqueta en el activador.",
+        "da": "Sender et signal med en værdi der kan modtages af kortet \"Modtag signal\". Værdien er tilgængelig som et tag i triggeren.",
+        "ru": "Отправляет сигнал со значением, который может быть получен картой «Получить сигнал». Значение доступно в виде тега в триггере.",
+        "pl": "Wysyła sygnał z wartością, który może zostać odebrany przez kartę „Odbierz sygnał”. Wartość jest dostępna jako tag w wyzwalaczu.",
+        "ko": "'신호 받기' 카드에서 받을 수 있는 값이 포함된 신호를 보냅니다. 값은 트리거에서 태그로 사용할 수 있습니다.",
+        "ar": "يرسل إشارة بقيمة يمكن استقبالها بواسطة بطاقة \"استقبال الإشارة\". القيمة متاحة كعلامة في المشغل."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "signal",
+            "title": {
+                "en": "Signal",
+                "nl": "Signaal",
+                "de": "Signal",
+                "fr": "Signal",
+                "it": "Segnale",
+                "sv": "Signal",
+                "no": "Signal",
+                "es": "Señal",
+                "da": "Signal",
+                "ru": "Сигнал",
+                "pl": "Sygnał",
+                "ko": "신호",
+                "ar": "إشارة"
+            }
+        },
+        {
+            "type": "text",
+            "name": "value",
+            "title": {
+                "en": "Value",
+                "nl": "Waarde",
+                "da": "Værdi",
+                "de": "Wert",
+                "es": "Valor",
+                "fr": "Valeur",
+                "it": "Valore",
+                "no": "Verdi",
+                "sv": "Värde",
+                "pl": "Wartość",
+                "ru": "Значение",
+                "ko": "값",
+                "ar": "قيمة"
+            }
+        }
+    ]
+}

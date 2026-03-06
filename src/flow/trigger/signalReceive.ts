@@ -3,7 +3,7 @@ import type { FlowBitsApp } from '../../types';
 import { AutocompleteProviders } from '..';
 
 @trigger('signal_receive')
-export default class extends FlowTriggerEntity<FlowBitsApp, Args, State> {
+export default class extends FlowTriggerEntity<FlowBitsApp, Args, State, Tokens> {
     async onInit(): Promise<void> {
         this.registerAutocomplete('signal', AutocompleteProviders.Signal);
 
@@ -23,4 +23,8 @@ type Args = {
 
 type State = {
     readonly signal: string;
+};
+
+type Tokens = {
+    readonly value: string;
 };

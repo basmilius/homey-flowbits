@@ -1,0 +1,88 @@
+{
+    "id": "event_trigger_with_value",
+    "title": {
+        "en": "Trigger event with value",
+        "nl": "Trigger gebeurtenis met waarde",
+        "da": "Udløs begivenhed med værdi",
+        "de": "Ereignis mit Wert auslösen",
+        "es": "Activar evento con valor",
+        "fr": "Déclencher événement avec valeur",
+        "it": "Attiva evento con valore",
+        "no": "Utløse hendelse med verdi",
+        "sv": "Utlös händelse med värde",
+        "pl": "Wyzwól zdarzenie z wartością",
+        "ru": "Запустить событие со значением",
+        "ko": "값으로 이벤트 트리거",
+        "ar": "تشغيل الحدث بقيمة"
+    },
+    "titleFormatted": {
+        "en": "Trigger event [[event]] with value [[value]]",
+        "nl": "Trigger gebeurtenis [[event]] met waarde [[value]]",
+        "da": "Udløs begivenhed [[event]] med værdi [[value]]",
+        "de": "Ereignis auslösen [[event]] mit Wert [[value]]",
+        "es": "Activar evento [[event]] con valor [[value]]",
+        "fr": "Déclencher événement [[event]] avec valeur [[value]]",
+        "it": "Attiva evento [[event]] con valore [[value]]",
+        "no": "Utløse hendelse [[event]] med verdi [[value]]",
+        "sv": "Utlös händelse [[event]] med värde [[value]]",
+        "pl": "Wyzwól zdarzenie [[event]] z wartością [[value]]",
+        "ru": "Запустить событие [[event]] со значением [[value]]",
+        "ko": "이벤트 트리거 [[event]] 값 [[value]]",
+        "ar": "تشغيل الحدث [[event]] بقيمة [[value]]"
+    },
+    "hint": {
+        "en": "Triggers the event with a value and leaves a history entry. The value is available as a tag in the trigger.",
+        "nl": "Triggert de gebeurtenis met een waarde en slaat een geschiedenis-item op. De waarde is beschikbaar als tag in de trigger.",
+        "da": "Udløser begivenheden med en værdi og efterlader en historikpost. Værdien er tilgængelig som et tag i triggeren.",
+        "de": "Löst das Ereignis mit einem Wert aus und hinterlässt einen Verlaufseintrag. Der Wert ist als Tag im Trigger verfügbar.",
+        "es": "Activa el evento con un valor y deja una entrada en el historial. El valor está disponible como etiqueta en el activador.",
+        "fr": "Déclenche l'événement avec une valeur et laisse une entrée dans l'historique. La valeur est disponible en tant que tag dans le déclencheur.",
+        "it": "Attiva l'evento con un valore e lascia una voce nella cronologia. Il valore è disponibile come tag nel trigger.",
+        "no": "Utløser hendelsen med en verdi og registrerer et historikkinnlegg. Verdien er tilgjengelig som en tag i triggeren.",
+        "sv": "Utlöser händelsen med ett värde och lämnar ett historikinlägg. Värdet är tillgängligt som en tagg i utlösaren.",
+        "pl": "Wyzwala zdarzenie z wartością i pozostawia wpis w historii. Wartość jest dostępna jako tag w wyzwalaczu.",
+        "ru": "Активирует событие со значением и оставляет запись в истории. Значение доступно в виде тега в триггере.",
+        "ko": "값과 함께 이벤트를 트리거하고 히스토리 항목을 남깁니다. 값은 트리거에서 태그로 사용할 수 있습니다.",
+        "ar": "يشغل الحدث بقيمة ويترك مدخلًا في السجل. القيمة متاحة كعلامة في المشغل."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "event",
+            "title": {
+                "en": "Event",
+                "nl": "Gebeurtenis",
+                "da": "Begivenhed",
+                "de": "Ereignis",
+                "es": "Evento",
+                "fr": "Événement",
+                "it": "Evento",
+                "no": "Hendelse",
+                "sv": "Händelse",
+                "pl": "Zdarzenie",
+                "ru": "Событие",
+                "ko": "이벤트",
+                "ar": "حدث"
+            }
+        },
+        {
+            "type": "text",
+            "name": "value",
+            "title": {
+                "en": "Value",
+                "nl": "Waarde",
+                "da": "Værdi",
+                "de": "Wert",
+                "es": "Valor",
+                "fr": "Valeur",
+                "it": "Valore",
+                "no": "Verdi",
+                "sv": "Värde",
+                "pl": "Wartość",
+                "ru": "Значение",
+                "ko": "값",
+                "ar": "قيمة"
+            }
+        }
+    ]
+}

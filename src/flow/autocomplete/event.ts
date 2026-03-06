@@ -26,6 +26,7 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp> {
         return [
             this.flow.getActionCard('event_clear'),
             this.flow.getActionCard('event_trigger'),
+            this.flow.getActionCard('event_trigger_with_value'),
             this.flow.getConditionCard('event_happened'),
             this.flow.getConditionCard('event_happened_times_today'),
             this.flow.getConditionCard('event_happened_times_within'),

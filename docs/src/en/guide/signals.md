@@ -44,12 +44,15 @@ These flow cards allow you to send and listen for lightweight signals, making it
     <FlowCardExplainer content="Sends a signal to all flows listening for it.">
         <FlowCard type="action">Send signal <strong>Hall lights on/off</strong></FlowCard>
     </FlowCardExplainer>
+    <FlowCardExplainer content="Sends a signal with a value to all flows listening for it. The value is available as a tag in the trigger.">
+        <FlowCard type="action">Send signal <strong>Hall lights on/off</strong> with value <strong>on</strong></FlowCard>
+    </FlowCardExplainer>
 </FlowCards>
 
 ### Triggers
 
 <FlowCards>
-    <FlowCardExplainer content="Receives a signal from any flow.">
+    <FlowCardExplainer content="Receives a signal from any flow. If the signal was sent with a value, it is available as the 'Signal value' tag.">
         <FlowCard type="trigger">Receive signal <strong>Hall lights on/off</strong></FlowCard>
     </FlowCardExplainer>
 </FlowCards>
