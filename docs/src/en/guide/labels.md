@@ -52,8 +52,14 @@ These flow cards let you set, clear, and check labels directly from your flows.
     <FlowCardExplainer content="Triggers when a label is set to a specific value.">
         <FlowCard type="trigger">Label <strong>Active Room</strong> becomes <strong>Bedroom</strong></FlowCard>
     </FlowCardExplainer>
-    <FlowCardExplainer content="Triggers when a label's value changes (or is cleared).">
+    <FlowCardExplainer content="Triggers only when a label's value is set. Does not trigger when the label is cleared. Provides the new value as a token.">
         <FlowCard type="trigger">Label <strong>Current User</strong> changed</FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Triggers only when a label is cleared (value removed).">
+        <FlowCard type="trigger">Label <strong>Current User</strong> is cleared</FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Triggers when a label's value is set or when it is cleared. Provides the new value as a token, or the literal string '-' when the label is cleared. Use this if you need to react to any change, including clears.">
+        <FlowCard type="trigger">Label <strong>Current User</strong> changed or cleared</FlowCard>
     </FlowCardExplainer>
 </FlowCards>
 
