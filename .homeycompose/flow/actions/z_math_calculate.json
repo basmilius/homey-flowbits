@@ -1,0 +1,105 @@
+{
+    "id": "z_math_calculate",
+    "title": {
+        "en": "Calculate",
+        "nl": "Bereken",
+        "de": "Berechnen",
+        "fr": "Calculer",
+        "it": "Calcola",
+        "sv": "Beräkna",
+        "no": "Beregn",
+        "es": "Calcular",
+        "da": "Beregn",
+        "ru": "Вычислить",
+        "pl": "Oblicz",
+        "ko": "계산",
+        "ar": "احسب"
+    },
+    "titleFormatted": {
+        "en": "Calculate [[formula]]",
+        "nl": "Bereken [[formula]]",
+        "de": "Berechne [[formula]]",
+        "fr": "Calculer [[formula]]",
+        "it": "Calcola [[formula]]",
+        "sv": "Beräkna [[formula]]",
+        "no": "Beregn [[formula]]",
+        "es": "Calcular [[formula]]",
+        "da": "Beregn [[formula]]",
+        "ru": "Вычислить [[formula]]",
+        "pl": "Oblicz [[formula]]",
+        "ko": "[[formula]] 계산",
+        "ar": "احسب [[formula]]"
+    },
+    "hint": {
+        "en": "Operators: + - * / % ^ (power), parentheses.\nFunctions: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nConstants: pi, e.",
+        "nl": "Operatoren: + - * / % ^ (macht), haakjes.\nFuncties: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nConstanten: pi, e.",
+        "de": "Operatoren: + - * / % ^ (Potenz), Klammern.\nFunktionen: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nKonstanten: pi, e.",
+        "fr": "Opérateurs : + - * / % ^ (puissance), parenthèses.\nFonctions : abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nConstantes : pi, e.",
+        "it": "Operatori: + - * / % ^ (potenza), parentesi.\nFunzioni: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nCostanti: pi, e.",
+        "sv": "Operatorer: + - * / % ^ (potens), parenteser.\nFunktioner: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nKonstanter: pi, e.",
+        "no": "Operatorer: + - * / % ^ (potens), parenteser.\nFunksjoner: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nKonstanter: pi, e.",
+        "es": "Operadores: + - * / % ^ (potencia), paréntesis.\nFunciones: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nConstantes: pi, e.",
+        "da": "Operatorer: + - * / % ^ (potens), parenteser.\nFunktioner: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nKonstanter: pi, e.",
+        "ru": "Операторы: + - * / % ^ (степень), скобки.\nФункции: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nКонстанты: pi, e.",
+        "pl": "Operatory: + - * / % ^ (potęga), nawiasy.\nFunkcje: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nStałe: pi, e.",
+        "ko": "연산자: + - * / % ^ (거듭제곱), 괄호.\n함수: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\n상수: pi, e.",
+        "ar": "العمليات: + - * / % ^ (أس)، أقواس.\nالدوال: abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan.\nالثوابت: pi, e."
+    },
+    "args": [
+        {
+            "type": "text",
+            "name": "formula",
+            "title": {
+                "en": "Formula",
+                "nl": "Formule",
+                "de": "Formel",
+                "fr": "Formule",
+                "it": "Formula",
+                "sv": "Formel",
+                "no": "Formel",
+                "es": "Fórmula",
+                "da": "Formel",
+                "ru": "Формула",
+                "pl": "Formuła",
+                "ko": "수식",
+                "ar": "صيغة"
+            },
+            "placeholder": {
+                "en": "E.g. 25.5 / 1.3 + 5 or sin(pi / 2)",
+                "nl": "Bijv. 25.5 / 1.3 + 5 of sin(pi / 2)",
+                "de": "Z. B. 25.5 / 1.3 + 5 oder sin(pi / 2)",
+                "fr": "P. ex. 25.5 / 1.3 + 5 ou sin(pi / 2)",
+                "it": "Es. 25.5 / 1.3 + 5 o sin(pi / 2)",
+                "sv": "T.ex. 25.5 / 1.3 + 5 eller sin(pi / 2)",
+                "no": "F.eks. 25.5 / 1.3 + 5 eller sin(pi / 2)",
+                "es": "P. ej. 25.5 / 1.3 + 5 o sin(pi / 2)",
+                "da": "F.eks. 25.5 / 1.3 + 5 eller sin(pi / 2)",
+                "ru": "Напр. 25.5 / 1.3 + 5 или sin(pi / 2)",
+                "pl": "Np. 25.5 / 1.3 + 5 lub sin(pi / 2)",
+                "ko": "예: 25.5 / 1.3 + 5 또는 sin(pi / 2)",
+                "ar": "مثال: 25.5 / 1.3 + 5 أو sin(pi / 2)"
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "type": "number",
+            "name": "result",
+            "title": {
+                "en": "Result",
+                "nl": "Resultaat",
+                "de": "Ergebnis",
+                "fr": "Résultat",
+                "it": "Risultato",
+                "sv": "Resultat",
+                "no": "Resultat",
+                "es": "Resultado",
+                "da": "Resultat",
+                "ru": "Результат",
+                "pl": "Wynik",
+                "ko": "결과",
+                "ar": "نتيجة"
+            }
+        }
+    ]
+}

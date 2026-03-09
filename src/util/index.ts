@@ -1,4 +1,5 @@
 export { default as convertDurationToMs } from './convertDurationToMs';
+export { default as evaluateExpression } from './evaluateExpression';
 export { default as createFilterAutocomplete } from './createFilterAutocomplete';
 export { default as formatSecondsToTime } from './formatSecondsToTime';
 export { default as getDayPeriod, type DayPeriod } from './getDayPeriod';

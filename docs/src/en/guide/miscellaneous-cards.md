@@ -44,6 +44,9 @@ These flow cards provide various utility functions that you can apply directly w
     <FlowCardExplainer content="Round a number to the nearest step.">
         <FlowCard type="action">Round <strong>Number</strong> to <strong>Step</strong></FlowCard>
     </FlowCardExplainer>
+    <FlowCardExplainer content="Evaluate a math formula. Supports +, -, *, /, %, ^ (power), parentheses, functions (abs, sqrt, log, ln, round, floor, ceil, min, max, sin, cos, tan, asin, acos, atan), and constants (pi, e). Use tags directly in the formula.">
+        <FlowCard type="action">Calculate <strong>Formula</strong></FlowCard>
+    </FlowCardExplainer>
 </FlowCards>
 
 ### Conditions
@@ -87,5 +90,41 @@ It takes two timestamps (in HH:mm format) and returns both a percentage (0-100) 
 - At 14:30 (halfway through), the percentage is 50%
 - At 22:00, the percentage is 100%
 
-If the "from" time is later than the "to" time, the card handles overnight periods automatically.  
+If the "from" time is later than the "to" time, the card handles overnight periods automatically.
 For example, from 22:00 to 07:00 spans midnight correctly.
+
+### **Calculate formula**
+
+The calculate card evaluates a math formula and returns the result as a token.
+You can use Homey tags directly in the formula field — they are resolved to numbers before evaluation.
+
+**Supported operators:** `+`, `-`, `*`, `/`, `%` (modulo), `^` (power), and parentheses.
+
+**Supported functions:**
+
+| Function | Description | Example |
+|----------|-------------|---------|
+| `abs` | Absolute value | `abs(-5)` → 5 |
+| `sqrt` | Square root | `sqrt(16)` → 4 |
+| `log` | Base-10 logarithm | `log(1000)` → 3 |
+| `ln` | Natural logarithm | `ln(2.718)` → ~1 |
+| `round` | Round to nearest integer | `round(3.7)` → 4 |
+| `floor` | Round down | `floor(3.7)` → 3 |
+| `ceil` | Round up | `ceil(3.2)` → 4 |
+| `min` | Minimum of values | `min(3, 7, 1)` → 1 |
+| `max` | Maximum of values | `max(3, 7, 1)` → 7 |
+| `sin` | Sine (radians) | `sin(pi / 2)` → 1 |
+| `cos` | Cosine (radians) | `cos(0)` → 1 |
+| `tan` | Tangent (radians) | `tan(pi / 4)` → 1 |
+| `asin` | Arcsine | `asin(1)` → π/2 |
+| `acos` | Arccosine | `acos(1)` → 0 |
+| `atan` | Arctangent | `atan(1)` → π/4 |
+
+**Constants:** `pi` (3.14159…), `e` (2.71828…)
+
+Functions can be nested, e.g. `sqrt(abs(-9)) + 1` → 4.
+
+**Example formulas:**
+- `Temperature tag / 1.3 + 5` — convert a sensor value
+- `max(0, min(100, Value tag))` — clamp a value between 0 and 100
+- `round(Price tag * 1.21)` — add 21% VAT and round

@@ -2,7 +2,7 @@ import { App, Luxon } from '@basmilius/homey-common';
 import type { Api, Cycles, Events, Flags, Labels, Modes, NoRepeat, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
 import { Brain } from './brain';
 import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
-import { roundStep } from './util';
+import { evaluateExpression, roundStep } from './util';
 
 export default class FlowBitsApp extends App<FlowBitsApp> {
     get api(): Api {
@@ -155,6 +155,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.actionFunction('z_math_round_down', args => ({result: Math.floor(args.value)}));
         this.registry.actionFunction('z_math_round_step', args => ({result: roundStep(args.value, args.step)}));
         this.registry.actionFunction('z_math_round_up', args => ({result: Math.ceil(args.value)}));
+        this.registry.actionFunction('z_math_calculate', args => ({result: evaluateExpression(String(args.formula))}));
     }
 
     #registerAutocompleteProviders(): void {
