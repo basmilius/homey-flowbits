@@ -1,5 +1,7 @@
 export { default as ContinueWithChance } from './continueWithChance';
 export { default as CycleHasValue } from './cycleHasValue';
+export { default as CycleHigherThanOrEqual } from './cycleHigherThanOrEqual';
+export { default as CycleLowerThanOrEqual } from './cycleLowerThanOrEqual';
 export { default as DayPeriodIs } from './dayPeriodIs';
 export { default as DiceRolls } from './diceRolls';
 export { default as EventHappened } from './eventHappened';

@@ -1,0 +1,90 @@
+{
+    "id": "cycle_higher_than_or_equal",
+    "title": {
+        "en": "Sequence is higher than or equal to",
+        "nl": "Stappenreeks is groter dan of gelijk aan",
+        "de": "Sequenz ist größer als oder gleich",
+        "fr": "Séquence est supérieure ou égale à",
+        "it": "Sequenza è maggiore o uguale a",
+        "sv": "Sekvens är större än eller lika med",
+        "no": "Sekvens er større enn eller lik",
+        "es": "Secuencia es mayor o igual que",
+        "da": "Sekvens er større end eller lig med",
+        "ru": "Последовательность больше или равна",
+        "pl": "Sekwencja jest większa lub równa",
+        "ko": "시퀀스가 이상임",
+        "ar": "التسلسل أكبر من أو يساوي"
+    },
+    "titleFormatted": {
+        "en": "Sequence [[name]] !{{is higher than or equal to|is lower than}} [[value]]",
+        "nl": "Stappenreeks [[name]] is !{{groter dan of gelijk aan|kleiner dan}} [[value]]",
+        "de": "Sequenz [[name]] !{{ist größer als oder gleich|ist kleiner als}} [[value]]",
+        "fr": "Séquence [[name]] !{{est supérieure ou égale à|est inférieure à}} [[value]]",
+        "it": "Sequenza [[name]] !{{è maggiore o uguale a|è minore di}} [[value]]",
+        "sv": "Sekvens [[name]] !{{är större än eller lika med|är mindre än}} [[value]]",
+        "no": "Sekvens [[name]] !{{er større enn eller lik|er mindre enn}} [[value]]",
+        "es": "Secuencia [[name]] !{{es mayor o igual que|es menor que}} [[value]]",
+        "da": "Sekvens [[name]] !{{er større end eller lig med|er mindre end}} [[value]]",
+        "ru": "Последовательность [[name]] !{{больше или равна|меньше}} [[value]]",
+        "pl": "Sekwencja [[name]] !{{jest większa lub równa|jest mniejsza niż}} [[value]]",
+        "ko": "시퀀스 [[name]] !{{이상임|미만임}} [[value]]",
+        "ar": "التسلسل [[name]] !{{أكبر من أو يساوي|أقل من}} [[value]]"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "name",
+            "title": {
+                "en": "Name",
+                "nl": "Naam",
+                "de": "Name",
+                "fr": "Nom",
+                "it": "Nome",
+                "sv": "Namn",
+                "no": "Navn",
+                "es": "Nombre",
+                "da": "Navn",
+                "ru": "Имя",
+                "pl": "Nazwa",
+                "ko": "이름",
+                "ar": "الاسم"
+            }
+        },
+        {
+            "type": "number",
+            "name": "value",
+            "min": 0,
+            "step": 1,
+            "title": {
+                "en": "Value",
+                "nl": "Waarde",
+                "de": "Wert",
+                "fr": "Valeur",
+                "it": "Valore",
+                "sv": "Värde",
+                "no": "Verdi",
+                "es": "Valor",
+                "da": "Værdi",
+                "ru": "Значение",
+                "pl": "Wartość",
+                "ko": "값",
+                "ar": "قيمة"
+            },
+            "placeholder": {
+                "en": "E.g. 5",
+                "nl": "Bijv. 5",
+                "de": "Z. B. 5",
+                "fr": "P. ex. 5",
+                "it": "Es. 5",
+                "sv": "T.ex. 5",
+                "no": "F.eks. 5",
+                "es": "P. ej. 5",
+                "da": "F.eks. 5",
+                "ru": "Напр. 5",
+                "pl": "Np. 5",
+                "ko": "예: 5",
+                "ar": "مثال: 5"
+            }
+        }
+    ]
+}

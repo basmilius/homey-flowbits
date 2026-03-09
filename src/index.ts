@@ -173,6 +173,8 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
     #registerConditions(): void {
         this.registry.condition(Conditions.ContinueWithChance);
         this.registry.condition(Conditions.CycleHasValue);
+        this.registry.condition(Conditions.CycleHigherThanOrEqual);
+        this.registry.condition(Conditions.CycleLowerThanOrEqual);
         this.registry.condition(Conditions.DayPeriodIs);
         this.registry.condition(Conditions.DiceRolls);
         this.registry.condition(Conditions.EventHappened);
