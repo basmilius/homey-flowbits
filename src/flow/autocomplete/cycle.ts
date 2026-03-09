@@ -28,6 +28,8 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp> {
             this.flow.getActionCard('cycle_between'),
             this.flow.getActionCard('cycle_to'),
             this.flow.getConditionCard('cycle_has_value'),
+            this.flow.getConditionCard('cycle_higher_than_or_equal'),
+            this.flow.getConditionCard('cycle_lower_than_or_equal'),
             this.flow.getTriggerCard('cycle_becomes'),
             this.flow.getTriggerCard('cycle_updates')
         ];
