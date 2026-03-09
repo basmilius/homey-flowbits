@@ -46,6 +46,12 @@ These flow cards let you move through, reset, or evaluate step sequences, making
     <FlowCardExplainer content="Checks if the current step in the step sequence is equal to a particular value.">
         <FlowCard type="condition">Sequence <strong>Hall switch</strong> equals <strong>1</strong></FlowCard>
     </FlowCardExplainer>
+    <FlowCardExplainer content="Checks if the current step in the step sequence is lower than or equal to a particular value. Can be inverted to check if the value is higher than the given number.">
+        <FlowCard type="condition">Sequence <strong>Hall switch</strong> is lower than or equal to <strong>3</strong></FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Checks if the current step in the step sequence is higher than or equal to a particular value. Can be inverted to check if the value is lower than the given number.">
+        <FlowCard type="condition">Sequence <strong>Hall switch</strong> is higher than or equal to <strong>2</strong></FlowCard>
+    </FlowCardExplainer>
 </FlowCards>
 
 ### Triggers
