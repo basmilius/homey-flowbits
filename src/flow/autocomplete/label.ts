@@ -28,7 +28,9 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp> {
             this.flow.getActionCard('label_set'),
             this.flow.getConditionCard('label_has_value'),
             this.flow.getTriggerCard('label_becomes'),
-            this.flow.getTriggerCard('label_changed')
+            this.flow.getTriggerCard('label_changed'),
+            this.flow.getTriggerCard('label_changed_v2'),
+            this.flow.getTriggerCard('label_cleared')
         ];
     }
 
