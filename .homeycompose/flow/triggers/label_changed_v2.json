@@ -1,0 +1,75 @@
+{
+    "id": "label_changed_v2",
+    "title": {
+        "en": "Label changed",
+        "nl": "Label gewijzigd",
+        "da": "Etiket ændret",
+        "de": "Etikett geändert",
+        "es": "Etiqueta cambiada",
+        "fr": "Étiquette modifiée",
+        "it": "Etichetta modificata",
+        "no": "Etikett endret",
+        "sv": "Etikett ändrad",
+        "pl": "Etykieta zmieniona",
+        "ru": "Метка изменена",
+        "ko": "레이블 변경됨",
+        "ar": "تم تغيير التسمية"
+    },
+    "titleFormatted": {
+        "en": "Label [[label]] changed",
+        "nl": "Label [[label]] is gewijzigd",
+        "da": "Etiket [[label]] ændret",
+        "de": "Etikett [[label]] geändert",
+        "es": "Etiqueta [[label]] cambiada",
+        "fr": "Étiquette [[label]] modifiée",
+        "it": "Etichetta [[label]] modificata",
+        "no": "Etikett [[label]] endret",
+        "sv": "Etikett [[label]] ändrad",
+        "pl": "Etykieta [[label]] zmieniona",
+        "ru": "Метка [[label]] изменена",
+        "ko": "레이블 [[label]] 변경됨",
+        "ar": "تم تغيير التسمية [[label]]"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "label",
+            "title": {
+                "en": "Label",
+                "nl": "Label",
+                "da": "Etiket",
+                "de": "Etikett",
+                "es": "Etiqueta",
+                "fr": "Étiquette",
+                "it": "Etichetta",
+                "no": "Etikett",
+                "sv": "Etikett",
+                "pl": "Etykieta",
+                "ru": "Метка",
+                "ko": "레이블",
+                "ar": "تسمية"
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "name": "value",
+            "type": "string",
+            "title": {
+                "en": "Value",
+                "nl": "Waarde",
+                "da": "Værdi",
+                "de": "Wert",
+                "es": "Valor",
+                "fr": "Valeur",
+                "it": "Valore",
+                "no": "Verdi",
+                "sv": "Värde",
+                "pl": "Wartość",
+                "ru": "Значение",
+                "ko": "값",
+                "ar": "قيمة"
+            }
+        }
+    ]
+}

@@ -9,6 +9,8 @@ export { default as FlagChanged } from './flagChanged';
 export { default as FlagDeactivated } from './flagDeactivated';
 export { default as LabelBecomes } from './labelBecomes';
 export { default as LabelChanged } from './labelChanged';
+export { default as LabelChangedV2 } from './labelChangedV2';
+export { default as LabelCleared } from './labelCleared';
 export { default as ModeActivated } from './modeActivated';
 export { default as ModeChanged } from './modeChanged';
 export { default as ModeCurrentChanged } from './modeCurrentChanged';

@@ -1,0 +1,54 @@
+{
+    "id": "label_cleared",
+    "title": {
+        "en": "Label cleared",
+        "nl": "Label gewist",
+        "da": "Etiket ryddet",
+        "de": "Etikett gelöscht",
+        "es": "Etiqueta borrada",
+        "fr": "Étiquette effacée",
+        "it": "Etichetta cancellata",
+        "no": "Etikett ryddet",
+        "sv": "Etikett rensad",
+        "pl": "Etykieta wyczyszczona",
+        "ru": "Метка очищена",
+        "ko": "레이블 지워짐",
+        "ar": "تم مسح التسمية"
+    },
+    "titleFormatted": {
+        "en": "Label [[label]] is cleared",
+        "nl": "Label [[label]] is gewist",
+        "da": "Etiket [[label]] er ryddet",
+        "de": "Etikett [[label]] ist gelöscht",
+        "es": "Etiqueta [[label]] borrada",
+        "fr": "L'étiquette [[label]] est effacée",
+        "it": "L'etichetta [[label]] è cancellata",
+        "no": "Etikett [[label]] er ryddet",
+        "sv": "Etikett [[label]] är rensad",
+        "pl": "Etykieta [[label]] została wyczyszczona",
+        "ru": "Метка [[label]] очищена",
+        "ko": "레이블 [[label]]이 지워짐",
+        "ar": "تم مسح التسمية [[label]]"
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "label",
+            "title": {
+                "en": "Label",
+                "nl": "Label",
+                "da": "Etiket",
+                "de": "Etikett",
+                "es": "Etiqueta",
+                "fr": "Étiquette",
+                "it": "Etichetta",
+                "no": "Etikett",
+                "sv": "Etikett",
+                "pl": "Etykieta",
+                "ru": "Метка",
+                "ko": "레이블",
+                "ar": "تسمية"
+            }
+        }
+    ]
+}
