@@ -1250,6 +1250,81 @@
       {
         "id": "label_changed",
         "title": {
+          "en": "Label changed or cleared",
+          "nl": "Label gewijzigd of gewist",
+          "da": "Etiket ændret eller ryddet",
+          "de": "Etikett geändert oder gelöscht",
+          "es": "Etiqueta cambiada o borrada",
+          "fr": "Étiquette modifiée ou effacée",
+          "it": "Etichetta modificata o cancellata",
+          "no": "Etikett endret eller ryddet",
+          "sv": "Etikett ändrad eller rensad",
+          "pl": "Etykieta zmieniona lub wyczyszczona",
+          "ru": "Метка изменена или очищена",
+          "ko": "레이블 변경됨 또는 지워짐",
+          "ar": "تم تغيير التسمية أو مسحها"
+        },
+        "titleFormatted": {
+          "en": "Label [[label]] changed or cleared",
+          "nl": "Label [[label]] is gewijzigd of gewist",
+          "da": "Etiket [[label]] ændret eller ryddet",
+          "de": "Etikett [[label]] geändert oder gelöscht",
+          "es": "Etiqueta [[label]] cambiada o borrada",
+          "fr": "Étiquette [[label]] modifiée ou effacée",
+          "it": "Etichetta [[label]] modificata o cancellata",
+          "no": "Etikett [[label]] endret eller ryddet",
+          "sv": "Etikett [[label]] ändrad eller rensad",
+          "pl": "Etykieta [[label]] zmieniona lub wyczyszczona",
+          "ru": "Метка [[label]] изменена или очищена",
+          "ko": "레이블 [[label]] 변경됨 또는 지워짐",
+          "ar": "تم تغيير التسمية [[label]] أو مسحها"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "label",
+            "title": {
+              "en": "Label",
+              "nl": "Label",
+              "da": "Etiket",
+              "de": "Etikett",
+              "es": "Etiqueta",
+              "fr": "Étiquette",
+              "it": "Etichetta",
+              "no": "Etikett",
+              "sv": "Etikett",
+              "pl": "Etykieta",
+              "ru": "Метка",
+              "ko": "레이블",
+              "ar": "تسمية"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "value",
+            "type": "string",
+            "title": {
+              "en": "Value",
+              "nl": "Waarde",
+              "da": "Værdi",
+              "de": "Wert",
+              "es": "Valor",
+              "fr": "Valeur",
+              "it": "Valore",
+              "no": "Verdi",
+              "sv": "Värde",
+              "pl": "Wartość",
+              "ru": "Значение",
+              "ko": "값",
+              "ar": "قيمة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "label_changed_v2",
+        "title": {
           "en": "Label changed",
           "nl": "Label gewijzigd",
           "da": "Etiket ændret",
@@ -1318,6 +1393,60 @@
               "ru": "Значение",
               "ko": "값",
               "ar": "قيمة"
+            }
+          }
+        ]
+      },
+      {
+        "id": "label_cleared",
+        "title": {
+          "en": "Label cleared",
+          "nl": "Label gewist",
+          "da": "Etiket ryddet",
+          "de": "Etikett gelöscht",
+          "es": "Etiqueta borrada",
+          "fr": "Étiquette effacée",
+          "it": "Etichetta cancellata",
+          "no": "Etikett ryddet",
+          "sv": "Etikett rensad",
+          "pl": "Etykieta wyczyszczona",
+          "ru": "Метка очищена",
+          "ko": "레이블 지워짐",
+          "ar": "تم مسح التسمية"
+        },
+        "titleFormatted": {
+          "en": "Label [[label]] is cleared",
+          "nl": "Label [[label]] is gewist",
+          "da": "Etiket [[label]] er ryddet",
+          "de": "Etikett [[label]] ist gelöscht",
+          "es": "Etiqueta [[label]] borrada",
+          "fr": "L'étiquette [[label]] est effacée",
+          "it": "L'etichetta [[label]] è cancellata",
+          "no": "Etikett [[label]] er ryddet",
+          "sv": "Etikett [[label]] är rensad",
+          "pl": "Etykieta [[label]] została wyczyszczona",
+          "ru": "Метка [[label]] очищена",
+          "ko": "레이블 [[label]]이 지워짐",
+          "ar": "تم مسح التسمية [[label]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "label",
+            "title": {
+              "en": "Label",
+              "nl": "Label",
+              "da": "Etiket",
+              "de": "Etikett",
+              "es": "Etiqueta",
+              "fr": "Étiquette",
+              "it": "Etichetta",
+              "no": "Etikett",
+              "sv": "Etikett",
+              "pl": "Etykieta",
+              "ru": "Метка",
+              "ko": "레이블",
+              "ar": "تسمية"
             }
           }
         ]
@@ -2923,6 +3052,186 @@
           "pl": "Sekwencja [[name]] !{{jest równa|nie jest równa}} [[value]]",
           "ko": "시퀀스 [[name]] !{{같음|같지 않음}} [[value]]",
           "ar": "التسلسل [[name]] !{{يساوي|لا يساوي}} [[value]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name",
+              "fr": "Nom",
+              "it": "Nome",
+              "sv": "Namn",
+              "no": "Navn",
+              "es": "Nombre",
+              "da": "Navn",
+              "ru": "Имя",
+              "pl": "Nazwa",
+              "ko": "이름",
+              "ar": "الاسم"
+            }
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "min": 0,
+            "step": 1,
+            "title": {
+              "en": "Value",
+              "nl": "Waarde",
+              "de": "Wert",
+              "fr": "Valeur",
+              "it": "Valore",
+              "sv": "Värde",
+              "no": "Verdi",
+              "es": "Valor",
+              "da": "Værdi",
+              "ru": "Значение",
+              "pl": "Wartość",
+              "ko": "값",
+              "ar": "قيمة"
+            },
+            "placeholder": {
+              "en": "E.g. 5",
+              "nl": "Bijv. 5",
+              "de": "Z. B. 5",
+              "fr": "P. ex. 5",
+              "it": "Es. 5",
+              "sv": "T.ex. 5",
+              "no": "F.eks. 5",
+              "es": "P. ej. 5",
+              "da": "F.eks. 5",
+              "ru": "Напр. 5",
+              "pl": "Np. 5",
+              "ko": "예: 5",
+              "ar": "مثال: 5"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cycle_higher_than_or_equal",
+        "title": {
+          "en": "Sequence is higher than or equal to",
+          "nl": "Stappenreeks is groter dan of gelijk aan",
+          "de": "Sequenz ist größer als oder gleich",
+          "fr": "Séquence est supérieure ou égale à",
+          "it": "Sequenza è maggiore o uguale a",
+          "sv": "Sekvens är större än eller lika med",
+          "no": "Sekvens er større enn eller lik",
+          "es": "Secuencia es mayor o igual que",
+          "da": "Sekvens er større end eller lig med",
+          "ru": "Последовательность больше или равна",
+          "pl": "Sekwencja jest większa lub równa",
+          "ko": "시퀀스가 이상임",
+          "ar": "التسلسل أكبر من أو يساوي"
+        },
+        "titleFormatted": {
+          "en": "Sequence [[name]] !{{is higher than or equal to|is lower than}} [[value]]",
+          "nl": "Stappenreeks [[name]] is !{{groter dan of gelijk aan|kleiner dan}} [[value]]",
+          "de": "Sequenz [[name]] !{{ist größer als oder gleich|ist kleiner als}} [[value]]",
+          "fr": "Séquence [[name]] !{{est supérieure ou égale à|est inférieure à}} [[value]]",
+          "it": "Sequenza [[name]] !{{è maggiore o uguale a|è minore di}} [[value]]",
+          "sv": "Sekvens [[name]] !{{är större än eller lika med|är mindre än}} [[value]]",
+          "no": "Sekvens [[name]] !{{er større enn eller lik|er mindre enn}} [[value]]",
+          "es": "Secuencia [[name]] !{{es mayor o igual que|es menor que}} [[value]]",
+          "da": "Sekvens [[name]] !{{er større end eller lig med|er mindre end}} [[value]]",
+          "ru": "Последовательность [[name]] !{{больше или равна|меньше}} [[value]]",
+          "pl": "Sekwencja [[name]] !{{jest większa lub równa|jest mniejsza niż}} [[value]]",
+          "ko": "시퀀스 [[name]] !{{이상임|미만임}} [[value]]",
+          "ar": "التسلسل [[name]] !{{أكبر من أو يساوي|أقل من}} [[value]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "name",
+            "title": {
+              "en": "Name",
+              "nl": "Naam",
+              "de": "Name",
+              "fr": "Nom",
+              "it": "Nome",
+              "sv": "Namn",
+              "no": "Navn",
+              "es": "Nombre",
+              "da": "Navn",
+              "ru": "Имя",
+              "pl": "Nazwa",
+              "ko": "이름",
+              "ar": "الاسم"
+            }
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "min": 0,
+            "step": 1,
+            "title": {
+              "en": "Value",
+              "nl": "Waarde",
+              "de": "Wert",
+              "fr": "Valeur",
+              "it": "Valore",
+              "sv": "Värde",
+              "no": "Verdi",
+              "es": "Valor",
+              "da": "Værdi",
+              "ru": "Значение",
+              "pl": "Wartość",
+              "ko": "값",
+              "ar": "قيمة"
+            },
+            "placeholder": {
+              "en": "E.g. 5",
+              "nl": "Bijv. 5",
+              "de": "Z. B. 5",
+              "fr": "P. ex. 5",
+              "it": "Es. 5",
+              "sv": "T.ex. 5",
+              "no": "F.eks. 5",
+              "es": "P. ej. 5",
+              "da": "F.eks. 5",
+              "ru": "Напр. 5",
+              "pl": "Np. 5",
+              "ko": "예: 5",
+              "ar": "مثال: 5"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cycle_lower_than_or_equal",
+        "title": {
+          "en": "Sequence is lower than or equal to",
+          "nl": "Stappenreeks is kleiner dan of gelijk aan",
+          "de": "Sequenz ist kleiner als oder gleich",
+          "fr": "Séquence est inférieure ou égale à",
+          "it": "Sequenza è minore o uguale a",
+          "sv": "Sekvens är mindre än eller lika med",
+          "no": "Sekvens er mindre enn eller lik",
+          "es": "Secuencia es menor o igual que",
+          "da": "Sekvens er mindre end eller lig med",
+          "ru": "Последовательность меньше или равна",
+          "pl": "Sekwencja jest mniejsza lub równa",
+          "ko": "시퀀스가 이하임",
+          "ar": "التسلسل أقل من أو يساوي"
+        },
+        "titleFormatted": {
+          "en": "Sequence [[name]] !{{is lower than or equal to|is higher than}} [[value]]",
+          "nl": "Stappenreeks [[name]] is !{{kleiner dan of gelijk aan|groter dan}} [[value]]",
+          "de": "Sequenz [[name]] !{{ist kleiner als oder gleich|ist größer als}} [[value]]",
+          "fr": "Séquence [[name]] !{{est inférieure ou égale à|est supérieure à}} [[value]]",
+          "it": "Sequenza [[name]] !{{è minore o uguale a|è maggiore di}} [[value]]",
+          "sv": "Sekvens [[name]] !{{är mindre än eller lika med|är större än}} [[value]]",
+          "no": "Sekvens [[name]] !{{er mindre enn eller lik|er større enn}} [[value]]",
+          "es": "Secuencia [[name]] !{{es menor o igual que|es mayor que}} [[value]]",
+          "da": "Sekvens [[name]] !{{er mindre end eller lig med|er større end}} [[value]]",
+          "ru": "Последовательность [[name]] !{{меньше или равна|больше}} [[value]]",
+          "pl": "Sekwencja [[name]] !{{jest mniejsza lub równa|jest większa niż}} [[value]]",
+          "ko": "시퀀스 [[name]] !{{이하임|초과임}} [[value]]",
+          "ar": "التسلسل [[name]] !{{أقل من أو يساوي|أكبر من}} [[value]]"
         },
         "args": [
           {
@@ -12316,19 +12625,19 @@
             "type": "number",
             "name": "result",
             "title": {
-              "en": "Result",
-              "nl": "Resultaat",
-              "de": "Ergebnis",
-              "fr": "Résultat",
-              "it": "Risultato",
-              "sv": "Resultat",
-              "no": "Resultat",
-              "es": "Resultado",
-              "da": "Resultat",
-              "ru": "Результат",
-              "pl": "Wynik",
-              "ko": "결과",
-              "ar": "نتيجة"
+              "en": "Calculation result",
+              "nl": "Berekeningsresultaat",
+              "de": "Berechnungsergebnis",
+              "fr": "Résultat du calcul",
+              "it": "Risultato del calcolo",
+              "sv": "Beräkningsresultat",
+              "no": "Beregningsresultat",
+              "es": "Resultado del cálculo",
+              "da": "Beregningsresultat",
+              "ru": "Результат вычисления",
+              "pl": "Wynik obliczenia",
+              "ko": "계산 결과",
+              "ar": "نتيجة الحساب"
             }
           }
         ]
