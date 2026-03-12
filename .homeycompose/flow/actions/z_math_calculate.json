@@ -86,19 +86,19 @@
             "type": "number",
             "name": "result",
             "title": {
-                "en": "Result",
-                "nl": "Resultaat",
-                "de": "Ergebnis",
-                "fr": "Résultat",
-                "it": "Risultato",
-                "sv": "Resultat",
-                "no": "Resultat",
-                "es": "Resultado",
-                "da": "Resultat",
-                "ru": "Результат",
-                "pl": "Wynik",
-                "ko": "결과",
-                "ar": "نتيجة"
+                "en": "Calculation result",
+                "nl": "Berekeningsresultaat",
+                "de": "Berechnungsergebnis",
+                "fr": "Résultat du calcul",
+                "it": "Risultato del calcolo",
+                "sv": "Beräkningsresultat",
+                "no": "Beregningsresultat",
+                "es": "Resultado del cálculo",
+                "da": "Beregningsresultat",
+                "ru": "Результат вычисления",
+                "pl": "Wynik obliczenia",
+                "ko": "계산 결과",
+                "ar": "نتيجة الحساب"
             }
         }
     ]
