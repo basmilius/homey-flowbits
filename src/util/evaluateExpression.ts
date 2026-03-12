@@ -10,8 +10,12 @@ export default function evaluateExpression(expression: string): number {
     const parser = new Parser(tokens);
     const result = parser.parseExpression();
 
-    if (parser.position < tokens.length) {
-        throw new Error(`Unexpected token: ${tokens[parser.position]}`);
+    if (parser.hasRemainingTokens()) {
+        throw new Error('Unexpected tokens at end of expression');
+    }
+
+    if (!isFinite(result)) {
+        throw new Error(`Expression result is not a finite number: ${result}`);
     }
 
     return result;
@@ -87,12 +91,13 @@ function tokenize(expr: string): Token[] {
             continue;
         }
 
-        if (ch >= 'a' && ch <= 'z') {
+        if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
             let name = '';
-            while (i < expr.length && expr[i] >= 'a' && expr[i] <= 'z') {
+            while (i < expr.length && ((expr[i] >= 'a' && expr[i] <= 'z') || (expr[i] >= 'A' && expr[i] <= 'Z'))) {
                 name += expr[i];
                 i++;
             }
+            name = name.toLowerCase();
             if (name in CONSTANTS) {
                 tokens.push({type: 'number', value: CONSTANTS[name]});
             } else if (name in FUNCTIONS) {
@@ -110,9 +115,13 @@ function tokenize(expr: string): Token[] {
 }
 
 class Parser {
-    position = 0;
+    private position = 0;
 
     constructor(private tokens: Token[]) {}
+
+    hasRemainingTokens(): boolean {
+        return this.position < this.tokens.length;
+    }
 
     parseExpression(): number {
         return this.parseAddition();
