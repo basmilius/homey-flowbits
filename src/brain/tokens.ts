@@ -67,6 +67,7 @@ export default class Tokens extends Shortcuts<FlowBitsApp> {
 
     async #update(): Promise<void> {
         const state = await this.#state();
+        let updated = false;
 
         for (const [id, [token, provider, translated, translator]] of Object.entries(this.#tokens)) {
             const value = provider(state);
@@ -93,8 +94,11 @@ export default class Tokens extends Shortcuts<FlowBitsApp> {
             await token.setValue(value);
 
             translated && translator && await translated.setValue(translator(value)?.toString() ?? '');
+            updated = true;
         }
 
-        this.log('Global tokens updated.');
+        if (updated) {
+            this.log('Global tokens updated.');
+        }
     }
 }
