@@ -5,9 +5,17 @@ import type { ClockUnit, Event, Feature, FlowBitsApp, Look, Styleable } from '..
 import { convertDurationToMs } from '../util';
 
 export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Event>, Styleable {
+    get rawEvents(): Record<string, string[]> {
+        return this.settings.get(SETTING_EVENTS) ?? this.settings.get('events') ?? {};
+    }
+
+    set rawEvents(value: Record<string, string[]>) {
+        this.settings.set(SETTING_EVENTS, value);
+    }
+
     get events(): Record<string, DateTime[]> {
         return Object.fromEntries(
-            Object.entries<string[]>(this.settings.get(SETTING_EVENTS) ?? this.settings.get('events') ?? {})
+            Object.entries<string[]>(this.rawEvents)
                 .map(([key, value]) => [
                     key,
                     value.map(v => DateTime.fromISO(v))
@@ -16,13 +24,13 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     }
 
     set events(value: Record<string, DateTime[]>) {
-        this.settings.set(SETTING_EVENTS, Object.fromEntries(
+        this.rawEvents = Object.fromEntries(
             Object.entries<DateTime[]>(value)
                 .map(([key, value]) => [
                     key,
-                    value.map(v => v.toISO())
+                    value.map(v => v.toISO() ?? '')
                 ])
-        ));
+        );
     }
 
     get looks(): Record<string, Look> {
@@ -37,13 +45,12 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
         this.log('Cleaning up unused events...');
 
         const defined = await this.findAll();
-        const keys = new Set([
-            ...Object.keys(this.events),
-            ...Object.keys(this.looks)
-        ]);
-
-        const events = this.events;
+        const rawEvents = this.rawEvents;
         const looks = this.looks;
+        const keys = new Set([
+            ...Object.keys(rawEvents),
+            ...Object.keys(looks)
+        ]);
 
         for (const key of keys) {
             if (defined.find(d => d.name === key)) {
@@ -51,11 +58,11 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
             }
 
             this.log(`Deleting unused event ${key}...`);
-            delete events[key];
+            delete rawEvents[key];
             delete looks[key];
         }
 
-        this.events = events;
+        this.rawEvents = rawEvents;
         this.looks = looks;
     }
 
@@ -80,24 +87,25 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
             return [];
         }
 
+        const rawEvents = this.rawEvents;
+
         return events.map(event => {
             const look = this.getLook(event.name);
-            const updates = this.events[event.name] ?? [];
+            const updates = rawEvents[event.name] ?? [];
 
             return {
                 color: look[0],
                 icon: look[1],
-                lastUpdate: updates[updates.length - 1]?.toISO() ?? undefined,
+                lastUpdate: updates[updates.length - 1] ?? undefined,
                 name: event.name
             };
         });
     }
 
     async clear(name: string): Promise<void> {
-        const events = this.events;
-        delete events[name];
-
-        this.events = events;
+        const rawEvents = this.rawEvents;
+        delete rawEvents[name];
+        this.rawEvents = rawEvents;
 
         this.log(`Clear ${name}.`);
 
@@ -108,8 +116,8 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     }
 
     async clearAll(): Promise<void> {
-        const names = Object.keys(this.events);
-        this.events = {};
+        const names = Object.keys(this.rawEvents);
+        this.rawEvents = {};
 
         this.log('Clear all events.');
 
@@ -118,47 +126,47 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     }
 
     async happened(name: string): Promise<boolean> {
-        return name in this.events;
+        return name in this.rawEvents;
     }
 
     async happenedTimesToday(name: string, times: number): Promise<boolean> {
-        const events = this.events[name] ?? [];
+        const rawEntries = this.rawEvents[name] ?? [];
         const startOfDay = DateTime.now().startOf('day');
 
-        return events.filter(event => event >= startOfDay).length >= times;
+        return rawEntries.filter(v => DateTime.fromISO(v) >= startOfDay).length >= times;
     }
 
     async happenedTimesWithin(name: string, times: number, duration: number, unit: ClockUnit): Promise<boolean> {
-        const events = this.events[name] ?? [];
+        const rawEntries = this.rawEvents[name] ?? [];
         const ms = convertDurationToMs(duration, unit);
         const cutoff = DateTime.now().minus({milliseconds: ms});
 
-        return events.filter(event => event >= cutoff).length >= times;
+        return rawEntries.filter(v => DateTime.fromISO(v) >= cutoff).length >= times;
     }
 
     async happenedToday(name: string): Promise<boolean> {
-        const events = this.events[name] ?? [];
+        const rawEntries = this.rawEvents[name] ?? [];
         const startOfDay = DateTime.now().startOf('day');
 
-        return events.some(event => event >= startOfDay);
+        return rawEntries.some(v => DateTime.fromISO(v) >= startOfDay);
     }
 
     async happenedWithin(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
-        const events = this.events[name] ?? [];
+        const rawEntries = this.rawEvents[name] ?? [];
         const ms = convertDurationToMs(duration, unit);
 
-        return events.some(event => Math.abs(event.diffNow().as('milliseconds')) <= ms);
+        return rawEntries.some(v => Math.abs(DateTime.fromISO(v).diffNow().as('milliseconds')) <= ms);
     }
 
     async trigger(name: string, value?: string): Promise<void> {
-        const events = this.events;
-        const now = DateTime.now();
-        events[name] = events[name]?.slice(-EVENTS_HISTORY_LENGTH) ?? [];
-        events[name].push(now);
+        const rawEvents = this.rawEvents;
+        const nowISO = DateTime.now().toISO();
+        const history = rawEvents[name]?.slice(-EVENTS_HISTORY_LENGTH) ?? [];
+        history.push(nowISO);
+        rawEvents[name] = history;
+        this.rawEvents = rawEvents;
 
-        this.events = events;
-
-        this.log(value ? `Trigger ${name} at ${now.toISO()} with value ${value}.` : `Trigger ${name} at ${now.toISO()}.`);
+        this.log(value ? `Trigger ${name} at ${nowISO} with value ${value}.` : `Trigger ${name} at ${nowISO}.`);
 
         await Promise.allSettled([
             this.#triggerRealtime(),
