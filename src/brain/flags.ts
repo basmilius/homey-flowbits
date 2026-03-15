@@ -23,9 +23,17 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         this.settings.set(SETTING_FLAG_LOOKS, value);
     }
 
+    get rawLastUpdates(): Record<string, string> {
+        return this.settings.get(SETTING_FLAG_LAST_UPDATES) ?? {};
+    }
+
+    set rawLastUpdates(value: Record<string, string>) {
+        this.settings.set(SETTING_FLAG_LAST_UPDATES, value);
+    }
+
     get lastUpdates(): Record<string, DateTime> {
         return Object.fromEntries(
-            Object.entries<string>(this.settings.get(SETTING_FLAG_LAST_UPDATES) ?? {})
+            Object.entries<string>(this.rawLastUpdates)
                 .map(([key, value]) => [
                     key,
                     DateTime.fromISO(value)
@@ -34,13 +42,13 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     set lastUpdates(value: Record<string, DateTime>) {
-        this.settings.set(SETTING_FLAG_LAST_UPDATES, Object.fromEntries(
+        this.rawLastUpdates = Object.fromEntries(
             Object.entries(value)
                 .map(([key, value]) => [
                     key,
-                    value.toISO()
+                    value.toISO() ?? ''
                 ])
-        ));
+        );
     }
 
     async cleanup(): Promise<void> {
@@ -48,7 +56,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
         const defined = await this.findAll();
         const looks = this.looks;
-        const lastUpdates = this.lastUpdates;
+        const rawLastUpdates = this.rawLastUpdates;
 
         this.currentFlags = this.currentFlags.filter(flag => defined.find(d => d.name === flag));
 
@@ -61,17 +69,17 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
             delete looks[key];
         }
 
-        for (const key of Object.keys(this.lastUpdates)) {
+        for (const key of Object.keys(rawLastUpdates)) {
             if (defined.find(d => d.name === key)) {
                 continue;
             }
 
             this.log(`Deleting unused flag last update ${key}...`);
-            delete lastUpdates[key];
+            delete rawLastUpdates[key];
         }
 
         this.looks = looks;
-        this.lastUpdates = lastUpdates;
+        this.rawLastUpdates = rawLastUpdates;
     }
 
     async count(): Promise<number> {
@@ -90,18 +98,17 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     async findAll(): Promise<Flag[]> {
         const provider = this.#autocompleteProvider();
         const current = this.currentFlags;
-        const lastUpdates = this.lastUpdates;
+        const rawLastUpdates = this.rawLastUpdates;
         const flags = await provider.find('');
 
         return flags.map(flag => {
             const look = this.getLook(flag.name);
-            const lastUpdate = lastUpdates[flag.name];
 
             return {
                 active: current.includes(flag.name),
                 color: look[0],
                 icon: look[1],
-                lastUpdate: lastUpdate?.toISO() ?? undefined,
+                lastUpdate: rawLastUpdates[flag.name] ?? undefined,
                 name: flag.name
             };
         });
@@ -118,10 +125,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         this.#clearFlagTimeout(name);
 
         this.currentFlags = [...current, name];
-        this.lastUpdates = {
-            ...this.lastUpdates,
-            [name]: DateTime.now()
-        };
+        this.#setRawLastUpdate(name);
 
         this.log(`Activate flag ${name}.`);
 
@@ -143,10 +147,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         this.#clearFlagTimeout(name);
 
         this.currentFlags = current.filter(f => f !== name);
-        this.lastUpdates = {
-            ...this.lastUpdates,
-            [name]: DateTime.now()
-        };
+        this.#setRawLastUpdate(name);
 
         this.log(`Deactivate flag ${name}.`);
 
@@ -183,9 +184,9 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     async isActiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
-        const lastUpdate = this.lastUpdates[name];
-        
-        if (!lastUpdate) {
+        const rawLastUpdate = this.rawLastUpdates[name];
+
+        if (!rawLastUpdate) {
             return false;
         }
 
@@ -198,13 +199,13 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         const ms = convertDurationToMs(duration, unit);
         const cutoff = DateTime.now().minus({milliseconds: ms});
 
-        return lastUpdate <= cutoff;
+        return DateTime.fromISO(rawLastUpdate) <= cutoff;
     }
 
     async isInactiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
-        const lastUpdate = this.lastUpdates[name];
+        const rawLastUpdate = this.rawLastUpdates[name];
 
-        if (!lastUpdate) {
+        if (!rawLastUpdate) {
             // If there's no lastUpdate, the flag has never been touched, so consider it inactive forever
             return true;
         }
@@ -218,7 +219,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         const ms = convertDurationToMs(duration, unit);
         const cutoff = DateTime.now().minus({milliseconds: ms});
 
-        return lastUpdate <= cutoff;
+        return DateTime.fromISO(rawLastUpdate) <= cutoff;
     }
 
     getLook(name: string): Look {
@@ -236,6 +237,12 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
     async update(): Promise<void> {
         await this.#triggerRealtime();
+    }
+
+    #setRawLastUpdate(name: string): void {
+        const rawLastUpdates = this.rawLastUpdates;
+        rawLastUpdates[name] = DateTime.now().toISO() ?? '';
+        this.rawLastUpdates = rawLastUpdates;
     }
 
     #clearFlagTimeout(name: string): void {
