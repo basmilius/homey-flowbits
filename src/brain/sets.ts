@@ -177,7 +177,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
         await this.#scheduleNextExpiration();
 
-        const triggers: Promise<void>[] = [this.#triggerRealtime()];
+        const triggers: Promise<void>[] = [this.#triggerRealtime(setName)];
 
         for (const state of statesToDeactivate) {
             triggers.push(this.#triggerStateDeactivated(setName, state));
@@ -248,7 +248,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
         await this.#scheduleNextExpiration();
 
-        const triggers: Promise<void>[] = [this.#triggerRealtime()];
+        const triggers: Promise<void>[] = [this.#triggerRealtime(setName)];
 
         for (const state of statesToDeactivate) {
             triggers.push(this.#triggerStateDeactivated(setName, state));
@@ -404,7 +404,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             [name]: look
         };
 
-        await this.#triggerRealtime();
+        await this.#triggerRealtime(name);
     }
 
     async update(): Promise<void> {
@@ -466,11 +466,34 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             ?.trigger({set, state});
     }
 
-    async #triggerRealtime(): Promise<void> {
-        const sets = await this.findAll();
+    async #triggerRealtime(setName?: string): Promise<void> {
+        if (setName) {
+            const definedStates = this.#buildDefinedMap().get(setName);
 
-        for (const set of sets) {
-            this.realtime(REALTIME_SETS_UPDATE, set);
+            if (!definedStates) {
+                return;
+            }
+
+            const look = this.getLook(setName);
+            const states: BitSetState[] = [...definedStates].map(stateName =>
+                this.#mapStoredState(setName, stateName)
+            );
+            const activeCount = states.filter(s => s.active).length;
+
+            this.realtime(REALTIME_SETS_UPDATE, {
+                name: setName,
+                color: look[0],
+                icon: look[1],
+                states,
+                anyActive: activeCount > 0,
+                allActive: states.length > 0 && activeCount === states.length
+            } satisfies BitSet);
+        } else {
+            const sets = await this.findAll();
+
+            for (const set of sets) {
+                this.realtime(REALTIME_SETS_UPDATE, set);
+            }
         }
     }
 
@@ -545,7 +568,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         const counts = this.#getCounts(setName, definedStates);
         const activeStates = this.#getActiveStateNames(setName, definedStates);
         const isNowAllActive = counts.totalCount > 0 && counts.activeCount === counts.totalCount;
-        const triggers: Promise<void>[] = [this.#triggerRealtime()];
+        const triggers: Promise<void>[] = [this.#triggerRealtime(setName)];
 
         for (const state of activatedStates) {
             triggers.push(this.#triggerStateActivated(setName, state));
@@ -572,7 +595,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         const counts = this.#getCounts(setName, definedStates);
         const activeStates = this.#getActiveStateNames(setName, definedStates);
         const isNowAnyActive = counts.activeCount > 0;
-        const triggers: Promise<void>[] = [this.#triggerRealtime()];
+        const triggers: Promise<void>[] = [this.#triggerRealtime(setName)];
 
         for (const state of deactivatedStates) {
             triggers.push(this.#triggerStateDeactivated(setName, state));
