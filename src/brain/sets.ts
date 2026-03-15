@@ -664,28 +664,28 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             this.#expirationTimeout = null;
         }
 
-        const now = DateTime.now();
-        let earliestExpiration: { setName: string; stateName: string; expiresAt: DateTime } | null = null;
+        const nowMs = Date.now();
+        let earliestMs: number | null = null;
 
-        for (const [setName, setStates] of Object.entries(this.states)) {
-            for (const [stateName, [active, , expiresAtStr]] of Object.entries(setStates)) {
+        for (const setStates of Object.values(this.states)) {
+            for (const [active, , expiresAtStr] of Object.values(setStates)) {
                 if (!active || !expiresAtStr) {
                     continue;
                 }
 
-                const expiresAt = DateTime.fromISO(expiresAtStr);
+                const expiresAtMs = Date.parse(expiresAtStr);
 
-                if (!earliestExpiration || expiresAt < earliestExpiration.expiresAt) {
-                    earliestExpiration = {setName, stateName, expiresAt};
+                if (earliestMs === null || expiresAtMs < earliestMs) {
+                    earliestMs = expiresAtMs;
                 }
             }
         }
 
-        if (!earliestExpiration) {
+        if (earliestMs === null) {
             return;
         }
 
-        const diff = earliestExpiration.expiresAt.diff(now).as('milliseconds');
+        const diff = earliestMs - nowMs;
 
         if (diff <= 0) {
             await this.#processExpirations();
@@ -703,7 +703,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async #processExpirations(): Promise<void> {
-        const now = DateTime.now();
+        const nowMs = Date.now();
         const expiredStates: { setName: string; stateName: string }[] = [];
 
         for (const [setName, setStates] of Object.entries(this.states)) {
@@ -712,9 +712,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
                     continue;
                 }
 
-                const expiresAt = DateTime.fromISO(expiresAtStr);
-
-                if (expiresAt <= now) {
+                if (Date.parse(expiresAtStr) <= nowMs) {
                     expiredStates.push({setName, stateName});
                 }
             }
