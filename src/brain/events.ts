@@ -170,7 +170,7 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     }
 
     getLook(name: string): Look {
-        return this.#looks[name] ?? ['#204ef6', ''];
+        return this.#looks[name] ?? ['#204ef6', '\ue237'];
     }
 
     async setLook(name: string, look: Look): Promise<void> {

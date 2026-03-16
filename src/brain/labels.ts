@@ -132,7 +132,7 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
     }
 
     getLook(name: string): Look {
-        return this.#looks[name] ?? ['#204ef6', ''];
+        return this.#looks[name] ?? ['#204ef6', '\uf02b'];
     }
 
     async setLook(name: string, look: Look): Promise<void> {

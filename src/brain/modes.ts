@@ -250,7 +250,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     getLook(name: string): Look {
-        return this.#looks[name] ?? ['#204ef6', ''];
+        return this.#looks[name] ?? ['#204ef6', '\uf5fd'];
     }
 
     async setLook(name: string, look: Look): Promise<void> {

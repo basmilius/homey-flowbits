@@ -198,7 +198,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     getLook(name: string): Look {
-        return this.#looks[name] ?? ['#204ef6', ''];
+        return this.#looks[name] ?? ['#204ef6', '\uf205'];
     }
 
     async setLook(name: string, look: Look): Promise<void> {
