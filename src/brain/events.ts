@@ -161,9 +161,9 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     async trigger(name: string, value?: string): Promise<void> {
         const rawEvents = this.rawEvents;
         const nowISO = DateTime.now().toISO();
-        const history = rawEvents[name]?.slice(-EVENTS_HISTORY_LENGTH) ?? [];
+        const history = rawEvents[name] ?? [];
         history.push(nowISO);
-        rawEvents[name] = history;
+        rawEvents[name] = history.slice(-EVENTS_HISTORY_LENGTH);
         this.rawEvents = rawEvents;
 
         this.log(value ? `Trigger ${name} at ${nowISO} with value ${value}.` : `Trigger ${name} at ${nowISO}.`);
