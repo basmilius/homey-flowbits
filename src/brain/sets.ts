@@ -143,10 +143,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         this.log(`Activated all states in set ${setName}.`);
 
         await this.#scheduleNextExpiration();
-
-        if (inactiveStates.length > 0) {
-            await this.#emitActivations(setName, inactiveStates.map(s => s.name), snapshot);
-        }
+        await this.#emitActivations(setName, inactiveStates.map(s => s.name), snapshot);
     }
 
     async activateState(setName: string, stateName: string): Promise<void> {

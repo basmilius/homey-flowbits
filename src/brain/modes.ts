@@ -27,7 +27,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     get looks(): Record<string, Look> {
-        return this.#looks;
+        return {...this.#looks};
     }
 
     set looks(value: Record<string, Look>) {

@@ -23,11 +23,11 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     get currentFlags(): string[] {
-        return this.#currentFlags;
+        return [...this.#currentFlags];
     }
 
     get looks(): Record<string, Look> {
-        return this.#looks;
+        return {...this.#looks};
     }
 
     set looks(value: Record<string, Look>) {
