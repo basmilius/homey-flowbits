@@ -107,11 +107,15 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     async activate(name: string): Promise<void> {
-        if (!name || this.#currentFlags.includes(name)) {
+        if (!name) {
             return;
         }
 
         this.#clearFlagTimeout(name);
+
+        if (this.#currentFlags.includes(name)) {
+            return;
+        }
 
         this.#currentFlags = [...this.#currentFlags, name];
         this.settings.set(SETTING_FLAGS, this.#currentFlags);

@@ -113,11 +113,15 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     async activate(name: string): Promise<void> {
-        if (!name || this.#currentMode === name) {
+        if (!name) {
             return;
         }
 
         this.#clearModeTimeout();
+
+        if (this.#currentMode === name) {
+            return;
+        }
 
         const previous = this.#currentMode;
 

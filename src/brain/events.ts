@@ -17,7 +17,20 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
             this.log('Migrated legacy events key.');
         }
 
-        this.#rawEvents = this.settings.get(SETTING_EVENTS) ?? {};
+        const storedEvents: Record<string, unknown> = this.settings.get(SETTING_EVENTS) ?? {};
+        this.#rawEvents = Object.fromEntries(
+            Object.entries(storedEvents).flatMap(([key, entries]) => {
+                if (!Array.isArray(entries)) {
+                    return [];
+                }
+
+                const sanitized = (entries as unknown[]).filter((entry): entry is string =>
+                    typeof entry === 'string' && DateTime.fromISO(entry).isValid
+                ).slice(-EVENTS_HISTORY_LENGTH);
+
+                return sanitized.length > 0 ? [[key, sanitized]] : [];
+            })
+        );
         this.#looks = this.settings.get(SETTING_EVENT_LOOKS) ?? {};
     }
 
