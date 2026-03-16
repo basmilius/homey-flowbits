@@ -25,11 +25,19 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
 
     set events(value: Record<string, DateTime[]>) {
         this.rawEvents = Object.fromEntries(
-            Object.entries<DateTime[]>(value)
-                .map(([key, value]) => [
-                    key,
-                    value.map(v => v.toISO() ?? '')
-                ])
+            Object.entries<DateTime[]>(value).map(([key, entries]) => {
+                const serialized: string[] = [];
+
+                for (const entry of entries) {
+                    const iso = entry.toISO();
+
+                    if (iso) {
+                        serialized.push(iso);
+                    }
+                }
+
+                return [key, serialized];
+            })
         );
     }
 
@@ -126,7 +134,7 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     }
 
     async happened(name: string): Promise<boolean> {
-        return name in this.rawEvents;
+        return Object.hasOwn(this.rawEvents, name);
     }
 
     async happenedTimesToday(name: string, times: number): Promise<boolean> {

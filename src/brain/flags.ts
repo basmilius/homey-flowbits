@@ -43,11 +43,10 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
     set lastUpdates(value: Record<string, DateTime>) {
         this.rawLastUpdates = Object.fromEntries(
-            Object.entries(value)
-                .map(([key, value]) => [
-                    key,
-                    value.toISO() ?? ''
-                ])
+            Object.entries(value).flatMap(([key, dt]) => {
+                const iso = dt.toISO();
+                return iso ? [[key, iso]] : [];
+            })
         );
     }
 
@@ -241,7 +240,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
     #setRawLastUpdate(name: string): void {
         const rawLastUpdates = this.rawLastUpdates;
-        rawLastUpdates[name] = DateTime.now().toISO() ?? '';
+        rawLastUpdates[name] = DateTime.now().toISO()!;
         this.rawLastUpdates = rawLastUpdates;
     }
 
