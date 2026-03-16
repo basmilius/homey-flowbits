@@ -269,5 +269,9 @@
   },
   "1.18.2": {
     "en": "Introduces a new at least N states in set became active trigger and a new at least n states in set are active. This update also makes the code a bit simpler."
+  },
+  "1.19.0":{
+    "en": "This update reworks the internal logic of the app to be more efficient and more reliable.",
+    "nl": "Deze update rewerkt de interne logica van de app om efficiënter en betrouwbaarder te zijn."
   }
 }
