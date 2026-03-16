@@ -10,16 +10,16 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
     async initialize(): Promise<void> {
         this.#labels = Object.fromEntries(
             Object.entries<[string, string]>(this.settings.get(SETTING_LABELS) ?? {})
-                .map(([key, [value, lastUpdate]]) => [
-                    key,
-                    [value, DateTime.fromISO(lastUpdate)]
-                ])
+                .flatMap(([key, [value, lastUpdate]]) => {
+                    const dt = DateTime.fromISO(lastUpdate);
+                    return dt.isValid ? [[key, [value, dt]]] : [];
+                })
         );
         this.#looks = this.settings.get(SETTING_LABEL_LOOKS) ?? {};
     }
 
     get looks(): Record<string, Look> {
-        return this.#looks;
+        return {...this.#looks};
     }
 
     set looks(value: Record<string, Look>) {

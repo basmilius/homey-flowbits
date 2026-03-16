@@ -29,7 +29,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     get looks(): Record<string, Look> {
-        return this.#looks;
+        return {...this.#looks};
     }
 
     set looks(value: Record<string, Look>) {

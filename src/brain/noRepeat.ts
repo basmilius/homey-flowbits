@@ -28,7 +28,7 @@ export default class NoRepeat extends Shortcuts<FlowBitsApp> implements Feature<
 
         for (const [name, timestamp] of Object.entries(this.#windows)) {
             if (!timestamp.isValid || timestamp > now) {
-                this.log(`Deleting invalid no-repeat window ${name}...`);
+                this.log(`Deleting corrupted no-repeat window ${name}...`);
                 delete this.#windows[name];
                 changed = true;
             }
