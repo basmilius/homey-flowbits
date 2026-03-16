@@ -43,9 +43,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async count(): Promise<number> {
-        const timers = await this.findAll();
-
-        return timers.length;
+        return this.#autocompleteProvider().values.length;
     }
 
     async find(name: string): Promise<Timer | null> {

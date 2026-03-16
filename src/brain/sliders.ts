@@ -3,45 +3,46 @@ import { REALTIME_SLIDER_UPDATE, SETTING_SLIDERS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { Feature, FlowBitsApp, Slider } from '../types';
 
-// todo(Bas): Migrate sliders to use looks, like other features, instead of widget settings.
-
 export default class Sliders extends Shortcuts<FlowBitsApp> implements Feature<Slider> {
-    get values(): Record<string, number> {
-        return this.settings.get(SETTING_SLIDERS) ?? {};
-    }
+    #values: Record<string, number> = {};
 
-    set values(value: Record<string, number>) {
-        this.settings.set(SETTING_SLIDERS, value);
+    async initialize(): Promise<void> {
+        this.#values = this.settings.get(SETTING_SLIDERS) ?? {};
     }
 
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused sliders...');
 
-        const defined = await this.findAll();
-        const keys = Object.keys(this.values);
-        const values = this.values;
+        const provider = this.#autocompleteProvider();
+        const definedNames = new Set(provider.values);
 
-        for (const key of keys) {
-            if (defined.some(slider => slider.name === key)) {
+        for (const key of Object.keys(this.#values)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 
             this.log(`Deleting unused slider ${key}...`);
-            delete values[key];
+            delete this.#values[key];
         }
 
-        this.values = values;
+        this.settings.set(SETTING_SLIDERS, this.#values);
     }
 
     async count(): Promise<number> {
-        return Object.keys(this.values).length;
+        return this.#autocompleteProvider().values.length;
     }
 
     async find(name: string): Promise<Slider | null> {
-        const sliders = await this.findAll();
-        const slider = sliders.find(slider => slider.name === name);
+        const provider = this.#autocompleteProvider();
 
-        return slider ?? null;
+        if (!provider.values.includes(name)) {
+            return null;
+        }
+
+        return {
+            name,
+            value: this.#values[name] ?? 0
+        };
     }
 
     async findAll(): Promise<Slider[]> {
@@ -52,29 +53,19 @@ export default class Sliders extends Shortcuts<FlowBitsApp> implements Feature<S
             return [];
         }
 
-        const results: Slider[] = [];
-
-        for (const slider of sliders) {
-            const value = this.values[slider.name] ?? 0;
-
-            results.push({
-                name: slider.name,
-                value
-            });
-        }
-
-        return results;
+        return sliders.map(slider => ({
+            name: slider.name,
+            value: this.#values[slider.name] ?? 0
+        }));
     }
 
     async getValue(name: string): Promise<number | null> {
-        return this.values[name] ?? null;
+        return this.#values[name] ?? null;
     }
 
     async setValue(name: string, value: number, widgetId?: string): Promise<void> {
-        this.values = {
-            ...this.values,
-            [name]: value
-        };
+        this.#values[name] = value;
+        this.settings.set(SETTING_SLIDERS, this.#values);
 
         this.log(`Set value of slider ${name} to ${value}.`);
 

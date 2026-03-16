@@ -87,6 +87,10 @@ export type NoRepeatWindow = {
     readonly lastUpdate: string | undefined;
 };
 
+export type Signal = {
+    readonly name: string;
+};
+
 export type Slider = {
     readonly name: string;
     readonly value: number;

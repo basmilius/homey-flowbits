@@ -6,93 +6,90 @@ import { convertDurationToMs } from '../util';
 
 export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mode>, Styleable {
     #deactivationTimeout: NodeJS.Timeout | null = null;
+    #currentMode: string | null = null;
+    #looks: Record<string, Look> = {};
+    #lastUpdates: Record<string, DateTime> = {};
 
-    get currentMode(): string | null {
-        return this.settings.get(SETTING_MODE);
-    }
-
-    set currentMode(value: string | null) {
-        this.settings.set(SETTING_MODE, value);
-    }
-
-    get looks(): Record<string, Look> {
-        return this.settings.get(SETTING_MODE_LOOKS) ?? {};
-    }
-
-    set looks(value: Record<string, Look>) {
-        this.settings.set(SETTING_MODE_LOOKS, value);
-    }
-
-    get lastUpdates(): Record<string, DateTime> {
-        return Object.fromEntries(
+    async initialize(): Promise<void> {
+        this.#currentMode = this.settings.get(SETTING_MODE) ?? null;
+        this.#looks = this.settings.get(SETTING_MODE_LOOKS) ?? {};
+        this.#lastUpdates = Object.fromEntries(
             Object.entries<string>(this.settings.get(SETTING_MODE_LAST_UPDATES) ?? {})
-                .map(([key, value]) => [
-                    key,
-                    DateTime.fromISO(value)
-                ])
+                .map(([key, value]) => [key, DateTime.fromISO(value)])
         );
     }
 
-    set lastUpdates(value: Record<string, DateTime>) {
-        this.settings.set(SETTING_MODE_LAST_UPDATES, Object.fromEntries(
-            Object.entries(value)
-                .map(([key, value]) => [
-                    key,
-                    value.toISO()
-                ])
-        ));
+    get currentMode(): string | null {
+        return this.#currentMode;
+    }
+
+    get looks(): Record<string, Look> {
+        return this.#looks;
+    }
+
+    set looks(value: Record<string, Look>) {
+        this.#looks = value;
+        this.settings.set(SETTING_MODE_LOOKS, value);
     }
 
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused modes...');
 
-        const defined = await this.findAll();
-        const looks = this.looks;
-        const lastUpdates = this.lastUpdates;
+        const provider = this.#autocompleteProvider();
+        const definedNames = new Set(provider.values);
 
-        if (this.currentMode && !defined.find(d => d.name === this.currentMode)) {
-            this.currentMode = null;
+        if (this.#currentMode && !definedNames.has(this.#currentMode)) {
+            this.#currentMode = null;
+            this.settings.set(SETTING_MODE, null);
         }
 
-        for (const key of Object.keys(this.looks)) {
-            if (defined.find(d => d.name === key)) {
+        for (const key of Object.keys(this.#looks)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 
             this.log(`Deleting unused mode look ${key}...`);
-            delete looks[key];
+            delete this.#looks[key];
         }
 
-        for (const key of Object.keys(this.lastUpdates)) {
-            if (defined.find(d => d.name === key)) {
+        this.settings.set(SETTING_MODE_LOOKS, this.#looks);
+
+        for (const key of Object.keys(this.#lastUpdates)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 
             this.log(`Deleting unused mode last update ${key}...`);
-            delete lastUpdates[key];
+            delete this.#lastUpdates[key];
         }
 
-        this.looks = looks;
-        this.lastUpdates = lastUpdates;
+        this.#persistLastUpdates();
     }
 
     async count(): Promise<number> {
-        const modes = await this.findAll();
-
-        return modes.length;
+        return this.#autocompleteProvider().values.length;
     }
 
     async find(name: string): Promise<Mode | null> {
-        const modes = await this.findAll();
-        const mode = modes.find(mode => mode.name === name);
+        const provider = this.#autocompleteProvider();
 
-        return mode ?? null;
+        if (!provider.values.includes(name)) {
+            return null;
+        }
+
+        const look = this.getLook(name);
+
+        return {
+            active: this.#currentMode === name,
+            color: look[0],
+            icon: look[1],
+            lastUpdate: this.#lastUpdates[name]?.toISO() ?? undefined,
+            name
+        };
     }
 
     async findAll(): Promise<Mode[]> {
         const provider = this.#autocompleteProvider();
-        const current = this.currentMode;
-        const lastUpdates = this.lastUpdates;
         const modes = await provider.find('');
 
         if (modes.length === 0) {
@@ -101,43 +98,40 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         return modes.map(mode => {
             const look = this.getLook(mode.name);
-            const lastUpdate = lastUpdates[mode.name];
 
             return {
-                active: current === mode.name,
+                active: this.#currentMode === mode.name,
                 color: look[0],
                 icon: look[1],
-                lastUpdate: lastUpdate?.toISO() ?? undefined,
+                lastUpdate: this.#lastUpdates[mode.name]?.toISO() ?? undefined,
                 name: mode.name
             };
         });
     }
 
     async activate(name: string): Promise<void> {
-        const current = this.currentMode;
-
-        if (!name || current === name) {
+        if (!name || this.#currentMode === name) {
             return;
         }
 
-        // Clear any existing timeout
         this.#clearModeTimeout();
 
-        if (current !== null) {
-            await this.#triggerDeactivated(current);
+        const previous = this.#currentMode;
+
+        if (previous !== null) {
+            await this.#triggerDeactivated(previous);
         }
 
-        this.currentMode = name;
-        
         const now = DateTime.now();
-        const updates = {...this.lastUpdates, [name]: now};
-        
-        // Also update the timestamp for the previously active mode
-        if (current !== null) {
-            updates[current] = now;
+
+        this.#currentMode = name;
+        this.settings.set(SETTING_MODE, name);
+
+        this.#lastUpdates[name] = now;
+        if (previous !== null) {
+            this.#lastUpdates[previous] = now;
         }
-        
-        this.lastUpdates = updates;
+        this.#persistLastUpdates();
 
         this.log(`Activate mode ${name}.`);
 
@@ -149,20 +143,17 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     async deactivate(name: string): Promise<void> {
-        const current = this.currentMode;
-
-        if (!name || current !== name) {
+        if (!name || this.#currentMode !== name) {
             return;
         }
 
-        // Clear any existing timeout
         this.#clearModeTimeout();
 
-        this.currentMode = null;
-        this.lastUpdates = {
-            ...this.lastUpdates,
-            [name]: DateTime.now()
-        };
+        this.#currentMode = null;
+        this.settings.set(SETTING_MODE, null);
+
+        this.#lastUpdates[name] = DateTime.now();
+        this.#persistLastUpdates();
 
         this.log(`Deactivate mode ${name}.`);
 
@@ -178,14 +169,13 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             return;
         }
 
-        // Clear any existing timeout
         this.#clearModeTimeout();
 
-        this.currentMode = name;
-        this.lastUpdates = {
-            ...this.lastUpdates,
-            [name]: DateTime.now()
-        };
+        this.#currentMode = name;
+        this.settings.set(SETTING_MODE, name);
+
+        this.#lastUpdates[name] = DateTime.now();
+        this.#persistLastUpdates();
 
         this.log(`Reactivate mode ${name}.`);
 
@@ -197,18 +187,16 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     async reactivateCurrent(): Promise<void> {
-        const current = this.currentMode;
-
-        if (current === null) {
+        if (this.#currentMode === null) {
             this.log('No current mode to reactivate.');
             return;
         }
 
-        await this.reactivate(current);
+        await this.reactivate(this.#currentMode);
     }
 
     async toggle(name: string): Promise<void> {
-        if (this.currentMode === name) {
+        if (this.#currentMode === name) {
             await this.deactivate(name);
         } else {
             await this.activate(name);
@@ -220,28 +208,21 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             return;
         }
 
-        // Clear any existing timeout
         this.#clearModeTimeout();
-
-        // Activate the mode
         await this.activate(name);
-
-        // Schedule deactivation
         this.#scheduleDeactivation(name, duration, unit);
 
         this.log(`Activated mode ${name} for ${duration} ${unit}.`);
     }
 
     async isActiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
-        const lastUpdate = this.lastUpdates[name];
-        
+        const lastUpdate = this.#lastUpdates[name];
+
         if (!lastUpdate) {
             return false;
         }
 
-        const isActive = this.currentMode === name;
-
-        if (!isActive) {
+        if (this.#currentMode !== name) {
             return false;
         }
 
@@ -252,16 +233,13 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     async isInactiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
-        const lastUpdate = this.lastUpdates[name];
+        const lastUpdate = this.#lastUpdates[name];
 
         if (!lastUpdate) {
-            // If there's no lastUpdate, the mode has never been touched, so consider it inactive forever
             return true;
         }
 
-        const isActive = this.currentMode === name;
-
-        if (isActive) {
+        if (this.#currentMode === name) {
             return false;
         }
 
@@ -272,20 +250,27 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     getLook(name: string): Look {
-        return this.looks[name] ?? ['#204ef6', ''];
+        return this.#looks[name] ?? ['#204ef6', ''];
     }
 
     async setLook(name: string, look: Look): Promise<void> {
-        this.looks = {
-            ...this.looks,
-            [name]: look
-        };
+        this.#looks[name] = look;
+        this.settings.set(SETTING_MODE_LOOKS, this.#looks);
 
         await this.#triggerRealtime();
     }
 
     async update(): Promise<void> {
         await this.#triggerRealtime();
+    }
+
+    #persistLastUpdates(): void {
+        this.settings.set(SETTING_MODE_LAST_UPDATES, Object.fromEntries(
+            Object.entries(this.#lastUpdates).flatMap(([key, dt]) => {
+                const iso = dt.toISO();
+                return iso ? [[key, iso]] : [];
+            })
+        ));
     }
 
     #clearModeTimeout(): void {

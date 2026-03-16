@@ -1,7 +1,7 @@
 import { Shortcuts } from '@basmilius/homey-common';
 import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from '../types';
 
-export default class extends Shortcuts<FlowBitsApp> {
+export default class Api extends Shortcuts<FlowBitsApp> {
     async getCycles(): Promise<Cycle[]> {
         return await this.app.cycles.findAll();
     }
@@ -195,25 +195,46 @@ export default class extends Shortcuts<FlowBitsApp> {
     }
 
     async getStatistics(): Promise<Statistics> {
-        const flags = await this.app.flags.findAll();
-        const modes = await this.app.modes.findAll();
+        const [
+            numberOfCycles,
+            numberOfEvents,
+            numberOfFlags,
+            numberOfLabels,
+            numberOfModes,
+            numberOfNoRepeats,
+            numberOfSets,
+            numberOfSliders,
+            numberOfTimers,
+            usagePerFlowCard
+        ] = await Promise.all([
+            this.app.cycles.count(),
+            this.app.events.count(),
+            this.app.flags.count(),
+            this.app.labels.count(),
+            this.app.modes.count(),
+            this.app.noRepeat.count(),
+            this.app.sets.count(),
+            this.app.sliders.count(),
+            this.app.timers.count(),
+            this.#getStatisticsUsagePerFlowCard()
+        ]);
 
         return {
-            currentFlags: flags.filter(flag => flag.active).map(flag => flag.name),
-            currentMode: modes.find(mode => mode.active)?.name ?? null,
+            currentFlags: this.app.flags.currentFlags,
+            currentMode: this.app.modes.currentMode,
 
-            numberOfCycles: await this.app.cycles.count(),
-            numberOfEvents: await this.app.events.count(),
-            numberOfFlags: await this.app.flags.count(),
-            numberOfLabels: await this.app.labels.count(),
-            numberOfModes: await this.app.modes.count(),
-            numberOfNoRepeats: await this.app.noRepeat.count(),
-            numberOfSets: await this.app.sets.count(),
-            numberOfSliders: await this.app.sliders.count(),
-            numberOfTimers: await this.app.timers.count(),
+            numberOfCycles,
+            numberOfEvents,
+            numberOfFlags,
+            numberOfLabels,
+            numberOfModes,
+            numberOfNoRepeats,
+            numberOfSets,
+            numberOfSliders,
+            numberOfTimers,
 
             runsPerFlowCard: {},
-            usagePerFlowCard: await this.#getStatisticsUsagePerFlowCard()
+            usagePerFlowCard
         };
     }
 

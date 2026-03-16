@@ -21,16 +21,20 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
     }
 
     async count(): Promise<number> {
-        const cycles = await this.findAll();
-
-        return cycles.length;
+        return this.#autocompleteProvider().values.length;
     }
 
     async find(name: string): Promise<Cycle | null> {
-        const cycles = await this.findAll();
-        const cycle = cycles.find(cycle => cycle.name === name);
+        const provider = this.#autocompleteProvider();
 
-        return cycle ?? null;
+        if (!provider.values.includes(name)) {
+            return null;
+        }
+
+        return {
+            name,
+            step: this.#get(name) ?? -1
+        };
     }
 
     async findAll(): Promise<Cycle[]> {

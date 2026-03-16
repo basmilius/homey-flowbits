@@ -80,7 +80,13 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
             );
 
             await Promise.allSettled([
+                this.events.initialize(),
+                this.flags.initialize(),
+                this.labels.initialize(),
+                this.modes.initialize(),
+                this.noRepeat.initialize(),
                 this.sets.initialize(),
+                this.sliders.initialize(),
                 this.timers.initialize(),
                 this.tokens.initialize(),
                 this.widgets.initialize()

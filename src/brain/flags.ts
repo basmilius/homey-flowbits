@@ -6,125 +6,113 @@ import { convertDurationToMs } from '../util';
 
 export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Flag>, Styleable {
     #deactivationTimeouts: Map<string, NodeJS.Timeout> = new Map();
+    #currentFlags: string[] = [];
+    #looks: Record<string, Look> = {};
+    #lastUpdates: Record<string, DateTime> = {};
 
-    get currentFlags(): string[] {
-        return this.settings.get(SETTING_FLAGS) ?? [];
+    async initialize(): Promise<void> {
+        this.#currentFlags = this.settings.get(SETTING_FLAGS) ?? [];
+        this.#looks = this.settings.get(SETTING_FLAG_LOOKS) ?? {};
+        this.#lastUpdates = Object.fromEntries(
+            Object.entries<string>(this.settings.get(SETTING_FLAG_LAST_UPDATES) ?? {})
+                .map(([key, value]) => [key, DateTime.fromISO(value)])
+        );
     }
 
-    set currentFlags(value: string[]) {
-        this.settings.set(SETTING_FLAGS, value);
+    get currentFlags(): string[] {
+        return this.#currentFlags;
     }
 
     get looks(): Record<string, Look> {
-        return this.settings.get(SETTING_FLAG_LOOKS) ?? {};
+        return this.#looks;
     }
 
     set looks(value: Record<string, Look>) {
+        this.#looks = value;
         this.settings.set(SETTING_FLAG_LOOKS, value);
-    }
-
-    get rawLastUpdates(): Record<string, string> {
-        return this.settings.get(SETTING_FLAG_LAST_UPDATES) ?? {};
-    }
-
-    set rawLastUpdates(value: Record<string, string>) {
-        this.settings.set(SETTING_FLAG_LAST_UPDATES, value);
-    }
-
-    get lastUpdates(): Record<string, DateTime> {
-        return Object.fromEntries(
-            Object.entries<string>(this.rawLastUpdates)
-                .map(([key, value]) => [
-                    key,
-                    DateTime.fromISO(value)
-                ])
-        );
-    }
-
-    set lastUpdates(value: Record<string, DateTime>) {
-        this.rawLastUpdates = Object.fromEntries(
-            Object.entries(value).flatMap(([key, dt]) => {
-                const iso = dt.toISO();
-                return iso ? [[key, iso]] : [];
-            })
-        );
     }
 
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused flags...');
 
-        const defined = await this.findAll();
-        const looks = this.looks;
-        const rawLastUpdates = this.rawLastUpdates;
+        const provider = this.#autocompleteProvider();
+        const definedNames = new Set(provider.values);
 
-        this.currentFlags = this.currentFlags.filter(flag => defined.find(d => d.name === flag));
+        this.#currentFlags = this.#currentFlags.filter(flag => definedNames.has(flag));
+        this.settings.set(SETTING_FLAGS, this.#currentFlags);
 
-        for (const key of Object.keys(this.looks)) {
-            if (defined.find(d => d.name === key)) {
+        for (const key of Object.keys(this.#looks)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 
             this.log(`Deleting unused flag look ${key}...`);
-            delete looks[key];
+            delete this.#looks[key];
         }
 
-        for (const key of Object.keys(rawLastUpdates)) {
-            if (defined.find(d => d.name === key)) {
+        this.settings.set(SETTING_FLAG_LOOKS, this.#looks);
+
+        for (const key of Object.keys(this.#lastUpdates)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 
             this.log(`Deleting unused flag last update ${key}...`);
-            delete rawLastUpdates[key];
+            delete this.#lastUpdates[key];
         }
 
-        this.looks = looks;
-        this.rawLastUpdates = rawLastUpdates;
+        this.#persistLastUpdates();
     }
 
     async count(): Promise<number> {
-        const flags = await this.findAll();
-
-        return flags.length;
+        return this.#autocompleteProvider().values.length;
     }
 
     async find(name: string): Promise<Flag | null> {
-        const flags = await this.findAll();
-        const flag = flags.find(flag => flag.name === name);
+        const provider = this.#autocompleteProvider();
 
-        return flag ?? null;
+        if (!provider.values.includes(name)) {
+            return null;
+        }
+
+        const look = this.getLook(name);
+
+        return {
+            active: this.#currentFlags.includes(name),
+            color: look[0],
+            icon: look[1],
+            lastUpdate: this.#lastUpdates[name]?.toISO() ?? undefined,
+            name
+        };
     }
 
     async findAll(): Promise<Flag[]> {
         const provider = this.#autocompleteProvider();
-        const current = this.currentFlags;
-        const rawLastUpdates = this.rawLastUpdates;
         const flags = await provider.find('');
 
         return flags.map(flag => {
             const look = this.getLook(flag.name);
 
             return {
-                active: current.includes(flag.name),
+                active: this.#currentFlags.includes(flag.name),
                 color: look[0],
                 icon: look[1],
-                lastUpdate: rawLastUpdates[flag.name] ?? undefined,
+                lastUpdate: this.#lastUpdates[flag.name]?.toISO() ?? undefined,
                 name: flag.name
             };
         });
     }
 
     async activate(name: string): Promise<void> {
-        const current = this.currentFlags;
-
-        if (!name || current.includes(name)) {
+        if (!name || this.#currentFlags.includes(name)) {
             return;
         }
 
-        // Clear any existing timeout for this flag
         this.#clearFlagTimeout(name);
 
-        this.currentFlags = [...current, name];
-        this.#setRawLastUpdate(name);
+        this.#currentFlags = [...this.#currentFlags, name];
+        this.settings.set(SETTING_FLAGS, this.#currentFlags);
+        this.#setLastUpdate(name);
 
         this.log(`Activate flag ${name}.`);
 
@@ -136,17 +124,15 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     async deactivate(name: string): Promise<void> {
-        const current = this.currentFlags;
-
-        if (!name || !current.includes(name)) {
+        if (!name || !this.#currentFlags.includes(name)) {
             return;
         }
 
-        // Clear any existing timeout for this flag
         this.#clearFlagTimeout(name);
 
-        this.currentFlags = current.filter(f => f !== name);
-        this.#setRawLastUpdate(name);
+        this.#currentFlags = this.#currentFlags.filter(f => f !== name);
+        this.settings.set(SETTING_FLAGS, this.#currentFlags);
+        this.#setLastUpdate(name);
 
         this.log(`Deactivate flag ${name}.`);
 
@@ -158,7 +144,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     async toggle(name: string): Promise<void> {
-        if (this.currentFlags.includes(name)) {
+        if (this.#currentFlags.includes(name)) {
             await this.deactivate(name);
         } else {
             await this.activate(name);
@@ -170,66 +156,54 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
             return;
         }
 
-        // Clear any existing timeout for this flag
         this.#clearFlagTimeout(name);
-
-        // Activate the flag
         await this.activate(name);
-
-        // Schedule deactivation
         this.#scheduleDeactivation(name, duration, unit);
 
         this.log(`Activated flag ${name} for ${duration} ${unit}.`);
     }
 
     async isActiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
-        const rawLastUpdate = this.rawLastUpdates[name];
+        const lastUpdate = this.#lastUpdates[name];
 
-        if (!rawLastUpdate) {
+        if (!lastUpdate) {
             return false;
         }
 
-        const isActive = this.currentFlags.includes(name);
-
-        if (!isActive) {
+        if (!this.#currentFlags.includes(name)) {
             return false;
         }
 
         const ms = convertDurationToMs(duration, unit);
         const cutoff = DateTime.now().minus({milliseconds: ms});
 
-        return DateTime.fromISO(rawLastUpdate) <= cutoff;
+        return lastUpdate <= cutoff;
     }
 
     async isInactiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
-        const rawLastUpdate = this.rawLastUpdates[name];
+        const lastUpdate = this.#lastUpdates[name];
 
-        if (!rawLastUpdate) {
-            // If there's no lastUpdate, the flag has never been touched, so consider it inactive forever
+        if (!lastUpdate) {
             return true;
         }
 
-        const isActive = this.currentFlags.includes(name);
-
-        if (isActive) {
+        if (this.#currentFlags.includes(name)) {
             return false;
         }
 
         const ms = convertDurationToMs(duration, unit);
         const cutoff = DateTime.now().minus({milliseconds: ms});
 
-        return DateTime.fromISO(rawLastUpdate) <= cutoff;
+        return lastUpdate <= cutoff;
     }
 
     getLook(name: string): Look {
-        return this.looks[name] ?? ['#204ef6', ''];
+        return this.#looks[name] ?? ['#204ef6', ''];
     }
 
     async setLook(name: string, look: Look): Promise<void> {
-        this.looks = {
-            ...this.looks,
-            [name]: look
-        };
+        this.#looks[name] = look;
+        this.settings.set(SETTING_FLAG_LOOKS, this.#looks);
 
         await this.#triggerRealtime();
     }
@@ -238,10 +212,18 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         await this.#triggerRealtime();
     }
 
-    #setRawLastUpdate(name: string): void {
-        const rawLastUpdates = this.rawLastUpdates;
-        rawLastUpdates[name] = DateTime.now().toISO()!;
-        this.rawLastUpdates = rawLastUpdates;
+    #setLastUpdate(name: string): void {
+        this.#lastUpdates[name] = DateTime.now();
+        this.#persistLastUpdates();
+    }
+
+    #persistLastUpdates(): void {
+        this.settings.set(SETTING_FLAG_LAST_UPDATES, Object.fromEntries(
+            Object.entries(this.#lastUpdates).flatMap(([key, dt]) => {
+                const iso = dt.toISO();
+                return iso ? [[key, iso]] : [];
+            })
+        ));
     }
 
     #clearFlagTimeout(name: string): void {

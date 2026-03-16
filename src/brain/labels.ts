@@ -4,71 +4,74 @@ import { AutocompleteProviders, Triggers } from '../flow';
 import type { Feature, FlowBitsApp, Label, Look, Styleable } from '../types';
 
 export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<Label>, Styleable {
-    get labels(): Record<string, [string, DateTime]> {
-        return Object.fromEntries(
+    #labels: Record<string, [string, DateTime]> = {};
+    #looks: Record<string, Look> = {};
+
+    async initialize(): Promise<void> {
+        this.#labels = Object.fromEntries(
             Object.entries<[string, string]>(this.settings.get(SETTING_LABELS) ?? {})
                 .map(([key, [value, lastUpdate]]) => [
                     key,
                     [value, DateTime.fromISO(lastUpdate)]
                 ])
         );
-    }
-
-    set labels(value: Record<string, [string, DateTime]>) {
-        this.settings.set(SETTING_LABELS, Object.fromEntries(
-            Object.entries(value)
-                .map(([key, [value, lastUpdate]]) => [
-                    key,
-                    [value, lastUpdate.toISO()]
-                ])
-        ));
+        this.#looks = this.settings.get(SETTING_LABEL_LOOKS) ?? {};
     }
 
     get looks(): Record<string, Look> {
-        return this.settings.get(SETTING_LABEL_LOOKS) ?? {};
+        return this.#looks;
     }
 
     set looks(value: Record<string, Look>) {
+        this.#looks = value;
         this.settings.set(SETTING_LABEL_LOOKS, value);
     }
 
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused labels...');
 
-        const defined = await this.findAll();
+        const provider = this.#autocompleteProvider();
+        const definedNames = new Set(provider.values);
         const keys = new Set([
-            ...Object.keys(this.labels),
-            ...Object.keys(this.looks)
+            ...Object.keys(this.#labels),
+            ...Object.keys(this.#looks)
         ]);
 
-        const labels = this.labels;
-        const looks = this.looks;
-
         for (const key of keys) {
-            if (defined.find(d => d.name === key)) {
+            if (definedNames.has(key)) {
                 continue;
             }
 
             this.log(`Deleting unused label ${key}...`);
-            delete labels[key];
-            delete looks[key];
+            delete this.#labels[key];
+            delete this.#looks[key];
         }
 
-        this.labels = labels;
-        this.looks = looks;
+        this.#persistLabels();
+        this.settings.set(SETTING_LABEL_LOOKS, this.#looks);
     }
 
     async count(): Promise<number> {
-        const labels = await this.findAll();
-
-        return labels.length;
+        return this.#autocompleteProvider().values.length;
     }
 
     async find(name: string): Promise<Label | null> {
-        const labels = await this.findAll();
-        const label = labels.find(label => label.name === name);
+        const provider = this.#autocompleteProvider();
 
-        return label ?? null;
+        if (!provider.values.includes(name)) {
+            return null;
+        }
+
+        const look = this.getLook(name);
+        const data = this.#labels[name] ?? null;
+
+        return {
+            color: look[0],
+            icon: look[1],
+            lastUpdate: data?.[1]?.toISO() ?? undefined,
+            name,
+            value: data?.[0]
+        };
     }
 
     async findAll(): Promise<Label[]> {
@@ -81,7 +84,7 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
 
         return labels.map(label => {
             const look = this.getLook(label.name);
-            const data = this.labels[label.name] ?? null;
+            const data = this.#labels[label.name] ?? null;
 
             return {
                 color: look[0],
@@ -94,9 +97,8 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
     }
 
     async clearValue(name: string): Promise<void> {
-        const labels = this.labels;
-        delete labels[name];
-        this.labels = labels;
+        delete this.#labels[name];
+        this.#persistLabels();
 
         this.log(`Clear label value for ${name}.`);
 
@@ -108,18 +110,16 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
     }
 
     async getValue(name: string): Promise<string | null> {
-        return this.labels[name]?.[0] ?? null;
+        return this.#labels[name]?.[0] ?? null;
     }
 
     async hasValue(name: string, value: string): Promise<boolean> {
-        return name in this.labels && this.labels[name]?.[0] === value;
+        return name in this.#labels && this.#labels[name]?.[0] === value;
     }
 
     async setValue(name: string, value: string): Promise<void> {
-        this.labels = {
-            ...this.labels,
-            [name]: [value, DateTime.now()]
-        };
+        this.#labels[name] = [value, DateTime.now()];
+        this.#persistLabels();
 
         this.log(`Set label value for ${name} to ${value}.`);
 
@@ -132,20 +132,27 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
     }
 
     getLook(name: string): Look {
-        return this.looks[name] ?? ['#204ef6', ''];
+        return this.#looks[name] ?? ['#204ef6', ''];
     }
 
     async setLook(name: string, look: Look): Promise<void> {
-        this.looks = {
-            ...this.looks,
-            [name]: look
-        };
+        this.#looks[name] = look;
+        this.settings.set(SETTING_LABEL_LOOKS, this.#looks);
 
         await this.#triggerRealtime();
     }
 
     async update(): Promise<void> {
         await this.#triggerRealtime();
+    }
+
+    #persistLabels(): void {
+        this.settings.set(SETTING_LABELS, Object.fromEntries(
+            Object.entries(this.#labels).flatMap(([key, [value, dt]]) => {
+                const iso = dt.toISO();
+                return iso ? [[key, [value, iso]]] : [];
+            })
+        ));
     }
 
     async #triggerBecomes(name: string, value: string): Promise<void> {
