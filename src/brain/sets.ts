@@ -146,6 +146,12 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async activateState(setName: string, stateName: string): Promise<void> {
+        const definedStates = this.#buildDefinedMap().get(setName);
+
+        if (!definedStates?.has(stateName)) {
+            return;
+        }
+
         const snapshot = this.#snapshot(setName);
         this.#ensureSet(setName);
 
@@ -171,6 +177,12 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async activateStateFor(setName: string, stateName: string, duration: number, unit: ClockUnit): Promise<void> {
+        const definedStates = this.#buildDefinedMap().get(setName);
+
+        if (!definedStates?.has(stateName)) {
+            return;
+        }
+
         const snapshot = this.#snapshot(setName);
         const wasTargetActive = await this.isStateActive(setName, stateName);
 
@@ -294,6 +306,11 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
     async #activateStateExclusiveInternal(setName: string, stateName: string, expiresAtISO?: string | null): Promise<void> {
         const definedStates = this.#buildDefinedMap().get(setName) ?? new Set<string>();
+
+        if (!definedStates.has(stateName)) {
+            return;
+        }
+
         const snapshot = this.#snapshot(setName, definedStates);
         const now = DateTime.now().toISO();
         const previousStates = this.#states[setName] ?? {};
@@ -308,13 +325,11 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         for (const name of definedStates) {
             if (name === stateName) {
                 this.#states[setName][name] = [true, now, expiresAtISO ?? null];
-            } else {
+            } else if (previousStates[name]?.[0]) {
                 this.#states[setName][name] = [false, now, null];
+            } else {
+                this.#states[setName][name] = [false, previousStates[name]?.[1] ?? null, null];
             }
-        }
-
-        if (!definedStates.has(stateName)) {
-            this.#states[setName][stateName] = [true, now, expiresAtISO ?? null];
         }
 
         this.settings.set(SETTING_SETS, this.#states);
@@ -607,8 +622,8 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             this.#expirationTimeout = null;
         }
 
-        const nowMs = Date.now();
-        let earliestMs: number | null = null;
+        const now = DateTime.now();
+        let earliest: DateTime | null = null;
 
         for (const setStates of Object.values(this.#states)) {
             for (const [active, , expiresAtStr] of Object.values(setStates)) {
@@ -616,19 +631,23 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
                     continue;
                 }
 
-                const expiresAtMs = Date.parse(expiresAtStr);
+                const expiresAt = DateTime.fromISO(expiresAtStr);
 
-                if (earliestMs === null || expiresAtMs < earliestMs) {
-                    earliestMs = expiresAtMs;
+                if (!expiresAt.isValid) {
+                    continue;
+                }
+
+                if (earliest === null || expiresAt < earliest) {
+                    earliest = expiresAt;
                 }
             }
         }
 
-        if (earliestMs === null) {
+        if (earliest === null) {
             return;
         }
 
-        const diff = earliestMs - nowMs;
+        const diff = earliest.toMillis() - now.toMillis();
 
         if (diff <= 0) {
             await this.#processExpirations();
@@ -646,7 +665,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async #processExpirations(): Promise<void> {
-        const nowMs = Date.now();
+        const now = DateTime.now();
         const expiredStates: { setName: string; stateName: string }[] = [];
 
         for (const [setName, setStates] of Object.entries(this.#states)) {
@@ -655,7 +674,9 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
                     continue;
                 }
 
-                if (Date.parse(expiresAtStr) <= nowMs) {
+                const expiresAt = DateTime.fromISO(expiresAtStr);
+
+                if (expiresAt.isValid && expiresAt <= now) {
                     expiredStates.push({setName, stateName});
                 }
             }

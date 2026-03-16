@@ -9,8 +9,14 @@ export default class NoRepeat extends Shortcuts<FlowBitsApp> implements Feature<
     async initialize(): Promise<void> {
         this.#windows = Object.fromEntries(
             Object.entries<string>(this.settings.get(SETTING_NO_REPEAT_WINDOWS) ?? {})
-                .filter(([, value]) => value !== null)
-                .map(([key, value]) => [key, DateTime.fromISO(value)])
+                .flatMap(([key, value]) => {
+                    if (value === null) {
+                        return [];
+                    }
+
+                    const timestamp = DateTime.fromISO(value);
+                    return timestamp.isValid ? [[key, timestamp]] : [];
+                })
         );
     }
 
