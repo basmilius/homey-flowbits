@@ -122,8 +122,9 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
         const snapshot = this.#snapshot(setName);
         const inactiveStates = set.states.filter(s => !s.active);
+        const statesWithExpiration = set.states.filter(s => s.expiresAt);
 
-        if (inactiveStates.length === 0) {
+        if (inactiveStates.length === 0 && statesWithExpiration.length === 0) {
             return;
         }
 
@@ -142,7 +143,10 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         this.log(`Activated all states in set ${setName}.`);
 
         await this.#scheduleNextExpiration();
-        await this.#emitActivations(setName, inactiveStates.map(s => s.name), snapshot);
+
+        if (inactiveStates.length > 0) {
+            await this.#emitActivations(setName, inactiveStates.map(s => s.name), snapshot);
+        }
     }
 
     async activateState(setName: string, stateName: string): Promise<void> {

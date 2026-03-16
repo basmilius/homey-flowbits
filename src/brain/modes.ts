@@ -15,7 +15,10 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         this.#looks = this.settings.get(SETTING_MODE_LOOKS) ?? {};
         this.#lastUpdates = Object.fromEntries(
             Object.entries<string>(this.settings.get(SETTING_MODE_LAST_UPDATES) ?? {})
-                .map(([key, value]) => [key, DateTime.fromISO(value)])
+                .flatMap(([key, value]) => {
+                    const dt = DateTime.fromISO(value);
+                    return dt.isValid ? [[key, dt]] : [];
+                })
         );
     }
 
@@ -166,6 +169,11 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
     async reactivate(name: string): Promise<void> {
         if (!name) {
+            return;
+        }
+
+        if (this.#currentMode !== name) {
+            await this.activate(name);
             return;
         }
 

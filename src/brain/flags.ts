@@ -15,7 +15,10 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
         this.#looks = this.settings.get(SETTING_FLAG_LOOKS) ?? {};
         this.#lastUpdates = Object.fromEntries(
             Object.entries<string>(this.settings.get(SETTING_FLAG_LAST_UPDATES) ?? {})
-                .map(([key, value]) => [key, DateTime.fromISO(value)])
+                .flatMap(([key, value]) => {
+                    const dt = DateTime.fromISO(value);
+                    return dt.isValid ? [[key, dt]] : [];
+                })
         );
     }
 
