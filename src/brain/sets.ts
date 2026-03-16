@@ -19,6 +19,7 @@ type StoredSets = Record<string, StoredSet>;
 
 export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitSet>, Styleable {
     #expirationTimeout: NodeJS.Timeout | null = null;
+    #cachedDefinedMap: Map<string, Set<string>> | null = null;
     #states: StoredSets = {};
     #looks: Record<string, Look> = {};
 
@@ -306,6 +307,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async update(): Promise<void> {
+        this.#cachedDefinedMap = null;
         await this.#syncDefinedStates();
         await this.#triggerRealtime();
     }
@@ -467,6 +469,10 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     #buildDefinedMap(): Map<string, Set<string>> {
+        if (this.#cachedDefinedMap) {
+            return this.#cachedDefinedMap;
+        }
+
         const definedStates = this.#autocompleteProvider().values;
         const map = new Map<string, Set<string>>();
 
@@ -476,6 +482,8 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             }
             map.get(setName)!.add(stateName);
         }
+
+        this.#cachedDefinedMap = map;
 
         return map;
     }

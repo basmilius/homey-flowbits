@@ -1,3 +1,4 @@
+import { randomInt } from 'node:crypto';
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_TIMER_UPDATE, SETTING_TIMER_LOOKS, SETTING_TIMER_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
@@ -17,6 +18,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
 
     #timeouts: Record<string, NodeJS.Timeout[]> = {};
     #timers: Record<string, StoredTimer> = {};
+    #cachedRemainingTriggers: {value: {timer: {name: string}, duration: number, unit: ClockUnit}[], expiresAt: number} | null = null;
 
     async initialize(): Promise<void> {
         this.#migrateTimers();
@@ -144,7 +146,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const now = DateTime.now();
         const target = DateTime.fromMillis(timer.target);
 
-        this.#update(timer.name, timer.duration, target.diff(now).as('milliseconds'), timer.target, 'paused', timer.repeating ?? false, timer.randomBounds);
+        this.#update(timer.name, timer.duration, Math.max(0, target.diff(now).as('milliseconds')), timer.target, 'paused', timer.repeating ?? false, timer.randomBounds);
         this.log(`Pause timer ${timer.name}.`);
 
         await this.#schedule();
@@ -442,13 +444,25 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         this.#update(name, remaining, remaining, target, status, repeating, randomBounds);
     }
 
+    async #getRemainingTriggers(): Promise<{timer: {name: string}, duration: number, unit: ClockUnit}[]> {
+        const now = Date.now();
+
+        if (!this.#cachedRemainingTriggers || this.#cachedRemainingTriggers.expiresAt <= now) {
+            const value = await this.homey.flow
+                .getTriggerCard('timer_remaining')
+                .getArgumentValues()
+                .catch(() => []);
+
+            this.#cachedRemainingTriggers = {value, expiresAt: now + 30_000};
+        }
+
+        return this.#cachedRemainingTriggers.value;
+    }
+
     async #schedule(): Promise<void> {
         const now = DateTime.now().toMillis();
         const timers = await this.#findAll();
-        const remainingTriggers: { timer: { name: string }, duration: number, unit: ClockUnit }[] = await this.homey.flow
-            .getTriggerCard('timer_remaining')
-            .getArgumentValues()
-            .catch(() => []);
+        const remainingTriggers = await this.#getRemainingTriggers();
 
         this.#timers = {};
 
@@ -456,9 +470,15 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             this.#clear(timer);
 
             const diff = timer.target - now;
+            const seen = new Set<string>();
             const triggers = remainingTriggers
                 .filter(t => t.timer.name === timer.name)
-                .filter((t, index, arr) => arr.findIndex(tt => tt.duration === t.duration && tt.unit === t.unit) === index);
+                .filter(t => {
+                    const key = `${t.duration}:${t.unit}`;
+                    if (seen.has(key)) { return false; }
+                    seen.add(key);
+                    return true;
+                });
 
             if (diff > 0 && timer.status === 'running') {
                 this.log(`Timer ${timer.name} is scheduled to finish in ${diff}ms.`);
@@ -585,8 +605,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const min = Math.min(minMs, maxMs);
         const max = Math.max(minMs, maxMs);
 
-        // Generate a random number between min and max (inclusive)
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        return randomInt(min, max + 1);
     }
 }
 

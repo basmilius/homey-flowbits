@@ -118,9 +118,7 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
     }
 
     async welcome(): Promise<void> {
-        const welcomeId = this.settings.getKeys().includes('welcomeId')
-            ? this.settings.get('welcomeId')
-            : 0;
+        const welcomeId = this.settings.get('welcomeId') ?? 0;
 
         if (welcomeId >= 1) {
             return;
