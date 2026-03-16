@@ -22,7 +22,7 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     }
 
     get looks(): Record<string, Look> {
-        return this.#looks;
+        return {...this.#looks};
     }
 
     set looks(value: Record<string, Look>) {

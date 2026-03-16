@@ -171,8 +171,13 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
     async activateStateExclusiveFor(setName: string, stateName: string, duration: number, unit: ClockUnit): Promise<void> {
         const expiresAt = DateTime.now().plus({milliseconds: convertDurationToMs(duration, unit)});
+        const expiresAtISO = expiresAt.toISO();
 
-        await this.#activateStateExclusiveInternal(setName, stateName, expiresAt.toISO());
+        if (!expiresAtISO) {
+            return;
+        }
+
+        await this.#activateStateExclusiveInternal(setName, stateName, expiresAtISO);
 
         this.log(`Activated state ${stateName} exclusively in set ${setName} for ${duration} ${unit}.`);
     }

@@ -21,7 +21,7 @@ export default class NoRepeat extends Shortcuts<FlowBitsApp> implements Feature<
     }
 
     async cleanup(): Promise<void> {
-        this.log('Cleaning up expired no-repeat windows...');
+        this.log('Cleaning up corrupted no-repeat windows...');
 
         const now = DateTime.now();
         let changed = false;
