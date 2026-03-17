@@ -680,6 +680,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
     async #processExpirations(): Promise<void> {
         const now = DateTime.now();
+        const nowISO = now.toISO();
         const expiredStates: { setName: string; stateName: string }[] = [];
 
         for (const [setName, setStates] of Object.entries(this.#states)) {
@@ -696,13 +697,39 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             }
         }
 
-        await Promise.allSettled(expiredStates.map(({setName, stateName}) =>
-            this.deactivateState(setName, stateName)
-        ));
-
         if (expiredStates.length === 0) {
             await this.#scheduleNextExpiration();
+            return;
         }
+
+        const grouped = new Map<string, string[]>();
+        for (const {setName, stateName} of expiredStates) {
+            if (!grouped.has(setName)) {
+                grouped.set(setName, []);
+            }
+            grouped.get(setName)!.push(stateName);
+        }
+
+        const triggers: Promise<void>[] = [];
+
+        for (const [setName, stateNames] of grouped) {
+            const snapshot = this.#snapshot(setName);
+
+            for (const stateName of stateNames) {
+                if (!this.#states[setName]?.[stateName]?.[0]) {
+                    continue;
+                }
+
+                this.#states[setName][stateName] = [false, nowISO, null];
+                this.log(`Deactivated expired state ${stateName} in set ${setName}.`);
+            }
+
+            triggers.push(this.#emitDeactivations(setName, stateNames, snapshot));
+        }
+
+        this.settings.set(SETTING_SETS, this.#states);
+        await this.#scheduleNextExpiration();
+        await Promise.allSettled(triggers);
     }
 
     #autocompleteProvider(): AutocompleteProviders.SetState {
