@@ -12,6 +12,7 @@
     },
     "exclude": [
         "docs",
-        "settings-ui"
+        "settings-ui",
+        "icons.ts"
     ]
 }
