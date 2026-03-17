@@ -519,6 +519,7 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
             } else if (diff >= -TIMER_FINISH_GRACE_PERIOD && timer.status === 'running') {
                 // todo(Bas): Decide if this 5 second grace period is wanted.
                 await this.finish(timer);
+                continue;
             }
 
             this.#timers[timer.id] = timer;
