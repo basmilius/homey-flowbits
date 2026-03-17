@@ -13,7 +13,7 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp> {
             .sort((a, b) => a.name.localeCompare(b.name));
 
         if (hasQuery && !this.values.some(name => query === name)) {
-            results.push({
+            results.unshift({
                 name: query,
                 description: this.translate('autocomplete.cycle_new')
             });

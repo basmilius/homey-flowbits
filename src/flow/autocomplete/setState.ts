@@ -25,7 +25,7 @@ export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp, Value
         });
 
         if (hasQuery && !this.values.some(({state}) => query === state)) {
-            results.push({
+            results.unshift({
                 name: query,
                 description: this.translate('autocomplete.set_state_new')
             });
