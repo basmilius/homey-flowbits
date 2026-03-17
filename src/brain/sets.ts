@@ -26,6 +26,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     async initialize(): Promise<void> {
         this.#states = this.settings.get(SETTING_SETS) ?? {};
         this.#looks = this.settings.get(SETTING_SET_LOOKS) ?? {};
+        await this.#syncDefinedStates();
         await this.#scheduleNextExpiration();
     }
 
@@ -320,6 +321,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
         }
 
         const snapshot = this.#snapshot(setName, definedStates);
+        const previousCounts = this.#getCounts(setName, definedStates);
         const now = DateTime.now().toISO();
         const previousStates = this.#states[setName] ?? {};
 
@@ -374,7 +376,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
 
         const activeStates = this.#getActiveStateNames(setName, definedStates);
 
-        if (!wasTargetActive) {
+        if (!wasTargetActive && counts.activeCount > previousCounts.activeCount) {
             triggers.push(this.#triggerSetBecomesActiveAtLeast(setName, counts.activeCount));
         }
 

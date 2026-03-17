@@ -7,8 +7,16 @@ export default class extends FlowActionEntity<FlowBitsApp, Args, never, Tokens> 
     async onRun(args: Args): Promise<Tokens> {
         const now = DateTime.now();
 
-        let fromDate = DateTime.fromFormat(args.from, 'HH:mm');
+        const fromDate = DateTime.fromFormat(args.from, 'HH:mm');
         const originalToDate = DateTime.fromFormat(args.to, 'HH:mm');
+
+        if (!fromDate.isValid || !originalToDate.isValid) {
+            return {
+                fraction: 0,
+                percentage: 0
+            };
+        }
+
         let toDate = originalToDate;
         const isCrossMidnight = fromDate > toDate;
 
