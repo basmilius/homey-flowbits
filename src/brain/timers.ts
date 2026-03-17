@@ -448,12 +448,15 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
         const now = Date.now();
 
         if (!this.#cachedRemainingTriggers || this.#cachedRemainingTriggers.expiresAt <= now) {
-            const value = await this.homey.flow
-                .getTriggerCard('timer_remaining')
-                .getArgumentValues()
-                .catch(() => []);
+            try {
+                const value = await this.homey.flow
+                    .getTriggerCard('timer_remaining')
+                    .getArgumentValues();
 
-            this.#cachedRemainingTriggers = {value, expiresAt: now + 30_000};
+                this.#cachedRemainingTriggers = {value, expiresAt: now + 30_000};
+            } catch {
+                return this.#cachedRemainingTriggers?.value ?? [];
+            }
         }
 
         return this.#cachedRemainingTriggers.value;
