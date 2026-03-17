@@ -16,7 +16,9 @@ export default class extends FlowActionEntity<FlowBitsApp, Args, never, Tokens> 
 
         let currentTime = now;
         if (currentTime < fromDate && fromDate > DateTime.fromFormat(args.to, 'HH:mm')) {
-            currentTime = currentTime.plus({days: 1});
+            if (currentTime.plus({days: 1}) <= toDate) {
+                currentTime = currentTime.plus({days: 1});
+            }
         }
 
         const totalDuration = toDate.diff(fromDate).as('milliseconds');
