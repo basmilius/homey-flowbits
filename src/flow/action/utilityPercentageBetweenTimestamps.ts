@@ -8,14 +8,16 @@ export default class extends FlowActionEntity<FlowBitsApp, Args, never, Tokens> 
         const now = DateTime.now();
 
         let fromDate = DateTime.fromFormat(args.from, 'HH:mm');
-        let toDate = DateTime.fromFormat(args.to, 'HH:mm');
+        const originalToDate = DateTime.fromFormat(args.to, 'HH:mm');
+        let toDate = originalToDate;
+        const isCrossMidnight = fromDate > toDate;
 
-        if (fromDate > toDate) {
+        if (isCrossMidnight) {
             toDate = toDate.plus({days: 1});
         }
 
         let currentTime = now;
-        if (currentTime < fromDate && fromDate > DateTime.fromFormat(args.to, 'HH:mm')) {
+        if (isCrossMidnight && currentTime < fromDate) {
             if (currentTime.plus({days: 1}) <= toDate) {
                 currentTime = currentTime.plus({days: 1});
             }
