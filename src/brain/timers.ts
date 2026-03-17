@@ -491,7 +491,12 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
                 timeouts.push(
                     this.setTimeout(async () => {
                         await this.finish(timer);
-                        await this.#schedule();
+
+                        // note(Bas): Repeating timers already call #schedule() inside finish(),
+                        //  so we only need to reschedule here for non-repeating timers.
+                        if (!timer.repeating) {
+                            await this.#schedule();
+                        }
                     }, diff)
                 );
 
