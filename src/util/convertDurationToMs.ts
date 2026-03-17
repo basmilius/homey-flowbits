@@ -16,5 +16,8 @@ export default function (duration: number, unit: ClockUnit): number {
 
         case 'days':
             return duration * 86_400_000;
+
+        default:
+            throw new Error(`Unknown clock unit: ${unit}`);
     }
 }
