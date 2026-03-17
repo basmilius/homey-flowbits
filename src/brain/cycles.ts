@@ -15,7 +15,7 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
                 continue;
             }
 
-            this.log(`Deleting unused cycle ${key}....`);
+            this.log(`Deleting unused cycle ${key}...`);
             this.settings.unset(key);
         }
     }
