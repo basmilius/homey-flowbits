@@ -21,7 +21,7 @@ export default class extends FlowConditionEntity<FlowBitsApp, Args, never> {
         const yearSet = schoolHolidays.find(s => s.schoolyear === `${startYear}-${endYear}`);
 
         if (!yearSet) {
-            throw new Error('Cannot find holidays for the current school year.');
+            return false;
         }
 
         const vacations = yearSet.vacations.filter(v => v.type === args.holiday.name);
