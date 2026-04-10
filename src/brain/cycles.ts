@@ -124,15 +124,11 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
     }
 
     async #triggerCycleBecomes(name: string, value: number): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.CycleBecomes)
-            ?.trigger({name, value});
+        await this.registry.fireTrigger(Triggers.CycleBecomes, {name, value});
     }
 
     async #triggerCycleUpdates(name: string, value: number): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.CycleUpdates)
-            ?.trigger({name}, {value});
+        await this.registry.fireTrigger(Triggers.CycleUpdates, {name}, {value});
     }
 
     async #triggerRealtime(name: string): Promise<void> {

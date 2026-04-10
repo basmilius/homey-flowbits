@@ -12,8 +12,6 @@ export default class Signals extends Shortcuts<FlowBitsApp> {
     }
 
     async #triggerReceive(signal: string, value: string = ''): Promise<void> {
-        await this.registry
-            .findTrigger(Triggers.SignalReceive)
-            ?.trigger({signal}, {value});
+        await this.registry.fireTrigger(Triggers.SignalReceive, {signal}, {value});
     }
 }

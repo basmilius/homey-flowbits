@@ -516,50 +516,32 @@ export default class Timers extends Shortcuts<FlowBitsApp> implements Feature<Ti
     }
 
     async #triggerFinished(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.TimerFinished)
-            ?.trigger({timer: name});
-
+        await this.registry.fireTrigger(Triggers.TimerFinished, {timer: name});
         this.log(`Triggered timer finished for ${name}.`);
     }
 
     async #triggerPaused(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.TimerPaused)
-            ?.trigger({timer: name});
-
+        await this.registry.fireTrigger(Triggers.TimerPaused, {timer: name});
         this.log(`Triggered timer paused for ${name}.`);
     }
 
     async #triggerRemaining(name: string, duration: number, unit: ClockUnit): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.TimerRemaining)
-            ?.trigger({timer: name, duration, unit});
-
+        await this.registry.fireTrigger(Triggers.TimerRemaining, {timer: name, duration, unit});
         this.log(`Triggered timer remaining for ${name}.`);
     }
 
     async #triggerResumed(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.TimerResumed)
-            ?.trigger({timer: name});
-
+        await this.registry.fireTrigger(Triggers.TimerResumed, {timer: name});
         this.log(`Triggered timer resumed for ${name}.`);
     }
 
     async #triggerStarted(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.TimerStarted)
-            ?.trigger({timer: name});
-
+        await this.registry.fireTrigger(Triggers.TimerStarted, {timer: name});
         this.log(`Triggered timer started for ${name}.`);
     }
 
     async #triggerStopped(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.TimerStopped)
-            ?.trigger({timer: name});
-
+        await this.registry.fireTrigger(Triggers.TimerStopped, {timer: name});
         this.log(`Triggered timer stopped for ${name}.`);
     }
 

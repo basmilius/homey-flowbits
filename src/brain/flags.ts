@@ -184,7 +184,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
 
     async isActiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
         const lastUpdate = this.lastUpdates[name];
-        
+
         if (!lastUpdate) {
             return false;
         }
@@ -258,21 +258,15 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     async #triggerActivated(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.FlagActivated)
-            ?.trigger({name});
+        await this.registry.fireTrigger(Triggers.FlagActivated, {name});
     }
 
     async #triggerChanged(name: string, active: boolean): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.FlagChanged)
-            ?.trigger({name}, {active});
+        await this.registry.fireTrigger(Triggers.FlagChanged, {name}, {active});
     }
 
     async #triggerDeactivated(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.FlagDeactivated)
-            ?.trigger({name});
+        await this.registry.fireTrigger(Triggers.FlagDeactivated, {name});
     }
 
     async #triggerRealtime(): Promise<void> {

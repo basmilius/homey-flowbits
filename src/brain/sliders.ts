@@ -85,9 +85,7 @@ export default class Sliders extends Shortcuts<FlowBitsApp> implements Feature<S
     }
 
     async #triggerChanged(slider: string, value: number): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SliderChanged)
-            ?.trigger({slider}, {value});
+        await this.registry.fireTrigger(Triggers.SliderChanged, {slider}, {value});
     }
 
     async #triggerRealtime(slider: string, value: number, widgetId?: string): Promise<void> {

@@ -80,12 +80,10 @@ export default class Tokens extends Shortcuts<FlowBitsApp> {
                 const triggers = TRIGGERS[id];
 
                 for (const trigger of triggers) {
-                    this.registry
-                        .findTrigger(trigger)
-                        ?.trigger({
-                            value,
-                            previousValue
-                        });
+                    await this.registry.fireTrigger(trigger, {
+                        value,
+                        previousValue
+                    });
                 }
             }
 

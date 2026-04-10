@@ -413,57 +413,39 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     async #triggerSetBecomesActiveAll(set: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SetBecomesActiveAll)
-            ?.trigger({set});
+        await this.registry.fireTrigger(Triggers.SetBecomesActiveAll, {set});
     }
 
     async #triggerSetBecomesActiveAny(set: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SetBecomesActiveAny)
-            ?.trigger({set});
+        await this.registry.fireTrigger(Triggers.SetBecomesActiveAny, {set});
     }
 
     async #triggerSetBecomesActiveAtLeast(set: string, activeCount: number): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SetBecomesActiveAtLeast)
-            ?.trigger({set, activeCount});
+        await this.registry.fireTrigger(Triggers.SetBecomesActiveAtLeast, {set, activeCount});
     }
 
     async #triggerSetBecomesInactive(set: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SetBecomesInactive)
-            ?.trigger({set});
+        await this.registry.fireTrigger(Triggers.SetBecomesInactive, {set});
     }
 
     async #triggerSetBecomesInactiveAll(set: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SetBecomesInactiveAll)
-            ?.trigger({set});
+        await this.registry.fireTrigger(Triggers.SetBecomesInactiveAll, {set});
     }
 
     async #triggerSetChanged(set: string, active: boolean, activeCount: number, totalCount: number, activeStates: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SetChanged)
-            ?.trigger({set}, {active, activeCount, totalCount, activeStates});
+        await this.registry.fireTrigger(Triggers.SetChanged, {set}, {active, activeCount, totalCount, activeStates});
     }
 
     async #triggerStateActivated(set: string, state: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SetStateActivated)
-            ?.trigger({set, state});
+        await this.registry.fireTrigger(Triggers.SetStateActivated, {set, state});
     }
 
     async #triggerStateChanged(set: string, state: string, active: boolean): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SetStateChanged)
-            ?.trigger({set, state}, {active});
+        await this.registry.fireTrigger(Triggers.SetStateChanged, {set, state}, {active});
     }
 
     async #triggerStateDeactivated(set: string, state: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.SetStateDeactivated)
-            ?.trigger({set, state});
+        await this.registry.fireTrigger(Triggers.SetStateDeactivated, {set, state});
     }
 
     async #triggerRealtime(): Promise<void> {

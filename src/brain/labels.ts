@@ -149,27 +149,19 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
     }
 
     async #triggerBecomes(name: string, value: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.LabelBecomes)
-            ?.trigger({name, value});
+        await this.registry.fireTrigger(Triggers.LabelBecomes, {name, value});
     }
 
     async #triggerChanged(name: string, value: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.LabelChanged)
-            ?.trigger({name}, {value});
+        await this.registry.fireTrigger(Triggers.LabelChanged, {name}, {value});
     }
 
     async #triggerChangedV2(name: string, value: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.LabelChangedV2)
-            ?.trigger({name}, {value});
+        await this.registry.fireTrigger(Triggers.LabelChangedV2, {name}, {value});
     }
 
     async #triggerCleared(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.LabelCleared)
-            ?.trigger({name});
+        await this.registry.fireTrigger(Triggers.LabelCleared, {name});
     }
 
     async #triggerRealtime(): Promise<void> {

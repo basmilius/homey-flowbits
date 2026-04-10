@@ -184,15 +184,11 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     }
 
     async #triggerCleared(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.EventCleared)
-            ?.trigger({name});
+        await this.registry.fireTrigger(Triggers.EventCleared, {name});
     }
 
     async #triggerTriggered(name: string, value: string = ''): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.EventTriggered)
-            ?.trigger({name}, {value});
+        await this.registry.fireTrigger(Triggers.EventTriggered, {name}, {value});
     }
 
     async #triggerRealtime(): Promise<void> {

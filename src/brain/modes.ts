@@ -131,12 +131,12 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         const now = DateTime.now();
         const updates = {...this.lastUpdates, [name]: now};
-        
+
         // Also update the timestamp for the previously active mode
         if (current !== null) {
             updates[current] = now;
         }
-        
+
         this.lastUpdates = updates;
 
         this.log(`Activate mode ${name}.`);
@@ -234,7 +234,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
     async isActiveFor(name: string, duration: number, unit: ClockUnit): Promise<boolean> {
         const lastUpdate = this.lastUpdates[name];
-        
+
         if (!lastUpdate) {
             return false;
         }
@@ -305,28 +305,17 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     async #triggerActivated(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.ModeActivated)
-            ?.trigger({name});
-
+        await this.registry.fireTrigger(Triggers.ModeActivated, {name});
         await this.notify(this.translate('notification.mode_activated', {name}));
     }
 
     async #triggerChanged(name: string, active: boolean): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.ModeCurrentChanged)
-            ?.trigger({}, {mode: active ? name : '-'});
-
-        this.registry
-            .findTrigger(Triggers.ModeChanged)
-            ?.trigger({name}, {active});
+        await this.registry.fireTrigger(Triggers.ModeCurrentChanged, {}, {mode: active ? name : '-'});
+        await this.registry.fireTrigger(Triggers.ModeChanged, {name}, {active});
     }
 
     async #triggerDeactivated(name: string): Promise<void> {
-        this.registry
-            .findTrigger(Triggers.ModeDeactivated)
-            ?.trigger({name});
-
+        await this.registry.fireTrigger(Triggers.ModeDeactivated, {name});
         await this.notify(this.translate('notification.mode_deactivated', {name}));
     }
 
