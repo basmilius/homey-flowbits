@@ -199,6 +199,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.condition(Conditions.SchoolHolidayIs);
         this.registry.condition(Conditions.SetActiveAll);
         this.registry.condition(Conditions.SetActiveAny);
+        this.registry.condition(Conditions.SetActiveAtLeast);
         this.registry.condition(Conditions.SetInactive);
         this.registry.condition(Conditions.SetStateIs);
         this.registry.condition(Conditions.TimerDuration);
@@ -228,6 +229,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.trigger(Triggers.ModeDeactivated);
         this.registry.trigger(Triggers.SetBecomesActiveAll);
         this.registry.trigger(Triggers.SetBecomesActiveAny);
+        this.registry.trigger(Triggers.SetBecomesActiveAtLeast);
         this.registry.trigger(Triggers.SetBecomesInactive);
         this.registry.trigger(Triggers.SetBecomesInactiveAll);
         this.registry.trigger(Triggers.SetChanged);
