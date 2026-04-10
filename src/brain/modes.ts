@@ -123,12 +123,12 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         // Clear any existing timeout
         this.#clearModeTimeout();
 
+        this.currentMode = name;
+
         if (current !== null) {
             await this.#triggerDeactivated(current);
         }
 
-        this.currentMode = name;
-        
         const now = DateTime.now();
         const updates = {...this.lastUpdates, [name]: now};
         
