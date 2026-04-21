@@ -276,5 +276,9 @@
     "1.19.0": {
         "en": "This update adds a new calculate formula flow card, thanks @stefan-schweiger! Updated dependencies as well.",
         "nl": "Deze update voegt een nieuwe bereken formule flow card toe, bedankt @stefan-schweiger! Ook zijn de dependencies bijgewerkt."
+    },
+    "1.19.1": {
+        "en": "Fixed a few off-by-one bugs and optimize internal logic. Update dependencies.",
+        "nl": "Er zijn enkele bugfixes gemaakt en de interne logica is geoptimaliseerd. De dependencies zijn bijgewerkt."
     }
 }
