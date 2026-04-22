@@ -280,5 +280,9 @@
     "1.19.1": {
         "en": "Fixed a few off-by-one bugs and optimize internal logic. Update dependencies.",
         "nl": "Er zijn enkele bugfixes gemaakt en de interne logica is geoptimaliseerd. De dependencies zijn bijgewerkt."
+    },
+    "1.19.2": {
+        "en": "Update dependencies.",
+        "nl": "De dependencies zijn bijgewerkt."
     }
 }
