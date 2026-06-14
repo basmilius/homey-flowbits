@@ -72,7 +72,8 @@ export default defineConfig({
                                 {text: 'Installation', link: '/guide/'},
                                 {text: 'App Settings', link: '/guide/app-settings'},
                                 {text: 'Release Notes', link: '/guide/release-notes'},
-                                {text: 'Philosophy', link: '/guide/philosophy'}
+                                {text: 'Philosophy', link: '/guide/philosophy'},
+                                {text: 'MCP Server', link: '/guide/mcp-server'}
                             ]
                         },
                         {

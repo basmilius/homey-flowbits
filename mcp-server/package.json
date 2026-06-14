@@ -1,0 +1,10 @@
+{
+  "name": "flowbits-mcp-docs",
+  "version": "1.0.0",
+  "description": "MCP Server exposing Flowbits documentation, resources, and templates.",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0"
+  }
+}
