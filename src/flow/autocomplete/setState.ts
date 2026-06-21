@@ -9,16 +9,22 @@ type Value = {
 
 @autocomplete('set_state')
 export default class extends FlowAutocompleteArgumentProvider<FlowBitsApp, Value> {
-    async find(query: string): Promise<Homey.FlowCard.ArgumentAutocompleteResults> {
+    async find(query: string, args: Record<string, unknown>): Promise<Homey.FlowCard.ArgumentAutocompleteResults> {
         const hasQuery = query.trim().length > 0;
+        const selectedSet = (args.set as { name?: string } | undefined)?.name;
 
-        const results: Homey.FlowCard.ArgumentAutocompleteResults = this.values
-            .filter(name => !hasQuery || name.state.toLowerCase().includes(query.toLowerCase()))
+        // Scope the states to the selected set, falling back to all states when no set is chosen yet.
+        const scoped = selectedSet
+            ? this.values.filter(value => value.set === selectedSet)
+            : this.values;
+
+        const results: Homey.FlowCard.ArgumentAutocompleteResults = scoped
+            .filter(({state}) => !hasQuery || state.toLowerCase().includes(query.toLowerCase()))
             .map(({set, state}) => ({name: state, set}))
             .sort((a, b) => a.name.localeCompare(b.name))
             .filter((value, index, arr) => arr.findIndex(v => v.name === value.name) === index);
 
-        if (hasQuery && !this.values.some(({state}) => query === state)) {
+        if (hasQuery && !scoped.some(({state}) => query === state)) {
             results.push({
                 name: query,
                 description: this.translate('autocomplete.set_state_new')
