@@ -288,5 +288,9 @@
     "1.19.3": {
         "en": "Update dependencies.",
         "nl": "De dependencies zijn bijgewerkt."
+    },
+    "1.19.4": {
+        "en": "Scope set states to the selected set. Update dependencies.",
+        "nl": "Beperk set statussen tot de geselecteerde set. Dependencies bijgewerkt."
     }
 }
