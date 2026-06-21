@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import llmstxt from 'vitepress-plugin-llms';
 
 export default defineConfig({
     title: 'FlowBits',
@@ -9,6 +10,17 @@ export default defineConfig({
     ignoreDeadLinks: true,
     lastUpdated: true,
     srcDir: 'src',
+    vite: {
+        plugins: [
+            llmstxt({
+                domain: 'https://flowbits.nl',
+                generateLLMsTxt: true,
+                generateLLMsFullTxt: true,
+                generateLLMFriendlyDocsForEachPage: true,
+                injectLLMHint: true
+            })
+        ]
+    },
     head: [
         ['link', {rel: 'stylesheet', href: 'https://font.bmcdn.nl/css2?family=inter-variable|jetbrains-mono'}],
         ['link', {rel: 'icon', href: '/favicon.ico'}]
