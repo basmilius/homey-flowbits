@@ -1,0 +1,90 @@
+{
+    "id": "mode_set_current_changed",
+    "title": {
+        "en": "The current mode in a mode set changed",
+        "nl": "De huidige stand in een standenset is gewijzigd",
+        "de": "Der aktuelle Modus in einem Modus-Set wurde geändert",
+        "fr": "Le mode actuel dans un ensemble de modes a changé",
+        "it": "La modalità attuale in un set di modalità è cambiata",
+        "sv": "Det aktuella läget i ett lägesset har ändrats",
+        "no": "Den nåværende modusen i et modussett har endret seg",
+        "es": "El modo actual en un conjunto de modos ha cambiado",
+        "da": "Den nuværende tilstand i et tilstandssæt er blevet ændret",
+        "ru": "Текущий режим в наборе режимов был изменён",
+        "pl": "Aktualny tryb w zestawie trybów został zmieniony",
+        "ko": "모드 세트의 현재 모드가 변경되었습니다",
+        "ar": "تم تغيير الوضع الحالي في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "The current mode in mode set [[set]] changed",
+        "nl": "De huidige stand in standenset [[set]] is gewijzigd",
+        "de": "Der aktuelle Modus im Modus-Set [[set]] wurde geändert",
+        "fr": "Le mode actuel dans l'ensemble de modes [[set]] a changé",
+        "it": "La modalità attuale nel set di modalità [[set]] è cambiata",
+        "sv": "Det aktuella läget i lägesset [[set]] har ändrats",
+        "no": "Den nåværende modusen i modussett [[set]] har endret seg",
+        "es": "El modo actual en el conjunto de modos [[set]] ha cambiado",
+        "da": "Den nuværende tilstand i tilstandssæt [[set]] er blevet ændret",
+        "ru": "Текущий режим в наборе режимов [[set]] был изменён",
+        "pl": "Aktualny tryb w zestawie trybów [[set]] został zmieniony",
+        "ko": "모드 세트 [[set]]의 현재 모드가 변경되었습니다",
+        "ar": "تم تغيير الوضع الحالي في مجموعة الأوضاع [[set]]"
+    },
+    "hint": {
+        "en": "Triggers when the current mode in a mode set is changed.",
+        "nl": "Triggert wanneer de huidige stand in een standenset is gewijzigd.",
+        "de": "Wird ausgelöst, wenn der aktuelle Modus in einem Modus-Set geändert wird.",
+        "fr": "Se déclenche lorsque le mode actuel dans un ensemble de modes est modifié.",
+        "it": "Si attiva quando la modalità attuale in un set di modalità viene modificata.",
+        "sv": "Utlöses när det aktuella läget i ett lägesset ändras.",
+        "no": "Utløses når den nåværende modusen i et modussett endres.",
+        "es": "Se activa cuando el modo actual en un conjunto de modos cambia.",
+        "da": "Udløses, når den nuværende tilstand i et tilstandssæt ændres.",
+        "ru": "Срабатывает, когда текущий режим в наборе режимов изменяется.",
+        "pl": "Wyzwalane, gdy aktualny tryb w zestawie trybów zostaje zmieniony.",
+        "ko": "모드 세트의 현재 모드가 변경될 때 트리거됩니다.",
+        "ar": "يتم تشغيله عند تغيير الوضع الحالي في مجموعة أوضاع."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "name": "mode",
+            "type": "string",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        }
+    ]
+}

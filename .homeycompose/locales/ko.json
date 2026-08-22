@@ -5,6 +5,8 @@
         "flag_new": "이 플로우에 새로운 플래그",
         "label_new": "이 플로우에 새로운 레이블",
         "mode_new": "이 플로우에 새로운 모드",
+        "mode_set_mode_new": "이 모드 세트에 새로운 모드, 플로우 저장 후 알려집니다",
+        "mode_set_new": "이 플로우에 새로운 모드 세트",
         "no_repeat_new": "이 플로우에 새로운 반복 없음 창",
         "set_new": "이 플로우에 새로운 세트",
         "set_state_new": "이 플로우에 새로운 세트 상태, 플로우 저장 후 알려집니다",
@@ -15,6 +17,8 @@
     "notification": {
         "mode_activated": "**__name__** 활성화됨.",
         "mode_deactivated": "**__name__** 비활성화됨.",
+        "mode_set_activated": "**__name__**이(가) **__set__**에서 활성화됨.",
+        "mode_set_deactivated": "**__name__**이(가) **__set__**에서 비활성화됨.",
         "welcome": "**FlowBits**에 오신 것을 환영합니다! flowbits.nl을 방문하여 FlowBits로 할 수 있는 작업에 대해 자세히 알아보세요."
     },
     "token": {
@@ -57,6 +61,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "현재 모드"
+        },
+        "mode_set_current": {
             "label": "현재 모드"
         },
         "event": {
@@ -112,6 +119,11 @@
             "description": "한 번에 하나의 모드만 활성화될 수 있습니다. 플로우 내 작업, 조건, 트리거를 사용해 모드를 생성하고 관리하세요.",
             "empty": "아직 생성된 모드가 없습니다."
         },
+        "mode_sets": {
+            "title": "모드 세트",
+            "description": "모드 세트는 모드를 그룹화하여 세트당 한 번에 하나의 모드만 활성화할 수 있도록 합니다. 플로우에서 모드 세트 작업, 조건, 트리거를 사용해 모드 세트를 생성하고 관리하세요.",
+            "empty": "아직 생성된 모드 세트가 없습니다."
+        },
         "sets": {
             "title": "세트",
             "description": "세트는 그룹으로 평가할 수 있는 불린 상태의 모음입니다. 세트는 그 상태 중 하나라도 활성화되면 활성화됩니다. 플로우에서 세트 작업, 조건, 트리거를 사용해 그룹화된 상태를 관리하세요.",
@@ -130,6 +142,7 @@
             "flags": "플래그",
             "labels": "레이블",
             "modes": "모드",
+            "mode_sets": "모드 세트",
             "no_repeats": "반복 금지 창",
             "sets": "세트",
             "sliders": "슬라이더",

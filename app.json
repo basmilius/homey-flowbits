@@ -289,6 +289,10 @@
       "method": "GET",
       "path": "/modes"
     },
+    "getModeSets": {
+      "method": "GET",
+      "path": "/mode-sets"
+    },
     "getNoRepeatWindows": {
       "method": "GET",
       "path": "/no-repeat-windows"
@@ -328,6 +332,10 @@
     "setModeLook": {
       "method": "POST",
       "path": "/modes/look"
+    },
+    "setModeSetLook": {
+      "method": "POST",
+      "path": "/mode-sets/look"
     },
     "setSetLook": {
       "method": "POST",
@@ -1730,6 +1738,381 @@
           {
             "type": "autocomplete",
             "name": "name",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_activated",
+        "title": {
+          "en": "Mode activated in mode set",
+          "nl": "Stand geactiveerd in standenset",
+          "de": "Modus im Modus-Set aktiviert",
+          "fr": "Mode activé dans l'ensemble de modes",
+          "it": "Modalità attivata nel set di modalità",
+          "sv": "Läge aktiverat i lägesset",
+          "no": "Modus aktivert i modussett",
+          "es": "Modo activado en el conjunto de modos",
+          "da": "Tilstand aktiveret i tilstandssæt",
+          "ru": "Режим активирован в наборе режимов",
+          "pl": "Tryb aktywowany w zestawie trybów",
+          "ko": "모드 세트에서 모드 활성화됨",
+          "ar": "تم تفعيل وضع في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "Mode [[mode]] in mode set [[set]] is activated",
+          "nl": "Stand [[mode]] in standenset [[set]] is geactiveerd",
+          "de": "Modus [[mode]] im Modus-Set [[set]] ist aktiviert",
+          "fr": "Mode [[mode]] dans l'ensemble de modes [[set]] est activé",
+          "it": "Modalità [[mode]] nel set di modalità [[set]] è attivata",
+          "sv": "Läge [[mode]] i lägesset [[set]] är aktiverat",
+          "no": "Modus [[mode]] i modussett [[set]] er aktivert",
+          "es": "Modo [[mode]] en el conjunto de modos [[set]] está activado",
+          "da": "Tilstand [[mode]] i tilstandssæt [[set]] er aktiveret",
+          "ru": "Режим [[mode]] в наборе режимов [[set]] активирован",
+          "pl": "Tryb [[mode]] w zestawie trybów [[set]] został aktywowany",
+          "ko": "모드 세트 [[set]]에서 모드 [[mode]]가 활성화됨",
+          "ar": "تم تفعيل الوضع [[mode]] في مجموعة الأوضاع [[set]]"
+        },
+        "hint": {
+          "en": "Triggers when a mode within a mode set gets activated.",
+          "nl": "Triggert wanneer een stand binnen een standenset is geactiveerd.",
+          "de": "Löst aus, wenn ein Modus innerhalb eines Modus-Sets aktiviert wird.",
+          "fr": "Se déclenche lorsqu'un mode au sein d'un ensemble de modes est activé.",
+          "it": "Si attiva quando una modalità all'interno di un set di modalità viene attivata.",
+          "sv": "Utlöses när ett läge inom ett lägesset aktiveras.",
+          "no": "Utløses når en modus innenfor et modussett aktiveres.",
+          "es": "Se activa cuando un modo dentro de un conjunto de modos se activa.",
+          "da": "Udløses når en tilstand inden for et tilstandssæt aktiveres.",
+          "ru": "Срабатывает при активации режима в наборе режимов.",
+          "pl": "Wyzwalane, gdy tryb w zestawie trybów zostaje aktywowany.",
+          "ko": "모드 세트 내에서 모드가 활성화될 때 트리거됩니다.",
+          "ar": "يتم التفعيل عند تفعيل وضع داخل مجموعة أوضاع."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_changed",
+        "title": {
+          "en": "Mode changed in mode set",
+          "nl": "Stand gewijzigd in standenset",
+          "de": "Modus im Modus-Set geändert",
+          "fr": "Mode changé dans l'ensemble de modes",
+          "it": "Modalità modificata nel set di modalità",
+          "sv": "Läge ändrat i lägesset",
+          "no": "Modus endret i modussett",
+          "es": "Modo cambiado en el conjunto de modos",
+          "da": "Tilstand ændret i tilstandssæt",
+          "ru": "Режим изменён в наборе режимов",
+          "pl": "Tryb zmieniony w zestawie trybów",
+          "ko": "모드 세트에서 모드 변경됨",
+          "ar": "الوضع تغيّر في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "Mode [[mode]] in mode set [[set]] changed",
+          "nl": "Stand [[mode]] in standenset [[set]] gewijzigd",
+          "de": "Modus [[mode]] im Modus-Set [[set]] geändert",
+          "fr": "Mode [[mode]] dans l'ensemble de modes [[set]] changé",
+          "it": "Modalità [[mode]] nel set di modalità [[set]] modificata",
+          "sv": "Läge [[mode]] i lägesset [[set]] ändrat",
+          "no": "Modus [[mode]] i modussett [[set]] endret",
+          "es": "Modo [[mode]] en el conjunto de modos [[set]] cambiado",
+          "da": "Tilstand [[mode]] i tilstandssæt [[set]] ændret",
+          "ru": "Режим [[mode]] в наборе режимов [[set]] изменён",
+          "pl": "Tryb [[mode]] w zestawie trybów [[set]] zmieniony",
+          "ko": "모드 세트 [[set]]의 모드 [[mode]] 변경됨",
+          "ar": "الوضع [[mode]] في مجموعة الأوضاع [[set]] تغيّر"
+        },
+        "hint": {
+          "en": "Triggers when a mode within a mode set is activated or deactivated.",
+          "nl": "Triggert wanneer een stand binnen een standenset wordt geactiveerd of gedeactiveerd.",
+          "de": "Löst aus, wenn ein Modus innerhalb eines Modus-Sets aktiviert oder deaktiviert wird.",
+          "fr": "Se déclenche lorsqu'un mode au sein d'un ensemble de modes est activé ou désactivé.",
+          "it": "Si attiva quando una modalità all'interno di un set di modalità viene attivata o disattivata.",
+          "sv": "Utlöses när ett läge inom ett lägesset aktiveras eller inaktiveras.",
+          "no": "Utløses når en modus innenfor et modussett aktiveres eller deaktiveres.",
+          "es": "Se activa cuando un modo dentro de un conjunto de modos se activa o desactiva.",
+          "da": "Udløses når en tilstand inden for et tilstandssæt aktiveres eller deaktiveres.",
+          "ru": "Срабатывает при активации или деактивации режима в наборе режимов.",
+          "pl": "Wyzwalane, gdy tryb w zestawie trybów zostaje aktywowany lub dezaktywowany.",
+          "ko": "모드 세트 내에서 모드가 활성화되거나 비활성화될 때 트리거됨.",
+          "ar": "يتم التفعيل عند تفعيل أو إلغاء تفعيل وضع داخل مجموعة أوضاع."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "active",
+            "type": "boolean",
+            "title": {
+              "en": "Active",
+              "nl": "Actief",
+              "de": "Aktiv",
+              "fr": "Actif",
+              "it": "Attivo",
+              "sv": "Aktiv",
+              "no": "Aktiv",
+              "es": "Activo",
+              "da": "Aktiv",
+              "ru": "Активный",
+              "pl": "Aktywny",
+              "ko": "활성",
+              "ar": "نشط"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_current_changed",
+        "title": {
+          "en": "The current mode in a mode set changed",
+          "nl": "De huidige stand in een standenset is gewijzigd",
+          "de": "Der aktuelle Modus in einem Modus-Set wurde geändert",
+          "fr": "Le mode actuel dans un ensemble de modes a changé",
+          "it": "La modalità attuale in un set di modalità è cambiata",
+          "sv": "Det aktuella läget i ett lägesset har ändrats",
+          "no": "Den nåværende modusen i et modussett har endret seg",
+          "es": "El modo actual en un conjunto de modos ha cambiado",
+          "da": "Den nuværende tilstand i et tilstandssæt er blevet ændret",
+          "ru": "Текущий режим в наборе режимов был изменён",
+          "pl": "Aktualny tryb w zestawie trybów został zmieniony",
+          "ko": "모드 세트의 현재 모드가 변경되었습니다",
+          "ar": "تم تغيير الوضع الحالي في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "The current mode in mode set [[set]] changed",
+          "nl": "De huidige stand in standenset [[set]] is gewijzigd",
+          "de": "Der aktuelle Modus im Modus-Set [[set]] wurde geändert",
+          "fr": "Le mode actuel dans l'ensemble de modes [[set]] a changé",
+          "it": "La modalità attuale nel set di modalità [[set]] è cambiata",
+          "sv": "Det aktuella läget i lägesset [[set]] har ändrats",
+          "no": "Den nåværende modusen i modussett [[set]] har endret seg",
+          "es": "El modo actual en el conjunto de modos [[set]] ha cambiado",
+          "da": "Den nuværende tilstand i tilstandssæt [[set]] er blevet ændret",
+          "ru": "Текущий режим в наборе режимов [[set]] был изменён",
+          "pl": "Aktualny tryb w zestawie trybów [[set]] został zmieniony",
+          "ko": "모드 세트 [[set]]의 현재 모드가 변경되었습니다",
+          "ar": "تم تغيير الوضع الحالي في مجموعة الأوضاع [[set]]"
+        },
+        "hint": {
+          "en": "Triggers when the current mode in a mode set is changed.",
+          "nl": "Triggert wanneer de huidige stand in een standenset is gewijzigd.",
+          "de": "Wird ausgelöst, wenn der aktuelle Modus in einem Modus-Set geändert wird.",
+          "fr": "Se déclenche lorsque le mode actuel dans un ensemble de modes est modifié.",
+          "it": "Si attiva quando la modalità attuale in un set di modalità viene modificata.",
+          "sv": "Utlöses när det aktuella läget i ett lägesset ändras.",
+          "no": "Utløses når den nåværende modusen i et modussett endres.",
+          "es": "Se activa cuando el modo actual en un conjunto de modos cambia.",
+          "da": "Udløses, når den nuværende tilstand i et tilstandssæt ændres.",
+          "ru": "Срабатывает, когда текущий режим в наборе режимов изменяется.",
+          "pl": "Wyzwalane, gdy aktualny tryb w zestawie trybów zostaje zmieniony.",
+          "ko": "모드 세트의 현재 모드가 변경될 때 트리거됩니다.",
+          "ar": "يتم تشغيله عند تغيير الوضع الحالي في مجموعة أوضاع."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "mode",
+            "type": "string",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_deactivated",
+        "title": {
+          "en": "Mode deactivated in mode set",
+          "nl": "Stand gedeactiveerd in standenset",
+          "de": "Modus im Modus-Set deaktiviert",
+          "fr": "Mode désactivé dans l'ensemble de modes",
+          "it": "Modalità disattivata nel set di modalità",
+          "sv": "Läge inaktiverat i lägesset",
+          "no": "Modus deaktivert i modussett",
+          "es": "Modo desactivado en el conjunto de modos",
+          "da": "Tilstand deaktiveret i tilstandssæt",
+          "ru": "Режим деактивирован в наборе режимов",
+          "pl": "Tryb dezaktywowany w zestawie trybów",
+          "ko": "모드 세트에서 모드 비활성화됨",
+          "ar": "تم إلغاء تفعيل وضع في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "Mode [[mode]] in mode set [[set]] is deactivated",
+          "nl": "Stand [[mode]] in standenset [[set]] is gedeactiveerd",
+          "de": "Modus [[mode]] im Modus-Set [[set]] ist deaktiviert",
+          "fr": "Mode [[mode]] dans l'ensemble de modes [[set]] est désactivé",
+          "it": "Modalità [[mode]] nel set di modalità [[set]] è disattivata",
+          "sv": "Läge [[mode]] i lägesset [[set]] är inaktiverat",
+          "no": "Modus [[mode]] i modussett [[set]] er deaktivert",
+          "es": "Modo [[mode]] en el conjunto de modos [[set]] está desactivado",
+          "da": "Tilstand [[mode]] i tilstandssæt [[set]] er deaktiveret",
+          "ru": "Режим [[mode]] в наборе режимов [[set]] деактивирован",
+          "pl": "Tryb [[mode]] w zestawie trybów [[set]] został dezaktywowany",
+          "ko": "모드 세트 [[set]]에서 모드 [[mode]]가 비활성화됨",
+          "ar": "تم إلغاء تفعيل الوضع [[mode]] في مجموعة الأوضاع [[set]]"
+        },
+        "hint": {
+          "en": "Triggers when a mode within a mode set gets deactivated.",
+          "nl": "Triggert wanneer een stand binnen een standenset is gedeactiveerd.",
+          "de": "Löst aus, wenn ein Modus innerhalb eines Modus-Sets deaktiviert wird.",
+          "fr": "Se déclenche lorsqu'un mode au sein d'un ensemble de modes est désactivé.",
+          "it": "Si attiva quando una modalità all'interno di un set di modalità viene disattivata.",
+          "sv": "Utlöses när ett läge inom ett lägesset inaktiveras.",
+          "no": "Utløses når en modus innenfor et modussett deaktiveres.",
+          "es": "Se activa cuando un modo dentro de un conjunto de modos se desactiva.",
+          "da": "Udløses når en tilstand inden for et tilstandssæt deaktiveres.",
+          "ru": "Срабатывает при деактивации режима в наборе режимов.",
+          "pl": "Wyzwalane, gdy tryb w zestawie trybów zostaje dezaktywowany.",
+          "ko": "모드 세트 내에서 모드가 비활성화될 때 트리거됩니다.",
+          "ar": "يتم التفعيل عند إلغاء تفعيل وضع داخل مجموعة أوضاع."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
             "title": {
               "en": "Mode",
               "nl": "Stand",
@@ -5199,6 +5582,633 @@
           {
             "type": "autocomplete",
             "name": "name",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer",
+              "fr": "Durée",
+              "it": "Durata",
+              "sv": "Varaktighet",
+              "no": "Varighet",
+              "es": "Duración",
+              "da": "Varighed",
+              "ru": "Длительность",
+              "pl": "Czas trwania",
+              "ko": "지속 시간",
+              "ar": "المدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "P. ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "F.eks. 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "fr": "Unité",
+              "it": "Unità",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Unidad",
+              "da": "Enhed",
+              "ru": "Единица",
+              "pl": "Jednostka",
+              "ko": "단위",
+              "ar": "الوحدة"
+            },
+            "values": [
+              {
+                "id": "milliseconds",
+                "title": {
+                  "en": "milliseconds",
+                  "nl": "milliseconden",
+                  "de": "Millisekunden",
+                  "fr": "millisecondes",
+                  "it": "millisecondi",
+                  "sv": "millisekunder",
+                  "no": "millisekunder",
+                  "es": "milisegundos",
+                  "da": "millisekunder",
+                  "ru": "миллисекунды",
+                  "pl": "milisekundy",
+                  "ko": "밀리초",
+                  "ar": "ميلي ثانية"
+                }
+              },
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثوانٍ"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mode_set_active",
+        "title": {
+          "en": "Any mode is active in mode set",
+          "nl": "Een stand is actief in standenset",
+          "de": "Ein Modus ist im Modus-Set aktiv",
+          "fr": "Un mode est actif dans l'ensemble de modes",
+          "it": "Una modalità è attiva nel set di modalità",
+          "sv": "Ett läge är aktivt i lägesset",
+          "no": "En modus er aktiv i modussett",
+          "es": "Algún modo está activo en el conjunto de modos",
+          "da": "En tilstand er aktiv i tilstandssæt",
+          "ru": "Какой-либо режим активен в наборе режимов",
+          "pl": "Jakiś tryb jest aktywny w zestawie trybów",
+          "ko": "모드 세트에 활성화된 모드 있음",
+          "ar": "يوجد وضع نشط في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "!{{Any mode is active|No mode is active}} in mode set [[set]]",
+          "nl": "!{{Een stand is actief|Geen stand is actief}} in standenset [[set]]",
+          "de": "!{{Ein Modus ist aktiv|Kein Modus ist aktiv}} im Modus-Set [[set]]",
+          "fr": "!{{Un mode est actif|Aucun mode n'est actif}} dans l'ensemble de modes [[set]]",
+          "it": "!{{Una modalità è attiva|Nessuna modalità è attiva}} nel set di modalità [[set]]",
+          "sv": "!{{Ett läge är aktivt|Inget läge är aktivt}} i lägesset [[set]]",
+          "no": "!{{En modus er aktiv|Ingen modus er aktiv}} i modussett [[set]]",
+          "es": "!{{Algún modo está activo|Ningún modo está activo}} en el conjunto de modos [[set]]",
+          "da": "!{{En tilstand er aktiv|Ingen tilstand er aktiv}} i tilstandssæt [[set]]",
+          "ru": "!{{Какой-либо режим активен|Ни один режим не активен}} в наборе режимов [[set]]",
+          "pl": "!{{Jakiś tryb jest aktywny|Żaden tryb nie jest aktywny}} w zestawie trybów [[set]]",
+          "ko": "모드 세트 [[set]]에 !{{활성화된 모드 있음|활성화된 모드 없음}}",
+          "ar": "!{{يوجد وضع نشط|لا يوجد وضع نشط}} في مجموعة الأوضاع [[set]]"
+        },
+        "hint": {
+          "en": "Checks if any mode is currently active within a mode set.",
+          "nl": "Controleert of er een stand actief is binnen een standenset.",
+          "de": "Prüft, ob innerhalb eines Modus-Sets ein Modus aktiv ist.",
+          "fr": "Vérifie si un mode est actuellement actif au sein d'un ensemble de modes.",
+          "it": "Verifica se una modalità è attualmente attiva all'interno di un set di modalità.",
+          "sv": "Kontrollerar om ett läge för närvarande är aktivt inom ett lägesset.",
+          "no": "Sjekker om en modus for øyeblikket er aktiv innenfor et modussett.",
+          "es": "Comprueba si algún modo está actualmente activo dentro de un conjunto de modos.",
+          "da": "Kontrollerer om en tilstand aktuelt er aktiv inden for et tilstandssæt.",
+          "ru": "Проверяет, активен ли в данный момент какой-либо режим в наборе режимов.",
+          "pl": "Sprawdza, czy w zestawie trybów jest aktualnie aktywny jakiś tryb.",
+          "ko": "모드 세트 내에서 현재 활성화된 모드가 있는지 확인합니다.",
+          "ar": "يتحقق مما إذا كان هناك وضع نشط حاليًا داخل مجموعة أوضاع."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_is",
+        "title": {
+          "en": "Mode is active in mode set",
+          "nl": "Stand is actief in standenset",
+          "de": "Modus ist im Modus-Set aktiv",
+          "fr": "Le mode est actif dans l'ensemble de modes",
+          "it": "La modalità è attiva nel set di modalità",
+          "sv": "Läget är aktivt i lägesset",
+          "no": "Modus er aktiv i modussett",
+          "es": "El modo está activo en el conjunto de modos",
+          "da": "Tilstand er aktiv i tilstandssæt",
+          "ru": "Режим активен в наборе режимов",
+          "pl": "Tryb jest aktywny w zestawie trybów",
+          "ko": "모드 세트에서 모드가 활성화됨",
+          "ar": "الوضع نشط في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "Mode [[mode]] in mode set [[set]] is !{{active|inactive}}",
+          "nl": "Stand [[mode]] in standenset [[set]] is !{{actief|inactief}}",
+          "de": "Modus [[mode]] im Modus-Set [[set]] ist !{{aktiv|inaktiv}}",
+          "fr": "Mode [[mode]] dans l'ensemble de modes [[set]] est !{{actif|inactif}}",
+          "it": "Modalità [[mode]] nel set di modalità [[set]] è !{{attivo|inattivo}}",
+          "sv": "Läge [[mode]] i lägesset [[set]] är !{{aktiv|inaktiv}}",
+          "no": "Modus [[mode]] i modussett [[set]] er !{{aktiv|inaktiv}}",
+          "es": "Modo [[mode]] en el conjunto de modos [[set]] está !{{activo|inactivo}}",
+          "da": "Tilstand [[mode]] i tilstandssæt [[set]] er !{{aktiv|inaktiv}}",
+          "ru": "Режим [[mode]] в наборе режимов [[set]] !{{активен|неактивен}}",
+          "pl": "Tryb [[mode]] w zestawie trybów [[set]] jest !{{aktywny|nieaktywny}}",
+          "ko": "모드 세트 [[set]]의 모드 [[mode]]는 !{{활성|비활성}} 상태입니다",
+          "ar": "الوضع [[mode]] في مجموعة الأوضاع [[set]] هو !{{نشط|غير نشط}}"
+        },
+        "hint": {
+          "en": "Checks if a mode within a mode set is activated.",
+          "nl": "Controleert of een stand binnen een standenset is geactiveerd.",
+          "de": "Prüft, ob ein Modus innerhalb eines Modus-Sets aktiviert ist.",
+          "fr": "Vérifie si un mode au sein d'un ensemble de modes est activé.",
+          "it": "Verifica se una modalità all'interno di un set di modalità è attiva.",
+          "sv": "Kontrollerar om ett läge inom ett lägesset är aktiverat.",
+          "no": "Sjekker om en modus innenfor et modussett er aktivert.",
+          "es": "Comprueba si un modo dentro de un conjunto de modos está activado.",
+          "da": "Kontrollerer om en tilstand inden for et tilstandssæt er aktiveret.",
+          "ru": "Проверяет, активирован ли режим в наборе режимов.",
+          "pl": "Sprawdza, czy tryb w zestawie trybów jest aktywowany.",
+          "ko": "모드 세트 내에서 모드가 활성화되었는지 확인합니다.",
+          "ar": "يتحقق مما إذا كان الوضع داخل مجموعة أوضاع نشطًا."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "الوضع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_is_active_for",
+        "title": {
+          "en": "Mode is active in mode set for !{{at least|less than}}",
+          "nl": "Stand is actief in standenset voor !{{tenminste|minder dan}}",
+          "de": "Modus ist im Modus-Set aktiv seit !{{mindestens|weniger als}}",
+          "fr": "Le mode est actif dans l'ensemble de modes depuis !{{au moins|moins de}}",
+          "it": "La modalità è attiva nel set di modalità da !{{almeno|meno di}}",
+          "sv": "Läget är aktivt i lägesset i !{{minst|mindre än}}",
+          "no": "Modusen er aktiv i modussettet i !{{minst|mindre enn}}",
+          "es": "El modo está activo en el conjunto de modos durante !{{al menos|menos de}}",
+          "da": "Tilstanden er aktiv i tilstandssættet i !{{mindst|mindre end}}",
+          "ru": "Режим активен в наборе режимов !{{как минимум|менее}}",
+          "pl": "Tryb jest aktywny w zestawie trybów przez !{{co najmniej|mniej niż}}",
+          "ko": "모드 세트에서 모드가 !{{최소|미만}} 활성 상태입니다",
+          "ar": "الوضع نشط في مجموعة الأوضاع لمدة !{{على الأقل|أقل من}}"
+        },
+        "titleFormatted": {
+          "en": "Mode [[mode]] in mode set [[set]] is active for !{{at least|less than}} [[duration]] [[unit]]",
+          "nl": "Stand [[mode]] in standenset [[set]] is actief voor !{{tenminste|minder dan}} [[duration]] [[unit]]",
+          "de": "Modus [[mode]] im Modus-Set [[set]] ist aktiv seit !{{mindestens|weniger als}} [[duration]] [[unit]]",
+          "fr": "Le mode [[mode]] dans l'ensemble de modes [[set]] est actif depuis !{{au moins|moins de}} [[duration]] [[unit]]",
+          "it": "La modalità [[mode]] nel set di modalità [[set]] è attiva da !{{almeno|meno di}} [[duration]] [[unit]]",
+          "sv": "Läge [[mode]] i lägesset [[set]] är aktivt i !{{minst|mindre än}} [[duration]] [[unit]]",
+          "no": "Modus [[mode]] i modussett [[set]] er aktiv i !{{minst|mindre enn}} [[duration]] [[unit]]",
+          "es": "El modo [[mode]] en el conjunto de modos [[set]] está activo durante !{{al menos|menos de}} [[duration]] [[unit]]",
+          "da": "Tilstand [[mode]] i tilstandssæt [[set]] er aktiv i !{{mindst|mindre end}} [[duration]] [[unit]]",
+          "ru": "Режим [[mode]] в наборе режимов [[set]] активен !{{как минимум|менее}} [[duration]] [[unit]]",
+          "pl": "Tryb [[mode]] w zestawie trybów [[set]] jest aktywny przez !{{co najmniej|mniej niż}} [[duration]] [[unit]]",
+          "ko": "모드 세트 [[set]]의 모드 [[mode]]가 !{{최소|미만}} [[duration]] [[unit]] 동안 활성 상태입니다",
+          "ar": "الوضع [[mode]] في مجموعة الأوضاع [[set]] نشط لمدة !{{على الأقل|أقل من}} [[duration]] [[unit]]"
+        },
+        "hint": {
+          "en": "Checks if a mode within a mode set has been active for at least the specified duration.",
+          "nl": "Controleert of een stand binnen een standenset minstens de opgegeven duur actief is geweest.",
+          "de": "Prüft, ob ein Modus innerhalb eines Modus-Sets mindestens die angegebene Dauer aktiv war.",
+          "fr": "Vérifie si un mode au sein d'un ensemble de modes a été actif pendant au moins la durée spécifiée.",
+          "it": "Verifica se una modalità all'interno di un set di modalità è stata attiva per almeno la durata specificata.",
+          "sv": "Kontrollerar om ett läge inom ett lägesset har varit aktivt i minst den angivna varaktigheten.",
+          "no": "Sjekker om en modus innenfor et modussett har vært aktiv i minst den angitte varigheten.",
+          "es": "Comprueba si un modo dentro de un conjunto de modos ha estado activo durante al menos la duración especificada.",
+          "da": "Kontrollerer om en tilstand inden for et tilstandssæt har været aktiv i mindst den angivne varighed.",
+          "ru": "Проверяет, был ли режим в наборе режимов активен как минимум в течение указанной продолжительности.",
+          "pl": "Sprawdza, czy tryb w zestawie trybów był aktywny przez co najmniej określony czas.",
+          "ko": "모드 세트 내의 모드가 지정된 기간 이상 활성 상태였는지 확인합니다.",
+          "ar": "يتحقق مما إذا كان الوضع داخل مجموعة أوضاع نشطاً لمدة على الأقل المدة المحددة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer",
+              "fr": "Durée",
+              "it": "Durata",
+              "sv": "Varaktighet",
+              "no": "Varighet",
+              "es": "Duración",
+              "da": "Varighed",
+              "ru": "Длительность",
+              "pl": "Czas trwania",
+              "ko": "지속 시간",
+              "ar": "المدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "P. ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "F.eks. 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "fr": "Unité",
+              "it": "Unità",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Unidad",
+              "da": "Enhed",
+              "ru": "Единица",
+              "pl": "Jednostka",
+              "ko": "단위",
+              "ar": "الوحدة"
+            },
+            "values": [
+              {
+                "id": "milliseconds",
+                "title": {
+                  "en": "milliseconds",
+                  "nl": "milliseconden",
+                  "de": "Millisekunden",
+                  "fr": "millisecondes",
+                  "it": "millisecondi",
+                  "sv": "millisekunder",
+                  "no": "millisekunder",
+                  "es": "milisegundos",
+                  "da": "millisekunder",
+                  "ru": "миллисекунды",
+                  "pl": "milisekundy",
+                  "ko": "밀리초",
+                  "ar": "ميلي ثانية"
+                }
+              },
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثوانٍ"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mode_set_is_inactive_for",
+        "title": {
+          "en": "Mode is inactive in mode set for !{{at least|less than}}",
+          "nl": "Stand is inactief in standenset voor !{{tenminste|minder dan}}",
+          "de": "Modus ist im Modus-Set inaktiv seit !{{mindestens|weniger als}}",
+          "fr": "Le mode est inactif dans l'ensemble de modes depuis !{{au moins|moins de}}",
+          "it": "La modalità è inattiva nel set di modalità da !{{almeno|meno di}}",
+          "sv": "Läget är inaktivt i lägesset i !{{minst|mindre än}}",
+          "no": "Modusen er inaktiv i modussettet i !{{minst|mindre enn}}",
+          "es": "El modo está inactivo en el conjunto de modos durante !{{al menos|menos de}}",
+          "da": "Tilstanden er inaktiv i tilstandssættet i !{{mindst|mindre end}}",
+          "ru": "Режим неактивен в наборе режимов !{{как минимум|менее}}",
+          "pl": "Tryb jest nieaktywny w zestawie trybów przez !{{co najmniej|mniej niż}}",
+          "ko": "모드 세트에서 모드가 !{{최소|미만}} 비활성 상태입니다",
+          "ar": "الوضع غير نشط في مجموعة الأوضاع لمدة !{{على الأقل|أقل من}}"
+        },
+        "titleFormatted": {
+          "en": "Mode [[mode]] in mode set [[set]] is inactive for !{{at least|less than}} [[duration]] [[unit]]",
+          "nl": "Stand [[mode]] in standenset [[set]] is inactief voor !{{tenminste|minder dan}} [[duration]] [[unit]]",
+          "de": "Modus [[mode]] im Modus-Set [[set]] ist inaktiv seit !{{mindestens|weniger als}} [[duration]] [[unit]]",
+          "fr": "Le mode [[mode]] dans l'ensemble de modes [[set]] est inactif depuis !{{au moins|moins de}} [[duration]] [[unit]]",
+          "it": "La modalità [[mode]] nel set di modalità [[set]] è inattiva da !{{almeno|meno di}} [[duration]] [[unit]]",
+          "sv": "Läge [[mode]] i lägesset [[set]] är inaktivt i !{{minst|mindre än}} [[duration]] [[unit]]",
+          "no": "Modus [[mode]] i modussett [[set]] er inaktiv i !{{minst|mindre enn}} [[duration]] [[unit]]",
+          "es": "El modo [[mode]] en el conjunto de modos [[set]] está inactivo durante !{{al menos|menos de}} [[duration]] [[unit]]",
+          "da": "Tilstand [[mode]] i tilstandssæt [[set]] er inaktiv i !{{mindst|mindre end}} [[duration]] [[unit]]",
+          "ru": "Режим [[mode]] в наборе режимов [[set]] неактивен !{{как минимум|менее}} [[duration]] [[unit]]",
+          "pl": "Tryb [[mode]] w zestawie trybów [[set]] jest nieaktywny przez !{{co najmniej|mniej niż}} [[duration]] [[unit]]",
+          "ko": "모드 세트 [[set]]의 모드 [[mode]]가 !{{최소|미만}} [[duration]] [[unit]] 동안 비활성 상태입니다",
+          "ar": "الوضع [[mode]] في مجموعة الأوضاع [[set]] غير نشط لمدة !{{على الأقل|أقل من}} [[duration]] [[unit]]"
+        },
+        "hint": {
+          "en": "Checks if a mode within a mode set has been inactive for at least the specified duration.",
+          "nl": "Controleert of een stand binnen een standenset minstens de opgegeven duur inactief is geweest.",
+          "de": "Prüft, ob ein Modus innerhalb eines Modus-Sets mindestens die angegebene Dauer inaktiv war.",
+          "fr": "Vérifie si un mode au sein d'un ensemble de modes a été inactif pendant au moins la durée spécifiée.",
+          "it": "Verifica se una modalità all'interno di un set di modalità è stata inattiva per almeno la durata specificata.",
+          "sv": "Kontrollerar om ett läge inom ett lägesset har varit inaktivt i minst den angivna varaktigheten.",
+          "no": "Sjekker om en modus innenfor et modussett har vært inaktiv i minst den angitte varigheten.",
+          "es": "Comprueba si un modo dentro de un conjunto de modos ha estado inactivo durante al menos la duración especificada.",
+          "da": "Kontrollerer om en tilstand inden for et tilstandssæt har været inaktiv i mindst den angivne varighed.",
+          "ru": "Проверяет, был ли режим в наборе режимов неактивен как минимум в течение указанной продолжительности.",
+          "pl": "Sprawdza, czy tryb w zestawie trybów był nieaktywny przez co najmniej określony czas.",
+          "ko": "모드 세트 내의 모드가 지정된 기간 이상 비활성 상태였는지 확인합니다.",
+          "ar": "يتحقق مما إذا كان الوضع داخل مجموعة أوضاع غير نشط لمدة على الأقل المدة المحددة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
             "title": {
               "en": "Mode",
               "nl": "Stand",
@@ -8940,6 +9950,662 @@
           "ko": "현재 활성화된 모드에 대한 모든 '모드가 활성화되었습니다' 카드를 다시 트리거합니다.",
           "ar": "يعيد تفعيل جميع البطاقات \"تم تفعيل النمط\" للنمط الحالي."
         }
+      },
+      {
+        "id": "mode_set_activate",
+        "title": {
+          "en": "Activate mode in mode set",
+          "nl": "Activeer stand in standenset",
+          "de": "Modus im Modus-Set aktivieren",
+          "fr": "Activer un mode dans l'ensemble de modes",
+          "it": "Attiva modalità nel set di modalità",
+          "sv": "Aktivera läge i lägesset",
+          "no": "Aktiver modus i modussett",
+          "es": "Activar modo en conjunto de modos",
+          "da": "Aktivér tilstand i tilstandssæt",
+          "ru": "Активировать режим в наборе режимов",
+          "pl": "Aktywuj tryb w zestawie trybów",
+          "ko": "모드 세트에서 모드 활성화",
+          "ar": "تفعيل وضع في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "Activate [[mode]] in mode set [[set]]",
+          "nl": "Activeer [[mode]] in standenset [[set]]",
+          "de": "Aktiviere [[mode]] im Modus-Set [[set]]",
+          "fr": "Activer [[mode]] dans l'ensemble de modes [[set]]",
+          "it": "Attiva [[mode]] nel set di modalità [[set]]",
+          "sv": "Aktivera [[mode]] i lägesset [[set]]",
+          "no": "Aktiver [[mode]] i modussett [[set]]",
+          "es": "Activar [[mode]] en el conjunto de modos [[set]]",
+          "da": "Aktivér [[mode]] i tilstandssæt [[set]]",
+          "ru": "Активировать [[mode]] в наборе режимов [[set]]",
+          "pl": "Aktywuj [[mode]] w zestawie trybów [[set]]",
+          "ko": "모드 세트 [[set]]에서 [[mode]] 활성화",
+          "ar": "تفعيل [[mode]] في مجموعة الأوضاع [[set]]"
+        },
+        "hint": {
+          "en": "Activates a mode within a mode set and deactivates all other modes in that set.",
+          "nl": "Activeert een stand binnen een standenset en deactiveert alle andere standen in die set.",
+          "de": "Aktiviert einen Modus innerhalb eines Modus-Sets und deaktiviert alle anderen Modi in diesem Set.",
+          "fr": "Active un mode au sein d'un ensemble de modes et désactive tous les autres modes de cet ensemble.",
+          "it": "Attiva una modalità all'interno di un set di modalità e disattiva tutte le altre modalità in quel set.",
+          "sv": "Aktiverar ett läge inom ett lägesset och inaktiverar alla andra lägen i det setet.",
+          "no": "Aktiverer en modus innenfor et modussett og deaktiverer alle andre modi i settet.",
+          "es": "Activa un modo dentro de un conjunto de modos y desactiva todos los demás modos de ese conjunto.",
+          "da": "Aktiverer en tilstand inden for et tilstandssæt og deaktiverer alle andre tilstande i det sæt.",
+          "ru": "Активирует режим в наборе режимов и деактивирует все остальные режимы в этом наборе.",
+          "pl": "Aktywuje tryb w zestawie trybów i dezaktywuje wszystkie inne tryby w tym zestawie.",
+          "ko": "모드 세트 내에서 모드를 활성화하고 해당 세트의 다른 모든 모드를 비활성화합니다.",
+          "ar": "يقوم بتفعيل وضع داخل مجموعة أوضاع وإلغاء تفعيل كل الأوضاع الأخرى في تلك المجموعة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_activate_for",
+        "title": {
+          "en": "Activate mode in mode set for",
+          "nl": "Activeer stand in standenset voor",
+          "de": "Modus im Modus-Set aktivieren für",
+          "fr": "Activer un mode dans l'ensemble de modes pour",
+          "it": "Attiva modalità nel set di modalità per",
+          "sv": "Aktivera läge i lägesset i",
+          "no": "Aktiver modus i modussett for",
+          "es": "Activar modo en conjunto de modos durante",
+          "da": "Aktivér tilstand i tilstandssæt i",
+          "ru": "Активировать режим в наборе режимов на",
+          "pl": "Aktywuj tryb w zestawie trybów na",
+          "ko": "모드 세트에서 모드를 다음 시간만큼 활성화",
+          "ar": "تفعيل وضع في مجموعة الأوضاع لمدة"
+        },
+        "titleFormatted": {
+          "en": "Activate [[mode]] in mode set [[set]] for [[duration]] [[unit]]",
+          "nl": "Activeer [[mode]] in standenset [[set]] voor [[duration]] [[unit]]",
+          "de": "Aktiviere [[mode]] im Modus-Set [[set]] für [[duration]] [[unit]]",
+          "fr": "Activer [[mode]] dans l'ensemble de modes [[set]] pour [[duration]] [[unit]]",
+          "it": "Attiva [[mode]] nel set di modalità [[set]] per [[duration]] [[unit]]",
+          "sv": "Aktivera [[mode]] i lägesset [[set]] i [[duration]] [[unit]]",
+          "no": "Aktiver [[mode]] i modussett [[set]] for [[duration]] [[unit]]",
+          "es": "Activar [[mode]] en el conjunto de modos [[set]] durante [[duration]] [[unit]]",
+          "da": "Aktivér [[mode]] i tilstandssæt [[set]] i [[duration]] [[unit]]",
+          "ru": "Активировать [[mode]] в наборе режимов [[set]] на [[duration]] [[unit]]",
+          "pl": "Aktywuj [[mode]] w zestawie trybów [[set]] na [[duration]] [[unit]]",
+          "ko": "모드 세트 [[set]]에서 [[mode]]를 [[duration]] [[unit]] 동안 활성화",
+          "ar": "تفعيل [[mode]] في مجموعة الأوضاع [[set]] لمدة [[duration]] [[unit]]"
+        },
+        "hint": {
+          "en": "Activates a mode within a mode set for a specified duration, then automatically deactivates it. Deactivates all other modes in that set.",
+          "nl": "Activeert een stand binnen een standenset voor een opgegeven duur en deactiveert deze daarna automatisch. Deactiveert alle andere standen in die set.",
+          "de": "Aktiviert einen Modus innerhalb eines Modus-Sets für eine festgelegte Dauer und deaktiviert ihn danach automatisch. Deaktiviert alle anderen Modi in diesem Set.",
+          "fr": "Active un mode au sein d'un ensemble de modes pendant une durée déterminée, puis le désactive automatiquement. Désactive tous les autres modes de cet ensemble.",
+          "it": "Attiva una modalità all'interno di un set di modalità per una durata specificata, poi la disattiva automaticamente. Disattiva tutte le altre modalità in quel set.",
+          "sv": "Aktiverar ett läge inom ett lägesset under en angiven tid och inaktiverar det sedan automatiskt. Inaktiverar alla andra lägen i det setet.",
+          "no": "Aktiverer en modus innenfor et modussett i en angitt varighet, og deaktiverer den deretter automatisk. Deaktiverer alle andre modi i settet.",
+          "es": "Activa un modo dentro de un conjunto de modos durante una duración especificada y después lo desactiva automáticamente. Desactiva todos los demás modos de ese conjunto.",
+          "da": "Aktiverer en tilstand inden for et tilstandssæt i en angivet varighed og deaktiverer den derefter automatisk. Deaktiverer alle andre tilstande i det sæt.",
+          "ru": "Активирует режим в наборе режимов на указанное время, а затем автоматически деактивирует его. Деактивирует все остальные режимы в этом наборе.",
+          "pl": "Aktywuje tryb w zestawie trybów na określony czas, a następnie automatycznie go dezaktywuje. Dezaktywuje wszystkie inne tryby w tym zestawie.",
+          "ko": "지정된 기간 동안 모드 세트 내에서 모드를 활성화한 후 자동으로 비활성화합니다. 해당 세트의 다른 모든 모드를 비활성화합니다.",
+          "ar": "يقوم بتفعيل وضع داخل مجموعة أوضاع لمدة محددة، ثم يلغي تفعيله تلقائيًا. يلغي تفعيل كل الأوضاع الأخرى في تلك المجموعة."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 1,
+            "step": 1,
+            "title": {
+              "en": "Duration",
+              "nl": "Looptijd",
+              "de": "Dauer",
+              "fr": "Durée",
+              "it": "Durata",
+              "sv": "Varaktighet",
+              "no": "Varighet",
+              "es": "Duración",
+              "da": "Varighed",
+              "ru": "Длительность",
+              "pl": "Czas trwania",
+              "ko": "지속 시간",
+              "ar": "المدة"
+            },
+            "placeholder": {
+              "en": "E.g. 10",
+              "nl": "Bijv. 10",
+              "de": "Z. B. 10",
+              "fr": "P. ex. 10",
+              "it": "Es. 10",
+              "sv": "T.ex. 10",
+              "no": "F.eks. 10",
+              "es": "P. ej. 10",
+              "da": "F.eks. 10",
+              "ru": "Напр. 10",
+              "pl": "Np. 10",
+              "ko": "예: 10",
+              "ar": "مثال: 10"
+            }
+          },
+          {
+            "type": "dropdown",
+            "name": "unit",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "fr": "Unité",
+              "it": "Unità",
+              "sv": "Enhet",
+              "no": "Enhet",
+              "es": "Unidad",
+              "da": "Enhed",
+              "ru": "Единица",
+              "pl": "Jednostka",
+              "ko": "단위",
+              "ar": "الوحدة"
+            },
+            "values": [
+              {
+                "id": "milliseconds",
+                "title": {
+                  "en": "milliseconds",
+                  "nl": "milliseconden",
+                  "de": "Millisekunden",
+                  "fr": "millisecondes",
+                  "it": "millisecondi",
+                  "sv": "millisekunder",
+                  "no": "millisekunder",
+                  "es": "milisegundos",
+                  "da": "millisekunder",
+                  "ru": "миллисекунды",
+                  "pl": "milisekundy",
+                  "ko": "밀리초",
+                  "ar": "ميلي ثانية"
+                }
+              },
+              {
+                "id": "seconds",
+                "title": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "sv": "sekunder",
+                  "no": "sekunder",
+                  "es": "segundos",
+                  "da": "sekunder",
+                  "ru": "секунды",
+                  "pl": "sekundy",
+                  "ko": "초",
+                  "ar": "ثوانٍ"
+                }
+              },
+              {
+                "id": "minutes",
+                "title": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "sv": "minuter",
+                  "no": "minutter",
+                  "es": "minutos",
+                  "da": "minutter",
+                  "ru": "минуты",
+                  "pl": "minuty",
+                  "ko": "분",
+                  "ar": "دقائق"
+                }
+              },
+              {
+                "id": "hours",
+                "title": {
+                  "en": "hours",
+                  "nl": "uren",
+                  "de": "Stunden",
+                  "fr": "heures",
+                  "it": "ore",
+                  "sv": "timmar",
+                  "no": "timer",
+                  "es": "horas",
+                  "da": "timer",
+                  "ru": "часы",
+                  "pl": "godziny",
+                  "ko": "시간",
+                  "ar": "ساعات"
+                }
+              },
+              {
+                "id": "days",
+                "title": {
+                  "en": "days",
+                  "nl": "dagen",
+                  "de": "Tage",
+                  "fr": "jours",
+                  "it": "giorni",
+                  "sv": "dagar",
+                  "no": "dager",
+                  "es": "días",
+                  "da": "dage",
+                  "ru": "дни",
+                  "pl": "dni",
+                  "ko": "일",
+                  "ar": "أيام"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mode_set_deactivate",
+        "title": {
+          "en": "Deactivate mode in mode set",
+          "nl": "Deactiveer stand in standenset",
+          "de": "Modus im Modus-Set deaktivieren",
+          "fr": "Désactiver un mode dans l'ensemble de modes",
+          "it": "Disattiva modalità nel set di modalità",
+          "sv": "Inaktivera läge i lägesset",
+          "no": "Deaktiver modus i modussett",
+          "es": "Desactivar modo en conjunto de modos",
+          "da": "Deaktivér tilstand i tilstandssæt",
+          "ru": "Деактивировать режим в наборе режимов",
+          "pl": "Dezaktywuj tryb w zestawie trybów",
+          "ko": "모드 세트에서 모드 비활성화",
+          "ar": "إلغاء تفعيل وضع في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "Deactivate [[mode]] in mode set [[set]]",
+          "nl": "Deactiveer [[mode]] in standenset [[set]]",
+          "de": "Deaktiviere [[mode]] im Modus-Set [[set]]",
+          "fr": "Désactiver [[mode]] dans l'ensemble de modes [[set]]",
+          "it": "Disattiva [[mode]] nel set di modalità [[set]]",
+          "sv": "Inaktivera [[mode]] i lägesset [[set]]",
+          "no": "Deaktiver [[mode]] i modussett [[set]]",
+          "es": "Desactivar [[mode]] en el conjunto de modos [[set]]",
+          "da": "Deaktivér [[mode]] i tilstandssæt [[set]]",
+          "ru": "Деактивировать [[mode]] в наборе режимов [[set]]",
+          "pl": "Dezaktywuj [[mode]] w zestawie trybów [[set]]",
+          "ko": "모드 세트 [[set]]에서 [[mode]] 비활성화",
+          "ar": "إلغاء تفعيل [[mode]] في مجموعة الأوضاع [[set]]"
+        },
+        "hint": {
+          "en": "Deactivates a mode within a mode set, but only if it's currently active.",
+          "nl": "Deactiveert een stand binnen een standenset, maar alleen als deze momenteel actief is.",
+          "de": "Deaktiviert einen Modus innerhalb eines Modus-Sets, aber nur, wenn er derzeit aktiv ist.",
+          "fr": "Désactive un mode au sein d'un ensemble de modes, mais seulement s'il est actuellement actif.",
+          "it": "Disattiva una modalità all'interno di un set di modalità, ma solo se è attualmente attiva.",
+          "sv": "Inaktiverar ett läge inom ett lägesset, men endast om det för närvarande är aktivt.",
+          "no": "Deaktiverer en modus innenfor et modussett, men bare hvis den for øyeblikket er aktiv.",
+          "es": "Desactiva un modo dentro de un conjunto de modos, pero solo si está actualmente activo.",
+          "da": "Deaktiverer en tilstand inden for et tilstandssæt, men kun hvis den aktuelt er aktiv.",
+          "ru": "Деактивирует режим в наборе режимов, но только если он в данный момент активен.",
+          "pl": "Dezaktywuje tryb w zestawie trybów, ale tylko jeśli jest aktualnie aktywny.",
+          "ko": "모드 세트 내에서 모드를 비활성화하지만, 현재 활성화된 경우에만 적용됩니다.",
+          "ar": "يقوم بإلغاء تفعيل وضع داخل مجموعة أوضاع، ولكن فقط إذا كان نشطًا حاليًا."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_reactivate",
+        "title": {
+          "en": "Reactivate mode in mode set",
+          "nl": "Heractiveer stand in standenset",
+          "de": "Modus im Modus-Set reaktivieren",
+          "fr": "Réactiver un mode dans l'ensemble de modes",
+          "it": "Riattiva modalità nel set di modalità",
+          "sv": "Återaktivera läge i lägesset",
+          "no": "Reaktiver modus i modussett",
+          "es": "Reactivar modo en conjunto de modos",
+          "da": "Genaktivér tilstand i tilstandssæt",
+          "ru": "Повторно активировать режим в наборе режимов",
+          "pl": "Ponownie aktywuj tryb w zestawie trybów",
+          "ko": "모드 세트에서 모드 재활성화",
+          "ar": "إعادة تفعيل وضع في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "Reactivate [[mode]] in mode set [[set]]",
+          "nl": "Heractiveer [[mode]] in standenset [[set]]",
+          "de": "Reaktiviere [[mode]] im Modus-Set [[set]]",
+          "fr": "Réactiver [[mode]] dans l'ensemble de modes [[set]]",
+          "it": "Riattiva [[mode]] nel set di modalità [[set]]",
+          "sv": "Återaktivera [[mode]] i lägesset [[set]]",
+          "no": "Reaktiver [[mode]] i modussett [[set]]",
+          "es": "Reactivar [[mode]] en el conjunto de modos [[set]]",
+          "da": "Genaktivér [[mode]] i tilstandssæt [[set]]",
+          "ru": "Повторно активировать [[mode]] в наборе режимов [[set]]",
+          "pl": "Ponownie aktywuj [[mode]] w zestawie trybów [[set]]",
+          "ko": "모드 세트 [[set]]에서 [[mode]] 재활성화",
+          "ar": "إعادة تفعيل [[mode]] في مجموعة الأوضاع [[set]]"
+        },
+        "hint": {
+          "en": "Reactivates a mode within a mode set, even if it's already active. This will trigger any flows that have the mode activated trigger.",
+          "nl": "Heractiveert een stand binnen een standenset, ook als deze al actief is. Dit triggert flows met de trigger 'stand geactiveerd'.",
+          "de": "Reaktiviert einen Modus innerhalb eines Modus-Sets, auch wenn er bereits aktiv ist. Dies löst Flows mit dem Trigger 'Modus aktiviert' aus.",
+          "fr": "Réactive un mode au sein d'un ensemble de modes, même s'il est déjà actif. Cela déclenchera les flux disposant du déclencheur mode activé.",
+          "it": "Riattiva una modalità all'interno di un set di modalità, anche se è già attiva. Questo attiverà i flussi con il trigger di modalità attivata.",
+          "sv": "Återaktiverar ett läge inom ett lägesset, även om det redan är aktivt. Detta utlöser flöden som har utlösaren för läge aktiverat.",
+          "no": "Reaktiverer en modus innenfor et modussett, selv om den allerede er aktiv. Dette utløser flyter som har utløseren for modus aktivert.",
+          "es": "Reactiva un modo dentro de un conjunto de modos, incluso si ya está activo. Esto activará los flujos que tengan el disparador de modo activado.",
+          "da": "Genaktiverer en tilstand inden for et tilstandssæt, selv hvis den allerede er aktiv. Dette udløser flows med udløseren for tilstand aktiveret.",
+          "ru": "Повторно активирует режим в наборе режимов, даже если он уже активен. Это запустит потоки с триггером активации режима.",
+          "pl": "Ponownie aktywuje tryb w zestawie trybów, nawet jeśli jest już aktywny. Spowoduje to wywołanie przepływów z wyzwalaczem aktywacji trybu.",
+          "ko": "이미 활성화되어 있어도 모드 세트 내에서 모드를 재활성화합니다. 모드 활성화 트리거가 있는 플로우가 실행됩니다.",
+          "ar": "يقوم بإعادة تفعيل وضع داخل مجموعة أوضاع، حتى إذا كان نشطًا بالفعل. سيؤدي هذا إلى تشغيل التدفقات التي تحتوي على محفز تفعيل الوضع."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_reactivate_current",
+        "title": {
+          "en": "Reactivate current mode in mode set",
+          "nl": "Heractiveer huidige stand in standenset",
+          "de": "Aktuellen Modus im Modus-Set reaktivieren",
+          "fr": "Réactiver le mode actuel dans l'ensemble de modes",
+          "it": "Riattiva la modalità attuale nel set di modalità",
+          "sv": "Återaktivera aktuellt läge i lägesset",
+          "no": "Reaktiver nåværende modus i modussett",
+          "es": "Reactivar el modo actual en el conjunto de modos",
+          "da": "Genaktivér nuværende tilstand i tilstandssæt",
+          "ru": "Повторно активировать текущий режим в наборе режимов",
+          "pl": "Ponownie aktywuj aktualny tryb w zestawie trybów",
+          "ko": "모드 세트에서 현재 모드 재활성화",
+          "ar": "إعادة تفعيل الوضع الحالي في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "Reactivate current mode in mode set [[set]]",
+          "nl": "Heractiveer huidige stand in standenset [[set]]",
+          "de": "Aktuellen Modus im Modus-Set [[set]] reaktivieren",
+          "fr": "Réactiver le mode actuel dans l'ensemble de modes [[set]]",
+          "it": "Riattiva la modalità attuale nel set di modalità [[set]]",
+          "sv": "Återaktivera aktuellt läge i lägesset [[set]]",
+          "no": "Reaktiver nåværende modus i modussett [[set]]",
+          "es": "Reactivar el modo actual en el conjunto de modos [[set]]",
+          "da": "Genaktivér nuværende tilstand i tilstandssæt [[set]]",
+          "ru": "Повторно активировать текущий режим в наборе режимов [[set]]",
+          "pl": "Ponownie aktywuj aktualny tryb w zestawie trybów [[set]]",
+          "ko": "모드 세트 [[set]]에서 현재 모드 재활성화",
+          "ar": "إعادة تفعيل الوضع الحالي في مجموعة الأوضاع [[set]]"
+        },
+        "hint": {
+          "en": "Reactivates the currently active mode in a mode set. This will trigger any flows that have the mode activated trigger for the current mode.",
+          "nl": "Heractiveert de momenteel actieve stand in een standenset. Dit triggert flows met de trigger 'stand geactiveerd' voor de huidige stand.",
+          "de": "Reaktiviert den derzeit aktiven Modus in einem Modus-Set. Dies löst Flows mit dem Trigger 'Modus aktiviert' für den aktuellen Modus aus.",
+          "fr": "Réactive le mode actuellement actif dans un ensemble de modes. Cela déclenchera les flux disposant du déclencheur mode activé pour le mode actuel.",
+          "it": "Riattiva la modalità attualmente attiva in un set di modalità. Questo attiverà i flussi con il trigger di modalità attivata per la modalità attuale.",
+          "sv": "Återaktiverar det för närvarande aktiva läget i ett lägesset. Detta utlöser flöden som har utlösaren för läge aktiverat för det aktuella läget.",
+          "no": "Reaktiverer den for øyeblikket aktive modusen i et modussett. Dette utløser flyter som har utløseren for modus aktivert for den nåværende modusen.",
+          "es": "Reactiva el modo actualmente activo en un conjunto de modos. Esto activará los flujos que tengan el disparador de modo activado para el modo actual.",
+          "da": "Genaktiverer den aktuelt aktive tilstand i et tilstandssæt. Dette udløser flows med udløseren for tilstand aktiveret for den nuværende tilstand.",
+          "ru": "Повторно активирует текущий активный режим в наборе режимов. Это запустит потоки с триггером активации режима для текущего режима.",
+          "pl": "Ponownie aktywuje aktualnie aktywny tryb w zestawie trybów. Spowoduje to wywołanie przepływów z wyzwalaczem aktywacji trybu dla aktualnego trybu.",
+          "ko": "모드 세트에서 현재 활성화된 모드를 재활성화합니다. 현재 모드에 대한 모드 활성화 트리거가 있는 플로우가 실행됩니다.",
+          "ar": "يقوم بإعادة تفعيل الوضع النشط حاليًا في مجموعة أوضاع. سيؤدي هذا إلى تشغيل التدفقات التي تحتوي على محفز تفعيل الوضع للوضع الحالي."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          }
+        ]
+      },
+      {
+        "id": "mode_set_toggle",
+        "title": {
+          "en": "Toggle mode in mode set",
+          "nl": "Schakel stand in standenset om",
+          "de": "Modus im Modus-Set umschalten",
+          "fr": "Basculer un mode dans l'ensemble de modes",
+          "it": "Commuta modalità nel set di modalità",
+          "sv": "Växla läge i lägesset",
+          "no": "Veksle modus i modussett",
+          "es": "Alternar modo en conjunto de modos",
+          "da": "Skift tilstand i tilstandssæt",
+          "ru": "Переключить режим в наборе режимов",
+          "pl": "Przełącz tryb w zestawie trybów",
+          "ko": "모드 세트에서 모드 전환",
+          "ar": "تبديل وضع في مجموعة الأوضاع"
+        },
+        "titleFormatted": {
+          "en": "Toggle [[mode]] in mode set [[set]]",
+          "nl": "Schakel [[mode]] in standenset [[set]] om",
+          "de": "Schalte [[mode]] im Modus-Set [[set]] um",
+          "fr": "Basculer [[mode]] dans l'ensemble de modes [[set]]",
+          "it": "Commuta [[mode]] nel set di modalità [[set]]",
+          "sv": "Växla [[mode]] i lägesset [[set]]",
+          "no": "Veksle [[mode]] i modussett [[set]]",
+          "es": "Alternar [[mode]] en el conjunto de modos [[set]]",
+          "da": "Skift [[mode]] i tilstandssæt [[set]]",
+          "ru": "Переключить [[mode]] в наборе режимов [[set]]",
+          "pl": "Przełącz [[mode]] w zestawie trybów [[set]]",
+          "ko": "모드 세트 [[set]]에서 [[mode]] 전환",
+          "ar": "تبديل [[mode]] في مجموعة الأوضاع [[set]]"
+        },
+        "hint": {
+          "en": "Toggles a mode within a mode set, regardless of its current state.",
+          "nl": "Schakelt een stand binnen een standenset om, ongeacht de huidige status.",
+          "de": "Schaltet einen Modus innerhalb eines Modus-Sets um, unabhängig vom aktuellen Zustand.",
+          "fr": "Bascule un mode au sein d'un ensemble de modes, quel que soit son état actuel.",
+          "it": "Commuta una modalità all'interno di un set di modalità, indipendentemente dal suo stato attuale.",
+          "sv": "Växlar ett läge inom ett lägesset, oavsett dess aktuella tillstånd.",
+          "no": "Veksler en modus innenfor et modussett, uavhengig av dens nåværende tilstand.",
+          "es": "Alterna un modo dentro de un conjunto de modos, independientemente de su estado actual.",
+          "da": "Skifter en tilstand inden for et tilstandssæt, uanset dens aktuelle status.",
+          "ru": "Переключает режим в наборе режимов независимо от его текущего состояния.",
+          "pl": "Przełącza tryb w zestawie trybów, niezależnie od jego aktualnego stanu.",
+          "ko": "현재 상태와 관계없이 모드 세트 내에서 모드를 전환합니다.",
+          "ar": "يقوم بتبديل وضع داخل مجموعة أوضاع، بغض النظر عن حالته الحالية."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+              "en": "Mode set",
+              "nl": "Standenset",
+              "de": "Modus-Set",
+              "fr": "Ensemble de modes",
+              "it": "Set di modalità",
+              "sv": "Lägesset",
+              "no": "Modussett",
+              "es": "Conjunto de modos",
+              "da": "Tilstandssæt",
+              "ru": "Набор режимов",
+              "pl": "Zestaw trybów",
+              "ko": "모드 세트",
+              "ar": "مجموعة الأوضاع"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+              "en": "Mode",
+              "nl": "Stand",
+              "de": "Modus",
+              "fr": "Mode",
+              "it": "Modalità",
+              "sv": "Läge",
+              "no": "Modus",
+              "es": "Modo",
+              "da": "Tilstand",
+              "ru": "Режим",
+              "pl": "Tryb",
+              "ko": "모드",
+              "ar": "وضع"
+            }
+          }
+        ]
       },
       {
         "id": "mode_toggle",
@@ -14296,6 +15962,200 @@
         }
       },
       "id": "mode_current"
+    },
+    "mode_set_current": {
+      "name": {
+        "en": "Mode set current mode",
+        "nl": "Standenset huidige stand",
+        "de": "Modus-Set aktueller Modus",
+        "fr": "Mode actuel de l'ensemble de modes",
+        "it": "Modalità attuale del set di modalità",
+        "sv": "Lägessetets aktuella läge",
+        "no": "Modussettets nåværende modus",
+        "es": "Modo actual del conjunto de modos",
+        "da": "Tilstandssættets nuværende tilstand",
+        "ru": "Текущий режим набора режимов",
+        "pl": "Aktualny tryb zestawu trybów",
+        "ko": "모드 세트의 현재 모드",
+        "ar": "الوضع الحالي لمجموعة الأوضاع"
+      },
+      "height": 120,
+      "settings": [
+        {
+          "id": "set",
+          "type": "autocomplete",
+          "title": {
+            "en": "Mode set",
+            "nl": "Standenset",
+            "de": "Modus-Set",
+            "fr": "Ensemble de modes",
+            "it": "Set di modalità",
+            "sv": "Lägesset",
+            "no": "Modussett",
+            "es": "Conjunto de modos",
+            "da": "Tilstandssæt",
+            "ru": "Набор режимов",
+            "pl": "Zestaw trybów",
+            "ko": "모드 세트",
+            "ar": "مجموعة الأوضاع"
+          }
+        }
+      ],
+      "api": {
+        "get": {
+          "method": "GET",
+          "path": "/"
+        }
+      },
+      "id": "mode_set_current"
+    },
+    "mode_sets": {
+      "name": {
+        "en": "Mode set",
+        "nl": "Standenset",
+        "de": "Modus-Set",
+        "fr": "Ensemble de modes",
+        "it": "Set di modalità",
+        "sv": "Lägesset",
+        "no": "Modussett",
+        "es": "Conjunto de modos",
+        "da": "Tilstandssæt",
+        "ru": "Набор режимов",
+        "pl": "Zestaw trybów",
+        "ko": "모드 세트",
+        "ar": "مجموعة الأوضاع"
+      },
+      "height": 120,
+      "settings": [
+        {
+          "id": "set",
+          "type": "autocomplete",
+          "title": {
+            "en": "Mode set",
+            "nl": "Standenset",
+            "de": "Modus-Set",
+            "fr": "Ensemble de modes",
+            "it": "Set di modalità",
+            "sv": "Lägesset",
+            "no": "Modussett",
+            "es": "Conjunto de modos",
+            "da": "Tilstandssæt",
+            "ru": "Набор режимов",
+            "pl": "Zestaw trybów",
+            "ko": "모드 세트",
+            "ar": "مجموعة الأوضاع"
+          }
+        },
+        {
+          "id": "readonly",
+          "type": "checkbox",
+          "value": false,
+          "title": {
+            "en": "Read only",
+            "nl": "Alleen-lezen",
+            "da": "Kun læsning",
+            "de": "Nur lesen",
+            "es": "Solo lectura",
+            "fr": "Lecture seule",
+            "it": "Solo lettura",
+            "no": "Kun lesing",
+            "sv": "Endast läsning",
+            "pl": "Tylko do odczytu",
+            "ru": "Только чтение",
+            "ko": "읽기 전용",
+            "ar": "قراءة فقط"
+          }
+        },
+        {
+          "id": "show_icons",
+          "type": "checkbox",
+          "value": true,
+          "title": {
+            "en": "Show icons",
+            "nl": "Toon icoontjes",
+            "de": "Symbole anzeigen",
+            "fr": "Afficher les icônes",
+            "it": "Mostra icone",
+            "sv": "Visa ikoner",
+            "no": "Vis ikoner",
+            "es": "Mostrar iconos",
+            "da": "Vis ikoner",
+            "ru": "Показать иконки",
+            "pl": "Pokaż ikony",
+            "ko": "아이콘 표시",
+            "ar": "إظهار الأيقونات"
+          }
+        },
+        {
+          "id": "view_mode",
+          "type": "dropdown",
+          "title": {
+            "en": "View mode",
+            "nl": "Weergavemodus",
+            "de": "Ansichtsmodus",
+            "fr": "Mode d’affichage",
+            "it": "Modalità di visualizzazione",
+            "sv": "Visningsläge",
+            "no": "Visningsmodus",
+            "es": "Modo de vista",
+            "da": "Visningstilstand",
+            "ru": "Режим просмотра",
+            "pl": "Tryb widoku",
+            "ko": "보기 모드",
+            "ar": "وضع العرض"
+          },
+          "value": "grid",
+          "values": [
+            {
+              "id": "grid",
+              "title": {
+                "en": "Grid",
+                "nl": "Grid",
+                "de": "Raster",
+                "fr": "Grille",
+                "it": "Griglia",
+                "sv": "Rutnät",
+                "no": "Rutenett",
+                "es": "Cuadrícula",
+                "da": "Gitter",
+                "ru": "Сетка",
+                "pl": "Siatka",
+                "ko": "그리드",
+                "ar": "شبكة"
+              }
+            },
+            {
+              "id": "list",
+              "title": {
+                "en": "List",
+                "nl": "Lijst",
+                "de": "Liste",
+                "fr": "Liste",
+                "it": "Elenco",
+                "sv": "Lista",
+                "no": "Liste",
+                "es": "Lista",
+                "da": "Liste",
+                "ru": "Список",
+                "pl": "Lista",
+                "ko": "목록",
+                "ar": "قائمة"
+              }
+            }
+          ]
+        }
+      ],
+      "api": {
+        "get": {
+          "method": "GET",
+          "path": "/"
+        },
+        "toggle": {
+          "method": "POST",
+          "path": "/"
+        }
+      },
+      "id": "mode_sets"
     },
     "modes": {
       "name": {

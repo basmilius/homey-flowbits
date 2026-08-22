@@ -1,6 +1,12 @@
 import { Shortcuts } from '@basmilius/homey-common';
 import type { BitSet, Cycle, Event, Flag, FlowBitsApp, Label, Mode, NoRepeatWindow, Slider, Statistics, Timer } from '../types';
 
+type ModeSetLookItem = {
+    readonly name: string;
+    readonly color: string | undefined;
+    readonly icon: string | undefined;
+};
+
 export default class extends Shortcuts<FlowBitsApp> {
     async getCycles(): Promise<Cycle[]> {
         return await this.app.cycles.findAll();
@@ -154,6 +160,34 @@ export default class extends Shortcuts<FlowBitsApp> {
         return true;
     }
 
+    async getModeSets(): Promise<ModeSetLookItem[]> {
+        const sets = await this.app.modeSets.findAll();
+
+        return sets.flatMap(set => set.modes.map(mode => ({
+            name: `${set.name}: ${mode.name}`,
+            color: mode.color,
+            icon: mode.icon
+        })));
+    }
+
+    async setModeSetLook(name: string, color: string, icon: string): Promise<boolean> {
+        const sets = await this.app.modeSets.findAll();
+
+        for (const set of sets) {
+            const mode = set.modes.find(mode => `${set.name}: ${mode.name}` === name);
+
+            if (!mode) {
+                continue;
+            }
+
+            await this.app.modeSets.setLook(set.name, mode.name, [color, icon]);
+
+            return true;
+        }
+
+        return false;
+    }
+
     async getNoRepeatWindows(): Promise<NoRepeatWindow[]> {
         return await this.app.noRepeat.findAll();
     }
@@ -207,6 +241,7 @@ export default class extends Shortcuts<FlowBitsApp> {
             numberOfFlags: await this.app.flags.count(),
             numberOfLabels: await this.app.labels.count(),
             numberOfModes: await this.app.modes.count(),
+            numberOfModeSets: await this.app.modeSets.count(),
             numberOfNoRepeats: await this.app.noRepeat.count(),
             numberOfSets: await this.app.sets.count(),
             numberOfSliders: await this.app.sliders.count(),

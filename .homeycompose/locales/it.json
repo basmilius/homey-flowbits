@@ -5,6 +5,8 @@
         "flag_new": "Nuovo flag in questo flusso",
         "label_new": "Nuova etichetta in questo flusso",
         "mode_new": "Nuova modalità in questo flusso",
+        "mode_set_mode_new": "Nuova modalità in questo set di modalità, sarà nota dopo il salvataggio del flusso",
+        "mode_set_new": "Nuovo set di modalità in questo flusso",
         "no_repeat_new": "Nuova finestra senza ripetizione in questo flusso",
         "set_new": "Nuovo set in questo flusso",
         "set_state_new": "Nuovo stato set in questo flusso, sarà noto dopo il salvataggio del flusso",
@@ -15,6 +17,8 @@
     "notification": {
         "mode_activated": "**__name__** è attivato.",
         "mode_deactivated": "**__name__** è disattivato.",
+        "mode_set_activated": "**__name__** è attivato in **__set__**.",
+        "mode_set_deactivated": "**__name__** è disattivato in **__set__**.",
         "welcome": "Benvenuto su **FlowBits**! Visita flowbits.nl per saperne di più su cosa puoi fare con FlowBits."
     },
     "token": {
@@ -57,6 +61,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "Modalità attuale"
+        },
+        "mode_set_current": {
             "label": "Modalità attuale"
         },
         "event": {
@@ -112,6 +119,11 @@
             "description": "Solo una modalità può essere attiva alla volta. Crea e gestisci le modalità tramite azioni, condizioni e trigger nei tuoi flow.",
             "empty": "Nessuna modalità è stata ancora creata."
         },
+        "mode_sets": {
+            "title": "Set di modalità",
+            "description": "I set di modalità raggruppano le modalità in modo che solo una modalità per set possa essere attiva alla volta. Crea e gestisci i set di modalità tramite azioni, condizioni e trigger dei set di modalità nei tuoi flow.",
+            "empty": "Nessun set di modalità è stato ancora creato."
+        },
         "sets": {
             "title": "Sets",
             "description": "I sets sono collezioni di stati booleani che possono essere valutati come gruppo. Un set è attivo quando uno dei suoi stati è attivo. Usa azioni, condizioni e trigger dei set nei tuoi flow per gestire gli stati raggruppati.",
@@ -130,6 +142,7 @@
             "flags": "Flag",
             "labels": "Etichette",
             "modes": "Modalità",
+            "mode_sets": "Set di modalità",
             "no_repeats": "Finestre senza ripetizione",
             "sets": "Sets",
             "sliders": "Slider",

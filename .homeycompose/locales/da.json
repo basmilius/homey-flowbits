@@ -5,6 +5,8 @@
         "flag_new": "Nyt flag i dette flow",
         "label_new": "Ny etiket i dette flow",
         "mode_new": "Ny tilstand i dette flow",
+        "mode_set_mode_new": "Ny tilstand i dette tilstandssæt, vil blive kendt efter lagring af flowet",
+        "mode_set_new": "Nyt tilstandssæt i dette flow",
         "no_repeat_new": "Nyt ingen-gentagelsesvindue i dette flow",
         "set_new": "Nyt sæt i dette flow",
         "set_state_new": "Ny sæt-tilstand i dette flow, vil blive kendt efter lagring af flowet",
@@ -15,6 +17,8 @@
     "notification": {
         "mode_activated": "**__name__** er aktiveret.",
         "mode_deactivated": "**__name__** er deaktiveret.",
+        "mode_set_activated": "**__name__** er aktiveret i **__set__**.",
+        "mode_set_deactivated": "**__name__** er deaktiveret i **__set__**.",
         "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for at lære mere om, hvad du kan gøre med FlowBits."
     },
     "token": {
@@ -57,6 +61,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "Aktuel tilstand"
+        },
+        "mode_set_current": {
             "label": "Aktuel tilstand"
         },
         "event": {
@@ -112,6 +119,11 @@
             "description": "Kun én tilstand kan være aktiv ad gangen. Opret og administrér tilstande via handlinger, betingelser og triggere i dine flows.",
             "empty": "Der er endnu ikke oprettet nogen tilstande."
         },
+        "mode_sets": {
+            "title": "Tilstandssæt",
+            "description": "Tilstandssæt grupperer tilstande, så kun én tilstand pr. sæt kan være aktiv ad gangen. Opret og administrér tilstandssæt via tilstandssæt-handlinger, betingelser og triggere i dine flows.",
+            "empty": "Der er endnu ikke oprettet nogen tilstandssæt."
+        },
         "sets": {
             "title": "Sæt",
             "description": "Sæt er samlinger af boolske tilstande, der kan evalueres som en gruppe. Et sæt er aktivt, når en af dets tilstande er aktiv. Brug sæt-handlinger, betingelser og triggere i dine flows til at administrere grupperede tilstande.",
@@ -130,6 +142,7 @@
             "flags": "Flag",
             "labels": "Etiketter",
             "modes": "Tilstande",
+            "mode_sets": "Tilstandssæt",
             "no_repeats": "Ingen-gentagelsesvinduer",
             "sets": "Sæt",
             "sliders": "Skydeknapper",

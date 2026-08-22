@@ -10,12 +10,16 @@
     "set_state_new": "Neue Set-Status in diesem Flow, wird nach dem Speichern des Flows bekannt",
     "signal_new": "Neues Signal in diesem Flow",
     "slider_new": "Neuer Slider in diesem Flow",
-    "timer_new": "Neuer Timer in diesem Flow"
+    "timer_new": "Neuer Timer in diesem Flow",
+    "mode_set_mode_new": "Neuer Modus in diesem Modus-Set, wird nach dem Speichern des Flows bekannt",
+    "mode_set_new": "Neues Modus-Set in diesem Flow"
   },
   "notification": {
     "mode_activated": "**__name__** ist aktiviert.",
     "mode_deactivated": "**__name__** ist deaktiviert.",
-    "welcome": "Willkommen bei **FlowBits**! Besuchen Sie flowbits.nl, um mehr darüber zu erfahren, was Sie mit FlowBits tun können."
+    "welcome": "Willkommen bei **FlowBits**! Besuchen Sie flowbits.nl, um mehr darüber zu erfahren, was Sie mit FlowBits tun können.",
+    "mode_set_activated": "**__name__** ist in **__set__** aktiviert.",
+    "mode_set_deactivated": "**__name__** ist in **__set__** deaktiviert."
   },
   "token": {
     "day_period": "Tageszeit (roh)",
@@ -76,6 +80,9 @@
       "finished": "Beendet",
       "paused": "Pausiert",
       "stopped": "Gestoppt"
+    },
+    "mode_set_current": {
+      "label": "Aktueller Modus"
     }
   },
   "settings": {
@@ -129,7 +136,8 @@
       "no_repeats": "Nicht-wiederholen-Fenster",
       "sets": "Sets",
       "sliders": "Schieberegler",
-      "timers": "Timer"
+      "timers": "Timer",
+      "mode_sets": "Modus-Sets"
     },
     "card_statistics": {
       "title": "Flowkarten-Statistiken",
@@ -138,6 +146,11 @@
     "documentation": {
       "title": "Dokumentation",
       "description": "Erfahren Sie mehr über FlowBits und wie Sie alle Funktionen effektiv nutzen können. Besuchen Sie FlowBits.nl für Dokumentation."
+    },
+    "mode_sets": {
+      "title": "Modus-Sets",
+      "description": "Modus-Sets gruppieren Modi, sodass pro Set jeweils nur ein Modus aktiv sein kann. Erstellen und verwalten Sie Modus-Sets mithilfe von Modus-Set-Aktionen, Bedingungen und Triggern in Ihren Flows.",
+      "empty": "Es wurden noch keine Modus-Sets erstellt."
     }
   },
   "color": {

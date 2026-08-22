@@ -10,12 +10,16 @@
     "set_state_new": "Nuevo estado de conjunto en este flujo, se conocerá después de guardar el flujo",
     "signal_new": "Nueva señal en este flujo",
     "slider_new": "Nuevo deslizador en este flujo",
-    "timer_new": "Nuevo temporizador en este flujo"
+    "timer_new": "Nuevo temporizador en este flujo",
+    "mode_set_mode_new": "Nuevo modo en este conjunto de modos, se conocerá después de guardar el flujo",
+    "mode_set_new": "Nuevo conjunto de modos en este flujo"
   },
   "notification": {
     "mode_activated": "**__name__** está activado.",
     "mode_deactivated": "**__name__** está desactivado.",
-    "welcome": "¡Bienvenido a **FlowBits**! Visita flowbits.nl para saber más sobre lo que puedes hacer con FlowBits."
+    "welcome": "¡Bienvenido a **FlowBits**! Visita flowbits.nl para saber más sobre lo que puedes hacer con FlowBits.",
+    "mode_set_activated": "**__name__** está activado en **__set__**.",
+    "mode_set_deactivated": "**__name__** está desactivado en **__set__**."
   },
   "token": {
     "day_period": "Periodo del día (sin procesar)",
@@ -76,6 +80,9 @@
       "finished": "Finalizado",
       "paused": "Pausado",
       "stopped": "Detenido"
+    },
+    "mode_set_current": {
+      "label": "Modo actual"
     }
   },
   "settings": {
@@ -129,7 +136,8 @@
       "no_repeats": "Ventanas sin repetición",
       "sets": "Conjuntos",
       "sliders": "Deslizadores",
-      "timers": "Temporizadores"
+      "timers": "Temporizadores",
+      "mode_sets": "Conjuntos de modos"
     },
     "card_statistics": {
       "title": "Estadísticas de tarjetas de flujo",
@@ -138,6 +146,11 @@
     "documentation": {
       "title": "Documentación",
       "description": "Aprende más sobre FlowBits y cómo usar todas sus funciones de manera efectiva. Visita FlowBits.nl para documentación."
+    },
+    "mode_sets": {
+      "title": "Conjuntos de modos",
+      "description": "Los conjuntos de modos agrupan modos de forma que solo un modo por conjunto puede estar activo a la vez. Crea y gestiona conjuntos de modos mediante acciones, condiciones y disparadores de conjuntos de modos en tus flujos.",
+      "empty": "Aún no se han creado conjuntos de modos."
     }
   },
   "color": {

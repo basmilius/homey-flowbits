@@ -10,12 +10,16 @@
     "set_state_new": "Ny sæt-tilstand i dette flow, vil blive kendt efter lagring af flowet",
     "signal_new": "Ny signal i dette flow",
     "slider_new": "Ny skyder i dette flow",
-    "timer_new": "Ny timer i dette flow"
+    "timer_new": "Ny timer i dette flow",
+    "mode_set_mode_new": "Ny tilstand i dette tilstandssæt, vil blive kendt efter lagring af flowet",
+    "mode_set_new": "Nyt tilstandssæt i dette flow"
   },
   "notification": {
     "mode_activated": "**__name__** er aktiveret.",
     "mode_deactivated": "**__name__** er deaktiveret.",
-    "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for at lære mere om, hvad du kan gøre med FlowBits."
+    "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for at lære mere om, hvad du kan gøre med FlowBits.",
+    "mode_set_activated": "**__name__** er aktiveret i **__set__**.",
+    "mode_set_deactivated": "**__name__** er deaktiveret i **__set__**."
   },
   "token": {
     "day_period": "Dagsperiode (rå)",
@@ -76,6 +80,9 @@
       "finished": "Afsluttet",
       "paused": "Sat på pause",
       "stopped": "Stoppet"
+    },
+    "mode_set_current": {
+      "label": "Aktuel tilstand"
     }
   },
   "settings": {
@@ -129,7 +136,8 @@
       "no_repeats": "Ingen-gentagelsesvinduer",
       "sets": "Sæt",
       "sliders": "Skydeknapper",
-      "timers": "Timere"
+      "timers": "Timere",
+      "mode_sets": "Tilstandssæt"
     },
     "card_statistics": {
       "title": "Flowkortstatistik",
@@ -138,6 +146,11 @@
     "documentation": {
       "title": "Dokumentation",
       "description": "Lær mere om FlowBits, og hvordan du bruger alle funktioner effektivt. Besøg FlowBits.nl for dokumentation."
+    },
+    "mode_sets": {
+      "title": "Tilstandssæt",
+      "description": "Tilstandssæt grupperer tilstande, så kun én tilstand pr. sæt kan være aktiv ad gangen. Opret og administrér tilstandssæt via tilstandssæt-handlinger, betingelser og triggere i dine flows.",
+      "empty": "Der er endnu ikke oprettet nogen tilstandssæt."
     }
   },
   "color": {

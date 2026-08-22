@@ -11,6 +11,7 @@ const EMPTY_STATISTICS: Statistics = {
     numberOfFlags: 0,
     numberOfLabels: 0,
     numberOfModes: 0,
+    numberOfModeSets: 0,
     numberOfNoRepeats: 0,
     numberOfSets: 0,
     numberOfSliders: 0,
@@ -77,6 +78,10 @@ export function useLabels() {
 
 export function useModes() {
     return composeList<Mode>('/modes');
+}
+
+export function useModeSets() {
+    return composeList<Item>('/mode-sets');
 }
 
 export function useSets() {

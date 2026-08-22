@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <title>Mode set current mode</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+</head>
+
+<body class="homey-widget">
+
+<div class="current-mode">
+    <div
+        class="flowbits-icon current-mode-icon"
+        id="current-mode-icon"></div>
+
+    <div class="current-mode-caption">
+        <div
+            class="current-mode-label homey-text-small-light"
+            data-i18n="widget.mode_set_current.label"></div>
+        <div
+            class="current-mode-name homey-text-medium"
+            id="current-mode-name">
+            &mdash;
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onHomeyReady(Homey) {
+        const settings = Homey.getSettings();
+        const currentModeIcon = document.getElementById('current-mode-icon');
+        const currentModeName = document.getElementById('current-mode-name');
+        let ready = false;
+
+        async function init() {
+            Homey.on('flowbits-mode-set-update', (set) => {
+                if (set?.name === settings.set.name) {
+                    render(set.modes?.find(mode => mode.active) ?? null);
+                }
+            });
+
+            await update();
+        }
+
+        async function render(currentMode) {
+            currentModeName.innerText = currentMode?.name ?? '—';
+
+            if (currentMode?.color) {
+                currentModeIcon.style.setProperty('--color', currentMode.color);
+            } else {
+                currentModeIcon.style.removeProperty('--color');
+            }
+
+            if (currentMode?.icon) {
+                currentModeIcon.style.setProperty('--icon', JSON.stringify(currentMode.icon));
+                currentModeIcon.style.setProperty('--icon-secondary', JSON.stringify(currentMode.icon + currentMode.icon));
+            } else {
+                currentModeIcon.style.removeProperty('--icon');
+                currentModeIcon.style.removeProperty('--icon-secondary');
+            }
+
+            const height = document.body.getBoundingClientRect().height;
+
+            if (ready) {
+                await Homey.setHeight(height);
+            } else {
+                Homey.ready({height});
+                ready = true;
+            }
+        }
+
+        async function update() {
+            const currentMode = await Homey.api('GET', `/?set=${encodeURIComponent(settings.set.name)}`);
+
+            await render(currentMode);
+        }
+
+        init();
+    }
+</script>
+
+</body>
+</html>

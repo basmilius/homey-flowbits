@@ -10,12 +10,16 @@
     "set_state_new": "Nouvel état d'ensemble dans ce flux, sera connu après enregistrement du flux",
     "signal_new": "Nouveau signal dans ce flux",
     "slider_new": "Nouveau curseur dans ce flux",
-    "timer_new": "Nouveau minuteur dans ce flux"
+    "timer_new": "Nouveau minuteur dans ce flux",
+    "mode_set_mode_new": "Nouveau mode dans cet ensemble de modes, sera connu après enregistrement du flux",
+    "mode_set_new": "Nouvel ensemble de modes dans ce flux"
   },
   "notification": {
     "mode_activated": "**__name__** est activé.",
     "mode_deactivated": "**__name__** est désactivé.",
-    "welcome": "Bienvenue sur **FlowBits** ! Rendez-vous sur flowbits.nl pour en savoir plus sur ce que vous pouvez faire avec FlowBits."
+    "welcome": "Bienvenue sur **FlowBits** ! Rendez-vous sur flowbits.nl pour en savoir plus sur ce que vous pouvez faire avec FlowBits.",
+    "mode_set_activated": "**__name__** est activé dans **__set__**.",
+    "mode_set_deactivated": "**__name__** est désactivé dans **__set__**."
   },
   "token": {
     "day_period": "Période de la journée (brut)",
@@ -76,6 +80,9 @@
       "finished": "Terminé",
       "paused": "En pause",
       "stopped": "Arrêté"
+    },
+    "mode_set_current": {
+      "label": "Mode actuel"
     }
   },
   "settings": {
@@ -129,7 +136,8 @@
       "no_repeats": "Fenêtres sans répétition",
       "sets": "Sets",
       "sliders": "Curseurs",
-      "timers": "Minuteries"
+      "timers": "Minuteries",
+      "mode_sets": "Ensembles de modes"
     },
     "card_statistics": {
       "title": "Statistiques des cartes de flux",
@@ -138,6 +146,11 @@
     "documentation": {
       "title": "Documentation",
       "description": "Apprenez-en plus sur FlowBits et comment utiliser efficacement toutes ses fonctionnalités. Visitez FlowBits.nl pour la documentation."
+    },
+    "mode_sets": {
+      "title": "Ensembles de modes",
+      "description": "Les ensembles de modes regroupent des modes afin qu'un seul mode par ensemble puisse être actif à la fois. Créez et gérez les ensembles de modes via les actions, conditions et déclencheurs d'ensembles de modes dans vos flux.",
+      "empty": "Aucun ensemble de modes n'a encore été créé."
     }
   },
   "color": {

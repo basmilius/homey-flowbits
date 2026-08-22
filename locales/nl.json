@@ -10,12 +10,16 @@
     "set_state_new": "Nieuwe set-stand in deze flow, wordt na opslaan van de flow bekend",
     "signal_new": "Nieuw signaal in deze flow",
     "slider_new": "Nieuwe slider in deze flow",
-    "timer_new": "Nieuwe timer in deze flow"
+    "timer_new": "Nieuwe timer in deze flow",
+    "mode_set_mode_new": "Nieuwe stand in deze standenset, wordt na opslaan van de flow bekend",
+    "mode_set_new": "Nieuwe standenset in deze flow"
   },
   "notification": {
     "mode_activated": "**__name__** is geactiveerd.",
     "mode_deactivated": "**__name__** is gedeactiveerd.",
-    "welcome": "Welkom bij **FlowBits**! Ga naar flowbits.nl om meer te weten te komen over wat je kan doen met FlowBits."
+    "welcome": "Welkom bij **FlowBits**! Ga naar flowbits.nl om meer te weten te komen over wat je kan doen met FlowBits.",
+    "mode_set_activated": "**__name__** is geactiveerd in **__set__**.",
+    "mode_set_deactivated": "**__name__** is gedeactiveerd in **__set__**."
   },
   "token": {
     "day_period": "Dagperiode (ruw)",
@@ -76,6 +80,9 @@
       "finished": "Afgelopen",
       "paused": "Gepauzeerd",
       "stopped": "Gestopt"
+    },
+    "mode_set_current": {
+      "label": "Huidige stand"
     }
   },
   "settings": {
@@ -129,7 +136,8 @@
       "no_repeats": "Geen-herhalingsvensters",
       "sets": "Sets",
       "sliders": "Sliders",
-      "timers": "Timers"
+      "timers": "Timers",
+      "mode_sets": "Standensets"
     },
     "card_statistics": {
       "title": "Flowkaartstatistieken",
@@ -138,6 +146,11 @@
     "documentation": {
       "title": "Documentatie",
       "description": "Leer meer over FlowBits en hoe je alle functies effectief kunt gebruiken. Bezoek FlowBits.nl voor documentatie."
+    },
+    "mode_sets": {
+      "title": "Standensets",
+      "description": "Standensets groeperen standen zodat er per set maar één stand tegelijk actief kan zijn. Maak en beheer standensets via standenset-acties, -voorwaarden en -triggers in je flows.",
+      "empty": "Er zijn nog geen standensets aangemaakt."
     }
   },
   "color": {

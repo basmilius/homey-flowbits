@@ -10,12 +10,16 @@
     "set_state_new": "New set state in this flow, will be known after saving the flow",
     "signal_new": "New signal in this flow",
     "slider_new": "New slider in this flow",
-    "timer_new": "New timer in this flow"
+    "timer_new": "New timer in this flow",
+    "mode_set_mode_new": "New mode in this mode set, will be known after saving the flow",
+    "mode_set_new": "New mode set in this flow"
   },
   "notification": {
     "mode_activated": "**__name__** is activated.",
     "mode_deactivated": "**__name__** is deactivated.",
-    "welcome": "Welcome to **FlowBits**! Go to flowbits.nl to learn more about what you can do with FlowBits."
+    "welcome": "Welcome to **FlowBits**! Go to flowbits.nl to learn more about what you can do with FlowBits.",
+    "mode_set_activated": "**__name__** is activated in **__set__**.",
+    "mode_set_deactivated": "**__name__** is deactivated in **__set__**."
   },
   "token": {
     "day_period": "Day period (raw)",
@@ -76,6 +80,9 @@
       "finished": "Finished",
       "paused": "Paused",
       "stopped": "Stopped"
+    },
+    "mode_set_current": {
+      "label": "Current mode"
     }
   },
   "settings": {
@@ -129,7 +136,8 @@
       "no_repeats": "No-repeat windows",
       "sets": "Sets",
       "sliders": "Sliders",
-      "timers": "Timers"
+      "timers": "Timers",
+      "mode_sets": "Mode sets"
     },
     "card_statistics": {
       "title": "Flow card statistics",
@@ -138,6 +146,11 @@
     "documentation": {
       "title": "Documentation",
       "description": "Learn more about FlowBits and how to use all its features effectively. Visit FlowBits.nl for documentation."
+    },
+    "mode_sets": {
+      "title": "Mode sets",
+      "description": "Mode sets group modes so only one mode per set can be active at a time. Create and manage mode sets using mode set actions, conditions, and triggers in your flows.",
+      "empty": "No mode sets have been created yet."
     }
   },
   "color": {

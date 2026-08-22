@@ -14,6 +14,13 @@
             @edit="onEditMode"/>
 
         <Category
+            :title="t('settings.mode_sets.title')"
+            :description="t('settings.mode_sets.description')"
+            :empty="t('settings.mode_sets.empty')"
+            :items="modeSets"
+            @edit="onEditModeSet"/>
+
+        <Category
             :title="t('settings.flags.title')"
             :description="t('settings.flags.description')"
             :empty="t('settings.flags.empty')"
@@ -66,7 +73,7 @@
     setup>
     import { onMounted, ref, unref } from 'vue';
     import { Category, Documentation, Edit, Form, Statistics, Top } from './components';
-    import { composeEdit, composeSave, useColors, useEvents, useFlags, useIcons, useLabels, useModes, useSets, useTimers, useTranslate } from './composables';
+    import { composeEdit, composeSave, useColors, useEvents, useFlags, useIcons, useLabels, useModes, useModeSets, useSets, useTimers, useTranslate } from './composables';
     import type { FeatureType, FormLook, Item } from './types';
 
     const t = useTranslate();
@@ -76,6 +83,7 @@
     const {items: flags, load: loadFlags} = useFlags();
     const {items: labels, load: loadLabels} = useLabels();
     const {items: modes, load: loadModes} = useModes();
+    const {items: modeSets, load: loadModeSets} = useModeSets();
     const {items: sets, load: loadSets} = useSets();
     const {items: timers, load: loadTimers} = useTimers();
 
@@ -87,6 +95,7 @@
     const onEditFlag = composeEdit('flag', editingItem, editingType);
     const onEditLabel = composeEdit('label', editingItem, editingType);
     const onEditMode = composeEdit('mode', editingItem, editingType);
+    const onEditModeSet = composeEdit('mode_set', editingItem, editingType);
     const onEditSet = composeEdit('set', editingItem, editingType);
     const onEditTimer = composeEdit('timer', editingItem, editingType);
 
@@ -94,6 +103,7 @@
     const onSaveFlag = composeSave('/flags/look', editingItem, editingType, isSaving, loadFlags);
     const onSaveLabel = composeSave('/labels/look', editingItem, editingType, isSaving, loadLabels);
     const onSaveMode = composeSave('/modes/look', editingItem, editingType, isSaving, loadModes);
+    const onSaveModeSet = composeSave('/mode-sets/look', editingItem, editingType, isSaving, loadModeSets);
     const onSaveSet = composeSave('/sets/look', editingItem, editingType, isSaving, loadSets);
     const onSaveTimer = composeSave('/timers/look', editingItem, editingType, isSaving, loadTimers);
 
@@ -108,6 +118,7 @@
             loadFlags(),
             loadLabels(),
             loadModes(),
+            loadModeSets(),
             loadSets(),
             loadTimers()
         ]);
@@ -133,6 +144,9 @@
 
             case 'mode':
                 return onSaveMode(name, look);
+
+            case 'mode_set':
+                return onSaveModeSet(name, look);
 
             case 'set':
                 return onSaveSet(name, look);

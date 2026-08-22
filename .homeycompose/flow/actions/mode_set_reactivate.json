@@ -1,0 +1,88 @@
+{
+    "id": "mode_set_reactivate",
+    "title": {
+        "en": "Reactivate mode in mode set",
+        "nl": "Heractiveer stand in standenset",
+        "de": "Modus im Modus-Set reaktivieren",
+        "fr": "Réactiver un mode dans l'ensemble de modes",
+        "it": "Riattiva modalità nel set di modalità",
+        "sv": "Återaktivera läge i lägesset",
+        "no": "Reaktiver modus i modussett",
+        "es": "Reactivar modo en conjunto de modos",
+        "da": "Genaktivér tilstand i tilstandssæt",
+        "ru": "Повторно активировать режим в наборе режимов",
+        "pl": "Ponownie aktywuj tryb w zestawie trybów",
+        "ko": "모드 세트에서 모드 재활성화",
+        "ar": "إعادة تفعيل وضع في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "Reactivate [[mode]] in mode set [[set]]",
+        "nl": "Heractiveer [[mode]] in standenset [[set]]",
+        "de": "Reaktiviere [[mode]] im Modus-Set [[set]]",
+        "fr": "Réactiver [[mode]] dans l'ensemble de modes [[set]]",
+        "it": "Riattiva [[mode]] nel set di modalità [[set]]",
+        "sv": "Återaktivera [[mode]] i lägesset [[set]]",
+        "no": "Reaktiver [[mode]] i modussett [[set]]",
+        "es": "Reactivar [[mode]] en el conjunto de modos [[set]]",
+        "da": "Genaktivér [[mode]] i tilstandssæt [[set]]",
+        "ru": "Повторно активировать [[mode]] в наборе режимов [[set]]",
+        "pl": "Ponownie aktywuj [[mode]] w zestawie trybów [[set]]",
+        "ko": "모드 세트 [[set]]에서 [[mode]] 재활성화",
+        "ar": "إعادة تفعيل [[mode]] في مجموعة الأوضاع [[set]]"
+    },
+    "hint": {
+        "en": "Reactivates a mode within a mode set, even if it's already active. This will trigger any flows that have the mode activated trigger.",
+        "nl": "Heractiveert een stand binnen een standenset, ook als deze al actief is. Dit triggert flows met de trigger 'stand geactiveerd'.",
+        "de": "Reaktiviert einen Modus innerhalb eines Modus-Sets, auch wenn er bereits aktiv ist. Dies löst Flows mit dem Trigger 'Modus aktiviert' aus.",
+        "fr": "Réactive un mode au sein d'un ensemble de modes, même s'il est déjà actif. Cela déclenchera les flux disposant du déclencheur mode activé.",
+        "it": "Riattiva una modalità all'interno di un set di modalità, anche se è già attiva. Questo attiverà i flussi con il trigger di modalità attivata.",
+        "sv": "Återaktiverar ett läge inom ett lägesset, även om det redan är aktivt. Detta utlöser flöden som har utlösaren för läge aktiverat.",
+        "no": "Reaktiverer en modus innenfor et modussett, selv om den allerede er aktiv. Dette utløser flyter som har utløseren for modus aktivert.",
+        "es": "Reactiva un modo dentro de un conjunto de modos, incluso si ya está activo. Esto activará los flujos que tengan el disparador de modo activado.",
+        "da": "Genaktiverer en tilstand inden for et tilstandssæt, selv hvis den allerede er aktiv. Dette udløser flows med udløseren for tilstand aktiveret.",
+        "ru": "Повторно активирует режим в наборе режимов, даже если он уже активен. Это запустит потоки с триггером активации режима.",
+        "pl": "Ponownie aktywuje tryb w zestawie trybów, nawet jeśli jest już aktywny. Spowoduje to wywołanie przepływów z wyzwalaczem aktywacji trybu.",
+        "ko": "이미 활성화되어 있어도 모드 세트 내에서 모드를 재활성화합니다. 모드 활성화 트리거가 있는 플로우가 실행됩니다.",
+        "ar": "يقوم بإعادة تفعيل وضع داخل مجموعة أوضاع، حتى إذا كان نشطًا بالفعل. سيؤدي هذا إلى تشغيل التدفقات التي تحتوي على محفز تفعيل الوضع."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        }
+    ]
+}

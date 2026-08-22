@@ -10,12 +10,16 @@
     "set_state_new": "Nuovo stato set in questo flusso, sarà noto dopo il salvataggio del flusso",
     "signal_new": "Nuovo segnale in questo flusso",
     "slider_new": "Nuovo slider in questo flusso",
-    "timer_new": "Nuovo timer in questo flusso"
+    "timer_new": "Nuovo timer in questo flusso",
+    "mode_set_mode_new": "Nuova modalità in questo set di modalità, sarà nota dopo il salvataggio del flusso",
+    "mode_set_new": "Nuovo set di modalità in questo flusso"
   },
   "notification": {
     "mode_activated": "**__name__** è attivato.",
     "mode_deactivated": "**__name__** è disattivato.",
-    "welcome": "Benvenuto su **FlowBits**! Visita flowbits.nl per saperne di più su cosa puoi fare con FlowBits."
+    "welcome": "Benvenuto su **FlowBits**! Visita flowbits.nl per saperne di più su cosa puoi fare con FlowBits.",
+    "mode_set_activated": "**__name__** è attivato in **__set__**.",
+    "mode_set_deactivated": "**__name__** è disattivato in **__set__**."
   },
   "token": {
     "day_period": "Periodo del giorno (raw)",
@@ -76,6 +80,9 @@
       "finished": "Terminato",
       "paused": "In pausa",
       "stopped": "Fermato"
+    },
+    "mode_set_current": {
+      "label": "Modalità attuale"
     }
   },
   "settings": {
@@ -129,7 +136,8 @@
       "no_repeats": "Finestre senza ripetizione",
       "sets": "Sets",
       "sliders": "Slider",
-      "timers": "Timer"
+      "timers": "Timer",
+      "mode_sets": "Set di modalità"
     },
     "card_statistics": {
       "title": "Statistiche delle schede flow",
@@ -138,6 +146,11 @@
     "documentation": {
       "title": "Documentazione",
       "description": "Scopri di più su FlowBits e su come utilizzare tutte le sue funzionalità in modo efficace. Visita FlowBits.nl per la documentazione."
+    },
+    "mode_sets": {
+      "title": "Set di modalità",
+      "description": "I set di modalità raggruppano le modalità in modo che solo una modalità per set possa essere attiva alla volta. Crea e gestisci i set di modalità tramite azioni, condizioni e trigger dei set di modalità nei tuoi flow.",
+      "empty": "Nessun set di modalità è stato ancora creato."
     }
   },
   "color": {

@@ -1,0 +1,45 @@
+{
+    "name": {
+        "en": "Mode set current mode",
+        "nl": "Standenset huidige stand",
+        "de": "Modus-Set aktueller Modus",
+        "fr": "Mode actuel de l'ensemble de modes",
+        "it": "Modalità attuale del set di modalità",
+        "sv": "Lägessetets aktuella läge",
+        "no": "Modussettets nåværende modus",
+        "es": "Modo actual del conjunto de modos",
+        "da": "Tilstandssættets nuværende tilstand",
+        "ru": "Текущий режим набора режимов",
+        "pl": "Aktualny tryb zestawu trybów",
+        "ko": "모드 세트의 현재 모드",
+        "ar": "الوضع الحالي لمجموعة الأوضاع"
+    },
+    "height": 120,
+    "settings": [
+        {
+            "id": "set",
+            "type": "autocomplete",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        }
+    ],
+    "api": {
+        "get": {
+            "method": "GET",
+            "path": "/"
+        }
+    }
+}

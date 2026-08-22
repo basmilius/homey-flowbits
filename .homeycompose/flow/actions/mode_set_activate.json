@@ -1,0 +1,88 @@
+{
+    "id": "mode_set_activate",
+    "title": {
+        "en": "Activate mode in mode set",
+        "nl": "Activeer stand in standenset",
+        "de": "Modus im Modus-Set aktivieren",
+        "fr": "Activer un mode dans l'ensemble de modes",
+        "it": "Attiva modalità nel set di modalità",
+        "sv": "Aktivera läge i lägesset",
+        "no": "Aktiver modus i modussett",
+        "es": "Activar modo en conjunto de modos",
+        "da": "Aktivér tilstand i tilstandssæt",
+        "ru": "Активировать режим в наборе режимов",
+        "pl": "Aktywuj tryb w zestawie trybów",
+        "ko": "모드 세트에서 모드 활성화",
+        "ar": "تفعيل وضع في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "Activate [[mode]] in mode set [[set]]",
+        "nl": "Activeer [[mode]] in standenset [[set]]",
+        "de": "Aktiviere [[mode]] im Modus-Set [[set]]",
+        "fr": "Activer [[mode]] dans l'ensemble de modes [[set]]",
+        "it": "Attiva [[mode]] nel set di modalità [[set]]",
+        "sv": "Aktivera [[mode]] i lägesset [[set]]",
+        "no": "Aktiver [[mode]] i modussett [[set]]",
+        "es": "Activar [[mode]] en el conjunto de modos [[set]]",
+        "da": "Aktivér [[mode]] i tilstandssæt [[set]]",
+        "ru": "Активировать [[mode]] в наборе режимов [[set]]",
+        "pl": "Aktywuj [[mode]] w zestawie trybów [[set]]",
+        "ko": "모드 세트 [[set]]에서 [[mode]] 활성화",
+        "ar": "تفعيل [[mode]] في مجموعة الأوضاع [[set]]"
+    },
+    "hint": {
+        "en": "Activates a mode within a mode set and deactivates all other modes in that set.",
+        "nl": "Activeert een stand binnen een standenset en deactiveert alle andere standen in die set.",
+        "de": "Aktiviert einen Modus innerhalb eines Modus-Sets und deaktiviert alle anderen Modi in diesem Set.",
+        "fr": "Active un mode au sein d'un ensemble de modes et désactive tous les autres modes de cet ensemble.",
+        "it": "Attiva una modalità all'interno di un set di modalità e disattiva tutte le altre modalità in quel set.",
+        "sv": "Aktiverar ett läge inom ett lägesset och inaktiverar alla andra lägen i det setet.",
+        "no": "Aktiverer en modus innenfor et modussett og deaktiverer alle andre modi i settet.",
+        "es": "Activa un modo dentro de un conjunto de modos y desactiva todos los demás modos de ese conjunto.",
+        "da": "Aktiverer en tilstand inden for et tilstandssæt og deaktiverer alle andre tilstande i det sæt.",
+        "ru": "Активирует режим в наборе режимов и деактивирует все остальные режимы в этом наборе.",
+        "pl": "Aktywuje tryb w zestawie trybów i dezaktywuje wszystkie inne tryby w tym zestawie.",
+        "ko": "모드 세트 내에서 모드를 활성화하고 해당 세트의 다른 모든 모드를 비활성화합니다.",
+        "ar": "يقوم بتفعيل وضع داخل مجموعة أوضاع وإلغاء تفعيل كل الأوضاع الأخرى في تلك المجموعة."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        }
+    ]
+}

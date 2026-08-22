@@ -1,0 +1,69 @@
+{
+    "id": "mode_set_reactivate_current",
+    "title": {
+        "en": "Reactivate current mode in mode set",
+        "nl": "Heractiveer huidige stand in standenset",
+        "de": "Aktuellen Modus im Modus-Set reaktivieren",
+        "fr": "Réactiver le mode actuel dans l'ensemble de modes",
+        "it": "Riattiva la modalità attuale nel set di modalità",
+        "sv": "Återaktivera aktuellt läge i lägesset",
+        "no": "Reaktiver nåværende modus i modussett",
+        "es": "Reactivar el modo actual en el conjunto de modos",
+        "da": "Genaktivér nuværende tilstand i tilstandssæt",
+        "ru": "Повторно активировать текущий режим в наборе режимов",
+        "pl": "Ponownie aktywuj aktualny tryb w zestawie trybów",
+        "ko": "모드 세트에서 현재 모드 재활성화",
+        "ar": "إعادة تفعيل الوضع الحالي في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "Reactivate current mode in mode set [[set]]",
+        "nl": "Heractiveer huidige stand in standenset [[set]]",
+        "de": "Aktuellen Modus im Modus-Set [[set]] reaktivieren",
+        "fr": "Réactiver le mode actuel dans l'ensemble de modes [[set]]",
+        "it": "Riattiva la modalità attuale nel set di modalità [[set]]",
+        "sv": "Återaktivera aktuellt läge i lägesset [[set]]",
+        "no": "Reaktiver nåværende modus i modussett [[set]]",
+        "es": "Reactivar el modo actual en el conjunto de modos [[set]]",
+        "da": "Genaktivér nuværende tilstand i tilstandssæt [[set]]",
+        "ru": "Повторно активировать текущий режим в наборе режимов [[set]]",
+        "pl": "Ponownie aktywuj aktualny tryb w zestawie trybów [[set]]",
+        "ko": "모드 세트 [[set]]에서 현재 모드 재활성화",
+        "ar": "إعادة تفعيل الوضع الحالي في مجموعة الأوضاع [[set]]"
+    },
+    "hint": {
+        "en": "Reactivates the currently active mode in a mode set. This will trigger any flows that have the mode activated trigger for the current mode.",
+        "nl": "Heractiveert de momenteel actieve stand in een standenset. Dit triggert flows met de trigger 'stand geactiveerd' voor de huidige stand.",
+        "de": "Reaktiviert den derzeit aktiven Modus in einem Modus-Set. Dies löst Flows mit dem Trigger 'Modus aktiviert' für den aktuellen Modus aus.",
+        "fr": "Réactive le mode actuellement actif dans un ensemble de modes. Cela déclenchera les flux disposant du déclencheur mode activé pour le mode actuel.",
+        "it": "Riattiva la modalità attualmente attiva in un set di modalità. Questo attiverà i flussi con il trigger di modalità attivata per la modalità attuale.",
+        "sv": "Återaktiverar det för närvarande aktiva läget i ett lägesset. Detta utlöser flöden som har utlösaren för läge aktiverat för det aktuella läget.",
+        "no": "Reaktiverer den for øyeblikket aktive modusen i et modussett. Dette utløser flyter som har utløseren for modus aktivert for den nåværende modusen.",
+        "es": "Reactiva el modo actualmente activo en un conjunto de modos. Esto activará los flujos que tengan el disparador de modo activado para el modo actual.",
+        "da": "Genaktiverer den aktuelt aktive tilstand i et tilstandssæt. Dette udløser flows med udløseren for tilstand aktiveret for den nuværende tilstand.",
+        "ru": "Повторно активирует текущий активный режим в наборе режимов. Это запустит потоки с триггером активации режима для текущего режима.",
+        "pl": "Ponownie aktywuje aktualnie aktywny tryb w zestawie trybów. Spowoduje to wywołanie przepływów z wyzwalaczem aktywacji trybu dla aktualnego trybu.",
+        "ko": "모드 세트에서 현재 활성화된 모드를 재활성화합니다. 현재 모드에 대한 모드 활성화 트리거가 있는 플로우가 실행됩니다.",
+        "ar": "يقوم بإعادة تفعيل الوضع النشط حاليًا في مجموعة أوضاع. سيؤدي هذا إلى تشغيل التدفقات التي تحتوي على محفز تفعيل الوضع للوضع الحالي."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "id": "mode_set_is",
+    "title": {
+        "en": "Mode is active in mode set",
+        "nl": "Stand is actief in standenset",
+        "de": "Modus ist im Modus-Set aktiv",
+        "fr": "Le mode est actif dans l'ensemble de modes",
+        "it": "La modalità è attiva nel set di modalità",
+        "sv": "Läget är aktivt i lägesset",
+        "no": "Modus er aktiv i modussett",
+        "es": "El modo está activo en el conjunto de modos",
+        "da": "Tilstand er aktiv i tilstandssæt",
+        "ru": "Режим активен в наборе режимов",
+        "pl": "Tryb jest aktywny w zestawie trybów",
+        "ko": "모드 세트에서 모드가 활성화됨",
+        "ar": "الوضع نشط في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "Mode [[mode]] in mode set [[set]] is !{{active|inactive}}",
+        "nl": "Stand [[mode]] in standenset [[set]] is !{{actief|inactief}}",
+        "de": "Modus [[mode]] im Modus-Set [[set]] ist !{{aktiv|inaktiv}}",
+        "fr": "Mode [[mode]] dans l'ensemble de modes [[set]] est !{{actif|inactif}}",
+        "it": "Modalità [[mode]] nel set di modalità [[set]] è !{{attivo|inattivo}}",
+        "sv": "Läge [[mode]] i lägesset [[set]] är !{{aktiv|inaktiv}}",
+        "no": "Modus [[mode]] i modussett [[set]] er !{{aktiv|inaktiv}}",
+        "es": "Modo [[mode]] en el conjunto de modos [[set]] está !{{activo|inactivo}}",
+        "da": "Tilstand [[mode]] i tilstandssæt [[set]] er !{{aktiv|inaktiv}}",
+        "ru": "Режим [[mode]] в наборе режимов [[set]] !{{активен|неактивен}}",
+        "pl": "Tryb [[mode]] w zestawie trybów [[set]] jest !{{aktywny|nieaktywny}}",
+        "ko": "모드 세트 [[set]]의 모드 [[mode]]는 !{{활성|비활성}} 상태입니다",
+        "ar": "الوضع [[mode]] في مجموعة الأوضاع [[set]] هو !{{نشط|غير نشط}}"
+    },
+    "hint": {
+        "en": "Checks if a mode within a mode set is activated.",
+        "nl": "Controleert of een stand binnen een standenset is geactiveerd.",
+        "de": "Prüft, ob ein Modus innerhalb eines Modus-Sets aktiviert ist.",
+        "fr": "Vérifie si un mode au sein d'un ensemble de modes est activé.",
+        "it": "Verifica se una modalità all'interno di un set di modalità è attiva.",
+        "sv": "Kontrollerar om ett läge inom ett lägesset är aktiverat.",
+        "no": "Sjekker om en modus innenfor et modussett er aktivert.",
+        "es": "Comprueba si un modo dentro de un conjunto de modos está activado.",
+        "da": "Kontrollerer om en tilstand inden for et tilstandssæt er aktiveret.",
+        "ru": "Проверяет, активирован ли режим в наборе режимов.",
+        "pl": "Sprawdza, czy tryb w zestawie trybów jest aktywowany.",
+        "ko": "모드 세트 내에서 모드가 활성화되었는지 확인합니다.",
+        "ar": "يتحقق مما إذا كان الوضع داخل مجموعة أوضاع نشطًا."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "الوضع"
+            }
+        }
+    ]
+}

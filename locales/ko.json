@@ -10,12 +10,16 @@
     "set_state_new": "이 플로우에 새로운 세트 상태, 플로우 저장 후 알려집니다",
     "signal_new": "이 플로우에 새로운 신호",
     "slider_new": "이 플로우의 새 슬라이더",
-    "timer_new": "이 플로우에 새로운 타이머"
+    "timer_new": "이 플로우에 새로운 타이머",
+    "mode_set_mode_new": "이 모드 세트에 새로운 모드, 플로우 저장 후 알려집니다",
+    "mode_set_new": "이 플로우에 새로운 모드 세트"
   },
   "notification": {
     "mode_activated": "**__name__** 활성화됨.",
     "mode_deactivated": "**__name__** 비활성화됨.",
-    "welcome": "**FlowBits**에 오신 것을 환영합니다! flowbits.nl을 방문하여 FlowBits로 할 수 있는 작업에 대해 자세히 알아보세요."
+    "welcome": "**FlowBits**에 오신 것을 환영합니다! flowbits.nl을 방문하여 FlowBits로 할 수 있는 작업에 대해 자세히 알아보세요.",
+    "mode_set_activated": "**__name__**이(가) **__set__**에서 활성화됨.",
+    "mode_set_deactivated": "**__name__**이(가) **__set__**에서 비활성화됨."
   },
   "token": {
     "day_period": "시간대 (원본)",
@@ -76,6 +80,9 @@
       "finished": "완료됨",
       "paused": "일시 정지됨",
       "stopped": "중지됨"
+    },
+    "mode_set_current": {
+      "label": "현재 모드"
     }
   },
   "settings": {
@@ -129,7 +136,8 @@
       "no_repeats": "반복 금지 창",
       "sets": "세트",
       "sliders": "슬라이더",
-      "timers": "타이머"
+      "timers": "타이머",
+      "mode_sets": "모드 세트"
     },
     "card_statistics": {
       "title": "플로우 카드 통계",
@@ -138,6 +146,11 @@
     "documentation": {
       "title": "문서",
       "description": "FlowBits에 대해 자세히 알아보고 모든 기능을 효과적으로 사용하는 방법을 배워보세요. 문서는 FlowBits.nl을 방문하세요."
+    },
+    "mode_sets": {
+      "title": "모드 세트",
+      "description": "모드 세트는 모드를 그룹화하여 세트당 한 번에 하나의 모드만 활성화할 수 있도록 합니다. 플로우에서 모드 세트 작업, 조건, 트리거를 사용해 모드 세트를 생성하고 관리하세요.",
+      "empty": "아직 생성된 모드 세트가 없습니다."
     }
   },
   "color": {

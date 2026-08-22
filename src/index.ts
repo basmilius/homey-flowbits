@@ -1,5 +1,5 @@
 import { App, Luxon } from '@basmilius/homey-common';
-import type { Api, Cycles, Events, Flags, Labels, Modes, NoRepeat, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
+import type { Api, Cycles, Events, Flags, Labels, Modes, ModeSets, NoRepeat, Sets, Signals, Sliders, Timers, Tokens, Widgets } from './brain';
 import { Brain } from './brain';
 import { Actions, AutocompleteProviders, Conditions, Triggers } from './flow';
 import { evaluateExpression, roundStep } from './util';
@@ -27,6 +27,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
 
     get modes(): Modes {
         return this.#brain.modes;
+    }
+
+    get modeSets(): ModeSets {
+        return this.#brain.modeSets;
     }
 
     get noRepeat(): NoRepeat {
@@ -117,6 +121,12 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.action(Actions.ModeReactivate);
         this.registry.action(Actions.ModeReactivateCurrent);
         this.registry.action(Actions.ModeToggle);
+        this.registry.action(Actions.ModeSetActivate);
+        this.registry.action(Actions.ModeSetActivateFor);
+        this.registry.action(Actions.ModeSetDeactivate);
+        this.registry.action(Actions.ModeSetReactivate);
+        this.registry.action(Actions.ModeSetReactivateCurrent);
+        this.registry.action(Actions.ModeSetToggle);
         this.registry.action(Actions.NoRepeatClear);
         this.registry.action(Actions.RandomFact);
         this.registry.action(Actions.SetActivateAll);
@@ -164,6 +174,8 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.autocompleteProvider(AutocompleteProviders.Flag);
         this.registry.autocompleteProvider(AutocompleteProviders.Label);
         this.registry.autocompleteProvider(AutocompleteProviders.Mode);
+        this.registry.autocompleteProvider(AutocompleteProviders.ModeSet);
+        this.registry.autocompleteProvider(AutocompleteProviders.ModeSetMode);
         this.registry.autocompleteProvider(AutocompleteProviders.NoRepeat);
         this.registry.autocompleteProvider(AutocompleteProviders.SchoolVacation);
         this.registry.autocompleteProvider(AutocompleteProviders.Set);
@@ -194,6 +206,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.condition(Conditions.ModeIsActiveFor);
         this.registry.condition(Conditions.ModeIsInactiveFor);
         this.registry.condition(Conditions.ModeActive);
+        this.registry.condition(Conditions.ModeSetActive);
+        this.registry.condition(Conditions.ModeSetIs);
+        this.registry.condition(Conditions.ModeSetIsActiveFor);
+        this.registry.condition(Conditions.ModeSetIsInactiveFor);
         this.registry.condition(Conditions.MoonPhaseIs);
         this.registry.condition(Conditions.NoRepeatWindow);
         this.registry.condition(Conditions.SchoolHolidayIs);
@@ -227,6 +243,10 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
         this.registry.trigger(Triggers.ModeChanged);
         this.registry.trigger(Triggers.ModeCurrentChanged);
         this.registry.trigger(Triggers.ModeDeactivated);
+        this.registry.trigger(Triggers.ModeSetActivated);
+        this.registry.trigger(Triggers.ModeSetChanged);
+        this.registry.trigger(Triggers.ModeSetCurrentChanged);
+        this.registry.trigger(Triggers.ModeSetDeactivated);
         this.registry.trigger(Triggers.SetBecomesActiveAll);
         this.registry.trigger(Triggers.SetBecomesActiveAny);
         this.registry.trigger(Triggers.SetBecomesActiveAtLeast);

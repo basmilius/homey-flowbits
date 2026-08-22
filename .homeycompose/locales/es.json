@@ -5,6 +5,8 @@
         "flag_new": "Nueva bandera en este flujo",
         "label_new": "Nueva etiqueta en este flujo",
         "mode_new": "Nuevo modo en este flujo",
+        "mode_set_mode_new": "Nuevo modo en este conjunto de modos, se conocerá después de guardar el flujo",
+        "mode_set_new": "Nuevo conjunto de modos en este flujo",
         "no_repeat_new": "Nueva ventana sin repetición en este flujo",
         "set_new": "Nuevo conjunto en este flujo",
         "set_state_new": "Nuevo estado de conjunto en este flujo, se conocerá después de guardar el flujo",
@@ -15,6 +17,8 @@
     "notification": {
         "mode_activated": "**__name__** está activado.",
         "mode_deactivated": "**__name__** está desactivado.",
+        "mode_set_activated": "**__name__** está activado en **__set__**.",
+        "mode_set_deactivated": "**__name__** está desactivado en **__set__**.",
         "welcome": "¡Bienvenido a **FlowBits**! Visita flowbits.nl para saber más sobre lo que puedes hacer con FlowBits."
     },
     "token": {
@@ -57,6 +61,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "Modo actual"
+        },
+        "mode_set_current": {
             "label": "Modo actual"
         },
         "event": {
@@ -112,6 +119,11 @@
             "description": "Solo un modo puede estar activo a la vez. Crea y gestiona modos mediante acciones, condiciones y disparadores en tus flujos.",
             "empty": "Aún no se han creado modos."
         },
+        "mode_sets": {
+            "title": "Conjuntos de modos",
+            "description": "Los conjuntos de modos agrupan modos de forma que solo un modo por conjunto puede estar activo a la vez. Crea y gestiona conjuntos de modos mediante acciones, condiciones y disparadores de conjuntos de modos en tus flujos.",
+            "empty": "Aún no se han creado conjuntos de modos."
+        },
         "sets": {
             "title": "Conjuntos",
             "description": "Los conjuntos son colecciones de estados booleanos que se pueden evaluar como grupo. Un conjunto está activo cuando cualquiera de sus estados está activo. Utiliza acciones, condiciones y disparadores de conjuntos en tus flujos para gestionar estados agrupados.",
@@ -130,6 +142,7 @@
             "flags": "Banderas",
             "labels": "Etiquetas",
             "modes": "Modos",
+            "mode_sets": "Conjuntos de modos",
             "no_repeats": "Ventanas sin repetición",
             "sets": "Conjuntos",
             "sliders": "Deslizadores",

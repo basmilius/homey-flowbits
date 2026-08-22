@@ -94,6 +94,7 @@ export default defineConfig({
                                 {text: 'Flags', link: '/guide/flags'},
                                 {text: 'Labels', link: '/guide/labels'},
                                 {text: 'Modes', link: '/guide/modes'},
+                                {text: 'Mode sets', link: '/guide/mode-sets'},
                                 {text: 'No-repeat windows', link: '/guide/no-repeat-windows'},
                                 {text: 'Sets', link: '/guide/sets'},
                                 {text: 'Signals', link: '/guide/signals'},

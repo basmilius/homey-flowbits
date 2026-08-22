@@ -288,6 +288,10 @@
       "method": "GET",
       "path": "/modes"
     },
+    "getModeSets": {
+      "method": "GET",
+      "path": "/mode-sets"
+    },
     "getNoRepeatWindows": {
       "method": "GET",
       "path": "/no-repeat-windows"
@@ -327,6 +331,10 @@
     "setModeLook": {
       "method": "POST",
       "path": "/modes/look"
+    },
+    "setModeSetLook": {
+      "method": "POST",
+      "path": "/mode-sets/look"
     },
     "setSetLook": {
       "method": "POST",

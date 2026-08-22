@@ -1,0 +1,88 @@
+{
+    "id": "mode_set_activated",
+    "title": {
+        "en": "Mode activated in mode set",
+        "nl": "Stand geactiveerd in standenset",
+        "de": "Modus im Modus-Set aktiviert",
+        "fr": "Mode activé dans l'ensemble de modes",
+        "it": "Modalità attivata nel set di modalità",
+        "sv": "Läge aktiverat i lägesset",
+        "no": "Modus aktivert i modussett",
+        "es": "Modo activado en el conjunto de modos",
+        "da": "Tilstand aktiveret i tilstandssæt",
+        "ru": "Режим активирован в наборе режимов",
+        "pl": "Tryb aktywowany w zestawie trybów",
+        "ko": "모드 세트에서 모드 활성화됨",
+        "ar": "تم تفعيل وضع في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "Mode [[mode]] in mode set [[set]] is activated",
+        "nl": "Stand [[mode]] in standenset [[set]] is geactiveerd",
+        "de": "Modus [[mode]] im Modus-Set [[set]] ist aktiviert",
+        "fr": "Mode [[mode]] dans l'ensemble de modes [[set]] est activé",
+        "it": "Modalità [[mode]] nel set di modalità [[set]] è attivata",
+        "sv": "Läge [[mode]] i lägesset [[set]] är aktiverat",
+        "no": "Modus [[mode]] i modussett [[set]] er aktivert",
+        "es": "Modo [[mode]] en el conjunto de modos [[set]] está activado",
+        "da": "Tilstand [[mode]] i tilstandssæt [[set]] er aktiveret",
+        "ru": "Режим [[mode]] в наборе режимов [[set]] активирован",
+        "pl": "Tryb [[mode]] w zestawie trybów [[set]] został aktywowany",
+        "ko": "모드 세트 [[set]]에서 모드 [[mode]]가 활성화됨",
+        "ar": "تم تفعيل الوضع [[mode]] في مجموعة الأوضاع [[set]]"
+    },
+    "hint": {
+        "en": "Triggers when a mode within a mode set gets activated.",
+        "nl": "Triggert wanneer een stand binnen een standenset is geactiveerd.",
+        "de": "Löst aus, wenn ein Modus innerhalb eines Modus-Sets aktiviert wird.",
+        "fr": "Se déclenche lorsqu'un mode au sein d'un ensemble de modes est activé.",
+        "it": "Si attiva quando una modalità all'interno di un set di modalità viene attivata.",
+        "sv": "Utlöses när ett läge inom ett lägesset aktiveras.",
+        "no": "Utløses når en modus innenfor et modussett aktiveres.",
+        "es": "Se activa cuando un modo dentro de un conjunto de modos se activa.",
+        "da": "Udløses når en tilstand inden for et tilstandssæt aktiveres.",
+        "ru": "Срабатывает при активации режима в наборе режимов.",
+        "pl": "Wyzwalane, gdy tryb w zestawie trybów zostaje aktywowany.",
+        "ko": "모드 세트 내에서 모드가 활성화될 때 트리거됩니다.",
+        "ar": "يتم التفعيل عند تفعيل وضع داخل مجموعة أوضاع."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        }
+    ]
+}

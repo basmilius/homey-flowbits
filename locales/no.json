@@ -10,12 +10,16 @@
     "set_state_new": "Ny set-tilstand i denne flyten...",
     "signal_new": "Nytt signal i denne flyten",
     "slider_new": "Ny skyver i denne flyten",
-    "timer_new": "Ny timer i denne flyten"
+    "timer_new": "Ny timer i denne flyten",
+    "mode_set_mode_new": "Ny modus i dette modussettet, vil bli kjent etter at flyten er lagret",
+    "mode_set_new": "Nytt modussett i denne flyten"
   },
   "notification": {
     "mode_activated": "**__name__** er aktivert.",
     "mode_deactivated": "**__name__** er deaktivert.",
-    "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for å lære mer om hva du kan gjøre med FlowBits."
+    "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for å lære mer om hva du kan gjøre med FlowBits.",
+    "mode_set_activated": "**__name__** er aktivert i **__set__**.",
+    "mode_set_deactivated": "**__name__** er deaktivert i **__set__**."
   },
   "token": {
     "day_period": "Dagsperiode (rå)",
@@ -76,6 +80,9 @@
       "finished": "Fullført",
       "paused": "Pauset",
       "stopped": "Stoppet"
+    },
+    "mode_set_current": {
+      "label": "Nåværende modus"
     }
   },
   "settings": {
@@ -129,7 +136,8 @@
       "no_repeats": "Ingen-gjentakelsesvinduer",
       "sets": "Sets",
       "sliders": "Glidere",
-      "timers": "Tidtakere"
+      "timers": "Tidtakere",
+      "mode_sets": "Modussett"
     },
     "card_statistics": {
       "title": "Flytkortstatistikk",
@@ -138,6 +146,11 @@
     "documentation": {
       "title": "Dokumentasjon",
       "description": "Lær mer om FlowBits og hvordan du bruker alle funksjonene effektivt. Besøk FlowBits.nl for dokumentasjon."
+    },
+    "mode_sets": {
+      "title": "Modussett",
+      "description": "Modussett grupperer moduser slik at bare én modus per sett kan være aktiv om gangen. Opprett og administrer modussett via modussett-handlinger, betingelser og triggere i dine flyter.",
+      "empty": "Ingen modussett har blitt opprettet enda."
     }
   },
   "color": {
