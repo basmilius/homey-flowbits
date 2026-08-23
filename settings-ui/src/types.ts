@@ -20,6 +20,7 @@ export type FeatureType =
     | 'flag'
     | 'label'
     | 'mode'
+    | 'mode_set'
     | 'set'
     | 'timer';
 

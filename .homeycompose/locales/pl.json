@@ -5,6 +5,8 @@
         "flag_new": "Nowa flaga w tym przepływie",
         "label_new": "Nowa etykieta w tym przepływie",
         "mode_new": "Nowy tryb w tym przepływie",
+        "mode_set_mode_new": "Nowy tryb w tym zestawie trybów, zostanie zidentyfikowany po zapisaniu przepływu",
+        "mode_set_new": "Nowy zestaw trybów w tym przepływie",
         "no_repeat_new": "Nowe okno bez powtórzeń w tym przepływie",
         "set_new": "Nowe set w tym przepływie",
         "set_state_new": "Nowy stan set w tym przepływie, zostanie zidentyfikowany po zapisaniu przepływu",
@@ -15,11 +17,14 @@
     "notification": {
         "mode_activated": "**__name__** jest aktywowany.",
         "mode_deactivated": "**__name__** jest dezaktywowany.",
+        "mode_set_activated": "**__name__** jest aktywowany w **__set__**.",
+        "mode_set_deactivated": "**__name__** jest dezaktywowany w **__set__**.",
         "welcome": "Witamy w **FlowBits**! Przejdź do flowbits.nl, aby dowiedzieć się więcej o tym, co możesz zrobić z FlowBits."
     },
     "token": {
         "day_period": "Część dnia (surowa)",
         "day_period_translated": "Część dnia",
+        "mode_set_current_mode": "Aktualny tryb zestawu trybów (__set__)",
         "moon_phase": "Faza księżyca (surowa)",
         "moon_phase_translated": "Faza księżyca",
         "zodiac_sign": "Znak zodiaku (surowy)",
@@ -57,6 +62,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "Aktualny tryb"
+        },
+        "mode_set_current": {
             "label": "Aktualny tryb"
         },
         "event": {
@@ -112,6 +120,11 @@
             "description": "Tylko jeden tryb może być aktywny w danym momencie. Twórz i zarządzaj trybami za pomocą akcji, warunków i wyzwalaczy.",
             "empty": "Nie utworzono jeszcze żadnych trybów."
         },
+        "mode_sets": {
+            "title": "Zestawy trybów",
+            "description": "Zestawy trybów grupują tryby, dzięki czemu tylko jeden tryb w zestawie może być aktywny w danym momencie. Twórz i zarządzaj zestawami trybów za pomocą akcji, warunków i wyzwalaczy zestawów trybów.",
+            "empty": "Nie utworzono jeszcze żadnych zestawów trybów."
+        },
         "sets": {
             "title": "Zestawy",
             "description": "Zestawy to kolekcje stanów logicznych, które mogą być oceniane jako grupa. Zestaw jest aktywny, gdy którykolwiek z jego stanów jest aktywny. Używaj akcji, warunków i wyzwalaczy zestawów w swoich przepływach, aby zarządzać grupowanymi stanami.",
@@ -130,6 +143,7 @@
             "flags": "Flagi",
             "labels": "Etykiety",
             "modes": "Tryby",
+            "mode_sets": "Zestawy trybów",
             "no_repeats": "Okna bez powtórzeń",
             "sets": "Zestawy",
             "sliders": "Suwaki",

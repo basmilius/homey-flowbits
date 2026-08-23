@@ -1,0 +1,88 @@
+{
+    "id": "mode_set_toggle",
+    "title": {
+        "en": "Toggle mode in mode set",
+        "nl": "Schakel stand in standenset om",
+        "de": "Modus im Modus-Set umschalten",
+        "fr": "Basculer un mode dans l'ensemble de modes",
+        "it": "Commuta modalità nel set di modalità",
+        "sv": "Växla läge i lägesset",
+        "no": "Veksle modus i modussett",
+        "es": "Alternar modo en conjunto de modos",
+        "da": "Skift tilstand i tilstandssæt",
+        "ru": "Переключить режим в наборе режимов",
+        "pl": "Przełącz tryb w zestawie trybów",
+        "ko": "모드 세트에서 모드 전환",
+        "ar": "تبديل وضع في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "Toggle [[mode]] in mode set [[set]]",
+        "nl": "Schakel [[mode]] in standenset [[set]] om",
+        "de": "Schalte [[mode]] im Modus-Set [[set]] um",
+        "fr": "Basculer [[mode]] dans l'ensemble de modes [[set]]",
+        "it": "Commuta [[mode]] nel set di modalità [[set]]",
+        "sv": "Växla [[mode]] i lägesset [[set]]",
+        "no": "Veksle [[mode]] i modussett [[set]]",
+        "es": "Alternar [[mode]] en el conjunto de modos [[set]]",
+        "da": "Skift [[mode]] i tilstandssæt [[set]]",
+        "ru": "Переключить [[mode]] в наборе режимов [[set]]",
+        "pl": "Przełącz [[mode]] w zestawie trybów [[set]]",
+        "ko": "모드 세트 [[set]]에서 [[mode]] 전환",
+        "ar": "تبديل [[mode]] في مجموعة الأوضاع [[set]]"
+    },
+    "hint": {
+        "en": "Toggles a mode within a mode set, regardless of its current state.",
+        "nl": "Schakelt een stand binnen een standenset om, ongeacht de huidige status.",
+        "de": "Schaltet einen Modus innerhalb eines Modus-Sets um, unabhängig vom aktuellen Zustand.",
+        "fr": "Bascule un mode au sein d'un ensemble de modes, quel que soit son état actuel.",
+        "it": "Commuta una modalità all'interno di un set di modalità, indipendentemente dal suo stato attuale.",
+        "sv": "Växlar ett läge inom ett lägesset, oavsett dess aktuella tillstånd.",
+        "no": "Veksler en modus innenfor et modussett, uavhengig av dens nåværende tilstand.",
+        "es": "Alterna un modo dentro de un conjunto de modos, independientemente de su estado actual.",
+        "da": "Skifter en tilstand inden for et tilstandssæt, uanset dens aktuelle status.",
+        "ru": "Переключает режим в наборе режимов независимо от его текущего состояния.",
+        "pl": "Przełącza tryb w zestawie trybów, niezależnie od jego aktualnego stanu.",
+        "ko": "현재 상태와 관계없이 모드 세트 내에서 모드를 전환합니다.",
+        "ar": "يقوم بتبديل وضع داخل مجموعة أوضاع، بغض النظر عن حالته الحالية."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        }
+    ]
+}

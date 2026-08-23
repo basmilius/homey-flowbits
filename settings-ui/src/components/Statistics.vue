@@ -29,6 +29,11 @@
                 :value="result.numberOfModes"/>
 
             <Statistic
+                icon=""
+                :name="t('settings.statistics.mode_sets')"
+                :value="result.numberOfModeSets"/>
+
+            <Statistic
                 icon=""
                 :name="t('settings.statistics.no_repeats')"
                 :value="result.numberOfNoRepeats"/>

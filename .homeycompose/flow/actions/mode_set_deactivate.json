@@ -1,0 +1,88 @@
+{
+    "id": "mode_set_deactivate",
+    "title": {
+        "en": "Deactivate mode in mode set",
+        "nl": "Deactiveer stand in standenset",
+        "de": "Modus im Modus-Set deaktivieren",
+        "fr": "Désactiver un mode dans l'ensemble de modes",
+        "it": "Disattiva modalità nel set di modalità",
+        "sv": "Inaktivera läge i lägesset",
+        "no": "Deaktiver modus i modussett",
+        "es": "Desactivar modo en conjunto de modos",
+        "da": "Deaktivér tilstand i tilstandssæt",
+        "ru": "Деактивировать режим в наборе режимов",
+        "pl": "Dezaktywuj tryb w zestawie trybów",
+        "ko": "모드 세트에서 모드 비활성화",
+        "ar": "إلغاء تفعيل وضع في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "Deactivate [[mode]] in mode set [[set]]",
+        "nl": "Deactiveer [[mode]] in standenset [[set]]",
+        "de": "Deaktiviere [[mode]] im Modus-Set [[set]]",
+        "fr": "Désactiver [[mode]] dans l'ensemble de modes [[set]]",
+        "it": "Disattiva [[mode]] nel set di modalità [[set]]",
+        "sv": "Inaktivera [[mode]] i lägesset [[set]]",
+        "no": "Deaktiver [[mode]] i modussett [[set]]",
+        "es": "Desactivar [[mode]] en el conjunto de modos [[set]]",
+        "da": "Deaktivér [[mode]] i tilstandssæt [[set]]",
+        "ru": "Деактивировать [[mode]] в наборе режимов [[set]]",
+        "pl": "Dezaktywuj [[mode]] w zestawie trybów [[set]]",
+        "ko": "모드 세트 [[set]]에서 [[mode]] 비활성화",
+        "ar": "إلغاء تفعيل [[mode]] في مجموعة الأوضاع [[set]]"
+    },
+    "hint": {
+        "en": "Deactivates a mode within a mode set, but only if it's currently active.",
+        "nl": "Deactiveert een stand binnen een standenset, maar alleen als deze momenteel actief is.",
+        "de": "Deaktiviert einen Modus innerhalb eines Modus-Sets, aber nur, wenn er derzeit aktiv ist.",
+        "fr": "Désactive un mode au sein d'un ensemble de modes, mais seulement s'il est actuellement actif.",
+        "it": "Disattiva una modalità all'interno di un set di modalità, ma solo se è attualmente attiva.",
+        "sv": "Inaktiverar ett läge inom ett lägesset, men endast om det för närvarande är aktivt.",
+        "no": "Deaktiverer en modus innenfor et modussett, men bare hvis den for øyeblikket er aktiv.",
+        "es": "Desactiva un modo dentro de un conjunto de modos, pero solo si está actualmente activo.",
+        "da": "Deaktiverer en tilstand inden for et tilstandssæt, men kun hvis den aktuelt er aktiv.",
+        "ru": "Деактивирует режим в наборе режимов, но только если он в данный момент активен.",
+        "pl": "Dezaktywuje tryb w zestawie trybów, ale tylko jeśli jest aktualnie aktywny.",
+        "ko": "모드 세트 내에서 모드를 비활성화하지만, 현재 활성화된 경우에만 적용됩니다.",
+        "ar": "يقوم بإلغاء تفعيل وضع داخل مجموعة أوضاع، ولكن فقط إذا كان نشطًا حاليًا."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        }
+    ]
+}

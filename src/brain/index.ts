@@ -4,6 +4,7 @@ export type { default as Events } from './events';
 export type { default as Flags } from './flags';
 export type { default as Labels } from './labels';
 export type { default as Modes } from './modes';
+export type { default as ModeSets } from './modeSets';
 export type { default as NoRepeat } from './noRepeat';
 export type { default as Sets } from './sets';
 export type { default as Signals } from './signals';

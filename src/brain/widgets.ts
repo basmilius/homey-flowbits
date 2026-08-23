@@ -9,6 +9,8 @@ export default class Widgets extends Shortcuts<FlowBitsApp> {
         await this.#initializeFlags();
         await this.#initializeLabel();
         await this.#initializeModes();
+        await this.#initializeModeSets();
+        await this.#initializeModeSetCurrent();
         await this.#initializeSetStates();
         await this.#initializeSetStatus();
         await this.#initializeSlider();
@@ -78,6 +80,30 @@ export default class Widgets extends Shortcuts<FlowBitsApp> {
             return createFilterAutocomplete(allNames, query, {
                 itemsField: 'modes'
             });
+        });
+    }
+
+    async #initializeModeSets(): Promise<void> {
+        const widget = this.dashboards.getWidget('mode_sets');
+
+        widget.registerSettingAutocompleteListener('set', async () => {
+            const sets = await this.app.modeSets.findAll();
+
+            return sets.map(set => ({
+                name: set.name
+            }));
+        });
+    }
+
+    async #initializeModeSetCurrent(): Promise<void> {
+        const widget = this.dashboards.getWidget('mode_set_current');
+
+        widget.registerSettingAutocompleteListener('set', async () => {
+            const sets = await this.app.modeSets.findAll();
+
+            return sets.map(set => ({
+                name: set.name
+            }));
         });
     }
 

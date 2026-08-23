@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head lang="en">
+    <title>Mode set</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+</head>
+
+<body class="homey-widget-full">
+
+<div id="modes"></div>
+
+<script type="text/javascript">
+    function onHomeyReady(Homey) {
+        const settings = Homey.getSettings();
+
+        let lastResult = null;
+        let ready = false;
+
+        async function init() {
+            Homey.on('flowbits-mode-set-update', (set) => {
+                if (set?.name === settings.set.name) {
+                    render(set.modes ?? []);
+                }
+            });
+
+            await update();
+        }
+
+        async function onClickMode(mode) {
+            try {
+                Homey.hapticFeedback();
+            } catch (_) {
+                // care
+            }
+
+            await Homey.api('POST', '/', {set: settings.set.name, mode: mode.name});
+        }
+
+        async function render(results) {
+            let elements = [];
+
+            const resultsString = JSON.stringify(results);
+
+            if (lastResult === resultsString) {
+                return;
+            }
+
+            lastResult = resultsString;
+
+            for (const result of results) {
+                const button = document.createElement('button');
+                button.className = 'homey-widget item' + (result.active ? ' active' : '');
+                button.addEventListener('click', () => onClickMode(result));
+
+                if (settings.show_icons && result.icon) {
+                    const icon = document.createElement('div');
+                    icon.className = 'flowbits-icon item-icon';
+                    icon.style.setProperty('--color', result.color);
+                    icon.style.setProperty('--icon', JSON.stringify(result.icon));
+                    icon.style.setProperty('--icon-secondary', JSON.stringify(result.icon + result.icon));
+                    button.appendChild(icon);
+                }
+
+                const caption = document.createElement('div');
+                caption.className = 'item-caption';
+                button.appendChild(caption);
+
+                const name = document.createElement('p');
+                name.className = 'homey-text-medium';
+                name.textContent = result.name;
+                caption.appendChild(name);
+
+                elements.push(button);
+            }
+
+            const modes = document.getElementById('modes');
+
+            if (settings.readonly) {
+                modes.setAttribute('data-readonly', 'true');
+            } else {
+                modes.removeAttribute('data-readonly');
+            }
+
+            if (settings.view_mode === 'grid') {
+                modes.className = 'grid';
+            } else {
+                modes.className = 'list';
+            }
+
+            modes.innerText = '';
+            elements.forEach(element => modes.appendChild(element));
+
+            const height = modes.getBoundingClientRect().height;
+
+            if (ready) {
+                await Homey.setHeight(height);
+            } else {
+                Homey.ready({height});
+                ready = true;
+            }
+        }
+
+        async function update() {
+            const set = await Homey.api('GET', `/?set=${encodeURIComponent(settings.set.name)}`);
+
+            await render(set?.modes ?? []);
+        }
+
+        init();
+    }
+</script>
+
+</body>
+</html>

@@ -5,6 +5,8 @@
         "flag_new": "Ny flagga i detta flöde",
         "label_new": "Ny etikett i detta flöde",
         "mode_new": "Nytt läge i detta flöde",
+        "mode_set_mode_new": "Nytt läge i detta lägesset, kommer att bli känt efter att flödet sparas",
+        "mode_set_new": "Nytt lägesset i detta flöde",
         "no_repeat_new": "Nytt icke-repetitionsfönster i detta flöde",
         "set_new": "Nytt set i detta flöde",
         "set_state_new": "Nytt set-tillstånd i detta flöde, kommer att bli känt efter att flödet sparas",
@@ -15,11 +17,14 @@
     "notification": {
         "mode_activated": "**__name__** är aktiverad.",
         "mode_deactivated": "**__name__** är inaktiverad.",
+        "mode_set_activated": "**__name__** är aktiverat i **__set__**.",
+        "mode_set_deactivated": "**__name__** är inaktiverat i **__set__**.",
         "welcome": "Välkommen till **FlowBits**! Gå till flowbits.nl för att lära dig mer om vad du kan göra med FlowBits."
     },
     "token": {
         "day_period": "Dagsperiod (rå)",
         "day_period_translated": "Dagsperiod",
+        "mode_set_current_mode": "Lägessetets aktuella läge (__set__)",
         "moon_phase": "Månfas (rå)",
         "moon_phase_translated": "Månfas",
         "zodiac_sign": "Stjärntecken (rå)",
@@ -57,6 +62,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "Aktuellt läge"
+        },
+        "mode_set_current": {
             "label": "Aktuellt läge"
         },
         "event": {
@@ -112,6 +120,11 @@
             "description": "Endast ett läge kan vara aktivt åt gången. Skapa och hantera lägen i dina flöden.",
             "empty": "Inga lägen har skapats ännu."
         },
+        "mode_sets": {
+            "title": "Lägesset",
+            "description": "Lägesset grupperar lägen så att endast ett läge per set kan vara aktivt åt gången. Skapa och hantera lägesset med lägesset-åtgärder, villkor och triggers i dina flöden.",
+            "empty": "Inga lägesset har skapats ännu."
+        },
         "sets": {
             "title": "Sets",
             "description": "Sets är samlingar av booleska tillstånd som kan utvärderas som en grupp. En set är aktiv när något av dess tillstånd är aktivt. Använd set-åtgärder, villkor och triggers i dina flöden för att hantera grupperade tillstånd.",
@@ -130,6 +143,7 @@
             "flags": "Flaggor",
             "labels": "Etiketter",
             "modes": "Lägen",
+            "mode_sets": "Lägesset",
             "no_repeats": "Inga-upprepningsfönster",
             "sets": "Sets",
             "sliders": "Reglage",

@@ -10,12 +10,16 @@
     "set_state_new": "Nytt set-tillstånd i detta flöde, kommer att bli känt efter att flödet sparas",
     "signal_new": "Ny signal i detta flöde",
     "slider_new": "Ny slider i detta flöde",
-    "timer_new": "Ny timer i detta flöde"
+    "timer_new": "Ny timer i detta flöde",
+    "mode_set_mode_new": "Nytt läge i detta lägesset, kommer att bli känt efter att flödet sparas",
+    "mode_set_new": "Nytt lägesset i detta flöde"
   },
   "notification": {
     "mode_activated": "**__name__** är aktiverad.",
     "mode_deactivated": "**__name__** är inaktiverad.",
-    "welcome": "Välkommen till **FlowBits**! Gå till flowbits.nl för att lära dig mer om vad du kan göra med FlowBits."
+    "welcome": "Välkommen till **FlowBits**! Gå till flowbits.nl för att lära dig mer om vad du kan göra med FlowBits.",
+    "mode_set_activated": "**__name__** är aktiverat i **__set__**.",
+    "mode_set_deactivated": "**__name__** är inaktiverat i **__set__**."
   },
   "token": {
     "day_period": "Dagsperiod (rå)",
@@ -23,7 +27,8 @@
     "moon_phase": "Månfas (rå)",
     "moon_phase_translated": "Månfas",
     "zodiac_sign": "Stjärntecken (rå)",
-    "zodiac_sign_translated": "Stjärntecken"
+    "zodiac_sign_translated": "Stjärntecken",
+    "mode_set_current_mode": "Lägessetets aktuella läge (__set__)"
   },
   "day_period": {
     "morning": "Morgon",
@@ -76,6 +81,9 @@
       "finished": "Avslutad",
       "paused": "Pausad",
       "stopped": "Stoppad"
+    },
+    "mode_set_current": {
+      "label": "Aktuellt läge"
     }
   },
   "settings": {
@@ -129,7 +137,8 @@
       "no_repeats": "Inga-upprepningsfönster",
       "sets": "Sets",
       "sliders": "Reglage",
-      "timers": "Timers"
+      "timers": "Timers",
+      "mode_sets": "Lägesset"
     },
     "card_statistics": {
       "title": "Flödeskortsstatistik",
@@ -138,6 +147,11 @@
     "documentation": {
       "title": "Dokumentation",
       "description": "Lär dig mer om FlowBits och hur du använder alla funktioner effektivt. Besök FlowBits.nl för dokumentation."
+    },
+    "mode_sets": {
+      "title": "Lägesset",
+      "description": "Lägesset grupperar lägen så att endast ett läge per set kan vara aktivt åt gången. Skapa och hantera lägesset med lägesset-åtgärder, villkor och triggers i dina flöden.",
+      "empty": "Inga lägesset har skapats ännu."
     }
   },
   "color": {

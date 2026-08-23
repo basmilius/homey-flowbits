@@ -1,0 +1,147 @@
+{
+    "name": {
+        "en": "Mode set",
+        "nl": "Standenset",
+        "de": "Modus-Set",
+        "fr": "Ensemble de modes",
+        "it": "Set di modalità",
+        "sv": "Lägesset",
+        "no": "Modussett",
+        "es": "Conjunto de modos",
+        "da": "Tilstandssæt",
+        "ru": "Набор режимов",
+        "pl": "Zestaw trybów",
+        "ko": "모드 세트",
+        "ar": "مجموعة الأوضاع"
+    },
+    "height": 120,
+    "settings": [
+        {
+            "id": "set",
+            "type": "autocomplete",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        },
+        {
+            "id": "readonly",
+            "type": "checkbox",
+            "value": false,
+            "title": {
+                "en": "Read only",
+                "nl": "Alleen-lezen",
+                "da": "Kun læsning",
+                "de": "Nur lesen",
+                "es": "Solo lectura",
+                "fr": "Lecture seule",
+                "it": "Solo lettura",
+                "no": "Kun lesing",
+                "sv": "Endast läsning",
+                "pl": "Tylko do odczytu",
+                "ru": "Только чтение",
+                "ko": "읽기 전용",
+                "ar": "قراءة فقط"
+            }
+        },
+        {
+            "id": "show_icons",
+            "type": "checkbox",
+            "value": true,
+            "title": {
+                "en": "Show icons",
+                "nl": "Toon icoontjes",
+                "de": "Symbole anzeigen",
+                "fr": "Afficher les icônes",
+                "it": "Mostra icone",
+                "sv": "Visa ikoner",
+                "no": "Vis ikoner",
+                "es": "Mostrar iconos",
+                "da": "Vis ikoner",
+                "ru": "Показать иконки",
+                "pl": "Pokaż ikony",
+                "ko": "아이콘 표시",
+                "ar": "إظهار الأيقونات"
+            }
+        },
+        {
+            "id": "view_mode",
+            "type": "dropdown",
+            "title": {
+                "en": "View mode",
+                "nl": "Weergavemodus",
+                "de": "Ansichtsmodus",
+                "fr": "Mode d’affichage",
+                "it": "Modalità di visualizzazione",
+                "sv": "Visningsläge",
+                "no": "Visningsmodus",
+                "es": "Modo de vista",
+                "da": "Visningstilstand",
+                "ru": "Режим просмотра",
+                "pl": "Tryb widoku",
+                "ko": "보기 모드",
+                "ar": "وضع العرض"
+            },
+            "value": "grid",
+            "values": [
+                {
+                    "id": "grid",
+                    "title": {
+                        "en": "Grid",
+                        "nl": "Grid",
+                        "de": "Raster",
+                        "fr": "Grille",
+                        "it": "Griglia",
+                        "sv": "Rutnät",
+                        "no": "Rutenett",
+                        "es": "Cuadrícula",
+                        "da": "Gitter",
+                        "ru": "Сетка",
+                        "pl": "Siatka",
+                        "ko": "그리드",
+                        "ar": "شبكة"
+                    }
+                },
+                {
+                    "id": "list",
+                    "title": {
+                        "en": "List",
+                        "nl": "Lijst",
+                        "de": "Liste",
+                        "fr": "Liste",
+                        "it": "Elenco",
+                        "sv": "Lista",
+                        "no": "Liste",
+                        "es": "Lista",
+                        "da": "Liste",
+                        "ru": "Список",
+                        "pl": "Lista",
+                        "ko": "목록",
+                        "ar": "قائمة"
+                    }
+                }
+            ]
+        }
+    ],
+    "api": {
+        "get": {
+            "method": "GET",
+            "path": "/"
+        },
+        "toggle": {
+            "method": "POST",
+            "path": "/"
+        }
+    }
+}

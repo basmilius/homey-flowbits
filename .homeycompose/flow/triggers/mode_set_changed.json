@@ -1,0 +1,109 @@
+{
+    "id": "mode_set_changed",
+    "title": {
+        "en": "Mode changed in mode set",
+        "nl": "Stand gewijzigd in standenset",
+        "de": "Modus im Modus-Set geändert",
+        "fr": "Mode changé dans l'ensemble de modes",
+        "it": "Modalità modificata nel set di modalità",
+        "sv": "Läge ändrat i lägesset",
+        "no": "Modus endret i modussett",
+        "es": "Modo cambiado en el conjunto de modos",
+        "da": "Tilstand ændret i tilstandssæt",
+        "ru": "Режим изменён в наборе режимов",
+        "pl": "Tryb zmieniony w zestawie trybów",
+        "ko": "모드 세트에서 모드 변경됨",
+        "ar": "الوضع تغيّر في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "Mode [[mode]] in mode set [[set]] changed",
+        "nl": "Stand [[mode]] in standenset [[set]] gewijzigd",
+        "de": "Modus [[mode]] im Modus-Set [[set]] geändert",
+        "fr": "Mode [[mode]] dans l'ensemble de modes [[set]] changé",
+        "it": "Modalità [[mode]] nel set di modalità [[set]] modificata",
+        "sv": "Läge [[mode]] i lägesset [[set]] ändrat",
+        "no": "Modus [[mode]] i modussett [[set]] endret",
+        "es": "Modo [[mode]] en el conjunto de modos [[set]] cambiado",
+        "da": "Tilstand [[mode]] i tilstandssæt [[set]] ændret",
+        "ru": "Режим [[mode]] в наборе режимов [[set]] изменён",
+        "pl": "Tryb [[mode]] w zestawie trybów [[set]] zmieniony",
+        "ko": "모드 세트 [[set]]의 모드 [[mode]] 변경됨",
+        "ar": "الوضع [[mode]] في مجموعة الأوضاع [[set]] تغيّر"
+    },
+    "hint": {
+        "en": "Triggers when a mode within a mode set is activated or deactivated.",
+        "nl": "Triggert wanneer een stand binnen een standenset wordt geactiveerd of gedeactiveerd.",
+        "de": "Löst aus, wenn ein Modus innerhalb eines Modus-Sets aktiviert oder deaktiviert wird.",
+        "fr": "Se déclenche lorsqu'un mode au sein d'un ensemble de modes est activé ou désactivé.",
+        "it": "Si attiva quando una modalità all'interno di un set di modalità viene attivata o disattivata.",
+        "sv": "Utlöses när ett läge inom ett lägesset aktiveras eller inaktiveras.",
+        "no": "Utløses når en modus innenfor et modussett aktiveres eller deaktiveres.",
+        "es": "Se activa cuando un modo dentro de un conjunto de modos se activa o desactiva.",
+        "da": "Udløses når en tilstand inden for et tilstandssæt aktiveres eller deaktiveres.",
+        "ru": "Срабатывает при активации или деактивации режима в наборе режимов.",
+        "pl": "Wyzwalane, gdy tryb w zestawie trybów zostaje aktywowany lub dezaktywowany.",
+        "ko": "모드 세트 내에서 모드가 활성화되거나 비활성화될 때 트리거됨.",
+        "ar": "يتم التفعيل عند تفعيل أو إلغاء تفعيل وضع داخل مجموعة أوضاع."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        }
+    ],
+    "tokens": [
+        {
+            "name": "active",
+            "type": "boolean",
+            "title": {
+                "en": "Active",
+                "nl": "Actief",
+                "de": "Aktiv",
+                "fr": "Actif",
+                "it": "Attivo",
+                "sv": "Aktiv",
+                "no": "Aktiv",
+                "es": "Activo",
+                "da": "Aktiv",
+                "ru": "Активный",
+                "pl": "Aktywny",
+                "ko": "활성",
+                "ar": "نشط"
+            }
+        }
+    ]
+}

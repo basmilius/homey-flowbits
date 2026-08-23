@@ -5,6 +5,8 @@
         "flag_new": "Nytt flagg i denne flyten",
         "label_new": "Ny etikett i denne flyten",
         "mode_new": "Ny modus i denne flyten",
+        "mode_set_mode_new": "Ny modus i dette modussettet, vil bli kjent etter at flyten er lagret",
+        "mode_set_new": "Nytt modussett i denne flyten",
         "no_repeat_new": "Nytt ikke-repeterende vindu i denne flyten",
         "set_new": "Ny set i denne flyten",
         "set_state_new": "Ny set-tilstand i denne flyten...",
@@ -15,11 +17,14 @@
     "notification": {
         "mode_activated": "**__name__** er aktivert.",
         "mode_deactivated": "**__name__** er deaktivert.",
+        "mode_set_activated": "**__name__** er aktivert i **__set__**.",
+        "mode_set_deactivated": "**__name__** er deaktivert i **__set__**.",
         "welcome": "Velkommen til **FlowBits**! Gå til flowbits.nl for å lære mer om hva du kan gjøre med FlowBits."
     },
     "token": {
         "day_period": "Dagsperiode (rå)",
         "day_period_translated": "Dagsperiode",
+        "mode_set_current_mode": "Modussettets nåværende modus (__set__)",
         "moon_phase": "Månefase (rå)",
         "moon_phase_translated": "Månefase",
         "zodiac_sign": "Stjernetegn (rå)",
@@ -57,6 +62,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "Nåværende modus"
+        },
+        "mode_set_current": {
             "label": "Nåværende modus"
         },
         "event": {
@@ -112,6 +120,11 @@
             "description": "Bare én modus kan være aktiv om gangen. Opprett og administrer moduser via handlinger, betingelser og triggere i dine flyter.",
             "empty": "Ingen moduser har blitt opprettet enda."
         },
+        "mode_sets": {
+            "title": "Modussett",
+            "description": "Modussett grupperer moduser slik at bare én modus per sett kan være aktiv om gangen. Opprett og administrer modussett via modussett-handlinger, betingelser og triggere i dine flyter.",
+            "empty": "Ingen modussett har blitt opprettet enda."
+        },
         "sets": {
             "title": "Sets",
             "description": "Sets er samlinger av booleske tilstander som kan bli vurdert som en gruppe. En set er aktiv når en av sine tilstander er aktiv. Bruk set-handlinger, betingelser og triggere i dine flyter for å administrere grupperte tilstander.",
@@ -130,6 +143,7 @@
             "flags": "Flagg",
             "labels": "Etiketter",
             "modes": "Moduser",
+            "mode_sets": "Modussett",
             "no_repeats": "Ingen-gjentakelsesvinduer",
             "sets": "Sets",
             "sliders": "Glidere",

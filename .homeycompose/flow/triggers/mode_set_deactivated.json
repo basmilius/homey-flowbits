@@ -1,0 +1,88 @@
+{
+    "id": "mode_set_deactivated",
+    "title": {
+        "en": "Mode deactivated in mode set",
+        "nl": "Stand gedeactiveerd in standenset",
+        "de": "Modus im Modus-Set deaktiviert",
+        "fr": "Mode désactivé dans l'ensemble de modes",
+        "it": "Modalità disattivata nel set di modalità",
+        "sv": "Läge inaktiverat i lägesset",
+        "no": "Modus deaktivert i modussett",
+        "es": "Modo desactivado en el conjunto de modos",
+        "da": "Tilstand deaktiveret i tilstandssæt",
+        "ru": "Режим деактивирован в наборе режимов",
+        "pl": "Tryb dezaktywowany w zestawie trybów",
+        "ko": "모드 세트에서 모드 비활성화됨",
+        "ar": "تم إلغاء تفعيل وضع في مجموعة الأوضاع"
+    },
+    "titleFormatted": {
+        "en": "Mode [[mode]] in mode set [[set]] is deactivated",
+        "nl": "Stand [[mode]] in standenset [[set]] is gedeactiveerd",
+        "de": "Modus [[mode]] im Modus-Set [[set]] ist deaktiviert",
+        "fr": "Mode [[mode]] dans l'ensemble de modes [[set]] est désactivé",
+        "it": "Modalità [[mode]] nel set di modalità [[set]] è disattivata",
+        "sv": "Läge [[mode]] i lägesset [[set]] är inaktiverat",
+        "no": "Modus [[mode]] i modussett [[set]] er deaktivert",
+        "es": "Modo [[mode]] en el conjunto de modos [[set]] está desactivado",
+        "da": "Tilstand [[mode]] i tilstandssæt [[set]] er deaktiveret",
+        "ru": "Режим [[mode]] в наборе режимов [[set]] деактивирован",
+        "pl": "Tryb [[mode]] w zestawie trybów [[set]] został dezaktywowany",
+        "ko": "모드 세트 [[set]]에서 모드 [[mode]]가 비활성화됨",
+        "ar": "تم إلغاء تفعيل الوضع [[mode]] في مجموعة الأوضاع [[set]]"
+    },
+    "hint": {
+        "en": "Triggers when a mode within a mode set gets deactivated.",
+        "nl": "Triggert wanneer een stand binnen een standenset is gedeactiveerd.",
+        "de": "Löst aus, wenn ein Modus innerhalb eines Modus-Sets deaktiviert wird.",
+        "fr": "Se déclenche lorsqu'un mode au sein d'un ensemble de modes est désactivé.",
+        "it": "Si attiva quando una modalità all'interno di un set di modalità viene disattivata.",
+        "sv": "Utlöses när ett läge inom ett lägesset inaktiveras.",
+        "no": "Utløses når en modus innenfor et modussett deaktiveres.",
+        "es": "Se activa cuando un modo dentro de un conjunto de modos se desactiva.",
+        "da": "Udløses når en tilstand inden for et tilstandssæt deaktiveres.",
+        "ru": "Срабатывает при деактивации режима в наборе режимов.",
+        "pl": "Wyzwalane, gdy tryb w zestawie trybów zostaje dezaktywowany.",
+        "ko": "모드 세트 내에서 모드가 비활성화될 때 트리거됩니다.",
+        "ar": "يتم التفعيل عند إلغاء تفعيل وضع داخل مجموعة أوضاع."
+    },
+    "args": [
+        {
+            "type": "autocomplete",
+            "name": "set",
+            "title": {
+                "en": "Mode set",
+                "nl": "Standenset",
+                "de": "Modus-Set",
+                "fr": "Ensemble de modes",
+                "it": "Set di modalità",
+                "sv": "Lägesset",
+                "no": "Modussett",
+                "es": "Conjunto de modos",
+                "da": "Tilstandssæt",
+                "ru": "Набор режимов",
+                "pl": "Zestaw trybów",
+                "ko": "모드 세트",
+                "ar": "مجموعة الأوضاع"
+            }
+        },
+        {
+            "type": "autocomplete",
+            "name": "mode",
+            "title": {
+                "en": "Mode",
+                "nl": "Stand",
+                "de": "Modus",
+                "fr": "Mode",
+                "it": "Modalità",
+                "sv": "Läge",
+                "no": "Modus",
+                "es": "Modo",
+                "da": "Tilstand",
+                "ru": "Режим",
+                "pl": "Tryb",
+                "ko": "모드",
+                "ar": "وضع"
+            }
+        }
+    ]
+}

@@ -5,6 +5,8 @@
         "flag_new": "Neue Flagge in diesem Flow",
         "label_new": "Neues Etikett in diesem Flow",
         "mode_new": "Neuer Modus in diesem Flow",
+        "mode_set_mode_new": "Neuer Modus in diesem Modus-Set, wird nach dem Speichern des Flows bekannt",
+        "mode_set_new": "Neues Modus-Set in diesem Flow",
         "no_repeat_new": "Neues No-Repeat-Fenster in diesem Flow",
         "set_new": "Neues Set in diesem Flow",
         "set_state_new": "Neue Set-Status in diesem Flow, wird nach dem Speichern des Flows bekannt",
@@ -15,11 +17,14 @@
     "notification": {
         "mode_activated": "**__name__** ist aktiviert.",
         "mode_deactivated": "**__name__** ist deaktiviert.",
+        "mode_set_activated": "**__name__** ist in **__set__** aktiviert.",
+        "mode_set_deactivated": "**__name__** ist in **__set__** deaktiviert.",
         "welcome": "Willkommen bei **FlowBits**! Besuchen Sie flowbits.nl, um mehr darüber zu erfahren, was Sie mit FlowBits tun können."
     },
     "token": {
         "day_period": "Tageszeit (roh)",
         "day_period_translated": "Tageszeit",
+        "mode_set_current_mode": "Modus-Set aktueller Modus (__set__)",
         "moon_phase": "Mondphase (roh)",
         "moon_phase_translated": "Mondphase",
         "zodiac_sign": "Sternzeichen (roh)",
@@ -57,6 +62,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "Aktueller Modus"
+        },
+        "mode_set_current": {
             "label": "Aktueller Modus"
         },
         "event": {
@@ -112,6 +120,11 @@
             "description": "Es kann immer nur ein Modus aktiv sein. Erstellen und verwalten Sie Modi mithilfe von Aktionen, Bedingungen und Triggern in Ihren Flows.",
             "empty": "Es wurden noch keine Modi erstellt."
         },
+        "mode_sets": {
+            "title": "Modus-Sets",
+            "description": "Modus-Sets gruppieren Modi, sodass pro Set jeweils nur ein Modus aktiv sein kann. Erstellen und verwalten Sie Modus-Sets mithilfe von Modus-Set-Aktionen, Bedingungen und Triggern in Ihren Flows.",
+            "empty": "Es wurden noch keine Modus-Sets erstellt."
+        },
         "sets": {
             "title": "Sets",
             "description": "Sets sind Sammlungen von booleschen Zuständen, die als Gruppe ausgewertet werden können. Ein Set ist aktiv, wenn einer seiner Zustände aktiv ist. Verwenden Sie Set-Aktionen, Bedingungen und Trigger in Ihren Flows, um gruppierte Zustände zu verwalten.",
@@ -130,6 +143,7 @@
             "flags": "Flags",
             "labels": "Etiketten",
             "modes": "Modi",
+            "mode_sets": "Modus-Sets",
             "no_repeats": "Nicht-wiederholen-Fenster",
             "sets": "Sets",
             "sliders": "Schieberegler",

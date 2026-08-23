@@ -5,6 +5,8 @@
         "flag_new": "Nieuwe flag in deze flow",
         "label_new": "Nieuwe label in deze flow",
         "mode_new": "Nieuwe stand in deze flow",
+        "mode_set_mode_new": "Nieuwe stand in deze standenset, wordt na opslaan van de flow bekend",
+        "mode_set_new": "Nieuwe standenset in deze flow",
         "no_repeat_new": "Nieuwe geen-herhalingvenster in deze flow",
         "set_new": "Nieuwe set in deze flow",
         "set_state_new": "Nieuwe set-stand in deze flow, wordt na opslaan van de flow bekend",
@@ -15,11 +17,14 @@
     "notification": {
         "mode_activated": "**__name__** is geactiveerd.",
         "mode_deactivated": "**__name__** is gedeactiveerd.",
+        "mode_set_activated": "**__name__** is geactiveerd in **__set__**.",
+        "mode_set_deactivated": "**__name__** is gedeactiveerd in **__set__**.",
         "welcome": "Welkom bij **FlowBits**! Ga naar flowbits.nl om meer te weten te komen over wat je kan doen met FlowBits."
     },
     "token": {
         "day_period": "Dagperiode (ruw)",
         "day_period_translated": "Dagperiode",
+        "mode_set_current_mode": "Standenset huidige stand (__set__)",
         "moon_phase": "Maanfase (ruw)",
         "moon_phase_translated": "Maanfase",
         "zodiac_sign": "Sterrenbeeld (ruw)",
@@ -57,6 +62,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "Huidige stand"
+        },
+        "mode_set_current": {
             "label": "Huidige stand"
         },
         "event": {
@@ -112,6 +120,11 @@
             "description": "Er kan maar één stand tegelijk actief zijn. Maak en beheer standen via stand-acties, -voorwaarden en -triggers in je flows.",
             "empty": "Er zijn nog geen standen aangemaakt."
         },
+        "mode_sets": {
+            "title": "Standensets",
+            "description": "Standensets groeperen standen zodat er per set maar één stand tegelijk actief kan zijn. Maak en beheer standensets via standenset-acties, -voorwaarden en -triggers in je flows.",
+            "empty": "Er zijn nog geen standensets aangemaakt."
+        },
         "sets": {
             "title": "Sets",
             "description": "Sets zijn verzamelingen van booleaanse statussen die als groep kunnen worden geëvalueerd. Een set is actief wanneer een van zijn statussen actief is. Gebruik set-acties, -voorwaarden en -triggers in je flows om groepen statussen te beheren.",
@@ -130,6 +143,7 @@
             "flags": "Flags",
             "labels": "Labels",
             "modes": "Standen",
+            "mode_sets": "Standensets",
             "no_repeats": "Geen-herhalingsvensters",
             "sets": "Sets",
             "sliders": "Sliders",

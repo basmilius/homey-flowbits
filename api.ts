@@ -46,6 +46,10 @@ export async function getModes({homey: {app}}: ApiRequest<FlowBitsApp>): Promise
     return await app.api.getModes();
 }
 
+export async function getModeSets({homey: {app}}: ApiRequest<FlowBitsApp>): Promise<ModeSetLookItem[]> {
+    return await app.api.getModeSets();
+}
+
 export async function getNoRepeatWindows({homey: {app}}: ApiRequest<FlowBitsApp>): Promise<NoRepeatWindow[]> {
     return await app.noRepeat.findAll();
 }
@@ -86,6 +90,10 @@ export async function setModeLook({homey: {app}, body}: ApiRequest<FlowBitsApp, 
     return await app.api.setModeLook(body.name, body.color, body.icon);
 }
 
+export async function setModeSetLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {
+    return await app.api.setModeSetLook(body.name, body.color, body.icon);
+}
+
 export async function setSetLook({homey: {app}, body}: ApiRequest<FlowBitsApp, BodyLook>): Promise<boolean> {
     return await app.api.setSetLook(body.name, body.color, body.icon);
 }
@@ -110,4 +118,10 @@ type BodyLook = {
     readonly name: string;
     readonly color: string;
     readonly icon: string;
+};
+
+type ModeSetLookItem = {
+    readonly name: string;
+    readonly color: string | undefined;
+    readonly icon: string | undefined;
 };

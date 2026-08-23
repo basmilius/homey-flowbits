@@ -82,6 +82,19 @@ export type Mode = WithLook<{
     readonly name: string;
 }>;
 
+export type ModeSet = {
+    readonly currentMode: string | null;
+    readonly modes: ModeSetMode[];
+    readonly name: string;
+};
+
+export type ModeSetMode = WithLook<{
+    readonly active: boolean;
+    readonly lastUpdate: string | undefined;
+    readonly name: string;
+    readonly set: string;
+}>;
+
 export type NoRepeatWindow = {
     readonly name: string;
     readonly lastUpdate: string | undefined;
@@ -110,6 +123,7 @@ export type Statistics = {
     readonly numberOfFlags: number;
     readonly numberOfLabels: number;
     readonly numberOfModes: number;
+    readonly numberOfModeSets: number;
     readonly numberOfNoRepeats: number;
     readonly numberOfSets: number;
     readonly numberOfSliders: number;

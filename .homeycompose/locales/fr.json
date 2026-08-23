@@ -5,6 +5,8 @@
         "flag_new": "Nouveau drapeau dans ce flux",
         "label_new": "Nouvelle étiquette dans ce flux",
         "mode_new": "Nouveau mode dans ce flux",
+        "mode_set_mode_new": "Nouveau mode dans cet ensemble de modes, sera connu après enregistrement du flux",
+        "mode_set_new": "Nouvel ensemble de modes dans ce flux",
         "no_repeat_new": "Nouvelle fenêtre sans répétition dans ce flux",
         "set_new": "Nouvel ensemble dans ce flux",
         "set_state_new": "Nouvel état d'ensemble dans ce flux, sera connu après enregistrement du flux",
@@ -15,11 +17,14 @@
     "notification": {
         "mode_activated": "**__name__** est activé.",
         "mode_deactivated": "**__name__** est désactivé.",
+        "mode_set_activated": "**__name__** est activé dans **__set__**.",
+        "mode_set_deactivated": "**__name__** est désactivé dans **__set__**.",
         "welcome": "Bienvenue sur **FlowBits** ! Rendez-vous sur flowbits.nl pour en savoir plus sur ce que vous pouvez faire avec FlowBits."
     },
     "token": {
         "day_period": "Période de la journée (brut)",
         "day_period_translated": "Période de la journée",
+        "mode_set_current_mode": "Mode actuel de l'ensemble de modes (__set__)",
         "moon_phase": "Phase de la lune (brute)",
         "moon_phase_translated": "Phase de la lune",
         "zodiac_sign": "Signe du zodiaque (brut)",
@@ -57,6 +62,9 @@
     },
     "widget": {
         "current_mode": {
+            "label": "Mode actuel"
+        },
+        "mode_set_current": {
             "label": "Mode actuel"
         },
         "event": {
@@ -112,6 +120,11 @@
             "description": "Un seul mode peut être actif à la fois. Créez et gérez les modes via les actions, conditions et déclencheurs dans vos flows.",
             "empty": "Aucun mode n’a encore été créé."
         },
+        "mode_sets": {
+            "title": "Ensembles de modes",
+            "description": "Les ensembles de modes regroupent des modes afin qu'un seul mode par ensemble puisse être actif à la fois. Créez et gérez les ensembles de modes via les actions, conditions et déclencheurs d'ensembles de modes dans vos flux.",
+            "empty": "Aucun ensemble de modes n'a encore été créé."
+        },
         "sets": {
             "title": "Sets",
             "description": "Les sets sont des collections d'états booléens qui peuvent être évalués en tant que groupe. Un set est actif lorsque l'un de ses états est actif. Utilisez les actions, conditions et déclencheurs de set dans vos flux pour gérer les états groupés.",
@@ -130,6 +143,7 @@
             "flags": "Drapeaux",
             "labels": "Étiquettes",
             "modes": "Modes",
+            "mode_sets": "Ensembles de modes",
             "no_repeats": "Fenêtres sans répétition",
             "sets": "Sets",
             "sliders": "Curseurs",

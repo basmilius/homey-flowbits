@@ -10,12 +10,16 @@
     "set_state_new": "Nowy stan set w tym przepływie, zostanie zidentyfikowany po zapisaniu przepływu",
     "signal_new": "Nowy sygnał w tym przepływie",
     "slider_new": "Nowy suwak w tym przepływie",
-    "timer_new": "Nowy timer w tym przepływie"
+    "timer_new": "Nowy timer w tym przepływie",
+    "mode_set_mode_new": "Nowy tryb w tym zestawie trybów, zostanie zidentyfikowany po zapisaniu przepływu",
+    "mode_set_new": "Nowy zestaw trybów w tym przepływie"
   },
   "notification": {
     "mode_activated": "**__name__** jest aktywowany.",
     "mode_deactivated": "**__name__** jest dezaktywowany.",
-    "welcome": "Witamy w **FlowBits**! Przejdź do flowbits.nl, aby dowiedzieć się więcej o tym, co możesz zrobić z FlowBits."
+    "welcome": "Witamy w **FlowBits**! Przejdź do flowbits.nl, aby dowiedzieć się więcej o tym, co możesz zrobić z FlowBits.",
+    "mode_set_activated": "**__name__** jest aktywowany w **__set__**.",
+    "mode_set_deactivated": "**__name__** jest dezaktywowany w **__set__**."
   },
   "token": {
     "day_period": "Część dnia (surowa)",
@@ -23,7 +27,8 @@
     "moon_phase": "Faza księżyca (surowa)",
     "moon_phase_translated": "Faza księżyca",
     "zodiac_sign": "Znak zodiaku (surowy)",
-    "zodiac_sign_translated": "Znak zodiaku"
+    "zodiac_sign_translated": "Znak zodiaku",
+    "mode_set_current_mode": "Aktualny tryb zestawu trybów (__set__)"
   },
   "day_period": {
     "morning": "Rano",
@@ -76,6 +81,9 @@
       "finished": "Zakończony",
       "paused": "Wstrzymany",
       "stopped": "Zatrzymany"
+    },
+    "mode_set_current": {
+      "label": "Aktualny tryb"
     }
   },
   "settings": {
@@ -129,7 +137,8 @@
       "no_repeats": "Okna bez powtórzeń",
       "sets": "Zestawy",
       "sliders": "Suwaki",
-      "timers": "Timery"
+      "timers": "Timery",
+      "mode_sets": "Zestawy trybów"
     },
     "card_statistics": {
       "title": "Statystyki kart przepływów",
@@ -138,6 +147,11 @@
     "documentation": {
       "title": "Dokumentacja",
       "description": "Dowiedz się więcej o FlowBits i jak efektywnie korzystać ze wszystkich funkcji. Odwiedź FlowBits.nl aby zobaczyć dokumentację."
+    },
+    "mode_sets": {
+      "title": "Zestawy trybów",
+      "description": "Zestawy trybów grupują tryby, dzięki czemu tylko jeden tryb w zestawie może być aktywny w danym momencie. Twórz i zarządzaj zestawami trybów za pomocą akcji, warunków i wyzwalaczy zestawów trybów.",
+      "empty": "Nie utworzono jeszcze żadnych zestawów trybów."
     }
   },
   "color": {
