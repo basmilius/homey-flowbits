@@ -27,7 +27,8 @@
     "moon_phase": "Phase de la lune (brute)",
     "moon_phase_translated": "Phase de la lune",
     "zodiac_sign": "Signe du zodiaque (brut)",
-    "zodiac_sign_translated": "Signe du zodiaque"
+    "zodiac_sign_translated": "Signe du zodiaque",
+    "mode_set_current_mode": "Mode actuel de l'ensemble de modes (__set__)"
   },
   "day_period": {
     "morning": "Matin",

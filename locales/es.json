@@ -27,7 +27,8 @@
     "moon_phase": "Fase lunar (sin procesar)",
     "moon_phase_translated": "Fase lunar",
     "zodiac_sign": "Signo zodiacal (sin procesar)",
-    "zodiac_sign_translated": "Signo zodiacal"
+    "zodiac_sign_translated": "Signo zodiacal",
+    "mode_set_current_mode": "Modo actual del conjunto de modos (__set__)"
   },
   "day_period": {
     "morning": "Mañana",

@@ -84,6 +84,12 @@ These flow cards let you manage modes within a mode set directly from your flows
     </FlowCardExplainer>
 </FlowCards>
 
+## Flow tokens
+
+Every mode set exposes its own global flow token, **Mode set current mode (<em>set name</em>)**, which always holds the name of the currently active mode in that set (or `-` when no mode is active). Unlike the trigger tokens above, this token is available in any flow card that accepts tokens, not just ones following the "current mode changed" trigger.
+
+The token is created automatically the first time a mode set is used in a flow, and removed again if the mode set is no longer referenced anywhere.
+
 ## Examples
 
 ### **House state / Lighting**

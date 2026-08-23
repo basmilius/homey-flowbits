@@ -24,6 +24,7 @@
     "token": {
         "day_period": "Dagsperiod (rå)",
         "day_period_translated": "Dagsperiod",
+        "mode_set_current_mode": "Lägessetets aktuella läge (__set__)",
         "moon_phase": "Månfas (rå)",
         "moon_phase_translated": "Månfas",
         "zodiac_sign": "Stjärntecken (rå)",

@@ -27,7 +27,8 @@
     "moon_phase": "Faza księżyca (surowa)",
     "moon_phase_translated": "Faza księżyca",
     "zodiac_sign": "Znak zodiaku (surowy)",
-    "zodiac_sign_translated": "Znak zodiaku"
+    "zodiac_sign_translated": "Znak zodiaku",
+    "mode_set_current_mode": "Aktualny tryb zestawu trybów (__set__)"
   },
   "day_period": {
     "morning": "Rano",

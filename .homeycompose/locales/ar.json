@@ -24,6 +24,7 @@
     "token": {
         "day_period": "فترة اليوم (غير معالج)",
         "day_period_translated": "فترة اليوم",
+        "mode_set_current_mode": "الوضع الحالي لمجموعة الأوضاع (__set__)",
         "moon_phase": "طور القمر (غير معالج)",
         "moon_phase_translated": "طور القمر",
         "zodiac_sign": "علامة البروج (غير معالج)",

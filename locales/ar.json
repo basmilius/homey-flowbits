@@ -27,7 +27,8 @@
     "moon_phase": "طور القمر (غير معالج)",
     "moon_phase_translated": "طور القمر",
     "zodiac_sign": "علامة البروج (غير معالج)",
-    "zodiac_sign_translated": "علامة البروج"
+    "zodiac_sign_translated": "علامة البروج",
+    "mode_set_current_mode": "الوضع الحالي لمجموعة الأوضاع (__set__)"
   },
   "day_period": {
     "afternoon": "العصر",

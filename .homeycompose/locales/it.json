@@ -24,6 +24,7 @@
     "token": {
         "day_period": "Periodo del giorno (raw)",
         "day_period_translated": "Periodo del giorno",
+        "mode_set_current_mode": "Modalità attuale del set di modalità (__set__)",
         "moon_phase": "Fase lunare (raw)",
         "moon_phase_translated": "Fase lunare",
         "zodiac_sign": "Segno zodiacale (raw)",

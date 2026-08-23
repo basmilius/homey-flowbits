@@ -27,7 +27,8 @@
     "moon_phase": "Mondphase (roh)",
     "moon_phase_translated": "Mondphase",
     "zodiac_sign": "Sternzeichen (roh)",
-    "zodiac_sign_translated": "Sternzeichen"
+    "zodiac_sign_translated": "Sternzeichen",
+    "mode_set_current_mode": "Modus-Set aktueller Modus (__set__)"
   },
   "day_period": {
     "morning": "Morgen",

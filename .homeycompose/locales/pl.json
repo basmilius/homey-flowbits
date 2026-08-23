@@ -24,6 +24,7 @@
     "token": {
         "day_period": "Część dnia (surowa)",
         "day_period_translated": "Część dnia",
+        "mode_set_current_mode": "Aktualny tryb zestawu trybów (__set__)",
         "moon_phase": "Faza księżyca (surowa)",
         "moon_phase_translated": "Faza księżyca",
         "zodiac_sign": "Znak zodiaku (surowy)",

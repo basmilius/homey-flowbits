@@ -24,6 +24,7 @@
     "token": {
         "day_period": "Dagsperiode (rå)",
         "day_period_translated": "Dagsperiode",
+        "mode_set_current_mode": "Modussettets nåværende modus (__set__)",
         "moon_phase": "Månefase (rå)",
         "moon_phase_translated": "Månefase",
         "zodiac_sign": "Stjernetegn (rå)",

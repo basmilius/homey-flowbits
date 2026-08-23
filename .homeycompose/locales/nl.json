@@ -24,6 +24,7 @@
     "token": {
         "day_period": "Dagperiode (ruw)",
         "day_period_translated": "Dagperiode",
+        "mode_set_current_mode": "Standenset huidige stand (__set__)",
         "moon_phase": "Maanfase (ruw)",
         "moon_phase_translated": "Maanfase",
         "zodiac_sign": "Sterrenbeeld (ruw)",

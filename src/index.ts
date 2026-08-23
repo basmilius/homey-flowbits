@@ -84,6 +84,7 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
             );
 
             await Promise.allSettled([
+                this.modeSets.initialize(),
                 this.sets.initialize(),
                 this.timers.initialize(),
                 this.tokens.initialize(),

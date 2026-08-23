@@ -24,6 +24,7 @@
     "token": {
         "day_period": "시간대 (원본)",
         "day_period_translated": "시간대",
+        "mode_set_current_mode": "모드 세트의 현재 모드 (__set__)",
         "moon_phase": "달의 위상 (원본)",
         "moon_phase_translated": "달의 위상",
         "zodiac_sign": "별자리 (원본)",

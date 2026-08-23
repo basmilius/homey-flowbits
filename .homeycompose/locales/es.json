@@ -24,6 +24,7 @@
     "token": {
         "day_period": "Periodo del día (sin procesar)",
         "day_period_translated": "Periodo del día",
+        "mode_set_current_mode": "Modo actual del conjunto de modos (__set__)",
         "moon_phase": "Fase lunar (sin procesar)",
         "moon_phase_translated": "Fase lunar",
         "zodiac_sign": "Signo zodiacal (sin procesar)",

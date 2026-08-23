@@ -24,6 +24,7 @@
     "token": {
         "day_period": "Day period (raw)",
         "day_period_translated": "Day period",
+        "mode_set_current_mode": "Mode set current mode (__set__)",
         "moon_phase": "Moon phase (raw)",
         "moon_phase_translated": "Moon phase",
         "zodiac_sign": "Zodiac sign (raw)",

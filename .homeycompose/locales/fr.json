@@ -24,6 +24,7 @@
     "token": {
         "day_period": "Période de la journée (brut)",
         "day_period_translated": "Période de la journée",
+        "mode_set_current_mode": "Mode actuel de l'ensemble de modes (__set__)",
         "moon_phase": "Phase de la lune (brute)",
         "moon_phase_translated": "Phase de la lune",
         "zodiac_sign": "Signe du zodiaque (brut)",

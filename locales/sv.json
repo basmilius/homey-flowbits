@@ -27,7 +27,8 @@
     "moon_phase": "Månfas (rå)",
     "moon_phase_translated": "Månfas",
     "zodiac_sign": "Stjärntecken (rå)",
-    "zodiac_sign_translated": "Stjärntecken"
+    "zodiac_sign_translated": "Stjärntecken",
+    "mode_set_current_mode": "Lägessetets aktuella läge (__set__)"
   },
   "day_period": {
     "morning": "Morgon",

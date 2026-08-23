@@ -1,8 +1,9 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { MAX_TIMEOUT_MS, REALTIME_MODE_SET_UPDATE, SETTING_MODE_SET_CURRENT, SETTING_MODE_SET_LAST_UPDATES, SETTING_MODE_SET_LOOKS } from '../const';
+import { MAX_TIMEOUT_MS, REALTIME_MODE_SET_UPDATE, SETTING_MODE_SET_CURRENT, SETTING_MODE_SET_LAST_UPDATES, SETTING_MODE_SET_LOOKS, TOKEN_MODE_SET_CURRENT_MODE_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, FlowBitsApp, Look, ModeSet, ModeSetMode } from '../types';
-import { convertDurationToMs } from '../util';
+import { convertDurationToMs, slugify } from '../util';
+import type Homey from 'homey';
 
 type StoredCurrent = Record<string, string | null>;
 type StoredLooks = Record<string, Record<string, Look>>;
@@ -10,6 +11,7 @@ type StoredLastUpdates = Record<string, Record<string, string>>;
 
 export default class ModeSets extends Shortcuts<FlowBitsApp> implements Feature<ModeSet> {
     #deactivationTimeouts: Map<string, NodeJS.Timeout> = new Map();
+    readonly #tokens: Map<string, Homey.FlowToken> = new Map();
 
     get current(): StoredCurrent {
         return this.settings.get(SETTING_MODE_SET_CURRENT) ?? {};
@@ -55,6 +57,10 @@ export default class ModeSets extends Shortcuts<FlowBitsApp> implements Feature<
                 )
             ])
         ));
+    }
+
+    async initialize(): Promise<void> {
+        await this.#syncTokens();
     }
 
     async cleanup(): Promise<void> {
@@ -110,6 +116,8 @@ export default class ModeSets extends Shortcuts<FlowBitsApp> implements Feature<
         this.current = current;
         this.looks = looks;
         this.settings.set(SETTING_MODE_SET_LAST_UPDATES, lastUpdates);
+
+        await this.#syncTokens();
     }
 
     async count(): Promise<number> {
@@ -169,7 +177,8 @@ export default class ModeSets extends Shortcuts<FlowBitsApp> implements Feature<
             this.#triggerRealtime(setName),
             this.#triggerActivated(setName, modeName),
             this.#triggerModeChanged(setName, modeName, true),
-            this.#triggerCurrentChanged(setName, modeName)
+            this.#triggerCurrentChanged(setName, modeName),
+            this.#updateToken(setName, modeName)
         ];
 
         if (current !== null) {
@@ -196,7 +205,8 @@ export default class ModeSets extends Shortcuts<FlowBitsApp> implements Feature<
             this.#triggerRealtime(setName),
             this.#triggerDeactivated(setName, modeName),
             this.#triggerModeChanged(setName, modeName, false),
-            this.#triggerCurrentChanged(setName, null)
+            this.#triggerCurrentChanged(setName, null),
+            this.#updateToken(setName, null)
         ]);
     }
 
@@ -215,7 +225,8 @@ export default class ModeSets extends Shortcuts<FlowBitsApp> implements Feature<
             this.#triggerRealtime(setName),
             this.#triggerActivated(setName, modeName),
             this.#triggerModeChanged(setName, modeName, true),
-            this.#triggerCurrentChanged(setName, modeName)
+            this.#triggerCurrentChanged(setName, modeName),
+            this.#updateToken(setName, modeName)
         ]);
     }
 
@@ -311,6 +322,8 @@ export default class ModeSets extends Shortcuts<FlowBitsApp> implements Feature<
     }
 
     async update(): Promise<void> {
+        await this.#syncTokens();
+
         const sets = await this.findAll();
 
         for (const set of sets) {
@@ -320,6 +333,50 @@ export default class ModeSets extends Shortcuts<FlowBitsApp> implements Feature<
 
     #currentFor(setName: string): string | null {
         return this.current[setName] ?? null;
+    }
+
+    async #syncTokens(): Promise<void> {
+        const definedSets = new Set(this.#buildDefinedMap().keys());
+
+        for (const setName of definedSets) {
+            await this.#ensureToken(setName);
+        }
+
+        for (const [setName, token] of this.#tokens) {
+            if (definedSets.has(setName)) {
+                continue;
+            }
+
+            this.log(`Unregistering current mode token for unused mode set ${setName}...`);
+            await token.unregister();
+            this.#tokens.delete(setName);
+        }
+    }
+
+    async #ensureToken(setName: string): Promise<Homey.FlowToken> {
+        const existing = this.#tokens.get(setName);
+
+        if (existing) {
+            return existing;
+        }
+
+        const token = await this.homey.flow.createToken(this.#tokenId(setName), {
+            title: this.translate('token.mode_set_current_mode', {set: setName}),
+            type: 'string',
+            value: this.#currentFor(setName) ?? '-'
+        });
+
+        this.#tokens.set(setName, token);
+        return token;
+    }
+
+    async #updateToken(setName: string, modeName: string | null): Promise<void> {
+        const token = await this.#ensureToken(setName);
+        await token.setValue(modeName ?? '-');
+    }
+
+    #tokenId(setName: string): string {
+        return `${TOKEN_MODE_SET_CURRENT_MODE_PREFIX}${slugify(setName)}`;
     }
 
     #setCurrent(setName: string, modeName: string | null): void {

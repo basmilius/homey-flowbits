@@ -27,7 +27,8 @@
     "moon_phase": "Фаза луны (сырой)",
     "moon_phase_translated": "Фаза луны",
     "zodiac_sign": "Знак зодиака (сырой)",
-    "zodiac_sign_translated": "Знак зодиака"
+    "zodiac_sign_translated": "Знак зодиака",
+    "mode_set_current_mode": "Текущий режим набора режимов (__set__)"
   },
   "day_period": {
     "morning": "Утро",

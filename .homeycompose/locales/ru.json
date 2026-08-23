@@ -24,6 +24,7 @@
     "token": {
         "day_period": "Период дня (сырой)",
         "day_period_translated": "Период дня",
+        "mode_set_current_mode": "Текущий режим набора режимов (__set__)",
         "moon_phase": "Фаза луны (сырой)",
         "moon_phase_translated": "Фаза луны",
         "zodiac_sign": "Знак зодиака (сырой)",
