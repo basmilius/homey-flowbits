@@ -1,11 +1,14 @@
+import { createHash } from 'node:crypto';
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { DEFAULT_MODE_GROUP, MAX_TIMEOUT_MS, REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_EXPIRES_AT, SETTING_MODE_GROUPS_MIGRATED, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS, SETTING_MODE_REVERT_TO } from '../const';
+import { DEFAULT_MODE_GROUP, MAX_TIMEOUT_MS, REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_EXPIRES_AT, SETTING_MODE_GROUPS_MIGRATED, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS, SETTING_MODE_REVERT_TO, TOKEN_MODE_CURRENT, TOKEN_MODE_GROUP_CURRENT_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, FlowBitsApp, Look, Mode, ModeGroup } from '../types';
 import { convertDurationToMs } from '../util';
+import type Homey from 'homey';
 
 export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mode> {
     readonly #expirationTimeouts: Map<string, NodeJS.Timeout> = new Map();
+    readonly #tokens: Map<string, Promise<Homey.FlowToken>> = new Map();
 
     get current(): Record<string, string | null> {
         return this.settings.get(SETTING_MODE) ?? {};
@@ -88,6 +91,8 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         for (const group of this.#storedGroups()) {
             await this.#scheduleExpiration(group);
         }
+
+        await this.#syncTokens();
     }
 
     async cleanup(): Promise<void> {
@@ -157,6 +162,8 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         for (const group of this.#storedGroups()) {
             await this.#scheduleExpiration(group);
         }
+
+        await this.#syncTokens();
     }
 
     async count(): Promise<number> {
@@ -232,6 +239,9 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         this.log(`Activate mode ${name} in group ${group}.`);
 
+        // Update the tag before any trigger fires, so triggered flows read the new mode.
+        await this.#updateToken(group, name);
+
         // Emit the UI update first so widgets reflect the switch immediately,
         // instead of waiting on the (potentially slow) timeline notifications below.
         await this.#triggerRealtime();
@@ -266,6 +276,8 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         this.log(`Deactivate mode ${name} in group ${group}.`);
 
+        await this.#updateToken(group, null);
+
         await Promise.allSettled([
             this.#triggerRealtime(),
             this.#triggerDeactivated(group, name),
@@ -284,6 +296,8 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         this.#touch(group, name);
 
         this.log(`Reactivate mode ${name} in group ${group}.`);
+
+        await this.#updateToken(group, name);
 
         await Promise.allSettled([
             this.#triggerRealtime(),
@@ -419,6 +433,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     async update(): Promise<void> {
+        await this.#syncTokens();
         await this.#triggerRealtime();
     }
 
@@ -608,6 +623,84 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         }
 
         this.lastUpdates = {...lastUpdates, [group]: groupUpdates};
+    }
+
+    /**
+     * Keeps one global tag per group that holds its current mode, so any flow card can read it
+     * instead of only the current mode changed trigger. Tags follow the groups defined on flow
+     * cards: new groups get one and the tags of groups that are gone are unregistered.
+     */
+    async #syncTokens(): Promise<void> {
+        const groups = new Set((await this.#definedModes()).keys());
+
+        for (const group of groups) {
+            await this.#updateToken(group, this.currentModeIn(group));
+        }
+
+        for (const group of [...this.#tokens.keys()]) {
+            if (groups.has(group)) {
+                continue;
+            }
+
+            const token = this.#tokens.get(group)!;
+            this.#tokens.delete(group);
+
+            try {
+                this.log(`Unregistering current mode tag for unused mode group ${group}...`);
+                await (await token).unregister();
+            } catch (err) {
+                this.log(`Failed unregistering current mode tag for group ${group}.`, err);
+            }
+        }
+    }
+
+    /**
+     * Returns the tag of a group, creating it the first time. The pending promise is cached
+     * rather than the token, so concurrent callers never register the same id twice.
+     */
+    #ensureToken(group: string): Promise<Homey.FlowToken> {
+        const existing = this.#tokens.get(group);
+
+        if (existing) {
+            return existing;
+        }
+
+        const token = this.homey.flow.createToken(this.#tokenId(group), {
+            title: group === DEFAULT_MODE_GROUP
+                ? this.translate('token.mode_current')
+                : this.translate('token.mode_group_current', {group}),
+            type: 'string',
+            value: this.currentModeIn(group) ?? '-'
+        });
+
+        token.catch(() => this.#tokens.delete(group));
+        this.#tokens.set(group, token);
+
+        return token;
+    }
+
+    /**
+     * A token id must stay the same for as long as the group exists, because flows reference
+     * the tag by id. Group names are free text in any script, so they are hashed instead of
+     * slugified, which would collapse names such as "Освещение" to an empty string.
+     */
+    #tokenId(group: string): string {
+        if (group === DEFAULT_MODE_GROUP) {
+            return TOKEN_MODE_CURRENT;
+        }
+
+        const hash = createHash('sha1').update(group).digest('hex').slice(0, 16);
+
+        return `${TOKEN_MODE_GROUP_CURRENT_PREFIX}${hash}`;
+    }
+
+    async #updateToken(group: string, name: string | null): Promise<void> {
+        try {
+            const token = await this.#ensureToken(group);
+            await token.setValue(name ?? '-');
+        } catch (err) {
+            this.log(`Failed updating current mode tag for group ${group}.`, err);
+        }
     }
 
     async #triggerActivated(group: string, name: string): Promise<void> {

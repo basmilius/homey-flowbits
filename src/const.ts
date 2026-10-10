@@ -36,6 +36,9 @@ export const SETTING_TIMER_PREFIX = 'flowbits-timer:';
  */
 export const DEFAULT_MODE_GROUP = 'flowbits:default';
 
+export const TOKEN_MODE_CURRENT = 'mode_current';
+export const TOKEN_MODE_GROUP_CURRENT_PREFIX = 'mode_group_current_';
+
 export const EVENTS_HISTORY_LENGTH = 50;
 
 export const MAX_TIMEOUT_MS = 2147483647; // 2^31 - 1

@@ -108,6 +108,15 @@ The cards without a group field keep working as they always have. They act on th
 
 Colors and icons are set per group in the app settings, so the same mode name can look different in two groups. The Modes and Current mode widgets each take a group in their settings; leave it empty for the ungrouped modes.
 
+## Tags
+
+FlowBits keeps a global tag with the current mode, so you can use it in any flow card, for example to write it to a log or include it in a notification.
+
+- **Current mode** holds the mode that is active outside a group.
+- **Current mode (*group*)** holds the mode that is active in that group. There is one for every group that is used on a flow card.
+
+When no mode is active, the tag holds `-`. The tags are updated before any mode trigger fires, so a flow started by a mode change already sees the new mode.
+
 ## Examples
 
 ### **Home / Away**

@@ -27,7 +27,9 @@
         "moon_phase": "Moon phase (raw)",
         "moon_phase_translated": "Moon phase",
         "zodiac_sign": "Zodiac sign (raw)",
-        "zodiac_sign_translated": "Zodiac sign"
+        "zodiac_sign_translated": "Zodiac sign",
+        "mode_current": "Current mode",
+        "mode_group_current": "Current mode (__group__)"
     },
     "day_period": {
         "afternoon": "Afternoon",
