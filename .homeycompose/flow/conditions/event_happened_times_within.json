@@ -84,6 +84,7 @@
                 "ar": "عدد المرات"
             },
             "min": 1,
+            "max": 50,
             "step": 1,
             "labelDecimals": 0
         },

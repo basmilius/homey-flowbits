@@ -2,12 +2,13 @@ import { Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_SLIDER_UPDATE, SETTING_SLIDERS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { Feature, FlowBitsApp, Slider } from '../types';
+import { plainRecord } from '../util';
 
 // todo(Bas): Migrate sliders to use looks, like other features, instead of widget settings.
 
 export default class Sliders extends Shortcuts<FlowBitsApp> implements Feature<Slider> {
     get values(): Record<string, number> {
-        return this.settings.get(SETTING_SLIDERS) ?? {};
+        return plainRecord(this.settings.get(SETTING_SLIDERS));
     }
 
     set values(value: Record<string, number>) {

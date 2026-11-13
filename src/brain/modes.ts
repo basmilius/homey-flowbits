@@ -1,14 +1,14 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { DEFAULT_MODE_GROUP, MAX_TIMEOUT_MS, REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_EXPIRES_AT, SETTING_MODE_GROUPS_MIGRATED, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS, SETTING_MODE_REVERT_TO } from '../const';
+import { DEFAULT_MODE_GROUP, MAX_TIMEOUT_MS, REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_EXPIRES_AT, SETTING_MODE_GROUPS_BACKUP, SETTING_MODE_GROUPS_MIGRATED, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS, SETTING_MODE_REVERT_TO } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, FlowBitsApp, Look, Mode, ModeGroup } from '../types';
-import { convertDurationToMs } from '../util';
+import { convertDurationToMs, plainRecord, recordFromEntries } from '../util';
 
 export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mode> {
     readonly #expirationTimeouts: Map<string, NodeJS.Timeout> = new Map();
 
     get current(): Record<string, string | null> {
-        return this.settings.get(SETTING_MODE) ?? {};
+        return plainRecord(this.settings.get(SETTING_MODE));
     }
 
     set current(value: Record<string, string | null>) {
@@ -21,7 +21,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     get expiresAt(): Record<string, DateTime | null> {
-        return Object.fromEntries(
+        return recordFromEntries(
             Object.entries<string | null>(this.settings.get(SETTING_MODE_EXPIRES_AT) ?? {})
                 .map(([group, value]) => [
                     group,
@@ -41,7 +41,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     get revertTo(): Record<string, string | null> {
-        return this.settings.get(SETTING_MODE_REVERT_TO) ?? {};
+        return plainRecord(this.settings.get(SETTING_MODE_REVERT_TO));
     }
 
     set revertTo(value: Record<string, string | null>) {
@@ -49,7 +49,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     get looks(): Record<string, Record<string, Look>> {
-        return this.settings.get(SETTING_MODE_LOOKS) ?? {};
+        return plainRecord(this.settings.get(SETTING_MODE_LOOKS));
     }
 
     set looks(value: Record<string, Record<string, Look>>) {
@@ -57,7 +57,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     get lastUpdates(): Record<string, Record<string, DateTime>> {
-        return Object.fromEntries(
+        return recordFromEntries(
             Object.entries<Record<string, string>>(this.settings.get(SETTING_MODE_LAST_UPDATES) ?? {})
                 .map(([group, modes]) => [
                     group,
@@ -214,6 +214,10 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     async activate(group: string, name: string): Promise<void> {
+        await this.#activate(group, name, null);
+    }
+
+    async #activate(group: string, name: string, expiry: Expiry | null): Promise<void> {
         const current = this.currentModeIn(group);
 
         if (!name) {
@@ -223,7 +227,13 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         // An open-ended activation cancels any pending timed deactivation or revert.
         this.#clearExpiration(group);
 
+        if (expiry) {
+            this.#setExpiresAt(group, DateTime.now().plus({milliseconds: convertDurationToMs(expiry.duration, expiry.unit)}));
+            this.#setRevertTo(group, expiry.revertTo);
+        }
+
         if (current === name) {
+            await this.#scheduleExpiration(group);
             return;
         }
 
@@ -231,6 +241,10 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         this.#touch(group, name, current);
 
         this.log(`Activate mode ${name} in group ${group}.`);
+
+        // Expiry is stored before the triggers run: a Flow reacting to them may switch
+        // modes, which must clear this expiry instead of inheriting it afterwards.
+        await this.#scheduleExpiration(group);
 
         // Emit the UI update first so widgets reflect the switch immediately,
         // instead of waiting on the (potentially slow) timeline notifications below.
@@ -279,6 +293,14 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             return;
         }
 
+        const current = this.currentModeIn(group);
+
+        // Switching to another mode is a regular activation, so the old mode is deactivated properly.
+        if (current !== null && current !== name) {
+            await this.activate(group, name);
+            return;
+        }
+
         this.#clearExpiration(group);
         this.#setCurrent(group, name);
         this.#touch(group, name);
@@ -317,14 +339,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             return;
         }
 
-        // Activate the mode (clears any previous expiration/revert)
-        await this.activate(group, name);
-
-        // Schedule plain deactivation; no mode is restored afterwards.
-        this.#setExpiresAt(group, DateTime.now().plus({milliseconds: convertDurationToMs(duration, unit)}));
-        this.#setRevertTo(group, null);
-
-        await this.#scheduleExpiration(group);
+        await this.#activate(group, name, {duration, unit, revertTo: null});
 
         this.log(`Activated mode ${name} in group ${group} for ${duration} ${unit}.`);
     }
@@ -337,18 +352,13 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         // Remember the mode that was active before switching, so it can be restored.
         const previous = this.currentModeIn(group);
 
-        // Activate the mode (clears any previous expiration/revert)
-        await this.activate(group, name);
-
         if (previous === name) {
+            await this.activate(group, name);
             this.log(`Mode ${name} was already active in group ${group}, so there is nothing to revert to.`);
             return;
         }
 
-        this.#setExpiresAt(group, DateTime.now().plus({milliseconds: convertDurationToMs(duration, unit)}));
-        this.#setRevertTo(group, previous);
-
-        await this.#scheduleExpiration(group);
+        await this.#activate(group, name, {duration, unit, revertTo: previous});
 
         this.log(`Activated mode ${name} in group ${group} for ${duration} ${unit}, reverting to ${previous ?? 'no mode'} afterwards.`);
     }
@@ -441,7 +451,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
     /**
      * Collects the modes defined on flow cards, keyed by group. The default group is always
-     * present, so its stored state survives even when no mode card mentions a mode yet.
+     * present so cleanup keeps the group itself, but a mode no card names is still cleared.
      */
     async #definedModes(): Promise<Map<string, Set<string>>> {
         const ungrouped = await this.#autocompleteProvider().find('');
@@ -476,11 +486,19 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         this.log('Migrating modes to the default group...');
 
-        const current = this.settings.get(SETTING_MODE) as string | null;
-        const expiresAt = this.settings.get(SETTING_MODE_EXPIRES_AT) as string | null;
-        const revertTo = this.settings.get(SETTING_MODE_REVERT_TO) as string | null;
-        const looks = this.settings.get(SETTING_MODE_LOOKS) ?? {};
-        const lastUpdates = this.settings.get(SETTING_MODE_LAST_UPDATES) ?? {};
+        // The five writes below are not atomic. The originals are stored first so an interrupted
+        // run restarts from them instead of wrapping already wrapped data a second time.
+        if (this.settings.get(SETTING_MODE_GROUPS_BACKUP) == null) {
+            this.settings.set(SETTING_MODE_GROUPS_BACKUP, {
+                current: this.settings.get(SETTING_MODE) ?? null,
+                expiresAt: this.settings.get(SETTING_MODE_EXPIRES_AT) ?? null,
+                revertTo: this.settings.get(SETTING_MODE_REVERT_TO) ?? null,
+                looks: this.settings.get(SETTING_MODE_LOOKS) ?? {},
+                lastUpdates: this.settings.get(SETTING_MODE_LAST_UPDATES) ?? {}
+            });
+        }
+
+        const {current, expiresAt, revertTo, looks, lastUpdates} = this.settings.get(SETTING_MODE_GROUPS_BACKUP);
 
         this.settings.set(SETTING_MODE, {[DEFAULT_MODE_GROUP]: current ?? null});
         this.settings.set(SETTING_MODE_EXPIRES_AT, {[DEFAULT_MODE_GROUP]: expiresAt ?? null});
@@ -488,6 +506,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         this.settings.set(SETTING_MODE_LOOKS, {[DEFAULT_MODE_GROUP]: looks});
         this.settings.set(SETTING_MODE_LAST_UPDATES, {[DEFAULT_MODE_GROUP]: lastUpdates});
         this.settings.set(SETTING_MODE_GROUPS_MIGRATED, true);
+        this.settings.unset(SETTING_MODE_GROUPS_BACKUP);
     }
 
     async #processExpiration(group: string): Promise<void> {
@@ -674,3 +693,9 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         return provider;
     }
 }
+
+type Expiry = {
+    readonly duration: number;
+    readonly unit: ClockUnit;
+    readonly revertTo: string | null;
+};

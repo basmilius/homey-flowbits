@@ -2,7 +2,7 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { MAX_TIMEOUT_MS, REALTIME_FLAGS_UPDATE, SETTING_FLAG_EXPIRES_AT, SETTING_FLAG_LAST_UPDATES, SETTING_FLAG_LOOKS, SETTING_FLAGS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, Flag, FlowBitsApp, Look, Styleable } from '../types';
-import { convertDurationToMs } from '../util';
+import { convertDurationToMs, plainRecord, recordFromEntries } from '../util';
 
 export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Flag>, Styleable {
     #expirationTimeout: NodeJS.Timeout | null = null;
@@ -16,7 +16,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     get looks(): Record<string, Look> {
-        return this.settings.get(SETTING_FLAG_LOOKS) ?? {};
+        return plainRecord(this.settings.get(SETTING_FLAG_LOOKS));
     }
 
     set looks(value: Record<string, Look>) {
@@ -24,7 +24,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     get lastUpdates(): Record<string, DateTime> {
-        return Object.fromEntries(
+        return recordFromEntries(
             Object.entries<string>(this.settings.get(SETTING_FLAG_LAST_UPDATES) ?? {})
                 .map(([key, value]) => [
                     key,
@@ -44,7 +44,7 @@ export default class Flags extends Shortcuts<FlowBitsApp> implements Feature<Fla
     }
 
     get expirations(): Record<string, DateTime> {
-        return Object.fromEntries(
+        return recordFromEntries(
             Object.entries<string>(this.settings.get(SETTING_FLAG_EXPIRES_AT) ?? {})
                 .map(([key, value]) => [
                     key,

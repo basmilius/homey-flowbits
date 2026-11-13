@@ -1,5 +1,7 @@
 <template>
-    <Overlay>
+    <Overlay
+        :label="item.name"
+        @close="close()">
         <Icon
             :class="$style.editIcon"
             :icon="form.icon"

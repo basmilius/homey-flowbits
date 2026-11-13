@@ -87,6 +87,7 @@
         "subtitle": "Configura FlowBits come preferisci.",
         "close": "Chiudi",
         "save": "Salva",
+        "saveFailed": "Salvataggio non riuscito. Riprova.",
         "search": "Cerca",
         "documentation": {
             "title": "Documentazione",

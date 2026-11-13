@@ -29,8 +29,12 @@ export function useColors() {
 
     async function load() {
         isLoading.value = true;
-        items.value = await Homey.api('GET', '/colors');
-        isLoading.value = false;
+
+        try {
+            items.value = await Homey.api('GET', '/colors');
+        } finally {
+            isLoading.value = false;
+        }
     }
 
     provide(COLORS, items);
@@ -49,8 +53,12 @@ export function useIcons() {
 
     async function load() {
         isLoading.value = true;
-        items.value = await Homey.api('GET', '/icons');
-        isLoading.value = false;
+
+        try {
+            items.value = await Homey.api('GET', '/icons');
+        } finally {
+            isLoading.value = false;
+        }
     }
 
     provide(ICONS, items);
@@ -93,8 +101,12 @@ export function useStatistics() {
 
     const load = async () => {
         isLoading.value = true;
-        result.value = await Homey.api('GET', '/statistics');
-        isLoading.value = false;
+
+        try {
+            result.value = await Homey.api('GET', '/statistics');
+        } finally {
+            isLoading.value = false;
+        }
     };
 
     return {
@@ -117,8 +129,12 @@ export function composeList<T>(endpoint: string) {
 
     const load = async () => {
         isLoading.value = true;
-        items.value = await Homey.api('GET', endpoint);
-        isLoading.value = false;
+
+        try {
+            items.value = await Homey.api('GET', endpoint);
+        } finally {
+            isLoading.value = false;
+        }
     };
 
     return {
@@ -130,19 +146,33 @@ export function composeList<T>(endpoint: string) {
 
 export function composeSave(endpoint: string, editingItem: Ref<Item | null>, editingType: Ref<FeatureType | null>, isSaving: Ref<boolean>, fn: () => Promise<void>, extra?: () => Record<string, unknown>) {
     return async (name: string, look: FormLook) => {
+        if (isSaving.value) {
+            return;
+        }
+
         isSaving.value = true;
 
-        await Homey.api('POST', endpoint, {
-            name,
-            color: look.color,
-            icon: look.icon,
-            ...extra?.()
-        });
+        try {
+            const saved = await Homey.api('POST', endpoint, {
+                name,
+                color: look.color,
+                icon: look.icon,
+                ...extra?.()
+            });
 
-        await fn();
+            if (saved === false) {
+                throw new Error(`Saving ${name} was rejected.`);
+            }
 
-        editingItem.value = null;
-        editingType.value = null;
-        isSaving.value = false;
+            await fn();
+
+            editingItem.value = null;
+            editingType.value = null;
+        } catch (err) {
+            console.error(err);
+            await Homey.alert(Homey.__('settings.saveFailed'));
+        } finally {
+            isSaving.value = false;
+        }
     };
 }

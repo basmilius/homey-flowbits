@@ -10,6 +10,14 @@ export default class extends FlowActionEntity<FlowBitsApp, Args, never, Tokens> 
         let fromDate = DateTime.fromFormat(args.from, 'HH:mm');
         let toDate = DateTime.fromFormat(args.to, 'HH:mm');
 
+        if (!fromDate.isValid || !toDate.isValid) {
+            throw new Error(`Invalid time, expected HH:mm: ${args.from} - ${args.to}`);
+        }
+
+        if (fromDate.equals(toDate)) {
+            throw new Error('The start and end time must differ.');
+        }
+
         if (fromDate > toDate) {
             toDate = toDate.plus({days: 1});
         }

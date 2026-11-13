@@ -1,4 +1,4 @@
-import { Shortcuts } from '@basmilius/homey-common';
+import { FlowAutocompleteArgumentProvider, Shortcuts } from '@basmilius/homey-common';
 import type { FlowBitsApp } from '../types';
 import Api from './api';
 import Cycles from './cycles';
@@ -100,6 +100,14 @@ export default class Brain extends Shortcuts<FlowBitsApp> {
     }
 
     async cleanup(): Promise<void> {
+        const incomplete = this.registry.autocompleteProviders
+            .filter((provider): provider is FlowAutocompleteArgumentProvider<FlowBitsApp, unknown> => provider instanceof FlowAutocompleteArgumentProvider && !provider.isComplete);
+
+        if (incomplete.length > 0) {
+            this.log(`Skipping cleanup, incomplete inventory for: ${incomplete.map(provider => provider.autocompleteId).join(', ')}.`);
+            return;
+        }
+
         this.log('Cleaning up...');
 
         await Promise.allSettled([

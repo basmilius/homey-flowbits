@@ -87,6 +87,7 @@
         "subtitle": "Konfigurer FlowBits slik du ønsker.",
         "close": "Lukk",
         "save": "Lagre",
+        "saveFailed": "Lagring mislyktes. Prøv igjen.",
         "search": "Søk",
         "documentation": {
             "title": "Dokumentasjon",

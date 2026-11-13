@@ -85,28 +85,81 @@ These flow cards let you manage modes directly from your flows, enabling you to 
 
 A group holds its own modes, and every group runs independently of the others. One group can track *Home/Away/Night* while another tracks *Sleeping/Evening/Daytime*, without the two ever cancelling each other out.
 
-Inside a group the rules are the same as before: only one mode can be active at a time, and switching replaces the previous one.
+Inside a group the rules are the same as before. Only one mode can be active at a time, and switching replaces the previous one.
 
-Every mode card has a grouped counterpart that takes a group as its first argument. Type a new group name into the group field to create it, the same way you create a mode.
+### When to use a group
+
+Without groups, every mode competes with every other mode. That works as long as your modes describe one thing. It breaks down once you want to track two things at the same time. Say you have *Home* and *Away* for presence, and *Day* and *Night* for the time of day. Activating *Night* would deactivate *Home*, and your presence flows would think nobody is home.
+
+Put each of those questions in its own group, and they stop getting in each other's way:
+
+| Group    | Modes                       |
+|----------|-----------------------------|
+| Presence | Home, Away, Vacation        |
+| Daypart  | Morning, Day, Evening, Night |
+
+A good rule of thumb: if two modes can be true at the same time, they belong in different groups.
+
+### Creating a group
+
+There is no separate step. Every grouped card has a group field as its first argument. Type a new name into that field and the group exists, the same way you create a mode by typing its name. The modes you activate in that group belong to it from then on.
+
+Mode names are scoped to their group. *Night* in *Daypart* and *Night* in *Heating* are two different modes, each with its own state.
+
+### Grouped flow cards
+
+Every mode card has a grouped counterpart that ends with *in [group]*. They behave like the regular cards, but only look at the modes of that one group.
 
 <FlowCards>
     <FlowCardExplainer content="Activate a mode inside a group. The other groups keep whatever mode they had.">
-        <FlowCard type="action">Activate <strong>Evening</strong> in <strong>Lighting</strong></FlowCard>
+        <FlowCard type="action">Activate <strong>Evening</strong> in <strong>Daypart</strong></FlowCard>
     </FlowCardExplainer>
-    <FlowCardExplainer content="Activate a mode in a group for a while, then revert to the mode that was active before.">
-        <FlowCard type="action">Activate <strong>Away</strong> in <strong>House state</strong> for <strong>2</strong> <strong>hours</strong> and revert</FlowCard>
+    <FlowCardExplainer content="Deactivate a mode inside a group, leaving the group without an active mode.">
+        <FlowCard type="action">Deactivate <strong>Away</strong> in <strong>Presence</strong></FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Activate a mode for a while. When the time is up, the mode is deactivated.">
+        <FlowCard type="action">Activate mode <strong>Guests</strong> for <strong>3</strong> <strong>hours</strong> in <strong>Presence</strong></FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Activate a mode for a while, then return to the mode that was active before.">
+        <FlowCard type="action">Activate mode <strong>Away</strong> for <strong>2</strong> <strong>hours</strong>, then revert in <strong>Presence</strong></FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Run the activation triggers of the current mode of a group again, for example after a restart.">
+        <FlowCard type="action">Reactivate current mode in <strong>Daypart</strong></FlowCard>
     </FlowCardExplainer>
     <FlowCardExplainer content="Checks the mode of one group, ignoring the others.">
-        <FlowCard type="condition"><strong>Sleeping</strong> is active in <strong>Lighting</strong></FlowCard>
+        <FlowCard type="condition">Mode <strong>Night</strong> is active in <strong>Daypart</strong></FlowCard>
     </FlowCardExplainer>
-    <FlowCardExplainer content="Triggers when the mode of one group changes. The mode token holds the new mode.">
-        <FlowCard type="trigger">The current mode changed in <strong>Lighting</strong></FlowCard>
+    <FlowCardExplainer content="Checks whether a group has an active mode at all.">
+        <FlowCard type="condition">Any mode is active in <strong>Presence</strong></FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Checks how long a mode has been active within its group.">
+        <FlowCard type="condition">Mode <strong>Away</strong> is active for at least <strong>4</strong> <strong>hours</strong> in <strong>Presence</strong></FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Triggers when a specific mode in a group is activated.">
+        <FlowCard type="trigger">Mode <strong>Evening</strong> is activated in <strong>Daypart</strong></FlowCard>
+    </FlowCardExplainer>
+    <FlowCardExplainer content="Triggers whenever a group switches to another mode. The mode token holds the new mode.">
+        <FlowCard type="trigger">The current mode changed in <strong>Daypart</strong></FlowCard>
     </FlowCardExplainer>
 </FlowCards>
 
-The cards without a group field keep working as they always have. They act on the modes that are not in a group, which is where your existing modes live. Nothing needs to move.
+The toggle, reactivate, deactivated, changed and inactive-for cards also have a grouped version.
 
-Colors and icons are set per group in the app settings, so the same mode name can look different in two groups. The Modes and Current mode widgets each take a group in their settings; leave it empty for the ungrouped modes.
+### Your existing modes
+
+The cards without a group field keep working as they always have. They act on the modes that are not in a group, which is where all modes created before 1.20.0 live. Nothing needs to move, and you can add groups next to them whenever you need one.
+
+There is no way to move an ungrouped mode into a group. To start using a group for modes you already have, switch your flows to the grouped cards and pick the group in each of them.
+
+### Colors, icons and widgets
+
+Colors and icons are set per group in the app settings, so the same mode name can look different in two groups.
+
+The Modes and Current mode widgets each take a group in their settings. Leave it empty to show the ungrouped modes. Add one widget per group to see all of them on your dashboard.
+
+::: tip
+The [Modes in groups](/examples/modes-in-groups) example builds a presence group and a daypart group side by side, step by step.
+:::
 
 ## Examples
 

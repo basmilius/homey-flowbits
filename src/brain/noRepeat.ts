@@ -1,14 +1,14 @@
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { SETTING_NO_REPEAT_WINDOWS } from '../const';
 import type { ClockUnit, Feature, FlowBitsApp, NoRepeatWindow } from '../types';
-import { convertDurationToMs } from '../util';
+import { convertDurationToMs, recordFromEntries } from '../util';
 
 // todo(Bas): Implement cleanup().
 // todo(Bas): Use auto complete provider to find defined no-repeat windows.
 
 export default class NoRepeat extends Shortcuts<FlowBitsApp> implements Feature<NoRepeatWindow> {
     get windows(): Record<string, DateTime> {
-        return Object.fromEntries(
+        return recordFromEntries(
             Object.entries<string>(this.settings.get(SETTING_NO_REPEAT_WINDOWS) ?? {})
                 .filter(([, value]) => value !== null)
                 .map(([key, value]) => [key, DateTime.fromISO(value)])

@@ -2,13 +2,15 @@ import { Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_CYCLE_UPDATE, SETTING_CYCLE_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { Cycle, Feature, FlowBitsApp } from '../types';
-import { slugify } from '../util';
+import { slugify, storageKey } from '../util';
 
 export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cycle> {
     async cleanup(): Promise<void> {
         this.log('Cleaning up unused cycles...');
 
         const defined = await this.findAll();
+
+        this.#migrateKeys(defined);
 
         for (const key of this.settings.getKeys()) {
             if (!key.startsWith(SETTING_CYCLE_PREFIX) || defined.find(d => this.#id(d.name) === key)) {
@@ -112,11 +114,27 @@ export default class Cycles extends Shortcuts<FlowBitsApp> implements Feature<Cy
     }
 
     #id(name: string): string {
+        return `${SETTING_CYCLE_PREFIX}${storageKey(name)}`;
+    }
+
+    // Keys written before storageKey() existed; names that slugified alike shared one counter.
+    #legacyId(name: string): string {
         return `${SETTING_CYCLE_PREFIX}${slugify(name)}`;
     }
 
+    #migrateKeys(cycles: Cycle[]): void {
+        for (const {name} of cycles) {
+            const legacy = this.settings.get(this.#legacyId(name));
+
+            if (legacy != null && this.settings.get(this.#id(name)) == null) {
+                this.log(`Migrating cycle key of ${name}.`);
+                this.#set(name, legacy);
+            }
+        }
+    }
+
     #get(name: string): number | null {
-        return this.settings.get(this.#id(name));
+        return this.settings.get(this.#id(name)) ?? this.settings.get(this.#legacyId(name));
     }
 
     #set(name: string, value: number): void {

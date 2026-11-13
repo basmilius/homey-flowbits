@@ -143,7 +143,8 @@
     "documentation": {
       "title": "Dokumentasjon",
       "description": "Lær mer om FlowBits og hvordan du bruker alle funksjonene effektivt. Besøk FlowBits.nl for dokumentasjon."
-    }
+    },
+    "saveFailed": "Lagring mislyktes. Prøv igjen."
   },
   "color": {
     "red": "Rød",

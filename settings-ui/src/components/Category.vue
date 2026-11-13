@@ -6,10 +6,11 @@
         <div
             v-if="items.length > 0"
             :class="$style.categoryItems">
-            <div
+            <button
                 v-for="item in items"
-                :key="item.name"
+                :key="`${item.caption ?? ''}:${item.name}`"
                 :class="$style.categoryItem"
+                type="button"
                 @click="edit(item)">
                 <Icon
                     :class="$style.categoryItemIcon"
@@ -31,7 +32,7 @@
                 <Icon
                     icon=""
                     style="--size: 16px"/>
-            </div>
+            </button>
         </div>
 
         <template v-else>
@@ -92,8 +93,16 @@
         border: 1px solid var(--homey-color-mono-05);
         border-left: 0;
         border-right: 0;
+        color: inherit;
         cursor: pointer;
+        font: inherit;
         text-align: left;
+        width: 100%;
+    }
+
+    .categoryItem:focus-visible {
+        outline: 3px solid var(--homey-color-blue-500, #204ef6);
+        outline-offset: -3px;
     }
 
     .categoryItem + .categoryItem {

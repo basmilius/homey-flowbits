@@ -75,11 +75,11 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
             this.#registerTriggers();
             this.#registerActionFunctions();
 
-            await Promise.allSettled(
+            const providerResults = await Promise.allSettled(
                 this.registry.autocompleteProviders.map(provider => provider.onInit())
             );
 
-            await Promise.allSettled([
+            const initializeResults = await Promise.allSettled([
                 this.flags.initialize(),
                 this.modes.initialize(),
                 this.sets.initialize(),
@@ -88,7 +88,15 @@ export default class FlowBitsApp extends App<FlowBitsApp> {
                 this.widgets.initialize()
             ]);
 
-            await this.#brain.cleanup();
+            const failures = [...providerResults, ...initializeResults]
+                .filter((result): result is PromiseRejectedResult => result.status === 'rejected');
+
+            failures.forEach(failure => this.error('Initialization step failed.', failure.reason));
+
+            if (failures.length === 0) {
+                await this.#brain.cleanup();
+            }
+
             await this.#brain.welcome();
 
             this.log('FlowBits has been initialized!');

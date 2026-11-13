@@ -40,7 +40,7 @@ export default defineConfig({
             themeConfig: {
                 footer: {
                     copyright: 'Copyright © 2025–present <a href="https://github.com/basmilius">Bas Milius</a>',
-                    message: 'Released under the <a href="https://github.com/basmilius/homey-flowbits/blob/main/LICENSE">GPL 3.0 License</a>.',
+                    message: 'Released under the <a href="https://github.com/basmilius/homey-flowbits/blob/main/LICENSE">MIT License</a>.',
                 },
                 
                 nav: [
@@ -112,11 +112,7 @@ export default defineConfig({
                         {
                             text: 'Widgets',
                             items: [
-                                {text: 'Flag on/off', link: '/widgets/flag-onoff'},
-                                {text: 'Flags', link: '/widgets/flags'},
-                                {text: 'Current mode', link: '/widgets/mode-current'},
-                                {text: 'Modes', link: '/widgets/modes'},
-                                {text: 'Slider', link: '/widgets/slider'}
+                                {text: 'Overview', link: '/widgets/'}
                             ]
                         }
                     ],
@@ -126,6 +122,7 @@ export default defineConfig({
                             items: [
                                 {text: 'Automatic hall lighting', link: '/examples/automatic-hall-lighting'},
                                 {text: 'Daypart-based modes', link: '/examples/daypart-based-modes'},
+                                {text: 'Modes in groups', link: '/examples/modes-in-groups'},
                                 {text: 'Multi-scene light switch', link: '/examples/multi-scene-light-switch'}
                             ]
                         }

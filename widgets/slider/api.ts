@@ -6,6 +6,10 @@ export async function get({homey: {app}, query}: WidgetApiRequest<FlowBitsApp, n
 }
 
 export async function set({homey: {app}, query, body, widgetInstanceId}: WidgetApiRequest<FlowBitsApp, Body, never, Query>): Promise<boolean> {
+    if (typeof body?.value !== 'number' || !Number.isFinite(body.value) || body.value < 0 || body.value > 100) {
+        return false;
+    }
+
     await app.sliders.setValue(query.slider, body.value, widgetInstanceId);
 
     return true;

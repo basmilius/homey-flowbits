@@ -12,7 +12,8 @@
         "da": "Skyder ændret",
         "ru": "Ползунок изменён",
         "pl": "Suwak zmieniony",
-        "ko": "슬라이더 변경됨"
+        "ko": "슬라이더 변경됨",
+        "ar": "تغيّر شريط التمرير"
     },
     "titleFormatted": {
         "en": "Slider [[slider]] changed",
@@ -26,7 +27,8 @@
         "da": "Skyder [[slider]] ændret",
         "ru": "Ползунок [[slider]] изменён",
         "pl": "Suwak [[slider]] zmieniony",
-        "ko": "슬라이더 [[slider]] 변경됨"
+        "ko": "슬라이더 [[slider]] 변경됨",
+        "ar": "تغيّر شريط التمرير [[slider]]"
     },
     "hint": {
         "en": "Triggers when the slider value changes.",

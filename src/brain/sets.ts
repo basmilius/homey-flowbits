@@ -2,7 +2,7 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { MAX_TIMEOUT_MS, REALTIME_SETS_UPDATE, SETTING_SET_LOOKS, SETTING_SETS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { BitSet, BitSetState, ClockUnit, Feature, FlowBitsApp, Look, Styleable } from '../types';
-import { convertDurationToMs } from '../util';
+import { convertDurationToMs, plainRecord } from '../util';
 
 type SetCounts = {
     readonly activeCount: number;
@@ -21,7 +21,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     #expirationTimeout: NodeJS.Timeout | null = null;
 
     get looks(): Record<string, Look> {
-        return this.settings.get(SETTING_SET_LOOKS) ?? {};
+        return plainRecord(this.settings.get(SETTING_SET_LOOKS));
     }
 
     set looks(value: Record<string, Look>) {
@@ -29,7 +29,7 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
     }
 
     get states(): StoredSets {
-        return this.settings.get(SETTING_SETS) ?? {};
+        return plainRecord(this.settings.get(SETTING_SETS));
     }
 
     set states(value: StoredSets) {
@@ -593,21 +593,24 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             }
         }
 
-        for (const [setName, setStates] of Object.entries(states)) {
-            const definedInSet = definedMap.get(setName);
+        // An incomplete inventory would read as deleted states, so only add until it is complete.
+        if (this.#autocompleteProvider().isComplete) {
+            for (const [setName, setStates] of Object.entries(states)) {
+                const definedInSet = definedMap.get(setName);
 
-            for (const stateName of Object.keys(setStates)) {
-                if (!definedInSet?.has(stateName)) {
-                    delete states[setName][stateName];
-                    changed = true;
-                    this.log(`Removed undefined state ${stateName} from set ${setName}.`);
+                for (const stateName of Object.keys(setStates)) {
+                    if (!definedInSet?.has(stateName)) {
+                        delete states[setName][stateName];
+                        changed = true;
+                        this.log(`Removed undefined state ${stateName} from set ${setName}.`);
+                    }
                 }
-            }
 
-            if (Object.keys(states[setName]).length === 0) {
-                delete states[setName];
-                changed = true;
-                this.log(`Removed empty set ${setName}.`);
+                if (Object.keys(states[setName]).length === 0) {
+                    delete states[setName];
+                    changed = true;
+                    this.log(`Removed empty set ${setName}.`);
+                }
             }
         }
 
@@ -679,12 +682,34 @@ export default class Sets extends Shortcuts<FlowBitsApp> implements Feature<BitS
             }
         }
 
-        await Promise.allSettled(expiredStates.map(({setName, stateName}) =>
-            this.deactivateState(setName, stateName)
-        ));
-
         if (expiredStates.length === 0) {
             await this.#scheduleNextExpiration();
+            return;
+        }
+
+        // Deactivate the whole batch in one write and plan once. Deactivating state by state
+        // would reschedule in between, and that reschedule would process the others again.
+        const states = this.states;
+        const snapshots = new Map<string, Snapshot>();
+        const deactivated = new Map<string, string[]>();
+
+        for (const {setName, stateName} of expiredStates) {
+            if (!snapshots.has(setName)) {
+                snapshots.set(setName, this.#snapshot(setName));
+                deactivated.set(setName, []);
+            }
+
+            states[setName][stateName] = [false, now.toISO(), null];
+            deactivated.get(setName)!.push(stateName);
+            this.log(`Deactivated expired state ${stateName} in set ${setName}.`);
+        }
+
+        this.states = states;
+
+        await this.#scheduleNextExpiration();
+
+        for (const [setName, stateNames] of deactivated) {
+            await this.#emitDeactivations(setName, stateNames, snapshots.get(setName)!);
         }
     }
 

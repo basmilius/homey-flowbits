@@ -143,7 +143,8 @@
     "documentation": {
       "title": "Documentatie",
       "description": "Leer meer over FlowBits en hoe je alle functies effectief kunt gebruiken. Bezoek FlowBits.nl voor documentatie."
-    }
+    },
+    "saveFailed": "Opslaan mislukt. Probeer het opnieuw."
   },
   "color": {
     "red": "Rood",

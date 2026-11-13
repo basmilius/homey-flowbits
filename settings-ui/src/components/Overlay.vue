@@ -1,6 +1,14 @@
 <template>
-    <div :class="$style.overlay">
-        <div :class="$style.overlayPanel">
+    <div
+        :class="$style.overlay"
+        @keydown="onKeydown">
+        <div
+            ref="panel"
+            :aria-label="label"
+            :class="$style.overlayPanel"
+            aria-modal="true"
+            role="dialog"
+            tabindex="-1">
             <slot/>
         </div>
     </div>
@@ -9,11 +17,60 @@
 <script
     lang="ts"
     setup>
-    import type { VNode } from 'vue';
+    import { onBeforeUnmount, onMounted, ref, type VNode } from 'vue';
+
+    const emit = defineEmits<{
+        close: [];
+    }>();
+
+    defineProps<{
+        readonly label: string;
+    }>();
 
     defineSlots<{
         default: VNode;
     }>();
+
+    const panel = ref<HTMLElement | null>(null);
+
+    let previouslyFocused: HTMLElement | null = null;
+
+    onMounted(() => {
+        previouslyFocused = document.activeElement as HTMLElement | null;
+        panel.value?.focus();
+    });
+
+    onBeforeUnmount(() => previouslyFocused?.focus());
+
+    function onKeydown(evt: KeyboardEvent): void {
+        if (evt.key === 'Escape') {
+            evt.stopPropagation();
+            emit('close');
+            return;
+        }
+
+        if (evt.key !== 'Tab' || !panel.value) {
+            return;
+        }
+
+        const focusable = Array.from(panel.value.querySelectorAll<HTMLElement>('button, input, [tabindex]:not([tabindex="-1"])'))
+            .filter(element => !element.hasAttribute('disabled'));
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (!first || !last) {
+            evt.preventDefault();
+            return;
+        }
+
+        if (evt.shiftKey && (document.activeElement === first || document.activeElement === panel.value)) {
+            evt.preventDefault();
+            last.focus();
+        } else if (!evt.shiftKey && document.activeElement === last) {
+            evt.preventDefault();
+            first.focus();
+        }
+    }
 </script>
 
 <style
@@ -50,6 +107,10 @@
         border-radius: var(--homey-border-radius);
         box-shadow: var(--homey-box-shadow);
         z-index: 1;
+
+        &:focus {
+            outline: none;
+        }
     }
 
     // The panel animation lives here so it can reach the mangled class name. The transition

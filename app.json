@@ -700,7 +700,8 @@
           "da": "… er slut",
           "ru": "… закончился",
           "pl": "… się skończyła",
-          "ko": "…이 끝남"
+          "ko": "…이 끝남",
+          "ar": "انتهت ..."
         },
         "titleFormatted": {
           "en": "The [[value]] is over",
@@ -714,7 +715,8 @@
           "da": "[[value]] er slut",
           "ru": "[[value]] закончился",
           "pl": "[[value]] się skończyła",
-          "ko": "[[value]]이 끝남"
+          "ko": "[[value]]이 끝남",
+          "ar": "انتهت [[value]]"
         },
         "hint": {
           "en": "Triggers when the day period is over.",
@@ -728,7 +730,8 @@
           "da": "Udløses når dagens periode er slut.",
           "ru": "Срабатывает при окончании периода дня.",
           "pl": "Wyzwalane gdy pora dnia dobiegnie końca.",
-          "ko": "하루 기간이 끝날 때 트리거됨."
+          "ko": "하루 기간이 끝날 때 트리거됨.",
+          "ar": "يتم تشغيله عند انتهاء فترة اليوم."
         },
         "args": [
           {
@@ -746,7 +749,8 @@
               "da": "Dagens periode",
               "ru": "Период дня",
               "pl": "Pora dnia",
-              "ko": "하루 기간"
+              "ko": "하루 기간",
+              "ar": "فترة اليوم"
             },
             "values": [
               {
@@ -763,7 +767,8 @@
                   "da": "Morgen",
                   "ru": "Утро",
                   "pl": "Poranek",
-                  "ko": "아침"
+                  "ko": "아침",
+                  "ar": "الصباح"
                 }
               },
               {
@@ -780,7 +785,8 @@
                   "da": "Eftermiddag",
                   "ru": "День",
                   "pl": "Popołudnie",
-                  "ko": "오후"
+                  "ko": "오후",
+                  "ar": "بعد الظهر"
                 }
               },
               {
@@ -797,7 +803,8 @@
                   "da": "Aften",
                   "ru": "Вечер",
                   "pl": "Wieczór",
-                  "ko": "저녁"
+                  "ko": "저녁",
+                  "ar": "المساء"
                 }
               },
               {
@@ -814,7 +821,8 @@
                   "da": "Nat",
                   "ru": "Ночь",
                   "pl": "Noc",
-                  "ko": "밤"
+                  "ko": "밤",
+                  "ar": "الليل"
                 }
               }
             ]
@@ -2940,7 +2948,8 @@
           "da": "Skyder ændret",
           "ru": "Ползунок изменён",
           "pl": "Suwak zmieniony",
-          "ko": "슬라이더 변경됨"
+          "ko": "슬라이더 변경됨",
+          "ar": "تغيّر شريط التمرير"
         },
         "titleFormatted": {
           "en": "Slider [[slider]] changed",
@@ -2954,7 +2963,8 @@
           "da": "Skyder [[slider]] ændret",
           "ru": "Ползунок [[slider]] изменён",
           "pl": "Suwak [[slider]] zmieniony",
-          "ko": "슬라이더 [[slider]] 변경됨"
+          "ko": "슬라이더 [[slider]] 변경됨",
+          "ar": "تغيّر شريط التمرير [[slider]]"
         },
         "hint": {
           "en": "Triggers when the slider value changes.",
@@ -4044,6 +4054,7 @@
               "ar": "عدد المرات"
             },
             "min": 1,
+            "max": 50,
             "step": 1,
             "labelDecimals": 0
           }
@@ -4135,6 +4146,7 @@
               "ar": "عدد المرات"
             },
             "min": 1,
+            "max": 50,
             "step": 1,
             "labelDecimals": 0
           },

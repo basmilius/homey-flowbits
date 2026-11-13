@@ -1,6 +1,8 @@
 declare namespace Homey {
     export function __(key: string): string;
 
+    export function alert(message: string, icon?: string | null): Promise<void>;
+
     export function setTitle(title: string): void;
 
     export function setSubtitle(subtitle: string): void;

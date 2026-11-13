@@ -87,6 +87,11 @@ function tokenize(expr: string): Token[] {
                 num += expr[i];
                 i++;
             }
+
+            if (!/^(\d+\.?\d*|\.\d+)$/.test(num)) {
+                throw new Error(`Invalid number: ${num}`);
+            }
+
             tokens.push({type: 'number', value: parseFloat(num)});
             continue;
         }

@@ -87,6 +87,7 @@
         "subtitle": "قم بتكوين FlowBits حسب رغبتك.",
         "close": "إغلاق",
         "save": "حفظ",
+        "saveFailed": "تعذر الحفظ. حاول مرة أخرى.",
         "search": "بحث",
         "documentation": {
             "title": "الوثائق",

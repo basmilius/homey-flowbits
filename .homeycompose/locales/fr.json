@@ -87,6 +87,7 @@
         "subtitle": "Configurez FlowBits selon vos préférences.",
         "close": "Fermer",
         "save": "Enregistrer",
+        "saveFailed": "Échec de l'enregistrement. Réessayez.",
         "search": "Rechercher",
         "documentation": {
             "title": "Documentation",

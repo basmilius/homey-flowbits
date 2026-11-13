@@ -87,6 +87,7 @@
         "subtitle": "Stel FlowBits in zoals jij dat wilt.",
         "close": "Sluiten",
         "save": "Opslaan",
+        "saveFailed": "Opslaan mislukt. Probeer het opnieuw.",
         "search": "Zoeken",
         "documentation": {
             "title": "Documentatie",

@@ -143,7 +143,8 @@
     "documentation": {
       "title": "Documentación",
       "description": "Aprende más sobre FlowBits y cómo usar todas sus funciones de manera efectiva. Visita FlowBits.nl para documentación."
-    }
+    },
+    "saveFailed": "No se pudo guardar. Inténtalo de nuevo."
   },
   "color": {
     "red": "Rojo",

@@ -87,6 +87,7 @@
         "subtitle": "Konfigurera FlowBits som du vill.",
         "close": "Stäng",
         "save": "Spara",
+        "saveFailed": "Det gick inte att spara. Försök igen.",
         "search": "Sök",
         "documentation": {
             "title": "Dokumentation",

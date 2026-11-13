@@ -87,6 +87,7 @@
         "subtitle": "Konfigurer FlowBits, som du ønsker.",
         "close": "Luk",
         "save": "Gem",
+        "saveFailed": "Det lykkedes ikke at gemme. Prøv igen.",
         "search": "Søg",
         "documentation": {
             "title": "Dokumentation",
