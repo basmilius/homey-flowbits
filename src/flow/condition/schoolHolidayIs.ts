@@ -12,34 +12,20 @@ export default class extends FlowConditionEntity<FlowBitsApp, Args, never> {
     }
 
     async onRun(args: Args): Promise<boolean> {
-        const date = DateTime.now();
+        const zone = 'Europe/Amsterdam';
+        const now = DateTime.now().setZone(zone);
 
-        // A school year starts on August 1.
-        const startYear = date.month >= 8 ? date.year : date.year - 1;
-        const endYear = startYear + 1;
+        // A vacation can start in one school year and run into the next, so every year is searched.
+        // The dataset stores UTC instants, but a vacation covers whole local calendar days.
+        return schoolHolidays
+            .flatMap(yearSet => yearSet.vacations)
+            .filter(vacation => vacation.type === args.holiday.name && (vacation.region === null || vacation.region === args.region))
+            .some(vacation => {
+                const start = DateTime.fromISO(vacation.start, {zone}).startOf('day');
+                const end = DateTime.fromISO(vacation.end, {zone}).endOf('day');
 
-        const yearSet = schoolHolidays.find(s => s.schoolyear === `${startYear}-${endYear}`);
-
-        if (!yearSet) {
-            return false;
-        }
-
-        const vacations = yearSet.vacations.filter(v => v.type === args.holiday.name);
-
-        if (vacations.length === 0) {
-            return false;
-        }
-
-        const vacation = vacations.find(v => v.region === null || v.region === args.region);
-
-        if (!vacation) {
-            return false;
-        }
-
-        const start = DateTime.fromISO(vacation.start);
-        const end = DateTime.fromISO(vacation.end);
-
-        return start <= date && end >= date;
+                return start <= now && end >= now;
+            });
     }
 }
 

@@ -71,13 +71,13 @@ export default class Widgets extends Shortcuts<FlowBitsApp> {
     async #initializeModeCurrent(): Promise<void> {
         const widget = this.dashboards.getWidget('mode_current');
 
-        widget.registerSettingAutocompleteListener('group', async () => await this.#groupAutocomplete());
+        widget.registerSettingAutocompleteListener('group', async query => await this.#groupAutocomplete(query));
     }
 
     async #initializeModes(): Promise<void> {
         const widget = this.dashboards.getWidget('modes');
 
-        widget.registerSettingAutocompleteListener('group', async () => await this.#groupAutocomplete());
+        widget.registerSettingAutocompleteListener('group', async query => await this.#groupAutocomplete(query));
 
         widget.registerSettingAutocompleteListener('filter', async (query: string, settings: Record<string, any>) => {
             const modes = await this.app.modes.findAllIn(settings?.group?.name || DEFAULT_MODE_GROUP);
@@ -95,11 +95,13 @@ export default class Widgets extends Shortcuts<FlowBitsApp> {
      * Lists the named mode groups. The default group is left out: a widget picks it by leaving
      * the setting empty.
      */
-    async #groupAutocomplete(): Promise<{ name: string }[]> {
+    async #groupAutocomplete(query: string): Promise<{ name: string }[]> {
         const groups = await this.app.api.getModeGroups();
+        const search = query.toLowerCase();
 
         return groups
             .filter(group => group.name !== DEFAULT_MODE_GROUP)
+            .filter(group => group.name.toLowerCase().includes(search))
             .map(group => ({name: group.name}));
     }
 

@@ -2,11 +2,11 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { EVENTS_HISTORY_LENGTH, REALTIME_EVENTS_UPDATE, SETTING_EVENT_LOOKS, SETTING_EVENTS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Event, Feature, FlowBitsApp, Look, Styleable } from '../types';
-import { convertDurationToMs } from '../util';
+import { convertDurationToMs, plainRecord, recordFromEntries } from '../util';
 
 export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Event>, Styleable {
     get events(): Record<string, DateTime[]> {
-        return Object.fromEntries(
+        return recordFromEntries(
             Object.entries<string[]>(this.settings.get(SETTING_EVENTS) ?? this.settings.get('events') ?? {})
                 .map(([key, value]) => [
                     key,
@@ -26,7 +26,7 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     }
 
     get looks(): Record<string, Look> {
-        return this.settings.get(SETTING_EVENT_LOOKS) ?? {};
+        return plainRecord(this.settings.get(SETTING_EVENT_LOOKS));
     }
 
     set looks(value: Record<string, Look>) {
@@ -153,7 +153,7 @@ export default class Events extends Shortcuts<FlowBitsApp> implements Feature<Ev
     async trigger(name: string, value?: string): Promise<void> {
         const events = this.events;
         const now = DateTime.now();
-        events[name] = events[name]?.slice(-EVENTS_HISTORY_LENGTH) ?? [];
+        events[name] = events[name]?.slice(-(EVENTS_HISTORY_LENGTH - 1)) ?? [];
         events[name].push(now);
 
         this.events = events;

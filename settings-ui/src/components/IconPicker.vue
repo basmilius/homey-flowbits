@@ -5,12 +5,19 @@
         type="text"/>
 
     <div :class="$style.iconSelect">
-        <Icon
+        <button
             v-for="item of filtered"
+            :key="item.unicode"
+            :aria-label="item.name"
+            :aria-pressed="modelValue === item.unicode"
             :class="modelValue === item.unicode ? $style.iconSelectItemActive : $style.iconSelectItem"
-            :icon="item.unicode"
             :title="item.name"
-            @click="modelValue = item.unicode"/>
+            type="button"
+            @click="modelValue = item.unicode">
+            <Icon
+                aria-hidden="true"
+                :icon="item.unicode"/>
+        </button>
     </div>
 </template>
 
@@ -57,11 +64,20 @@
         --color: var(--homey-color-mono-70);
         --size: 24px;
 
+        display: grid;
         height: 45px;
         width: 45px;
+        padding: 0;
+        place-items: center;
+        background: transparent;
         border: 1px solid transparent;
         border-radius: var(--homey-border-radius-small);
         cursor: pointer;
+
+        &:focus-visible {
+            outline: 3px solid var(--homey-color-mono-90);
+            outline-offset: 2px;
+        }
 
         &:hover {
             background: var(--homey-color-mono-02);

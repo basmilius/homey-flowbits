@@ -65,7 +65,10 @@
     </Transition>
 
     <Transition name="overlay">
-        <Overlay v-if="isShowingCardStatistics">
+        <Overlay
+            v-if="isShowingCardStatistics"
+            :label="t('settings.card_statistics.title')"
+            @close="isShowingCardStatistics = false">
             <CardStatistics/>
 
             <ButtonTransparent

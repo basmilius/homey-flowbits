@@ -3,6 +3,7 @@
         class="homey-button-primary-full"
         :class="{'is-loading': isLoading}"
         type="button"
+        :aria-busy="isLoading"
         @click="onClick">
         {{ label }}
     </button>
@@ -15,12 +16,18 @@
         click: [MouseEvent];
     }>();
 
-    defineProps<{
+    const {
+        isLoading
+    } = defineProps<{
         readonly isLoading?: boolean;
         readonly label: string;
     }>();
 
     function onClick(evt: MouseEvent): void {
+        if (isLoading) {
+            return;
+        }
+
         emit('click', evt);
     }
 </script>

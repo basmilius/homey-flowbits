@@ -1,10 +1,14 @@
 <template>
     <div :class="$style.colorSelect">
-        <div
+        <button
             v-for="item of items"
+            :key="item.hex"
+            :aria-label="t(item.label)"
+            :aria-pressed="modelValue === item.hex"
             :class="modelValue === item.hex ? $style.colorSelectItemActive : $style.colorSelectItem"
             :style="{'--color': item.hex}"
             :title="t(item.label)"
+            type="button"
             @click="modelValue = item.hex"/>
     </div>
 </template>
@@ -40,13 +44,20 @@
 
         height: 33px;
         width: 33px;
+        padding: 0;
         background: var(--color);
+        border: 0;
         border-radius: 99px;
         cursor: pointer;
         transition: opacity 120ms cubic-bezier(0.55, 0, 0.1, 1);
 
         &:hover {
             opacity: .8;
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--homey-color-mono-90);
+            outline-offset: 2px;
         }
     }
 

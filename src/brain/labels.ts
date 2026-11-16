@@ -2,10 +2,11 @@ import { DateTime, Shortcuts } from '@basmilius/homey-common';
 import { REALTIME_LABELS_UPDATE, SETTING_LABEL_LOOKS, SETTING_LABELS } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { Feature, FlowBitsApp, Label, Look, Styleable } from '../types';
+import { plainRecord, recordFromEntries } from '../util';
 
 export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<Label>, Styleable {
     get labels(): Record<string, [string, DateTime]> {
-        return Object.fromEntries(
+        return recordFromEntries(
             Object.entries<[string, string]>(this.settings.get(SETTING_LABELS) ?? {})
                 .map(([key, [value, lastUpdate]]) => [
                     key,
@@ -25,7 +26,7 @@ export default class Labels extends Shortcuts<FlowBitsApp> implements Feature<La
     }
 
     get looks(): Record<string, Look> {
-        return this.settings.get(SETTING_LABEL_LOOKS) ?? {};
+        return plainRecord(this.settings.get(SETTING_LABEL_LOOKS));
     }
 
     set looks(value: Record<string, Look>) {

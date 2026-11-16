@@ -21,6 +21,7 @@ export const SETTING_MODE_LOOKS = 'flowbits-mode-looks';
 export const SETTING_MODE_LAST_UPDATES = 'flowbits-mode-last-updates';
 export const SETTING_MODE_EXPIRES_AT = 'flowbits-mode-expires-at';
 export const SETTING_MODE_REVERT_TO = 'flowbits-mode-revert-to';
+export const SETTING_MODE_GROUPS_BACKUP = 'flowbits-mode-groups-backup';
 export const SETTING_MODE_GROUPS_MIGRATED = 'flowbits-mode-groups-migrated';
 export const SETTING_NO_REPEAT_WINDOWS = 'flowbits-no-repeat-windows';
 export const SETTING_SETS = 'flowbits-sets';

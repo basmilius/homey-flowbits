@@ -91,6 +91,6 @@ Check if mail was delivered today before sending a reminder notification in the 
 
 ## Notes
 
-- Events maintain a limited history of recent occurrences.
+- Events keep their last 50 occurrences. The "N times" conditions accept at most 50; a higher count from a token is never met.
 - Clearing an event removes all its history—it will no longer pass the "happened" condition.
 - Use descriptive names to make your automations easy to understand.
