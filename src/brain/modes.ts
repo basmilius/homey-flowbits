@@ -646,15 +646,17 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
     /**
      * Keeps one global tag per group that holds its current mode, so any flow card can read it
-     * instead of only the current mode changed trigger. Every group used on a flow card gets one. Tags are never
-     * unregistered at runtime, because that races an activation that registers the same id again.
+     * instead of only the current mode changed trigger. Every group used on a flow card gets one.
+     * Tags are never unregistered at runtime, because that races an activation that registers the
+     * same id again. A group that is no longer used keeps its tag, which is refreshed so it holds
+     * `-` once cleanup has removed the group's mode.
      */
     async #syncTokens(): Promise<void> {
-        const groups = new Set((await this.#definedModes()).keys());
-
-        for (const group of this.#groupAutocompleteProvider().values) {
-            groups.add(group);
-        }
+        const groups = new Set([
+            ...(await this.#definedModes()).keys(),
+            ...this.#groupAutocompleteProvider().values,
+            ...this.#tokens.keys()
+        ]);
 
         for (const group of groups) {
             await this.#updateToken(group);
