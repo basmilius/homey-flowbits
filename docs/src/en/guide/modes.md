@@ -170,6 +170,8 @@ FlowBits keeps a global tag with the current mode, so you can use it in any flow
 
 When no mode is active, the tag holds `-`. The tags are updated before any mode trigger fires, so a flow started by a mode change already sees the new mode.
 
+A group's tag belongs to its name. Rename a group and it gets a new tag, so replace the old tag in flows that use it.
+
 ## Examples
 
 ### **Home / Away**

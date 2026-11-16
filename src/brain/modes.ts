@@ -254,7 +254,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         await this.#scheduleExpiration(group);
 
         // Update the tag before any trigger fires, so triggered flows read the new mode.
-        await this.#updateToken(group, name);
+        await this.#updateToken(group);
 
         // Emit the UI update first so widgets reflect the switch immediately,
         // instead of waiting on the (potentially slow) timeline notifications below.
@@ -290,7 +290,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         this.log(`Deactivate mode ${name} in group ${group}.`);
 
-        await this.#updateToken(group, null);
+        await this.#updateToken(group);
 
         await Promise.allSettled([
             this.#triggerRealtime(),
@@ -319,7 +319,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         this.log(`Reactivate mode ${name} in group ${group}.`);
 
-        await this.#updateToken(group, name);
+        await this.#updateToken(group);
 
         await Promise.allSettled([
             this.#triggerRealtime(),
@@ -646,29 +646,18 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
     /**
      * Keeps one global tag per group that holds its current mode, so any flow card can read it
-     * instead of only the current mode changed trigger. Tags follow the groups defined on flow
-     * cards: new groups get one and the tags of groups that are gone are unregistered.
+     * instead of only the current mode changed trigger. Every group used on a flow card gets one. Tags are never
+     * unregistered at runtime, because that races an activation that registers the same id again.
      */
     async #syncTokens(): Promise<void> {
         const groups = new Set((await this.#definedModes()).keys());
 
-        for (const group of groups) {
-            await this.#updateToken(group, this.currentModeIn(group));
+        for (const group of this.#groupAutocompleteProvider().values) {
+            groups.add(group);
         }
 
-        for (const [group, token] of [...this.#tokens]) {
-            if (groups.has(group)) {
-                continue;
-            }
-
-            this.#tokens.delete(group);
-
-            try {
-                this.log(`Unregistering current mode tag for unused mode group ${group}...`);
-                await (await token).unregister();
-            } catch (err) {
-                this.log(`Failed unregistering current mode tag for group ${group}.`, err);
-            }
+        for (const group of groups) {
+            await this.#updateToken(group);
         }
     }
 
@@ -691,7 +680,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
             value: this.currentModeIn(group) ?? '-'
         });
 
-        token.catch(() => this.#tokens.delete(group));
+        token.catch(() => this.#forgetToken(group, token));
         this.#tokens.set(group, token);
 
         return token;
@@ -712,12 +701,27 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         return `${TOKEN_MODE_GROUP_CURRENT_PREFIX}${hash}`;
     }
 
-    async #updateToken(group: string, name: string | null): Promise<void> {
+    /**
+     * The value is read after the token resolves, so a slower call never writes a mode that a
+     * later activation or deactivation has already replaced.
+     */
+    async #updateToken(group: string): Promise<void> {
+        const token = this.#ensureToken(group);
+
         try {
-            const token = await this.#ensureToken(group);
-            await token.setValue(name ?? '-');
+            await (await token).setValue(this.currentModeIn(group) ?? '-');
         } catch (err) {
             this.log(`Failed updating current mode tag for group ${group}.`, err);
+        }
+    }
+
+    /**
+     * Drops a token whose registration failed so the next update retries it, unless a newer one
+     * took its place in the meantime.
+     */
+    #forgetToken(group: string, token: Promise<Homey.FlowToken>): void {
+        if (this.#tokens.get(group) === token) {
+            this.#tokens.delete(group);
         }
     }
 
@@ -770,6 +774,16 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         if (!provider) {
             throw new Error('Failed to get the mode autocomplete provider.');
+        }
+
+        return provider;
+    }
+
+    #groupAutocompleteProvider(): AutocompleteProviders.ModeGroup {
+        const provider = this.registry.findAutocompleteProvider(AutocompleteProviders.ModeGroup);
+
+        if (!provider) {
+            throw new Error('Failed to get the mode group autocomplete provider.');
         }
 
         return provider;
