@@ -27,7 +27,9 @@
         "moon_phase": "Månens fase (rå)",
         "moon_phase_translated": "Månens fase",
         "zodiac_sign": "Stjernetegn (rå)",
-        "zodiac_sign_translated": "Stjernetegn"
+        "zodiac_sign_translated": "Stjernetegn",
+        "mode_current": "Nuværende tilstand",
+        "mode_group_current": "Nuværende tilstand (__group__)"
     },
     "day_period": {
         "morning": "Morgen",

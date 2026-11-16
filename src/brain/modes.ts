@@ -1,11 +1,14 @@
+import { createHash } from 'node:crypto';
 import { DateTime, Shortcuts } from '@basmilius/homey-common';
-import { DEFAULT_MODE_GROUP, MAX_TIMEOUT_MS, REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_EXPIRES_AT, SETTING_MODE_GROUPS_BACKUP, SETTING_MODE_GROUPS_MIGRATED, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS, SETTING_MODE_REVERT_TO } from '../const';
+import { DEFAULT_MODE_GROUP, MAX_TIMEOUT_MS, REALTIME_MODE_UPDATE, SETTING_MODE, SETTING_MODE_EXPIRES_AT, SETTING_MODE_GROUPS_BACKUP, SETTING_MODE_GROUPS_MIGRATED, SETTING_MODE_LAST_UPDATES, SETTING_MODE_LOOKS, SETTING_MODE_REVERT_TO, TOKEN_MODE_CURRENT, TOKEN_MODE_GROUP_CURRENT_PREFIX } from '../const';
 import { AutocompleteProviders, Triggers } from '../flow';
 import type { ClockUnit, Feature, FlowBitsApp, Look, Mode, ModeGroup } from '../types';
 import { convertDurationToMs, plainRecord, recordFromEntries } from '../util';
+import type Homey from 'homey';
 
 export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mode> {
     readonly #expirationTimeouts: Map<string, NodeJS.Timeout> = new Map();
+    readonly #tokens: Map<string, Promise<Homey.FlowToken>> = new Map();
 
     get current(): Record<string, string | null> {
         return plainRecord(this.settings.get(SETTING_MODE));
@@ -88,6 +91,8 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         for (const group of this.#storedGroups()) {
             await this.#scheduleExpiration(group);
         }
+
+        await this.#syncTokens();
     }
 
     async cleanup(): Promise<void> {
@@ -157,6 +162,8 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         for (const group of this.#storedGroups()) {
             await this.#scheduleExpiration(group);
         }
+
+        await this.#syncTokens();
     }
 
     async count(): Promise<number> {
@@ -246,6 +253,9 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         // modes, which must clear this expiry instead of inheriting it afterwards.
         await this.#scheduleExpiration(group);
 
+        // Update the tag before any trigger fires, so triggered flows read the new mode.
+        await this.#updateToken(group);
+
         // Emit the UI update first so widgets reflect the switch immediately,
         // instead of waiting on the (potentially slow) timeline notifications below.
         await this.#triggerRealtime();
@@ -280,6 +290,8 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         this.log(`Deactivate mode ${name} in group ${group}.`);
 
+        await this.#updateToken(group);
+
         await Promise.allSettled([
             this.#triggerRealtime(),
             this.#triggerDeactivated(group, name),
@@ -306,6 +318,8 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         this.#touch(group, name);
 
         this.log(`Reactivate mode ${name} in group ${group}.`);
+
+        await this.#updateToken(group);
 
         await Promise.allSettled([
             this.#triggerRealtime(),
@@ -429,6 +443,7 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
     }
 
     async update(): Promise<void> {
+        await this.#syncTokens();
         await this.#triggerRealtime();
     }
 
@@ -629,6 +644,89 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
         this.lastUpdates = {...lastUpdates, [group]: groupUpdates};
     }
 
+    /**
+     * Keeps one global tag per group that holds its current mode, so any flow card can read it
+     * instead of only the current mode changed trigger. Every group used on a flow card gets one.
+     * Tags are never unregistered at runtime, because that races an activation that registers the
+     * same id again. A group that is no longer used keeps its tag, which is refreshed so it holds
+     * `-` once cleanup has removed the group's mode.
+     */
+    async #syncTokens(): Promise<void> {
+        const groups = new Set([
+            ...(await this.#definedModes()).keys(),
+            ...this.#groupAutocompleteProvider().values,
+            ...this.#tokens.keys()
+        ]);
+
+        for (const group of groups) {
+            await this.#updateToken(group);
+        }
+    }
+
+    /**
+     * Returns the tag of a group, creating it the first time. The pending promise is cached
+     * rather than the token, so concurrent callers never register the same id twice.
+     */
+    #ensureToken(group: string): Promise<Homey.FlowToken> {
+        const existing = this.#tokens.get(group);
+
+        if (existing) {
+            return existing;
+        }
+
+        const token = this.homey.flow.createToken(this.#tokenId(group), {
+            title: group === DEFAULT_MODE_GROUP
+                ? this.translate('token.mode_current')
+                : this.translate('token.mode_group_current', {group}),
+            type: 'string',
+            value: this.currentModeIn(group) ?? '-'
+        });
+
+        token.catch(() => this.#forgetToken(group, token));
+        this.#tokens.set(group, token);
+
+        return token;
+    }
+
+    /**
+     * A token id must stay the same for as long as the group exists, because flows reference
+     * the tag by id. Group names are free text in any script, so they are hashed instead of
+     * slugified, which would collapse names such as "Освещение" to an empty string.
+     */
+    #tokenId(group: string): string {
+        if (group === DEFAULT_MODE_GROUP) {
+            return TOKEN_MODE_CURRENT;
+        }
+
+        const hash = createHash('sha1').update(group).digest('hex').slice(0, 16);
+
+        return `${TOKEN_MODE_GROUP_CURRENT_PREFIX}${hash}`;
+    }
+
+    /**
+     * The value is read after the token resolves, so a slower call never writes a mode that a
+     * later activation or deactivation has already replaced.
+     */
+    async #updateToken(group: string): Promise<void> {
+        const token = this.#ensureToken(group);
+
+        try {
+            await (await token).setValue(this.currentModeIn(group) ?? '-');
+        } catch (err) {
+            this.log(`Failed updating current mode tag for group ${group}.`, err);
+        }
+    }
+
+    /**
+     * Drops a token whose registration failed so the next update retries it, unless a newer one
+     * took its place in the meantime.
+     */
+    #forgetToken(group: string, token: Promise<Homey.FlowToken>): void {
+        if (this.#tokens.get(group) === token) {
+            this.#tokens.delete(group);
+        }
+    }
+
     async #triggerActivated(group: string, name: string): Promise<void> {
         if (group === DEFAULT_MODE_GROUP) {
             await this.registry.fireTrigger(Triggers.ModeActivated, {name});
@@ -678,6 +776,16 @@ export default class Modes extends Shortcuts<FlowBitsApp> implements Feature<Mod
 
         if (!provider) {
             throw new Error('Failed to get the mode autocomplete provider.');
+        }
+
+        return provider;
+    }
+
+    #groupAutocompleteProvider(): AutocompleteProviders.ModeGroup {
+        const provider = this.registry.findAutocompleteProvider(AutocompleteProviders.ModeGroup);
+
+        if (!provider) {
+            throw new Error('Failed to get the mode group autocomplete provider.');
         }
 
         return provider;

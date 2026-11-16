@@ -161,6 +161,17 @@ The Modes and Current mode widgets each take a group in their settings. Leave it
 The [Modes in groups](/examples/modes-in-groups) example builds a presence group and a daypart group side by side, step by step.
 :::
 
+## Tags
+
+FlowBits keeps a global tag with the current mode, so you can use it in any flow card, for example to write it to a log or include it in a notification.
+
+- **Current mode** holds the mode that is active outside a group.
+- **Current mode (*group*)** holds the mode that is active in that group. There is one for every group that is used on a flow card.
+
+When no mode is active, the tag holds `-`. The tags are updated before any mode trigger fires, so a flow started by a mode change already sees the new mode.
+
+A group's tag belongs to its name. Rename a group and it gets a new tag, so replace the old tag in flows that use it.
+
 ## Examples
 
 ### **Home / Away**

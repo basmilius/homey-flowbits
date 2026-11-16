@@ -27,7 +27,9 @@
         "moon_phase": "Maanfase (ruw)",
         "moon_phase_translated": "Maanfase",
         "zodiac_sign": "Sterrenbeeld (ruw)",
-        "zodiac_sign_translated": "Sterrenbeeld"
+        "zodiac_sign_translated": "Sterrenbeeld",
+        "mode_current": "Huidige stand",
+        "mode_group_current": "Huidige stand (__group__)"
     },
     "day_period": {
         "afternoon": "Middag",
